@@ -4,9 +4,9 @@ import 'package:dartz/dartz.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
 
-class CreateUserToken implements Usecase<Unit, Map<String, dynamic>> {
+class CreateUserTokenUseCase implements Usecase<Unit, Map<String, dynamic>> {
   ILoginRepository repository;
-  CreateUserToken(this.repository);
+  CreateUserTokenUseCase(this.repository);
 
   @override
   Future<Either<Failure, Unit>> call(Map<String, dynamic> params) async {

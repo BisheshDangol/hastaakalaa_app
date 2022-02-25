@@ -1,4 +1,10 @@
 part of 'login_bloc.dart';
 
-@immutable
-abstract class LoginEvent {}
+@freezed
+class LoginEvent with _$LoginEvent {
+  const factory LoginEvent.pressedSend() = _PressedSend;
+  const factory LoginEvent.changedUsername({String? username}) =
+      _ChangedUsername;
+  const factory LoginEvent.changedPassword({String? password}) =
+      _ChangedPassword;
+}
