@@ -1,6 +1,6 @@
-const baseUrl = 'http://ndh-appointment.herokuapp.com/';
+const baseUrl = 'http://127.0.0.1:8000/';
 
-const fetchDoctorListEndPoint = '${baseUrl}api/desktop/list-doctors/';
+const getUserToken = '${baseUrl}token/';
 
 const fetchPatientListEndPoint = '${baseUrl}api/desktop/list-patients-preview/';
 
