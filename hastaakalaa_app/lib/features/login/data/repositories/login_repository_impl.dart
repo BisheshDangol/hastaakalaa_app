@@ -5,11 +5,11 @@ import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
 
-class LoginRepository implements ILoginRepository {
+class LoginRepositoryImpl implements ILoginRepository {
   final ILoginRemoteDataSource remoteDataSource;
   final NetworkInfo networkInfo;
 
-  LoginRepository({
+  LoginRepositoryImpl({
     required this.remoteDataSource,
     required this.networkInfo,
   });
