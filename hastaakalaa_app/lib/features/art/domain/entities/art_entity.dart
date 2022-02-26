@@ -7,6 +7,7 @@ class ArtEntity extends Equatable {
   String title;
   File image;
   String description;
+  int price;
   String forSale;
   String status;
 
@@ -14,10 +15,12 @@ class ArtEntity extends Equatable {
     required this.title,
     required this.description,
     required this.forSale,
+    required this.price,
     required this.image,
     required this.status,
   });
 
   @override
-  List<Object?> get props => [title, description, forSale, image, status];
+  List<Object?> get props =>
+      [title, description, price, forSale, image, status];
 }
