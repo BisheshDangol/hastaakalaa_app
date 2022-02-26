@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class ArtEntity extends Equatable {
   String title;
   File image;
