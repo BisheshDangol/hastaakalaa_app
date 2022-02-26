@@ -31,6 +31,7 @@ class RegisterPage extends StatelessWidget {
                       PasswordTextFormField(),
                       AddressTextFormField(),
                       PhoneNumberTextFormField(),
+                      UserTypeTextFormField(),
                     ],
                   ),
                 ),
