@@ -19,7 +19,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginEvent>((event, emit) async {
       await event.map(
         pressedSend: (_) async {
-          debugPrint('this is the event triggered');
           emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
           Either<Failure, Unit>? failureOrSuccess;
