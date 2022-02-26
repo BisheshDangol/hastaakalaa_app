@@ -52,6 +52,12 @@ class _$RegisterFormEventTearOff {
     );
   }
 
+  _ChangedAddress changedAddress({String? address}) {
+    return _ChangedAddress(
+      address: address,
+    );
+  }
+
   _ChangedPhoneNumber changedPhoneNumber({String? phoneNumber}) {
     return _ChangedPhoneNumber(
       phoneNumber: phoneNumber,
@@ -78,6 +84,7 @@ mixin _$RegisterFormEvent {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) =>
@@ -90,6 +97,7 @@ mixin _$RegisterFormEvent {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) =>
@@ -102,6 +110,7 @@ mixin _$RegisterFormEvent {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -115,6 +124,7 @@ mixin _$RegisterFormEvent {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) =>
@@ -127,6 +137,7 @@ mixin _$RegisterFormEvent {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) =>
@@ -139,6 +150,7 @@ mixin _$RegisterFormEvent {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -210,6 +222,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -225,6 +238,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -240,6 +254,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -259,6 +274,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -274,6 +290,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -289,6 +306,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -375,6 +393,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -390,6 +409,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -405,6 +425,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -424,6 +445,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -439,6 +461,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -454,6 +477,7 @@ class _$_ChangedEmail implements _ChangedEmail {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -545,6 +569,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -560,6 +585,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -575,6 +601,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -594,6 +621,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -609,6 +637,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -624,6 +653,7 @@ class _$_ChangedPassword implements _ChangedPassword {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -715,6 +745,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -730,6 +761,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -745,6 +777,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -764,6 +797,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -779,6 +813,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -794,6 +829,7 @@ class _$_ChangedUserName implements _ChangedUserName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -885,6 +921,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -900,6 +937,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -915,6 +953,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -934,6 +973,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -949,6 +989,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -964,6 +1005,7 @@ class _$_ChangedFirstName implements _ChangedFirstName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -1055,6 +1097,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -1070,6 +1113,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -1085,6 +1129,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -1104,6 +1149,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -1119,6 +1165,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -1134,6 +1181,7 @@ class _$_ChangedLastName implements _ChangedLastName {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -1151,6 +1199,182 @@ abstract class _ChangedLastName implements RegisterFormEvent {
   String? get lastName;
   @JsonKey(ignore: true)
   _$ChangedLastNameCopyWith<_ChangedLastName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangedAddressCopyWith<$Res> {
+  factory _$ChangedAddressCopyWith(
+          _ChangedAddress value, $Res Function(_ChangedAddress) then) =
+      __$ChangedAddressCopyWithImpl<$Res>;
+  $Res call({String? address});
+}
+
+/// @nodoc
+class __$ChangedAddressCopyWithImpl<$Res>
+    extends _$RegisterFormEventCopyWithImpl<$Res>
+    implements _$ChangedAddressCopyWith<$Res> {
+  __$ChangedAddressCopyWithImpl(
+      _ChangedAddress _value, $Res Function(_ChangedAddress) _then)
+      : super(_value, (v) => _then(v as _ChangedAddress));
+
+  @override
+  _ChangedAddress get _value => super._value as _ChangedAddress;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(_ChangedAddress(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedAddress implements _ChangedAddress {
+  const _$_ChangedAddress({this.address});
+
+  @override
+  final String? address;
+
+  @override
+  String toString() {
+    return 'RegisterFormEvent.changedAddress(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedAddress &&
+            const DeepCollectionEquality().equals(other.address, address));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(address));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedAddressCopyWith<_ChangedAddress> get copyWith =>
+      __$ChangedAddressCopyWithImpl<_ChangedAddress>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function(String? email) changedEmail,
+    required TResult Function(String? password) changedPassword,
+    required TResult Function(String? userName) changedUserName,
+    required TResult Function(String? firstName) changedFirstName,
+    required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
+    required TResult Function(String? phoneNumber) changedPhoneNumber,
+    required TResult Function(String? userType) changedUserType,
+  }) {
+    return changedAddress(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(String? email)? changedEmail,
+    TResult Function(String? password)? changedPassword,
+    TResult Function(String? userName)? changedUserName,
+    TResult Function(String? firstName)? changedFirstName,
+    TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
+    TResult Function(String? phoneNumber)? changedPhoneNumber,
+    TResult Function(String? userType)? changedUserType,
+  }) {
+    return changedAddress?.call(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(String? email)? changedEmail,
+    TResult Function(String? password)? changedPassword,
+    TResult Function(String? userName)? changedUserName,
+    TResult Function(String? firstName)? changedFirstName,
+    TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
+    TResult Function(String? phoneNumber)? changedPhoneNumber,
+    TResult Function(String? userType)? changedUserType,
+    required TResult orElse(),
+  }) {
+    if (changedAddress != null) {
+      return changedAddress(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_ChangedEmail value) changedEmail,
+    required TResult Function(_ChangedPassword value) changedPassword,
+    required TResult Function(_ChangedUserName value) changedUserName,
+    required TResult Function(_ChangedFirstName value) changedFirstName,
+    required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
+    required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
+    required TResult Function(_ChangedUserType value) changedUserType,
+  }) {
+    return changedAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedEmail value)? changedEmail,
+    TResult Function(_ChangedPassword value)? changedPassword,
+    TResult Function(_ChangedUserName value)? changedUserName,
+    TResult Function(_ChangedFirstName value)? changedFirstName,
+    TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
+    TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
+    TResult Function(_ChangedUserType value)? changedUserType,
+  }) {
+    return changedAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedEmail value)? changedEmail,
+    TResult Function(_ChangedPassword value)? changedPassword,
+    TResult Function(_ChangedUserName value)? changedUserName,
+    TResult Function(_ChangedFirstName value)? changedFirstName,
+    TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
+    TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
+    TResult Function(_ChangedUserType value)? changedUserType,
+    required TResult orElse(),
+  }) {
+    if (changedAddress != null) {
+      return changedAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedAddress implements RegisterFormEvent {
+  const factory _ChangedAddress({String? address}) = _$_ChangedAddress;
+
+  String? get address;
+  @JsonKey(ignore: true)
+  _$ChangedAddressCopyWith<_ChangedAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1226,6 +1450,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -1241,6 +1466,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -1256,6 +1482,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -1275,6 +1502,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -1290,6 +1518,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -1305,6 +1534,7 @@ class _$_ChangedPhoneNumber implements _ChangedPhoneNumber {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),
@@ -1397,6 +1627,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     required TResult Function(String? userName) changedUserName,
     required TResult Function(String? firstName) changedFirstName,
     required TResult Function(String? lastName) changedLastName,
+    required TResult Function(String? address) changedAddress,
     required TResult Function(String? phoneNumber) changedPhoneNumber,
     required TResult Function(String? userType) changedUserType,
   }) {
@@ -1412,6 +1643,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
   }) {
@@ -1427,6 +1659,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     TResult Function(String? userName)? changedUserName,
     TResult Function(String? firstName)? changedFirstName,
     TResult Function(String? lastName)? changedLastName,
+    TResult Function(String? address)? changedAddress,
     TResult Function(String? phoneNumber)? changedPhoneNumber,
     TResult Function(String? userType)? changedUserType,
     required TResult orElse(),
@@ -1446,6 +1679,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     required TResult Function(_ChangedUserName value) changedUserName,
     required TResult Function(_ChangedFirstName value) changedFirstName,
     required TResult Function(_ChangedLastName value) changedLastName,
+    required TResult Function(_ChangedAddress value) changedAddress,
     required TResult Function(_ChangedPhoneNumber value) changedPhoneNumber,
     required TResult Function(_ChangedUserType value) changedUserType,
   }) {
@@ -1461,6 +1695,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
   }) {
@@ -1476,6 +1711,7 @@ class _$_ChangedUserType implements _ChangedUserType {
     TResult Function(_ChangedUserName value)? changedUserName,
     TResult Function(_ChangedFirstName value)? changedFirstName,
     TResult Function(_ChangedLastName value)? changedLastName,
+    TResult Function(_ChangedAddress value)? changedAddress,
     TResult Function(_ChangedPhoneNumber value)? changedPhoneNumber,
     TResult Function(_ChangedUserType value)? changedUserType,
     required TResult orElse(),

@@ -12,6 +12,8 @@ class RegisterFormEvent with _$RegisterFormEvent {
       _ChangedFirstName;
   const factory RegisterFormEvent.changedLastName({String? lastName}) =
       _ChangedLastName;
+  const factory RegisterFormEvent.changedAddress({String? address}) =
+      _ChangedAddress;
   const factory RegisterFormEvent.changedPhoneNumber({String? phoneNumber}) =
       _ChangedPhoneNumber;
   const factory RegisterFormEvent.changedUserType({String? userType}) =

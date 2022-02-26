@@ -13,6 +13,7 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
   RegisterFormBloc(this._inputConvert) : super(RegisterFormState.initial()) {
     on<RegisterFormEvent>((event, emit) async {
       await event.map(
+          changedAddress: (_ChangedAddress value) {},
           changedEmail: (_ChangedEmail value) {
             emit(
               state.copyWith(

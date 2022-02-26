@@ -29,6 +29,7 @@ class RegisterPage extends StatelessWidget {
                       FirstNameTextFormField(),
                       LastNameTextFormField(),
                       PasswordTextFormField(),
+                      AddressTextFormField(),
                     ],
                   ),
                 ),
@@ -162,6 +163,36 @@ class LastNameTextFormField extends StatelessWidget {
 }
 
 class PasswordTextFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Enter a password',
+        labelText: 'Password',
+        errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<RegisterFormBloc>()
+            .state
+            .password
+            .fold((l) => l.msg, (r) => null),
+      ),
+      onChanged: (value) {
+        context
+            .read<RegisterFormBloc>()
+            .add(RegisterFormEvent.changedPassword(password: value));
+      },
+      validator: (_) => context.read<RegisterFormBloc>().state.showErrors
+          ? context
+              .read<RegisterFormBloc>()
+              .state
+              .password
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
+class AddressTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
