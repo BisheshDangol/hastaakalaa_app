@@ -1274,12 +1274,12 @@ class _$ArtFormStateTearOff {
 
   _ArtFormState call(
       {required bool isLoading,
-      required dynamic title,
-      required dynamic image,
-      required dynamic description,
-      required dynamic price,
-      required dynamic forSale,
-      required dynamic status,
+      required Either<InvalidInputFailure, String> title,
+      required Either<InvalidInputFailure, File> image,
+      required Either<InvalidInputFailure, String> description,
+      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> forSale,
+      required Either<InvalidInputFailure, String> status,
       required bool showErrors}) {
     return _ArtFormState(
       isLoading: isLoading,
@@ -1300,12 +1300,18 @@ const $ArtFormState = _$ArtFormStateTearOff();
 /// @nodoc
 mixin _$ArtFormState {
   bool get isLoading => throw _privateConstructorUsedError;
-  dynamic get title => throw _privateConstructorUsedError;
-  dynamic get image => throw _privateConstructorUsedError;
-  dynamic get description => throw _privateConstructorUsedError;
-  dynamic get price => throw _privateConstructorUsedError;
-  dynamic get forSale => throw _privateConstructorUsedError;
-  dynamic get status => throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get title =>
+      throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, File> get image =>
+      throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get description =>
+      throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, int> get price =>
+      throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get forSale =>
+      throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get status =>
+      throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1320,12 +1326,12 @@ abstract class $ArtFormStateCopyWith<$Res> {
       _$ArtFormStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
-      dynamic title,
-      dynamic image,
-      dynamic description,
-      dynamic price,
-      dynamic forSale,
-      dynamic status,
+      Either<InvalidInputFailure, String> title,
+      Either<InvalidInputFailure, File> image,
+      Either<InvalidInputFailure, String> description,
+      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> forSale,
+      Either<InvalidInputFailure, String> status,
       bool showErrors});
 }
 
@@ -1356,27 +1362,27 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, String>,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, File>,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, String>,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, int>,
       forSale: forSale == freezed
           ? _value.forSale
           : forSale // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, String>,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -1394,12 +1400,12 @@ abstract class _$ArtFormStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
-      dynamic title,
-      dynamic image,
-      dynamic description,
-      dynamic price,
-      dynamic forSale,
-      dynamic status,
+      Either<InvalidInputFailure, String> title,
+      Either<InvalidInputFailure, File> image,
+      Either<InvalidInputFailure, String> description,
+      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> forSale,
+      Either<InvalidInputFailure, String> status,
       bool showErrors});
 }
 
@@ -1429,12 +1435,30 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      title: title == freezed ? _value.title : title,
-      image: image == freezed ? _value.image : image,
-      description: description == freezed ? _value.description : description,
-      price: price == freezed ? _value.price : price,
-      forSale: forSale == freezed ? _value.forSale : forSale,
-      status: status == freezed ? _value.status : status,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, File>,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, int>,
+      forSale: forSale == freezed
+          ? _value.forSale
+          : forSale // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -1459,17 +1483,17 @@ class _$_ArtFormState implements _ArtFormState {
   @override
   final bool isLoading;
   @override
-  final dynamic title;
+  final Either<InvalidInputFailure, String> title;
   @override
-  final dynamic image;
+  final Either<InvalidInputFailure, File> image;
   @override
-  final dynamic description;
+  final Either<InvalidInputFailure, String> description;
   @override
-  final dynamic price;
+  final Either<InvalidInputFailure, int> price;
   @override
-  final dynamic forSale;
+  final Either<InvalidInputFailure, String> forSale;
   @override
-  final dynamic status;
+  final Either<InvalidInputFailure, String> status;
   @override
   final bool showErrors;
 
@@ -1516,28 +1540,28 @@ class _$_ArtFormState implements _ArtFormState {
 abstract class _ArtFormState implements ArtFormState {
   const factory _ArtFormState(
       {required bool isLoading,
-      required dynamic title,
-      required dynamic image,
-      required dynamic description,
-      required dynamic price,
-      required dynamic forSale,
-      required dynamic status,
+      required Either<InvalidInputFailure, String> title,
+      required Either<InvalidInputFailure, File> image,
+      required Either<InvalidInputFailure, String> description,
+      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> forSale,
+      required Either<InvalidInputFailure, String> status,
       required bool showErrors}) = _$_ArtFormState;
 
   @override
   bool get isLoading;
   @override
-  dynamic get title;
+  Either<InvalidInputFailure, String> get title;
   @override
-  dynamic get image;
+  Either<InvalidInputFailure, File> get image;
   @override
-  dynamic get description;
+  Either<InvalidInputFailure, String> get description;
   @override
-  dynamic get price;
+  Either<InvalidInputFailure, int> get price;
   @override
-  dynamic get forSale;
+  Either<InvalidInputFailure, String> get forSale;
   @override
-  dynamic get status;
+  Either<InvalidInputFailure, String> get status;
   @override
   bool get showErrors;
   @override
