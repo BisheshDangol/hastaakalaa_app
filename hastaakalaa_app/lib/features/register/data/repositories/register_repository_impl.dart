@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
-import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
-import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
 import 'package:hastaakalaa_app/features/register/data/datasources/register_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/register/domain/repositories/i_register_repository.dart';
 
