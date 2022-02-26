@@ -21,7 +21,7 @@ Future<void> init() async {
   //! Bloc
   sl.registerFactory(() => LoginBloc(sl(), sl()));
 
-  sl.registerFactory(() => RegisterFormBloc(sl()));
+  sl.registerFactory(() => RegisterFormBloc(sl(), sl()));
 
   //! UseCases
 

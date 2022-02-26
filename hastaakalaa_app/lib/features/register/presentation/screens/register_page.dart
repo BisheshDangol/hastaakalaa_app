@@ -38,13 +38,14 @@ class RegisterPage extends StatelessWidget {
                           Text(
                             'User Type:\t\t ',
                             style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
                                 color: Colors.grey[700]),
                           ),
                           UserTypeTextFormField(),
                         ],
-                      )
+                      ),
+                      AddRegisterButton()
                     ],
                   ),
                 ),
@@ -293,6 +294,27 @@ class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
             .read<RegisterFormBloc>()
             .add(RegisterFormEvent.changedUserType(userType: newValue));
       },
+    );
+  }
+}
+
+class AddRegisterButton extends StatelessWidget {
+  AddRegisterButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(primary: Colors.green[200]),
+        onPressed: () {
+          context
+              .read<RegisterFormBloc>()
+              .add(RegisterFormEvent.pressedCreate());
+        },
+        child: Text('Login', style: TextStyle(fontSize: 20)),
+      ),
     );
   }
 }

@@ -24,7 +24,7 @@ class RegisterRemoteDataSource implements IRegisterDataSource {
     int code = response.statusCode;
     debugPrint('$code');
     debugPrint(response.body);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return unit;
     } else {
       throw ServerException();
