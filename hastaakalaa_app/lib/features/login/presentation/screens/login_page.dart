@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
         listener: (context, state) {
           state.failureOrSuccess?.fold((l) => null, (r) {
             if (state.isLoading == true) {
-              const Center(
+              Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state.isLoading == false) {
@@ -30,12 +30,12 @@ class LoginPage extends StatelessWidget {
         builder: (context, state) => Scaffold(
           body: SafeArea(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
+              margin: EdgeInsets.symmetric(horizontal: 16),
               child: Form(
                 autovalidateMode: AutovalidateMode.always,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: const [
+                    children: [
                       UserNameTextFormField(),
                       PasswordTextFormField(),
                       AddLoginButton()
@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class UserNameTextFormField extends StatelessWidget {
-  const UserNameTextFormField({Key? key}) : super(key: key);
+  UserNameTextFormField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class UserNameTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'User Name',
         labelText: 'User Name',
-        errorStyle: const TextStyle(fontSize: 13),
+        errorStyle: TextStyle(fontSize: 13),
       ),
       onChanged: (value) {
         context
@@ -79,12 +79,12 @@ class UserNameTextFormField extends StatelessWidget {
 }
 
 class PasswordTextFormField extends StatelessWidget {
-  const PasswordTextFormField({Key? key}) : super(key: key);
+  PasswordTextFormField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         hintText: 'Password',
         labelText: 'Password',
         errorStyle: TextStyle(fontSize: 13),
@@ -106,15 +106,15 @@ class PasswordTextFormField extends StatelessWidget {
 }
 
 class AddLoginButton extends StatelessWidget {
-  const AddLoginButton({Key? key}) : super(key: key);
+  AddLoginButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.read<LoginBloc>().add(const LoginEvent.pressedSend());
+        context.read<LoginBloc>().add(LoginEvent.pressedSend());
       },
-      child: const Text('Login'),
+      child: Text('Login'),
     );
   }
 }

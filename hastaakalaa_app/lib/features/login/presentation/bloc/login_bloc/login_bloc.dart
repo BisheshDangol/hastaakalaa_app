@@ -31,12 +31,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                 password: state.password.getOrElse(() => ''),
               ),
             );
-            emit(state.copyWith(
-              isLoading: false,
-              failureOrSuccess: failureOrSuccess,
-              showErrors: true,
-            ));
           }
+          emit(state.copyWith(
+            isLoading: false,
+            failureOrSuccess: failureOrSuccess,
+            showErrors: true,
+          ));
         },
         changedUsername: (_ChangedUsername value) {
           emit(
