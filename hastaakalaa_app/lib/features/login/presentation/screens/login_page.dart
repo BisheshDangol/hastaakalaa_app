@@ -58,8 +58,8 @@ class UserNameTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'User Name',
-        labelText: 'User Name',
+        hintText: 'Enter your email address',
+        labelText: 'Email',
         errorStyle: TextStyle(fontSize: 13),
       ),
       onChanged: (value) {
@@ -85,7 +85,7 @@ class PasswordTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: 'Enter your password',
         labelText: 'Password',
         errorStyle: TextStyle(fontSize: 13),
       ),
