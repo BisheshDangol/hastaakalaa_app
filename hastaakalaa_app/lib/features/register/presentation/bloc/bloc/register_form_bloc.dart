@@ -23,7 +23,16 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
               ),
             );
           },
-          changedFirstName: (_ChangedFirstName value) {},
+          changedFirstName: (_ChangedFirstName value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                firstName: _inputConvert.notEmpty(
+                  value: value.firstName,
+                ),
+              ),
+            );
+          },
           changedLastName: (_ChangedLastName value) {},
           changedPassword: (_ChangedPassword value) {},
           changedPhoneNumber: (_ChangedPhoneNumber value) {},
