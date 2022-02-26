@@ -271,6 +271,7 @@ class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
           child: Text(value),
         );
       }).toList(),
+      value: dropdownValue,
       onChanged: (String? newValue) {
         setState(() {
           dropdownValue = newValue!;
