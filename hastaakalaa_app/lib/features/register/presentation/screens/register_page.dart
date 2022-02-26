@@ -26,6 +26,7 @@ class RegisterPage extends StatelessWidget {
                     children: [
                       EmailTextFormField(),
                       UserNameTextFormField(),
+                      FirstNameTextFormField(),
                     ],
                   ),
                 ),
@@ -92,6 +93,36 @@ class UserNameTextFormField extends StatelessWidget {
               .read<RegisterFormBloc>()
               .state
               .userName
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
+class FirstNameTextFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Enter your first name',
+        labelText: 'First Name',
+        errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<RegisterFormBloc>()
+            .state
+            .firstName
+            .fold((l) => l.msg, (r) => null),
+      ),
+      onChanged: (value) {
+        context
+            .read<RegisterFormBloc>()
+            .add(RegisterFormEvent.changedFirstName(firstName: value));
+      },
+      validator: (_) => context.read<RegisterFormBloc>().state.showErrors
+          ? context
+              .read<RegisterFormBloc>()
+              .state
+              .firstName
               .fold((e) => e.msg.toString(), (_) => null)
           : null,
     );
