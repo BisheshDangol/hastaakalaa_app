@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 
+import 'features/register/presentation/screens/register_page.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const LoginPage(),
+        builder: (context) => const RegisterPage(),
       ),
     );
   }

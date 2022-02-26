@@ -9,10 +9,20 @@ part 'register_form_state.dart';
 part 'register_form_bloc.freezed.dart';
 
 class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
-  RegisterFormBloc() : super(RegisterFormState.initial()) {
+  final InputConvert _inputConvert;
+  RegisterFormBloc(this._inputConvert) : super(RegisterFormState.initial()) {
     on<RegisterFormEvent>((event, emit) async {
       await event.map(
-          changedEmail: (_ChangedEmail value) {},
+          changedEmail: (_ChangedEmail value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                email: _inputConvert.notEmpty(
+                  value: value.email,
+                ),
+              ),
+            );
+          },
           changedFirstName: (_ChangedFirstName value) {},
           changedLastName: (_ChangedLastName value) {},
           changedPassword: (_ChangedPassword value) {},
