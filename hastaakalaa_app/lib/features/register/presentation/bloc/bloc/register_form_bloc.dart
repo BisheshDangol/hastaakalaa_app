@@ -83,7 +83,16 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
               ),
             );
           },
-          changedUserType: (_ChangedUserType value) {},
+          changedUserType: (_ChangedUserType value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                userType: _inputConvert.notEmpty(
+                  value: value.userType,
+                ),
+              ),
+            );
+          },
           pressedCreate: (_) {});
     });
   }
