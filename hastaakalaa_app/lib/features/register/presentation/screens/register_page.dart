@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/register_form_bloc.dart';
 
@@ -31,7 +32,19 @@ class RegisterPage extends StatelessWidget {
                       PasswordTextFormField(),
                       AddressTextFormField(),
                       PhoneNumberTextFormField(),
-                      UserTypeTextFormField()
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'User Type:\t\t ',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey[700]),
+                          ),
+                          UserTypeTextFormField(),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -260,11 +273,11 @@ class UserTypeTextFormField extends StatefulWidget {
 }
 
 class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
-  String dropdownValue = 'Artist';
+  String dropdownValue = 'artist';
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      items: <String>['Artist', 'ArtCollector']
+      items: <String>['artist', 'art collector']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
