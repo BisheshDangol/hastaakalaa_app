@@ -17,7 +17,7 @@ class ArtRemoteDataSource implements IArtDataSource {
   @override
   Future<Unit> createPost({required Map<String, dynamic> data}) async {
     debugPrint(data.toString());
-    final url = Uri.parse(createUserEndPoint);
+    final url = Uri.parse(createPostEndPoint);
     final header = {
       "Authorization": "Token 021bdc00d8ddda2301cf900911c8accd9ada803c"
     };
