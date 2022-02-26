@@ -20,7 +20,7 @@ class RegisterPage extends StatelessWidget {
                 autovalidateMode: AutovalidateMode.always,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
+                    children: const [
                       EmailTextFormField(),
                     ],
                   ),
