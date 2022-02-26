@@ -1280,7 +1280,8 @@ class _$ArtFormStateTearOff {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      required bool showErrors}) {
+      required bool showErrors,
+      Either<Failure, Unit>? failureOrSuccess}) {
     return _ArtFormState(
       isLoading: isLoading,
       title: title,
@@ -1290,6 +1291,7 @@ class _$ArtFormStateTearOff {
       forSale: forSale,
       status: status,
       showErrors: showErrors,
+      failureOrSuccess: failureOrSuccess,
     );
   }
 }
@@ -1313,6 +1315,8 @@ mixin _$ArtFormState {
   Either<InvalidInputFailure, String> get status =>
       throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
+  Either<Failure, Unit>? get failureOrSuccess =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ArtFormStateCopyWith<ArtFormState> get copyWith =>
@@ -1332,7 +1336,8 @@ abstract class $ArtFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      bool showErrors});
+      bool showErrors,
+      Either<Failure, Unit>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -1353,6 +1358,7 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
     Object? forSale = freezed,
     Object? status = freezed,
     Object? showErrors = freezed,
+    Object? failureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -1387,6 +1393,10 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      failureOrSuccess: failureOrSuccess == freezed
+          ? _value.failureOrSuccess
+          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, Unit>?,
     ));
   }
 }
@@ -1406,7 +1416,8 @@ abstract class _$ArtFormStateCopyWith<$Res>
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      bool showErrors});
+      bool showErrors,
+      Either<Failure, Unit>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -1429,6 +1440,7 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
     Object? forSale = freezed,
     Object? status = freezed,
     Object? showErrors = freezed,
+    Object? failureOrSuccess = freezed,
   }) {
     return _then(_ArtFormState(
       isLoading: isLoading == freezed
@@ -1463,6 +1475,10 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      failureOrSuccess: failureOrSuccess == freezed
+          ? _value.failureOrSuccess
+          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, Unit>?,
     ));
   }
 }
@@ -1478,7 +1494,8 @@ class _$_ArtFormState implements _ArtFormState {
       required this.price,
       required this.forSale,
       required this.status,
-      required this.showErrors});
+      required this.showErrors,
+      this.failureOrSuccess});
 
   @override
   final bool isLoading;
@@ -1496,10 +1513,12 @@ class _$_ArtFormState implements _ArtFormState {
   final Either<InvalidInputFailure, String> status;
   @override
   final bool showErrors;
+  @override
+  final Either<Failure, Unit>? failureOrSuccess;
 
   @override
   String toString() {
-    return 'ArtFormState(isLoading: $isLoading, title: $title, image: $image, description: $description, price: $price, forSale: $forSale, status: $status, showErrors: $showErrors)';
+    return 'ArtFormState(isLoading: $isLoading, title: $title, image: $image, description: $description, price: $price, forSale: $forSale, status: $status, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -1516,7 +1535,9 @@ class _$_ArtFormState implements _ArtFormState {
             const DeepCollectionEquality().equals(other.forSale, forSale) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality()
-                .equals(other.showErrors, showErrors));
+                .equals(other.showErrors, showErrors) &&
+            const DeepCollectionEquality()
+                .equals(other.failureOrSuccess, failureOrSuccess));
   }
 
   @override
@@ -1529,7 +1550,8 @@ class _$_ArtFormState implements _ArtFormState {
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(forSale),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(showErrors));
+      const DeepCollectionEquality().hash(showErrors),
+      const DeepCollectionEquality().hash(failureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
@@ -1546,7 +1568,8 @@ abstract class _ArtFormState implements ArtFormState {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      required bool showErrors}) = _$_ArtFormState;
+      required bool showErrors,
+      Either<Failure, Unit>? failureOrSuccess}) = _$_ArtFormState;
 
   @override
   bool get isLoading;
@@ -1564,6 +1587,8 @@ abstract class _ArtFormState implements ArtFormState {
   Either<InvalidInputFailure, String> get status;
   @override
   bool get showErrors;
+  @override
+  Either<Failure, Unit>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$ArtFormStateCopyWith<_ArtFormState> get copyWith =>
