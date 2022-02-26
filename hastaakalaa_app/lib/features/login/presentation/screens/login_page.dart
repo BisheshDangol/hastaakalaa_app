@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/features/login/presentation/bloc/bloc/login_bloc.dart';
-import 'package:hastaakalaa_app/features/login/presentation/screens/home_page.dart';
+import 'package:hastaakalaa_app/features/login/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
 class LoginPage extends StatelessWidget {
