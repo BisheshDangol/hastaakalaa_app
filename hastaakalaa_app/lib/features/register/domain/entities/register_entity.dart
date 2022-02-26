@@ -5,6 +5,7 @@ class RegisterEntity extends Equatable {
   final String userName;
   final String firstName;
   final String lastName;
+  final String password;
   final String phoneNumber;
   final String address;
   final String userType;
@@ -13,6 +14,7 @@ class RegisterEntity extends Equatable {
     required this.email,
     required this.firstName,
     required this.lastName,
+    required this.password,
     required this.address,
     required this.phoneNumber,
     required this.userName,
@@ -25,6 +27,7 @@ class RegisterEntity extends Equatable {
         userName,
         firstName,
         lastName,
+        password,
         phoneNumber,
         address,
         userType,
