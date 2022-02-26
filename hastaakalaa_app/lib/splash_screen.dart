@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 
 import 'features/register/presentation/screens/register_page.dart';
 
