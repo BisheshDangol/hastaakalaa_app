@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
@@ -17,25 +18,26 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       : super(LoginState.initial()) {
     on<LoginEvent>((event, emit) async {
       await event.map(
-        pressedSend: (_) {},
-        //   emit(state.copyWith(isLoading: true, failureOrSuccess: null));
+        pressedSend: (_) async {
+          debugPrint('this is the event triggered');
+          emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-        //   Either<Failure, Unit>? failureOrSuccess;
+          Either<Failure, Unit>? failureOrSuccess;
 
-        //   if (state.username.isRight() && state.password.isRight()) {
-        //     failureOrSuccess = await _createUserTokenUseCase.call(
-        //       LoginModel.toJson(
-        //         username: state.username.getOrElse(() => ''),
-        //         password: state.password.getOrElse(() => ''),
-        //       ),
-        //     );
-        //     emit(state.copyWith(
-        //       isLoading: false,
-        //       failureOrSuccess: failureOrSuccess,
-        //       showErrors: true,
-        //     ));
-        //   }
-        // },
+          if (state.username.isRight() && state.password.isRight()) {
+            failureOrSuccess = await _createUserTokenUseCase.call(
+              LoginModel.toJson(
+                username: state.username.getOrElse(() => ''),
+                password: state.password.getOrElse(() => ''),
+              ),
+            );
+            emit(state.copyWith(
+              isLoading: false,
+              failureOrSuccess: failureOrSuccess,
+              showErrors: true,
+            ));
+          }
+        },
         changedUsername: (_ChangedUsername value) {
           emit(
             state.copyWith(
