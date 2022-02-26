@@ -11,7 +11,10 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => sl<RegisterFormBloc>(),
-      child: BlocBuilder<RegisterFormBloc, RegisterFormState>(
+      child: BlocConsumer<RegisterFormBloc, RegisterFormState>(
+        listener: (context, state) {
+          state.failureOrSuccess?.fold((l) => null, (r) => 'hello');
+        },
         builder: (context, state) => Scaffold(
           body: SafeArea(
             child: Container(
@@ -20,7 +23,7 @@ class RegisterPage extends StatelessWidget {
                 autovalidateMode: AutovalidateMode.always,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: const [
+                    children: [
                       EmailTextFormField(),
                     ],
                   ),
@@ -35,15 +38,18 @@ class RegisterPage extends StatelessWidget {
 }
 
 class EmailTextFormField extends StatelessWidget {
-  const EmailTextFormField({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         hintText: 'Email',
         labelText: 'Email',
         errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<RegisterFormBloc>()
+            .state
+            .email
+            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
