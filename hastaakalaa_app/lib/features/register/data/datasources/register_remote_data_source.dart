@@ -17,7 +17,7 @@ class RegisterRemoteDataSource implements IRegisterDataSource {
   @override
   Future<Unit> createUser({required Map<String, dynamic> data}) async {
     debugPrint(data.toString());
-    final url = Uri.parse(getUserToken);
+    final url = Uri.parse(createUserEndPoint);
     final header = {"content-type": "application/json"};
     final jsonData = json.encode(data);
     final response = await client.post(url, body: jsonData, headers: header);
