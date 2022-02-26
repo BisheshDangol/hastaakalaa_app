@@ -221,3 +221,33 @@ class AddressTextFormField extends StatelessWidget {
     );
   }
 }
+
+class PhoneNumberTextFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Enter your phone number',
+        labelText: 'Phone Number',
+        errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<RegisterFormBloc>()
+            .state
+            .phoneNumber
+            .fold((l) => l.msg, (r) => null),
+      ),
+      onChanged: (value) {
+        context
+            .read<RegisterFormBloc>()
+            .add(RegisterFormEvent.changedPhoneNumber(phoneNumber: value));
+      },
+      validator: (_) => context.read<RegisterFormBloc>().state.showErrors
+          ? context
+              .read<RegisterFormBloc>()
+              .state
+              .phoneNumber
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
