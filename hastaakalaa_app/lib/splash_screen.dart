@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hastaakalaa_app/start_page.dart';
 
 import 'features/login/presentation/screens/login_page.dart';
 // import 'features/register/presentation/screens/register_page.dart';
@@ -23,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const StartPage(),
+        builder: (context) => const LoginPage(),
       ),
     );
   }

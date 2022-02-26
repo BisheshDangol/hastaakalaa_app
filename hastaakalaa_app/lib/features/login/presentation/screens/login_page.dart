@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/bloc/login_bloc/login_bloc.dart';
+import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
 class LoginPage extends StatelessWidget {
@@ -38,7 +39,17 @@ class LoginPage extends StatelessWidget {
                     children: [
                       UserNameTextFormField(),
                       PasswordTextFormField(),
-                      AddLoginButton()
+                      SizedBox(height: 10.0),
+                      AddLoginButton(),
+                      SizedBox(height: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Don\'t have an account?'),
+                          AddRegisterButton(),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -110,11 +121,29 @@ class AddLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        context.read<LoginBloc>().add(LoginEvent.pressedSend());
-      },
-      child: Text('Login'),
+    return SizedBox(
+      height: 50,
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(primary: Colors.green[200]),
+        onPressed: () {
+          context.read<LoginBloc>().add(LoginEvent.pressedSend());
+        },
+        child: Text('Login', style: TextStyle(fontSize: 20)),
+      ),
+    );
+  }
+}
+
+class AddRegisterButton extends StatelessWidget {
+  AddRegisterButton({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      child:
+          Text('Register', style: TextStyle(fontSize: 15.0, color: Colors.red)),
+      onPressed: () => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => RegisterPage())),
     );
   }
 }
