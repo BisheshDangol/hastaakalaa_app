@@ -10,8 +10,9 @@ class LoginState with _$LoginState {
     Either<Failure, Unit>? failureOrSuccess,
   }) = _LoginState;
   factory LoginState.initial() => LoginState(
-      isLoading: false,
-      username: left(InvalidInputFailure()),
-      password: left(InvalidInputFailure()),
-      showErrors: false);
+        isLoading: false,
+        username: left(InvalidInputFailure()),
+        password: left(InvalidInputFailure()),
+        showErrors: false,
+      );
 }

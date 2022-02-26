@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
@@ -19,6 +20,9 @@ Future<void> init() async {
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
+
+  //! Input Convert
+  sl.registerLazySingleton(() => InputConvert());
 
   //! Repository
   sl.registerLazySingleton<ILoginRepository>(
