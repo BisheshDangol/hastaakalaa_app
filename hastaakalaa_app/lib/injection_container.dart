@@ -1,6 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
+import 'package:hastaakalaa_app/features/art/data/repositories/art_repository_impl.dart';
+import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
@@ -14,6 +18,8 @@ import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/registe
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import 'features/art/data/datasources/art_remote_data_source.dart';
+
 GetIt sl = GetIt.instance;
 
 Future<void> init() async {
@@ -23,11 +29,15 @@ Future<void> init() async {
 
   sl.registerFactory(() => RegisterFormBloc(sl(), sl()));
 
+  sl.registerFactory(() => ArtFormBloc(sl(), sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
 
   sl.registerLazySingleton(() => RegisterUserUsecase(sl()));
+
+  sl.registerLazySingleton(() => CreateArtPostUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
@@ -39,6 +49,9 @@ Future<void> init() async {
   sl.registerLazySingleton<IRegisterRepository>(
       () => RegisterRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
 
+  sl.registerLazySingleton<IArtRepository>(
+      () => ArtRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
+
   //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
@@ -48,6 +61,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton<IRegisterDataSource>(
       () => RegisterRemoteDataSource(client: sl()));
+
+  sl.registerLazySingleton<IArtDataSource>(
+      () => ArtRemoteDataSource(client: sl()));
 
   sl.registerLazySingleton(() => http.Client());
 
