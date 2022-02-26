@@ -43,7 +43,16 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
               ),
             );
           },
-          changedPassword: (_ChangedPassword value) {},
+          changedPassword: (_ChangedPassword value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                password: _inputConvert.notEmpty(
+                  value: value.password,
+                ),
+              ),
+            );
+          },
           changedPhoneNumber: (_ChangedPhoneNumber value) {},
           changedUserName: (_ChangedUserName value) {
             emit(
