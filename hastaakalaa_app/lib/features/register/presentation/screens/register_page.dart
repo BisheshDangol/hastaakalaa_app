@@ -197,25 +197,25 @@ class AddressTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Enter a password',
-        labelText: 'Password',
+        hintText: 'Enter your home address',
+        labelText: 'Address',
         errorStyle: TextStyle(fontSize: 13),
         errorText: context
             .read<RegisterFormBloc>()
             .state
-            .password
+            .address
             .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
             .read<RegisterFormBloc>()
-            .add(RegisterFormEvent.changedPassword(password: value));
+            .add(RegisterFormEvent.changedAddress(address: value));
       },
       validator: (_) => context.read<RegisterFormBloc>().state.showErrors
           ? context
               .read<RegisterFormBloc>()
               .state
-              .password
+              .address
               .fold((e) => e.msg.toString(), (_) => null)
           : null,
     );
