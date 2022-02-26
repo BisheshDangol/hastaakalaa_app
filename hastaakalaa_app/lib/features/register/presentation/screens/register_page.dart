@@ -252,3 +252,32 @@ class PhoneNumberTextFormField extends StatelessWidget {
     );
   }
 }
+
+class UserTypeTextFormField extends StatefulWidget {
+  @override
+  State<UserTypeTextFormField> createState() => _UserTypeTextFormFieldState();
+}
+
+class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
+  String dropdownValue = 'Artist';
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      items: <String>['Artist', 'ArtCollector']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+        context
+            .read<RegisterFormBloc>()
+            .add(RegisterFormEvent.changedUserType(userType: newValue));
+      },
+    );
+  }
+}
