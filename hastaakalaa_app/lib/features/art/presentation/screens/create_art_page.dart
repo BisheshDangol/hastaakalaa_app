@@ -55,7 +55,7 @@ class CreateArtPage extends StatelessWidget {
                           StatusArtDropDownList(),
                         ],
                       ),
-                      // AddRegisterButton()
+                      CreateArtButton()
                     ],
                   ),
                 ),
@@ -252,8 +252,8 @@ class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
   }
 }
 
-class AddRegisterButton extends StatelessWidget {
-  AddRegisterButton({Key? key}) : super(key: key);
+class CreateArtButton extends StatelessWidget {
+  CreateArtButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
