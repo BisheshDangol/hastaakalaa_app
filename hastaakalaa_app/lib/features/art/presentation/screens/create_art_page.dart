@@ -29,21 +29,33 @@ class CreateArtPage extends StatelessWidget {
                       TitleFormField(),
                       DescriptionFormField(),
                       PriceFormField(),
-                      ForSaleDropDownList(),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'User Type:\t\t ',
+                            'For Sale:\t\t\t\t ',
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.grey[700]),
                           ),
-                          UserTypeTextFormField(),
+                          ForSaleDropDownList(),
                         ],
                       ),
-                      AddRegisterButton()
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Status:\t\t\t\t ',
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.grey[700]),
+                          ),
+                          StatusArtDropDownList(),
+                        ],
+                      ),
+                      // AddRegisterButton()
                     ],
                   ),
                 ),
@@ -91,7 +103,7 @@ class DescriptionFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Enter the description of the image',
+        hintText: 'Enter the description of the description',
         labelText: 'Description',
         errorStyle: TextStyle(fontSize: 13),
         errorText: context
@@ -173,6 +185,38 @@ class _ForSaleDropDownListState extends State<ForSaleDropDownList> {
         context
             .read<ArtFormBloc>()
             .add(ArtFormEvent.changedForSale(forSale: newValue));
+      },
+    );
+  }
+}
+
+class StatusArtDropDownList extends StatefulWidget {
+  StatusArtDropDownList({Key? key}) : super(key: key);
+
+  @override
+  State<StatusArtDropDownList> createState() => _StatusArtDropDownListState();
+}
+
+class _StatusArtDropDownListState extends State<StatusArtDropDownList> {
+  String dropdownValue = 'showcase';
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      items: <String>['showcase', 'purchased', 'available']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      value: dropdownValue,
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+        context
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedStatus(status: newValue));
       },
     );
   }
