@@ -16,8 +16,9 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
   final CreateArtPostUseCase _registerUserUsecase;
   ArtFormBloc(this._inputConvert, this._registerUserUsecase)
       : super(ArtFormState.initial()) {
-    on<ArtFormEvent>((event, emit) async {
-      await event.map(
+    on<ArtFormEvent>(
+      (event, emit) async {
+        await event.map(
           pressedCreate: (_) {},
           changedTitle: (_ChangedTitle value) {
             emit(
@@ -69,7 +70,9 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
                 ),
               ),
             );
-          });
-    });
+          },
+        );
+      },
+    );
   }
 }
