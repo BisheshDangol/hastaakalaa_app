@@ -274,7 +274,7 @@ class UserTypeTextFormField extends StatefulWidget {
 }
 
 class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
-  String dropdownValue = 'artist';
+  String? dropdownValue;
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
@@ -289,10 +289,10 @@ class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
       onChanged: (String? newValue) {
         setState(() {
           dropdownValue = newValue!;
+          context
+              .read<RegisterFormBloc>()
+              .add(RegisterFormEvent.changedUserType(userType: dropdownValue));
         });
-        context
-            .read<RegisterFormBloc>()
-            .add(RegisterFormEvent.changedUserType(userType: newValue));
       },
     );
   }

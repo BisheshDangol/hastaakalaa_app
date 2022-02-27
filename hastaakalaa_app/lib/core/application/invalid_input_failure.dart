@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 
 class InvalidInputFailure {
-  String? value;
+  dynamic value;
   String msg;
   InvalidInputFailure({this.value, this.msg = 'No input value yet'});
 }
@@ -17,7 +19,7 @@ class InputConvert {
     }
   }
 
-  Either<InvalidInputFailure, String> isInteger({String? value}) {
+  Either<InvalidInputFailure, int> isInteger({String? value}) {
     final parsed = int.tryParse(value ?? '');
     return parsed == null
         ? left(
@@ -26,6 +28,17 @@ class InputConvert {
               msg: shouldBeIntegerMessage,
             ),
           )
-        : right(value!);
+        : right(parsed);
+  }
+
+  Either<InvalidInputFailure, File> isImage({File? value}) {
+    return value == null
+        ? left(
+            InvalidInputFailure(
+              value: 'value',
+              msg: emptyFieldMessage,
+            ),
+          )
+        : right(value);
   }
 }

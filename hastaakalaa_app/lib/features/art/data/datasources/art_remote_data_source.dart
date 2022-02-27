@@ -19,6 +19,7 @@ class ArtRemoteDataSource implements IArtDataSource {
     debugPrint(data.toString());
     final url = Uri.parse(createPostEndPoint);
     final header = {
+      "content-type": "application/json",
       "Authorization": "Token 021bdc00d8ddda2301cf900911c8accd9ada803c"
     };
     final jsonData = json.encode(data);
