@@ -60,7 +60,16 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
               ),
             );
           },
-          changedStatus: (_) {});
+          changedStatus: (_ChangedStatus value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                status: _inputConvert.notEmpty(
+                  value: value.status,
+                ),
+              ),
+            );
+          });
     });
   }
 }
