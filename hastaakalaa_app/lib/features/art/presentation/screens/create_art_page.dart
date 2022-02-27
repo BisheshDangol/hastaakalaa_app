@@ -6,8 +6,8 @@ import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/registe
 
 import '../../../../injection_container.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class CreateArtPage extends StatelessWidget {
+  const CreateArtPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class RegisterPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      EmailTextFormField(),
+                      TitleFormField(),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -53,7 +53,7 @@ class RegisterPage extends StatelessWidget {
   }
 }
 
-class EmailTextFormField extends StatelessWidget {
+class TitleFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -77,6 +77,36 @@ class EmailTextFormField extends StatelessWidget {
               .read<ArtFormBloc>()
               .state
               .title
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
+class DescriptionFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Enter the description of the image',
+        labelText: 'Description',
+        errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<ArtFormBloc>()
+            .state
+            .description
+            .fold((l) => l.msg, (r) => null),
+      ),
+      onChanged: (value) {
+        context
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedDescription(description: value));
+      },
+      validator: (_) => context.read<ArtFormBloc>().state.showErrors
+          ? context
+              .read<ArtFormBloc>()
+              .state
+              .description
               .fold((e) => e.msg.toString(), (_) => null)
           : null,
     );
@@ -124,11 +154,9 @@ class AddRegisterButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(primary: Colors.green[200]),
         onPressed: () {
-          context
-              .read<RegisterFormBloc>()
-              .add(RegisterFormEvent.pressedCreate());
+          context.read<ArtFormBloc>().add(ArtFormEvent.pressedCreate());
         },
-        child: Text('Login', style: TextStyle(fontSize: 20)),
+        child: Text('Create', style: TextStyle(fontSize: 20)),
       ),
     );
   }

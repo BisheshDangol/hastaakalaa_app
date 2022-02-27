@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/create_art_page.dart';
 import 'package:hastaakalaa_app/features/login/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
@@ -19,12 +20,12 @@ class LoginPage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (state.isLoading == false) {
-              // Navigator.pushReplacement(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const HomePage(),
-              //   ),
-              // );
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CreateArtPage(),
+                ),
+              );
             }
           });
         },
