@@ -114,6 +114,36 @@ class DescriptionFormField extends StatelessWidget {
   }
 }
 
+class PriceFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Enter the price',
+        labelText: 'Price',
+        errorStyle: TextStyle(fontSize: 13),
+        errorText: context
+            .read<ArtFormBloc>()
+            .state
+            .price
+            .fold((l) => l.msg, (r) => null),
+      ),
+      onChanged: (value) {
+        context
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedPrice(price: int.tryParse(value)));
+      },
+      validator: (_) => context.read<ArtFormBloc>().state.showErrors
+          ? context
+              .read<ArtFormBloc>()
+              .state
+              .price
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
 class UserTypeTextFormField extends StatefulWidget {
   @override
   State<UserTypeTextFormField> createState() => _UserTypeTextFormFieldState();
