@@ -27,6 +27,7 @@ class CreateArtPage extends StatelessWidget {
                   child: Column(
                     children: [
                       TitleFormField(),
+                      DescriptionFormField(),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
