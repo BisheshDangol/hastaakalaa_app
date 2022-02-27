@@ -19,7 +19,16 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
     on<ArtFormEvent>((event, emit) async {
       await event.map(
           pressedCreate: (_) {},
-          changedTitle: (_) {},
+          changedTitle: (_ChangedTitle value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                title: _inputConvert.notEmpty(
+                  value: value.title,
+                ),
+              ),
+            );
+          },
           changedImage: (_) {},
           changedDescription: (_) {},
           changedPrice: (_) {},

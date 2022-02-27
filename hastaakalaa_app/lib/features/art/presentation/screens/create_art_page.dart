@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/register_form_bloc.dart';
 
 import '../../../../injection_container.dart';
@@ -11,8 +12,8 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<RegisterFormBloc>(),
-      child: BlocConsumer<RegisterFormBloc, RegisterFormState>(
+      create: (_) => sl<ArtFormBloc>(),
+      child: BlocConsumer<ArtFormBloc, ArtFormState>(
         listener: (context, state) {
           state.failureOrSuccess?.fold((l) => null, (r) => 'hello');
         },
