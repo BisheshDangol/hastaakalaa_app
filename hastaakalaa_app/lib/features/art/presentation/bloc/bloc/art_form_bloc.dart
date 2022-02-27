@@ -30,7 +30,16 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
             );
           },
           changedImage: (_) {},
-          changedDescription: (_) {},
+          changedDescription: (_ChangedDescription value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                description: _inputConvert.notEmpty(
+                  value: value.description,
+                ),
+              ),
+            );
+          },
           changedPrice: (_) {},
           changedForSale: (_) {},
           changedStatus: (_) {});
