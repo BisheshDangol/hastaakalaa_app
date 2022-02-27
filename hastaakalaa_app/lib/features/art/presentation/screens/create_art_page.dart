@@ -29,6 +29,7 @@ class CreateArtPage extends StatelessWidget {
                       TitleFormField(),
                       DescriptionFormField(),
                       PriceFormField(),
+                      ForSaleDropDownList(),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -141,6 +142,38 @@ class PriceFormField extends StatelessWidget {
               .price
               .fold((e) => e.msg.toString(), (_) => null)
           : null,
+    );
+  }
+}
+
+class ForSaleDropDownList extends StatefulWidget {
+  ForSaleDropDownList({Key? key}) : super(key: key);
+
+  @override
+  State<ForSaleDropDownList> createState() => _ForSaleDropDownListState();
+}
+
+class _ForSaleDropDownListState extends State<ForSaleDropDownList> {
+  String dropdownValue = 'true';
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      items: <String>['true', 'false']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      value: dropdownValue,
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+        context
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedForSale(forSale: newValue));
+      },
     );
   }
 }
