@@ -1277,7 +1277,7 @@ class _$ArtFormStateTearOff {
       required Either<InvalidInputFailure, String> title,
       required Either<InvalidInputFailure, File> image,
       required Either<InvalidInputFailure, String> description,
-      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
       required bool showErrors,
@@ -1308,7 +1308,7 @@ mixin _$ArtFormState {
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get description =>
       throw _privateConstructorUsedError;
-  Either<InvalidInputFailure, int> get price =>
+  Either<InvalidInputFailure, String> get price =>
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get forSale =>
       throw _privateConstructorUsedError;
@@ -1333,7 +1333,7 @@ abstract class $ArtFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, String> title,
       Either<InvalidInputFailure, File> image,
       Either<InvalidInputFailure, String> description,
-      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
       bool showErrors,
@@ -1380,7 +1380,7 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, int>,
+              as Either<InvalidInputFailure, String>,
       forSale: forSale == freezed
           ? _value.forSale
           : forSale // ignore: cast_nullable_to_non_nullable
@@ -1413,7 +1413,7 @@ abstract class _$ArtFormStateCopyWith<$Res>
       Either<InvalidInputFailure, String> title,
       Either<InvalidInputFailure, File> image,
       Either<InvalidInputFailure, String> description,
-      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
       bool showErrors,
@@ -1462,7 +1462,7 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, int>,
+              as Either<InvalidInputFailure, String>,
       forSale: forSale == freezed
           ? _value.forSale
           : forSale // ignore: cast_nullable_to_non_nullable
@@ -1506,7 +1506,7 @@ class _$_ArtFormState implements _ArtFormState {
   @override
   final Either<InvalidInputFailure, String> description;
   @override
-  final Either<InvalidInputFailure, int> price;
+  final Either<InvalidInputFailure, String> price;
   @override
   final Either<InvalidInputFailure, String> forSale;
   @override
@@ -1565,7 +1565,7 @@ abstract class _ArtFormState implements ArtFormState {
       required Either<InvalidInputFailure, String> title,
       required Either<InvalidInputFailure, File> image,
       required Either<InvalidInputFailure, String> description,
-      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
       required bool showErrors,
@@ -1580,7 +1580,7 @@ abstract class _ArtFormState implements ArtFormState {
   @override
   Either<InvalidInputFailure, String> get description;
   @override
-  Either<InvalidInputFailure, int> get price;
+  Either<InvalidInputFailure, String> get price;
   @override
   Either<InvalidInputFailure, String> get forSale;
   @override

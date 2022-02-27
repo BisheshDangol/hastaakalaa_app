@@ -16,4 +16,16 @@ class InputConvert {
       return left(InvalidInputFailure(value: value, msg: emptyFieldMessage));
     }
   }
+
+  Either<InvalidInputFailure, String> isInteger({String? value}) {
+    final parsed = int.tryParse(value ?? '');
+    return parsed == null
+        ? left(
+            InvalidInputFailure(
+              value: value,
+              msg: shouldBeIntegerMessage,
+            ),
+          )
+        : right(value!);
+  }
 }

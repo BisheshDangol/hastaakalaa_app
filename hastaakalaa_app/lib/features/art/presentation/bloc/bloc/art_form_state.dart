@@ -7,7 +7,7 @@ class ArtFormState with _$ArtFormState {
     required Either<InvalidInputFailure, String> title,
     required Either<InvalidInputFailure, File> image,
     required Either<InvalidInputFailure, String> description,
-    required Either<InvalidInputFailure, int> price,
+    required Either<InvalidInputFailure, String> price,
     required Either<InvalidInputFailure, String> forSale,
     required Either<InvalidInputFailure, String> status,
     required bool showErrors,

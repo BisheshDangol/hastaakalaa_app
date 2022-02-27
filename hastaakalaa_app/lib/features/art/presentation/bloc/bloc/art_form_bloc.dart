@@ -40,7 +40,16 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
               ),
             );
           },
-          changedPrice: (_) {},
+          changedPrice: (_ChangedPrice value) {
+            emit(
+              state.copyWith(
+                failureOrSuccess: null,
+                price: _inputConvert.isInteger(
+                  value: value.price.toString(),
+                ),
+              ),
+            );
+          },
           changedForSale: (_) {},
           changedStatus: (_) {});
     });
