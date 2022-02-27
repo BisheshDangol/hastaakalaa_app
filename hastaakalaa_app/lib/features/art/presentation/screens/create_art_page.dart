@@ -58,25 +58,25 @@ class EmailTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Enter you email address',
-        labelText: 'Email',
+        hintText: 'Enter you image title',
+        labelText: 'Title',
         errorStyle: TextStyle(fontSize: 13),
         errorText: context
-            .read<RegisterFormBloc>()
+            .read<ArtFormBloc>()
             .state
-            .email
+            .title
             .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
-            .read<RegisterFormBloc>()
-            .add(RegisterFormEvent.changedEmail(email: value));
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedTitle(title: value));
       },
-      validator: (_) => context.read<RegisterFormBloc>().state.showErrors
+      validator: (_) => context.read<ArtFormBloc>().state.showErrors
           ? context
-              .read<RegisterFormBloc>()
+              .read<ArtFormBloc>()
               .state
-              .email
+              .title
               .fold((e) => e.msg.toString(), (_) => null)
           : null,
     );
