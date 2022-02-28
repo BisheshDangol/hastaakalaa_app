@@ -16,8 +16,13 @@ class TokenSharedPrefernces {
     return myPrefs.getString(key) ?? "";
   }
 
-  Future<bool> containsKey(String key) async {
+  Future<bool> containsToken(String key) async {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
     return myPrefs.containsKey(key);
+  }
+
+  removeToken(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.remove(key);
   }
 }
