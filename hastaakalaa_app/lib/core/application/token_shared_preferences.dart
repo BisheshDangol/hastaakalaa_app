@@ -11,8 +11,13 @@ class TokenSharedPrefernces {
     myPrefs.setString(key, value);
   }
 
-  Future<String> getStringValue(String key) async {
+  Future<String> getTokenValue(String key) async {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
     return myPrefs.getString(key) ?? "";
+  }
+
+  Future<bool> containsKey(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.containsKey(key);
   }
 }
