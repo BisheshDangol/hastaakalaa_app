@@ -16,18 +16,32 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<Unit> createPost({required Map<String, dynamic> data}) async {
-    debugPrint(data.toString());
-    final url = Uri.parse(createPostEndPoint);
-    final header = {
+    Map<String, String> headers = {
       "content-type": "application/json",
-      "Authorization": "Token 021bdc00d8ddda2301cf900911c8accd9ada803c"
+      "Authorization": "Token 021bdc00d8ddda2301cf900911c8accd9ada803c",
     };
-    final jsonData = json.encode(data);
-    final response = await client.post(url, body: jsonData, headers: header);
-    int code = response.statusCode;
-    debugPrint('$code');
-    debugPrint(response.body);
-    if (response.statusCode == 201) {
+
+    final url = Uri.parse(createPostEndPoint);
+    var request = http.MultipartRequest("POST", url);
+    request.headers.addAll(headers);
+
+    var price = data["price"];
+
+    request.fields["title"] = data["title"];
+    request.fields["description"] = data["description"];
+    request.fields["price"] = price.toString();
+    request.fields["for_sale"] = data["for_sale"];
+    request.fields["status"] = data["status"];
+
+    var pic = await http.MultipartFile.fromPath("image", data["image"].path);
+    // Header was not provided
+    request.files.add(pic);
+    var response = await request.send();
+    var responseData = await response.stream.toBytes();
+    var responseString = String.fromCharCodes(responseData);
+    print('This is the response ${responseString}');
+
+    if (response.statusCode == 200) {
       return unit;
     } else {
       throw ServerException();
