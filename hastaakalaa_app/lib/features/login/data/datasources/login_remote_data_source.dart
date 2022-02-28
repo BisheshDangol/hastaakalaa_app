@@ -28,9 +28,8 @@ class LoginRemoteDataSource implements ILoginRemoteDataSource {
     final tokenData = json.decode(response.body);
     String tokenSession = tokenData["token"];
 
-    TokenSharedPrefernces.instance.setTokenValue("token", tokenSession);
-
     if (response.statusCode == 200) {
+      TokenSharedPrefernces.instance.setTokenValue("token", tokenSession);
       return unit;
     } else {
       throw ServerException();
