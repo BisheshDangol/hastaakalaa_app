@@ -16,7 +16,6 @@ class LoginRemoteDataSource implements ILoginRemoteDataSource {
 
   @override
   Future<Unit> createUserToken({required Map<String, dynamic> data}) async {
-    debugPrint(data.toString());
     final url = Uri.parse(getUserToken);
     final header = {"content-type": "application/json"};
     final jsonData = json.encode(data);
@@ -24,6 +23,10 @@ class LoginRemoteDataSource implements ILoginRemoteDataSource {
     int code = response.statusCode;
     debugPrint('$code');
     debugPrint(response.body);
+
+    final tokenData = json.decode(response.body);
+    String tokenSession = tokenData["token"];
+
     if (response.statusCode == 200) {
       return unit;
     } else {
