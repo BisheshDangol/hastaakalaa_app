@@ -66,11 +66,6 @@ class EmailTextFormField extends StatelessWidget {
         hintText: 'Enter you email address',
         labelText: 'Email',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .email
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -96,11 +91,6 @@ class UserNameTextFormField extends StatelessWidget {
         hintText: 'Enter your username',
         labelText: 'Username',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .userName
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -126,11 +116,6 @@ class FirstNameTextFormField extends StatelessWidget {
         hintText: 'Enter your first name',
         labelText: 'First Name',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .firstName
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -156,11 +141,6 @@ class LastNameTextFormField extends StatelessWidget {
         hintText: 'Enter your last name',
         labelText: 'Last Name',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .lastName
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -186,11 +166,6 @@ class PasswordTextFormField extends StatelessWidget {
         hintText: 'Enter a password',
         labelText: 'Password',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .password
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -216,11 +191,6 @@ class AddressTextFormField extends StatelessWidget {
         hintText: 'Enter your home address',
         labelText: 'Address',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .address
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
@@ -246,11 +216,6 @@ class PhoneNumberTextFormField extends StatelessWidget {
         hintText: 'Enter your phone number',
         labelText: 'Phone Number',
         errorStyle: TextStyle(fontSize: 13),
-        errorText: context
-            .read<RegisterFormBloc>()
-            .state
-            .phoneNumber
-            .fold((l) => l.msg, (r) => null),
       ),
       onChanged: (value) {
         context
