@@ -1,11 +1,13 @@
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
+import 'package:hastaakalaa_app/features/art/data/models/art_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:dartz/dartz.dart';
 
 abstract class IArtDataSource {
   Future<Unit> createPost({required Map<String, dynamic> data});
+  Future<List<ArtModel>> getArtList({required String data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -46,5 +48,14 @@ class ArtRemoteDataSource implements IArtDataSource {
     } else {
       throw ServerException();
     }
+  }
+
+  @override
+  Future<List<ArtModel>> getArtList({required String data} async {
+    final response = await client.get(
+      Uri.parse(fetchDoctorListEndPoint),
+    );
+    // TODO: implement getArtList
+    throw UnimplementedError();
   }
 }

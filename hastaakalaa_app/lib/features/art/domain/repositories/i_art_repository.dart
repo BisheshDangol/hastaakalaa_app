@@ -6,5 +6,5 @@ abstract class IArtRepository {
   Future<Either<Failure, Unit>> createArtPost(
       {required Map<String, dynamic> data});
 
-  Future<Either<Failure, List<ArtEntity>>> getArtList();
+  Future<Either<Failure, List<ArtEntity>>> getArtList({required String data});
 }
