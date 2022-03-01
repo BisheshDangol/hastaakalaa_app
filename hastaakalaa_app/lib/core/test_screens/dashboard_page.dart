@@ -8,11 +8,11 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Dashboard'),
-        ),
-        drawer: Drawer(
-            child: ListView(
+      appBar: AppBar(
+        title: Text('Dashboard'),
+      ),
+      drawer: Drawer(
+        child: ListView(
           children: [
             Container(
               decoration: BoxDecoration(
@@ -54,6 +54,8 @@ class DashboardPage extends StatelessWidget {
               },
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
 }

@@ -30,7 +30,7 @@ class NavigationBarPage extends StatelessWidget {
           title: ("Dashboard"),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.person_add),
+          icon: Icon(Icons.image_search_sharp),
           title: ("Discover"),
         ),
         PersistentBottomNavBarItem(
@@ -38,7 +38,7 @@ class NavigationBarPage extends StatelessWidget {
           title: ("Add"),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.note_alt_outlined),
+          icon: Icon(Icons.shopping_bag_outlined),
           title: ("Marketplace"),
         ),
         PersistentBottomNavBarItem(
