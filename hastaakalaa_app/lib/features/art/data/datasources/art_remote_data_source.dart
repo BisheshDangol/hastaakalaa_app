@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
@@ -51,11 +54,19 @@ class ArtRemoteDataSource implements IArtDataSource {
   }
 
   @override
-  Future<List<ArtModel>> getArtList({required String data} async {
+  Future<List<ArtModel>> getArtList({required String data}) async {
     final response = await client.get(
-      Uri.parse(fetchDoctorListEndPoint),
+      Uri.parse(getAllArtList),
     );
-    // TODO: implement getArtList
-    throw UnimplementedError();
+
+    if (response.statusCode == 200) {
+      debugPrint('from remote : ${response.body}');
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
   }
 }
