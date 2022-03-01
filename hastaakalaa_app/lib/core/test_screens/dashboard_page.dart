@@ -45,10 +45,11 @@ class DashboardPage extends StatelessWidget {
             ListTile(
               title: Text('Log out'),
               onTap: () async {
+                await Future.delayed(
+                  const Duration(milliseconds: 500),
+                );
                 TokenSharedPrefernces.instance.removeToken("token");
-                await Future.delayed(const Duration(milliseconds: 2000), () {
-                  CircularProgressIndicator(color: Colors.red);
-                });
+
                 Navigator.of(context, rootNavigator: true)
                     .push(MaterialPageRoute(builder: (context) => LoginPage()));
               },

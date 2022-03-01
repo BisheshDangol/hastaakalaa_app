@@ -3,7 +3,6 @@ import 'package:hastaakalaa_app/core/test_screens/dashboard_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/discover_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/marketplace_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/profile_page.dart';
-import 'package:hastaakalaa_app/core/test_screens/search_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/create_art_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
