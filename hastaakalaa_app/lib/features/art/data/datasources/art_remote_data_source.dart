@@ -1,3 +1,4 @@
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:http/http.dart' as http;
@@ -13,9 +14,11 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<Unit> createPost({required Map<String, dynamic> data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
     Map<String, String> headers = {
       "content-type": "application/json",
-      "Authorization": "Token 021bdc00d8ddda2301cf900911c8accd9ada803c",
+      "Authorization": "Token ${userToken}",
     };
 
     final url = Uri.parse(createPostEndPoint);

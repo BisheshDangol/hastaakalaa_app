@@ -4,6 +4,7 @@ import 'package:hastaakalaa_app/features/art/presentation/screens/create_art_pag
 import 'package:hastaakalaa_app/features/login/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
+import 'package:hastaakalaa_app/navigation_bar_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class LoginPage extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const CreateArtPage(),
+                  builder: (context) => NavigationBarPage(),
                 ),
               );
             }

@@ -4,19 +4,20 @@ import 'package:hastaakalaa_app/core/test_screens/discover_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/marketplace_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/profile_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/search_page.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/create_art_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 // ignore: must_be_immutable
 class NavigationBarPage extends StatelessWidget {
   PersistentTabController _controller =
-      PersistentTabController(initialIndex: 2);
+      PersistentTabController(initialIndex: 0);
   @override
   Widget build(BuildContext context) {
     List<Widget> _buildScreens() {
       return [
         DashboardPage(),
         DiscoverPage(),
-        SearchPage(),
+        CreateArtPage(),
         MarketPlacePage(),
         ProfilePage(),
       ];
@@ -25,20 +26,20 @@ class NavigationBarPage extends StatelessWidget {
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.health_and_safety),
-          title: ("Doctor"),
-        ),
-        PersistentBottomNavBarItem(
-          icon: Icon(Icons.person_add),
-          title: ("Patient"),
-        ),
-        PersistentBottomNavBarItem(
           icon: Icon(Icons.dashboard),
           title: ("Dashboard"),
         ),
         PersistentBottomNavBarItem(
+          icon: Icon(Icons.person_add),
+          title: ("Discover"),
+        ),
+        PersistentBottomNavBarItem(
+          icon: Icon(Icons.add_box_outlined),
+          title: ("Add"),
+        ),
+        PersistentBottomNavBarItem(
           icon: Icon(Icons.note_alt_outlined),
-          title: ("Appointment"),
+          title: ("Marketplace"),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.person_pin),

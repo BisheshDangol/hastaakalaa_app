@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/create_art_page.dart';
+import 'package:hastaakalaa_app/navigation_bar_page.dart';
 
 import 'features/login/presentation/screens/login_page.dart';
 // import 'features/register/presentation/screens/register_page.dart';
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       context,
       MaterialPageRoute(
         builder: (context) =>
-            tokenOrNot == true ? CreateArtPage() : LoginPage(),
+            tokenOrNot == true ? NavigationBarPage() : LoginPage(),
       ),
     );
   }
