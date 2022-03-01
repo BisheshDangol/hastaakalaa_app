@@ -3,6 +3,7 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/art/data/datasources/art_remote_data_source.dart';
+import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 
 class ArtRepositoryImpl implements IArtRepository {
@@ -26,6 +27,12 @@ class ArtRepositoryImpl implements IArtRepository {
         return Left(ServerFailure());
       }
     }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, List<ArtEntity>>> getArtList() {
+    // TODO: implement getArtList
     throw UnimplementedError();
   }
 }
