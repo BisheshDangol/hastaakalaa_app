@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
@@ -11,15 +10,17 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => sl<ArtSearchWatcherBloc>(),
-        child: SafeArea(
-            child: Column(
+      create: (_) => sl<ArtSearchWatcherBloc>(),
+      child: SafeArea(
+        child: Column(
           children: [
             SearchPatientTextFormField(),
             SearchButton(),
             PageBuilder(),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
 
