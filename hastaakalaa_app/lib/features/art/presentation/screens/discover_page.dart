@@ -20,11 +20,7 @@ class DiscoverPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      // FirstNameTextFormField(),
-                      // LastNameTextFormField(),
-                      // AddressTextFormField(),
-                      // PhoneNumberTextFormField(),
-                      // AddNewPatientButton(),
+                      SearchPatientTextFormField(),
                     ],
                   ),
                 ),
@@ -33,6 +29,45 @@ class DiscoverPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class SearchPatientTextFormField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        hintText: 'Search',
+        labelText: 'Search',
+        errorStyle: TextStyle(fontSize: 13),
+      ),
+      onChanged: (value) {
+        context
+            .read<ArtSearchWatcherBloc>()
+            .add(ArtSearchWatcherEvent.changedKeyword(keyword: value));
+      },
+      validator: (_) => context.read<ArtSearchWatcherBloc>().state.showErrors
+          ? context
+              .read<ArtSearchWatcherBloc>()
+              .state
+              .keywordTitle
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
+class AddNewPatientButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        context
+            .read<ArtSearchWatcherBloc>()
+            .add(ArtSearchWatcherEvent.pressedSearch());
+      },
+      icon: Icon(Icons.search),
     );
   }
 }
