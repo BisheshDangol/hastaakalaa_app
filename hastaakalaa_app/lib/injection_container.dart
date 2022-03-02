@@ -4,6 +4,8 @@ import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/art/data/repositories/art_repository_impl.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
@@ -31,6 +33,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => ArtFormBloc(sl(), sl()));
 
+  sl.registerFactory(() => ArtSearchWatcherBloc(sl(), sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -38,6 +42,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => RegisterUserUsecase(sl()));
 
   sl.registerLazySingleton(() => CreateArtPostUseCase(sl()));
+
+  sl.registerLazySingleton(() => GetAllArtPostUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
