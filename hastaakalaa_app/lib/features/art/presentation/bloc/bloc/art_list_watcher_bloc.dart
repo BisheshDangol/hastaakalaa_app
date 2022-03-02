@@ -13,8 +13,8 @@ part 'art_list_watcher_bloc.freezed.dart';
 class ArtListWatcherBloc
     extends Bloc<ArtListWatcherEvent, ArtListWatcherState> {
   ArtListWatcherBloc() : super(ArtListWatcherState.initial()) {
-    on<ArtListWatcherEvent>((event, emit) {
-      // TODO: implement event handler
+    on<ArtListWatcherEvent>((event, emit) async {
+      await event.map(changedKeyword: (_) {}, pressedSearch: (_) {});
     });
   }
 }
