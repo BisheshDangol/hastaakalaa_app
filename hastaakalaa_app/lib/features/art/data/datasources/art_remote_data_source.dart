@@ -55,12 +55,15 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<List<ArtModel>> getArtList({required String data}) async {
+    debugPrint('${data}');
+    debugPrint('${getAllArtList}${data}');
     final response = await client.get(
-      Uri.parse(getAllArtList),
+      Uri.parse('${getAllArtList}${data}'),
     );
 
+    // debugPrint('from remote : ${response.body}');
+
     if (response.statusCode == 200) {
-      debugPrint('from remote : ${response.body}');
       final jsonData = jsonDecode(response.body) as List;
       return jsonData
           .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))

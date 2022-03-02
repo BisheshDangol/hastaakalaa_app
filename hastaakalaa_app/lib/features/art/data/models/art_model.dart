@@ -6,7 +6,7 @@ import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 class ArtModel extends ArtEntity {
   ArtModel({
     required String title,
-    required File image,
+    required String image,
     required String description,
     required int price,
     required String forSale,
@@ -25,9 +25,9 @@ class ArtModel extends ArtEntity {
       title: json['title'],
       image: json['image'],
       description: json['description'],
-      price: json['price'],
-      forSale: json['for_sale'],
-      status: json['status'],
+      price: int.parse(json['price']),
+      forSale: json['for_sale'].toString(),
+      status: json['status'].toString(),
     );
   }
 
