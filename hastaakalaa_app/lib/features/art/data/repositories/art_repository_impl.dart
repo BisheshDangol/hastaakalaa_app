@@ -47,6 +47,15 @@ class ArtRepositoryImpl implements IArtRepository {
 
   @override
   Future<Either<Failure, List<ArtEntity>>> getAllArtPost() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.getAllArtPost();
+        debugPrint('This is the returned number $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }

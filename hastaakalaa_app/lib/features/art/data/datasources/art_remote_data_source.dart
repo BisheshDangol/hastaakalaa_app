@@ -11,6 +11,7 @@ import 'package:dartz/dartz.dart';
 abstract class IArtDataSource {
   Future<Unit> createPost({required Map<String, dynamic> data});
   Future<List<ArtModel>> getArtList({required String data});
+  Future<List<ArtModel>> getAllArtPost();
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -71,5 +72,11 @@ class ArtRemoteDataSource implements IArtDataSource {
     } else {
       throw ServerException();
     }
+  }
+
+  @override
+  Future<List<ArtModel>> getAllArtPost() {
+    // TODO: implement getAllArtPost
+    throw UnimplementedError();
   }
 }
