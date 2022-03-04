@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
@@ -48,9 +50,10 @@ class ArtContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: artList.map((e) => Text(e.title)).toList());
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      children: artList.map((e) => Text(e.title)).toList(),
+    );
   }
 }
 
