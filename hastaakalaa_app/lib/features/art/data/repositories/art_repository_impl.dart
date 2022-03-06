@@ -50,7 +50,7 @@ class ArtRepositoryImpl implements IArtRepository {
     if (await networkInfo.isConnected) {
       try {
         final remoteList = await remoteDataSource.getAllArtPost();
-        debugPrint('This is the returned number $remoteList');
+        debugPrint('This is the returned list: $remoteList');
         return Right(remoteList);
       } on ServerFailure {
         return Left(ServerFailure());
