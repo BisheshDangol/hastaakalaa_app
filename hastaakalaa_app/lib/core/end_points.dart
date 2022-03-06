@@ -7,3 +7,5 @@ const createUserEndPoint = '${baseUrl}api/user/create/';
 const createPostEndPoint = '${baseUrl}api/art/create_art/';
 
 const getAllArtList = '${baseUrl}api/art/search/custom/?search=';
+
+const getArtList = '${baseUrl}api/art/retrieve_art_post/';
