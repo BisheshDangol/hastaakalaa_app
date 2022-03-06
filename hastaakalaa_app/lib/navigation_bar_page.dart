@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hastaakalaa_app/core/test_screens/dashboard_page.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/dashboard_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/discover_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/marketplace_page.dart';
 import 'package:hastaakalaa_app/core/test_screens/profile_page.dart';
