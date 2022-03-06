@@ -75,8 +75,18 @@ class ArtRemoteDataSource implements IArtDataSource {
   }
 
   @override
-  Future<List<ArtModel>> getAllArtPost() {
-    // TODO: implement getAllArtPost
-    throw UnimplementedError();
+  Future<List<ArtModel>> getAllArtPost() async {
+    final response = await client.get(
+      Uri.parse(retrieveArtList),
+    );
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
   }
 }
