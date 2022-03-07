@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
+import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 
@@ -17,6 +18,14 @@ class DashboardPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Dashboard'),
+        ),
+        body: Container(
+          margin: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              PageBuilder(),
+            ],
+          ),
         ),
         drawer: Drawer(
           child: ListView(
@@ -65,6 +74,34 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class PageBuilder extends StatelessWidget {
+  const PageBuilder({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ArtListWatcherBloc, ArtListWatcherState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) {
+            return Container();
+          },
+          loading: (_) => CircularProgressIndicator(),
+          loaded: (e) {
+            return Expanded(
+                child: ListView(
+              children:
+                  e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
+            ));
+          },
+          failed: (e) {
+            return Container();
+          },
+        );
+      },
     );
   }
 }
