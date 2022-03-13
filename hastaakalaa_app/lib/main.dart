@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
         ),
       ),
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
