@@ -37,7 +37,14 @@ class CardWrapper extends StatelessWidget {
                   width: 10,
                 ),
                 Text(artEntity.title, style: TextStyle(fontSize: 20)),
-                Image.network(artEntity.image),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.network(
+                    artEntity.image,
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ],
             ),
           ),
