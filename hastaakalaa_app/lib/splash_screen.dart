@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // AnimatedCrossFade(
-                //   firstChild: firstChild,
+                //   firstChild: Lottie,
                 //   secondChild: secondChild,
                 //   crossFadeState: crossFadeState,
                 //   duration: duration,
