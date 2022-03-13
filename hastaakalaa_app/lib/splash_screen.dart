@@ -15,10 +15,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
+  late AnimationController _artistController;
+  bool isSketch = false;
+  bool isTextReady = false;
   bool tokenOrNot = false;
   @override
   void initState() {
     super.initState();
+    _artistController = AnimationController(vsync: this);
     _checkTokenValue();
     _navigateToLogin();
   }
