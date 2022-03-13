@@ -11,14 +11,15 @@ class ArtModel extends ArtEntity {
     required int price,
     required String forSale,
     required String status,
+    required List likes,
   }) : super(
-          title: title,
-          image: image,
-          description: description,
-          price: price,
-          forSale: forSale,
-          status: status,
-        );
+            title: title,
+            image: image,
+            description: description,
+            price: price,
+            forSale: forSale,
+            status: status,
+            likes: likes);
 
   factory ArtModel.fromJson(Map<String, dynamic> json) {
     return ArtModel(
@@ -28,6 +29,7 @@ class ArtModel extends ArtEntity {
       price: int.parse(json['price']),
       forSale: json['for_sale'].toString(),
       status: json['status'].toString(),
+      likes: json['likes'],
     );
   }
 

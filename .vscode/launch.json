@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "hastaakalaa_app",
+            "cwd": "hastaakalaa_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hastaakalaa_app (profile mode)",
+            "cwd": "hastaakalaa_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hastaakalaa_app (release mode)",
+            "cwd": "hastaakalaa_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

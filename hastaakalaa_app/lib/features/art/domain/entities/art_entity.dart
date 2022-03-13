@@ -10,6 +10,7 @@ class ArtEntity extends Equatable {
   int price;
   String forSale;
   String status;
+  List likes;
 
   ArtEntity({
     required this.title,
@@ -18,9 +19,10 @@ class ArtEntity extends Equatable {
     required this.price,
     required this.image,
     required this.status,
+    required this.likes,
   });
 
   @override
   List<Object?> get props =>
-      [title, description, price, forSale, image, status];
+      [title, description, price, forSale, image, status, likes];
 }
