@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/splash_screen.dart';
 import 'injection_container.dart' as di;
 
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
         ),
       ),
+      routes: {
+        'login': (context) => const LoginPage(),
+      },
       home: SplashScreen(),
     );
   }
