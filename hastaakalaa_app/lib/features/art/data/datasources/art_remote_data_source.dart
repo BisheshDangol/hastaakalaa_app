@@ -39,6 +39,8 @@ class ArtRemoteDataSource implements IArtDataSource {
     request.fields["for_sale"] = data["for_sale"];
     request.fields["status"] = data["status"];
 
+    debugPrint('This is the sent image: ${data["image"].path}');
+
     var pic = await http.MultipartFile.fromPath("image", data["image"].path);
     // Header was not provided
     request.files.add(pic);
