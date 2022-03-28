@@ -66,8 +66,8 @@ class DashboardPage extends StatelessWidget {
                   );
                   TokenSharedPrefernces.instance.removeToken("token");
 
-                  Navigator.of(context, rootNavigator: true).push(
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.of(context, rootNavigator: true)
+                      .popAndPushNamed('splash');
                 },
               )
             ],

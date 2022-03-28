@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/register_form_bloc.dart';
 
@@ -278,7 +277,7 @@ class AddRegisterButton extends StatelessWidget {
               .read<RegisterFormBloc>()
               .add(RegisterFormEvent.pressedCreate());
         },
-        child: Text('Login', style: TextStyle(fontSize: 20)),
+        child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
     );
   }

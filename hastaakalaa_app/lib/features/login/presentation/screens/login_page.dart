@@ -44,14 +44,6 @@ class LoginPage extends StatelessWidget {
                       SizedBox(height: 10.0),
                       AddLoginButton(),
                       SizedBox(height: 10.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Don\'t have an account?'),
-                          AddRegisterButton(),
-                        ],
-                      )
                     ],
                   ),
                 ),
@@ -131,21 +123,8 @@ class AddLoginButton extends StatelessWidget {
         onPressed: () {
           context.read<LoginBloc>().add(LoginEvent.pressedSend());
         },
-        child: Text('Login', style: TextStyle(fontSize: 20)),
+        child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
-    );
-  }
-}
-
-class AddRegisterButton extends StatelessWidget {
-  AddRegisterButton({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      child:
-          Text('Register', style: TextStyle(fontSize: 15.0, color: Colors.red)),
-      onPressed: () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => RegisterPage())),
     );
   }
 }
