@@ -36,7 +36,7 @@ class CardWrapper extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text(artEntity.title, style: TextStyle(fontSize: 20)),
+                Text(artEntity.user.toString(), style: TextStyle(fontSize: 20)),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.4,
                   width: MediaQuery.of(context).size.width,

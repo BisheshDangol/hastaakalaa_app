@@ -5,6 +5,7 @@ import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 // ignore: must_be_immutable
 class ArtModel extends ArtEntity {
   ArtModel({
+    required int id,
     required String title,
     required String image,
     required String description,
@@ -12,17 +13,23 @@ class ArtModel extends ArtEntity {
     required String forSale,
     required String status,
     required List likes,
+    required int user,
   }) : super(
-            title: title,
-            image: image,
-            description: description,
-            price: price,
-            forSale: forSale,
-            status: status,
-            likes: likes);
+          id: id,
+          title: title,
+          user: user,
+          image: image,
+          description: description,
+          price: price,
+          forSale: forSale,
+          status: status,
+          likes: likes,
+        );
 
   factory ArtModel.fromJson(Map<String, dynamic> json) {
     return ArtModel(
+      user: json['user'],
+      id: json['id'],
       title: json['title'],
       image: json['image'],
       description: json['description'],
