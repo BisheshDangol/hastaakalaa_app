@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 
 // ignore: must_be_immutable
 class ArtEntity extends Equatable {
+  String id;
   String title;
   String image;
   String description;
@@ -13,6 +14,7 @@ class ArtEntity extends Equatable {
   List likes;
 
   ArtEntity({
+    required this.id,
     required this.title,
     required this.description,
     required this.forSale,
@@ -24,5 +26,5 @@ class ArtEntity extends Equatable {
 
   @override
   List<Object?> get props =>
-      [title, description, price, forSale, image, status, likes];
+      [id, title, description, price, forSale, image, status, likes];
 }
