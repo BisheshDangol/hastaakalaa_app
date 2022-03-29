@@ -17,37 +17,84 @@ class RegisterPage extends StatelessWidget {
         },
         builder: (context, state) => Scaffold(
           body: SafeArea(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: Form(
-                autovalidateMode: AutovalidateMode.always,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      EmailTextFormField(),
-                      UserNameTextFormField(),
-                      FirstNameTextFormField(),
-                      LastNameTextFormField(),
-                      PasswordTextFormField(),
-                      AddressTextFormField(),
-                      PhoneNumberTextFormField(),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'User Type:\t\t ',
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey[700]),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    child: Stack(
+                      children: <Widget>[
+                        //stack overlaps widgets
+                        Opacity(
+                          //semi red clippath with more height and with 0.5 opacity
+                          opacity: 0.5,
+                          child: ClipPath(
+                            clipper:
+                                WaveClipper(), //set our custom wave clipper
+                            child: Container(
+                              color: Colors.deepOrangeAccent,
+                              height: 270,
+                            ),
                           ),
-                          UserTypeTextFormField(),
-                        ],
-                      ),
-                      AddRegisterButton()
-                    ],
+                        ),
+
+                        ClipPath(
+                          //upper clippath with less height
+                          clipper: WaveClipper(), //set our custom wave clipper.
+                          child: Container(
+                              padding: const EdgeInsets.only(
+                                  bottom: 50, right: 10, left: 10),
+                              color: Colors.red,
+                              height: 250,
+                              alignment: Alignment.center,
+                              child: const Text(
+                                "Register account",
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.white,
+                                  fontFamily: 'Broadley',
+                                ),
+                              )),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Form(
+                      autovalidateMode: AutovalidateMode.always,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            EmailTextFormField(),
+                            UserNameTextFormField(),
+                            FirstNameTextFormField(),
+                            LastNameTextFormField(),
+                            PasswordTextFormField(),
+                            AddressTextFormField(),
+                            PhoneNumberTextFormField(),
+                            Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'User Type:\t\t ',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.grey[700]),
+                                ),
+                                UserTypeTextFormField(),
+                              ],
+                            ),
+                            AddRegisterButton(),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -271,7 +318,9 @@ class AddRegisterButton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.green[200]),
+        style: ElevatedButton.styleFrom(
+          primary: Color.fromARGB(255, 243, 75, 75),
+        ),
         onPressed: () {
           context
               .read<RegisterFormBloc>()
