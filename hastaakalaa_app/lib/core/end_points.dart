@@ -11,3 +11,5 @@ const getAllArtList = '${baseUrl}api/art/search/custom\?search=';
 const retrieveArtList = '${baseUrl}api/art/retrieve_art_post/';
 
 const retrieveUserList = '${baseUrl}api/user/list_all_user/';
+
+const retrieveBookmarkList = '${baseUrl}/api/art/bookmark/get';
