@@ -13,17 +13,9 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => sl<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList()),
-        ),
-        BlocProvider(
-          create: (context) => sl<UserListWatcherBloc>()
-            ..add(UserListWatcherEvent.retrieveUserList()),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => sl<ArtListWatcherBloc>()
+        ..add(ArtListWatcherEvent.retrieveDoctorList()),
       child: Scaffold(
         appBar: AppBar(
           title: Text('Dashboard'),
