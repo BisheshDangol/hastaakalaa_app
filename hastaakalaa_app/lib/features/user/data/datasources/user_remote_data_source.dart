@@ -14,7 +14,7 @@ class UserRemoteDataSource implements IUserDataSource {
   @override
   Future<List<UserModel>> getAllUser() async {
     final response = await client.get(
-      Uri.parse(retrieveArtList),
+      Uri.parse(retrieveUserList),
     );
 
     if (response.statusCode == 200) {
