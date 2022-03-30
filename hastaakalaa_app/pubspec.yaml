@@ -81,10 +81,8 @@ flutter:
       fonts:
         - asset: assets/fonts/OpenSans-Regular.ttf
     - family: Broadley
-      fonts: 
+      fonts:
         - asset: assets/fonts/Broadley-Sans.ttf
-
-        
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
