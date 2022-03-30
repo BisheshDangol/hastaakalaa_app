@@ -9,8 +9,8 @@ class UserEntity extends Equatable {
   String phoneNumber;
   String address;
   String userType;
-  List follower;
-  List followedBy;
+  dynamic follower;
+  dynamic followedBy;
 
   UserEntity({
     required this.address,

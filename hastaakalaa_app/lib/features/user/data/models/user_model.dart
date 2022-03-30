@@ -1,5 +1,6 @@
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 
+// ignore: must_be_immutable
 class UserModel extends UserEntity {
   UserModel({
     required String email,
@@ -9,8 +10,8 @@ class UserModel extends UserEntity {
     required String phoneNumber,
     required String address,
     required String userType,
-    required List follower,
-    required List followedBy,
+    required dynamic follower,
+    required dynamic followedBy,
   }) : super(
           email: email,
           userName: userName,

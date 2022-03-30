@@ -4,6 +4,7 @@ import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
 
 import '../../../../injection_container.dart';
 
@@ -12,9 +13,17 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<ArtListWatcherBloc>()
-        ..add(ArtListWatcherEvent.retrieveDoctorList()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList()),
+        ),
+        BlocProvider(
+          create: (context) => sl<UserListWatcherBloc>()
+            ..add(UserListWatcherEvent.retrieveUserList()),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text('Dashboard'),

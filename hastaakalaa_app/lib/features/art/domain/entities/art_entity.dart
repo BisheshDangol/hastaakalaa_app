@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 class ArtEntity extends Equatable {
   int id;
   String title;
-  int user;
+  Map<String, dynamic> user;
   String image;
   String description;
   int price;

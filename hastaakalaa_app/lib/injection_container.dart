@@ -19,6 +19,11 @@ import 'package:hastaakalaa_app/features/register/data/repositories/register_rep
 import 'package:hastaakalaa_app/features/register/domain/repositories/i_register_repository.dart';
 import 'package:hastaakalaa_app/features/register/domain/usecases/register_user_usecase.dart';
 import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/register_form_bloc.dart';
+import 'package:hastaakalaa_app/features/user/data/datasources/user_remote_data_source.dart';
+import 'package:hastaakalaa_app/features/user/data/repositories/user_repository_impl.dart';
+import 'package:hastaakalaa_app/features/user/domain/repositories/i_user_repository.dart';
+import 'package:hastaakalaa_app/features/user/domain/usecases/get_all_user_usecase.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
@@ -39,6 +44,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => ArtListWatcherBloc(sl()));
 
+  sl.registerFactory(() => UserListWatcherBloc(sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -50,6 +57,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetAllArtPostUseCase(sl()));
 
   sl.registerLazySingleton(() => GetAllArtPostListUsecase(sl()));
+
+  sl.registerLazySingleton(() => GetAllUserUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
@@ -64,6 +73,9 @@ Future<void> init() async {
   sl.registerLazySingleton<IArtRepository>(
       () => ArtRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
 
+  sl.registerLazySingleton<IUserRepository>(
+      () => UserRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
+
   //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
@@ -76,6 +88,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton<IArtDataSource>(
       () => ArtRemoteDataSource(client: sl()));
+
+  sl.registerLazySingleton<IUserDataSource>(
+      () => UserRemoteDataSource(client: sl()));
 
   sl.registerLazySingleton(() => http.Client());
 

@@ -15,8 +15,8 @@ class UserListWatcherBloc
   final GetAllUserUsecase _getAllUserUsecase;
   UserListWatcherBloc(this._getAllUserUsecase)
       : super(UserListWatcherState.initial()) {
-    on<UserListWatcherEvent>((event, emit) {
-      event.map(retrieveUserList: (_) async {
+    on<UserListWatcherEvent>((event, emit) async {
+      await event.map(retrieveUserList: (_) async {
         emit(UserListWatcherState.loading());
 
         final userList = await _getAllUserUsecase.call(NoParams());
