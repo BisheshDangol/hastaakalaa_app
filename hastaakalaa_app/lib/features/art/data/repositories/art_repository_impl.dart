@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hastaakalaa_app/core/end_points.dart';
+import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
@@ -60,8 +62,16 @@ class ArtRepositoryImpl implements IArtRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> likePost({required int? data}) {
-    // TODO: implement likePost
+  Future<Either<Failure, Unit>> likePost({required int? data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.postLike(data: data);
+
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }

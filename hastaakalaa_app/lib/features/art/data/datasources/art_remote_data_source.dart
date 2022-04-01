@@ -12,6 +12,7 @@ abstract class IArtDataSource {
   Future<Unit> createPost({required Map<String, dynamic> data});
   Future<List<ArtModel>> getArtList({required String data});
   Future<List<ArtModel>> getAllArtPost();
+  Future<Unit> postLike({required int? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -87,6 +88,22 @@ class ArtRemoteDataSource implements IArtDataSource {
       return jsonData
           .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
           .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<Unit> postLike({required int? data}) async {
+    String endPointPatientValue = data.toString();
+    final url = Uri.parse('$likePostEndpoint$endPointPatientValue');
+    final header = {"content-type": "application/json"};
+    final response = await client.post(url, headers: header);
+
+    int code = response.statusCode;
+    debugPrint('$code');
+    if (response.statusCode == 204) {
+      return unit;
     } else {
       throw ServerException();
     }
