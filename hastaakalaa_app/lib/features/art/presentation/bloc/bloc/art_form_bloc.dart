@@ -8,6 +8,7 @@ import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/art/data/models/art_model.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
 
 part 'art_form_event.dart';
 part 'art_form_state.dart';
@@ -16,7 +17,9 @@ part 'art_form_bloc.freezed.dart';
 class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
   final InputConvert _inputConvert;
   final CreateArtPostUseCase _registerUserUsecase;
-  ArtFormBloc(this._inputConvert, this._registerUserUsecase)
+  final LikePostUsecase _likePostUsecase;
+  ArtFormBloc(
+      this._inputConvert, this._registerUserUsecase, this._likePostUsecase)
       : super(ArtFormState.initial()) {
     on<ArtFormEvent>(
       (event, emit) async {
@@ -103,6 +106,28 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
                 status: _inputConvert.notEmpty(
                   value: value.status,
                 ),
+              ),
+            );
+          },
+          pressedLike: (_) async {
+            emit(state.copyWith(isLoading: true, failureOrSuccess: null));
+
+            Either<Failure, Unit>? failureOrSuccess;
+
+            failureOrSuccess = await _likePostUsecase.call(state.id);
+
+            emit(
+              state.copyWith(
+                isLoading: false,
+                failureOrSuccess: failureOrSuccess,
+                showErrors: true,
+              ),
+            );
+          },
+          changedId: (_ChangedId value) {
+            emit(
+              state.copyWith(
+                id: value.id,
               ),
             );
           },

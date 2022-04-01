@@ -4,6 +4,7 @@ part of 'art_form_bloc.dart';
 class ArtFormState with _$ArtFormState {
   const factory ArtFormState({
     required bool isLoading,
+    int? id,
     required Either<InvalidInputFailure, String> title,
     required Either<InvalidInputFailure, File> image,
     required Either<InvalidInputFailure, String> description,
