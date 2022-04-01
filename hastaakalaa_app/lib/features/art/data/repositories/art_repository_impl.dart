@@ -58,4 +58,10 @@ class ArtRepositoryImpl implements IArtRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, Unit>> likePost({required int? data}) {
+    // TODO: implement likePost
+    throw UnimplementedError();
+  }
 }
