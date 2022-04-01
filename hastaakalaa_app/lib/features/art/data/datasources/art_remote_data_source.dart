@@ -12,7 +12,7 @@ abstract class IArtDataSource {
   Future<Unit> createPost({required Map<String, dynamic> data});
   Future<List<ArtModel>> getArtList({required String data});
   Future<List<ArtModel>> getAllArtPost();
-  Future<Unit> postLike({required int? data});
+  Future<String> postLike({required int? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -94,7 +94,7 @@ class ArtRemoteDataSource implements IArtDataSource {
   }
 
   @override
-  Future<Unit> postLike({required int? data}) async {
+  Future<String> postLike({required int? data}) async {
     String userToken =
         await TokenSharedPrefernces.instance.getTokenValue("token");
     Map<String, String> headers = {
@@ -108,8 +108,9 @@ class ArtRemoteDataSource implements IArtDataSource {
 
     int code = response.statusCode;
     debugPrint('$code');
+    debugPrint(response.body);
     if (response.statusCode == 200) {
-      return unit;
+      return response.body;
     } else {
       throw ServerException();
     }

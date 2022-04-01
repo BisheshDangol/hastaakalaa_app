@@ -4,12 +4,12 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 
-class LikePostUsecase implements Usecase<Unit, int?> {
+class LikePostUsecase implements Usecase<String, int?> {
   IArtRepository repository;
 
   LikePostUsecase(this.repository);
   @override
-  Future<Either<Failure, Unit>> call(int? params) async {
+  Future<Either<Failure, String>> call(int? params) async {
     return await repository.likePost(data: params);
   }
 }

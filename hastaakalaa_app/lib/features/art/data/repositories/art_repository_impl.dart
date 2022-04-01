@@ -62,12 +62,12 @@ class ArtRepositoryImpl implements IArtRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> likePost({required int? data}) async {
+  Future<Either<Failure, String>> likePost({required int? data}) async {
     if (await networkInfo.isConnected) {
       try {
         final remoteList = await remoteDataSource.postLike(data: data);
 
-        return Right(remoteList);
+        return Right(remoteList.toString());
       } on ServerFailure {
         return Left(ServerFailure());
       }

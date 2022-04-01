@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/test_screens/search_page.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 
 class CardWrapper extends StatelessWidget {
@@ -83,9 +84,17 @@ class LikeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
-        final snackBar = SnackBar(content: const Text('Yay! A SnackBar!'));
-        state.failureOrSuccess?.fold((l) => null,
-            (r) => ScaffoldMessenger.of(context).showSnackBar(snackBar));
+        String response = '';
+        state.failureOrSuccess
+            ?.fold((l) => null, (r) => response = r.toString());
+        if (response == 'Found') {
+          CircularProgressIndicator();
+          context.read<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList());
+        } else {
+          context.read<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList());
+        }
       },
       builder: (context, state) {
         return BlocBuilder<ArtFormBloc, ArtFormState>(

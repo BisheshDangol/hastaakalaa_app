@@ -12,7 +12,7 @@ class ArtFormState with _$ArtFormState {
     required Either<InvalidInputFailure, String> forSale,
     required Either<InvalidInputFailure, String> status,
     required bool showErrors,
-    Either<Failure, Unit>? failureOrSuccess,
+    Either<Failure, dynamic>? failureOrSuccess,
   }) = _ArtFormState;
 
   factory ArtFormState.initial() => ArtFormState(

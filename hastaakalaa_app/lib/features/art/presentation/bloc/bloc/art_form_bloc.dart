@@ -112,7 +112,7 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
           pressedLike: (_) async {
             emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-            Either<Failure, Unit>? failureOrSuccess;
+            Either<Failure, String>? failureOrSuccess;
 
             failureOrSuccess = await _likePostUsecase.call(state.id);
 

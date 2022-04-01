@@ -10,5 +10,5 @@ abstract class IArtRepository {
 
   Future<Either<Failure, List<ArtEntity>>> getAllArtPost();
 
-  Future<Either<Failure, Unit>> likePost({required int? data});
+  Future<Either<Failure, String>> likePost({required int? data});
 }
