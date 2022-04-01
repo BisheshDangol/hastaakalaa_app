@@ -58,12 +58,13 @@ class CardWrapper extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                            artEntity.likes.length == 0
-                                ? ''
-                                : artEntity.likes.length.toString(),
-                            style: TextStyle(
-                              fontSize: 18,
-                            )),
+                          artEntity.likes.length == 0
+                              ? ''
+                              : artEntity.likes.length.toString(),
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
                         IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.favorite_outline),
@@ -88,3 +89,24 @@ class CardWrapper extends StatelessWidget {
     );
   }
 }
+
+// class LikePost extends StatefulWidget {
+//   final ArtEntity art;
+
+//   LikePost({Key? key, required this.art}) : super(key: key);
+
+//   @override
+//   State<LikePost> createState() => _LikePostState();
+// }
+
+// class _LikePostState extends State<LikePost> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Text(
+//       widget.art.likes.length == 0 ? '' : widget.art.likes.length.toString(),
+//       style: TextStyle(
+//         fontSize: 18,
+//       ),
+//     );
+//   }
+// }
