@@ -95,14 +95,20 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<Unit> postLike({required int? data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
     String endPointPatientValue = data.toString();
     final url = Uri.parse('$likePostEndpoint$endPointPatientValue');
-    final header = {"content-type": "application/json"};
-    final response = await client.post(url, headers: header);
+    debugPrint(url.toString());
+    final response = await client.post(url, headers: headers);
 
     int code = response.statusCode;
     debugPrint('$code');
-    if (response.statusCode == 204) {
+    if (response.statusCode == 200) {
       return unit;
     } else {
       throw ServerException();

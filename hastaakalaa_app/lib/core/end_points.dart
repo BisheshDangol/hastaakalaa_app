@@ -12,7 +12,7 @@ const retrieveArtList = '${baseUrl}api/art/retrieve_art_post/';
 
 const retrieveUserList = '${baseUrl}api/user/list_all_user/';
 
-const retrieveBookmarkList = '${baseUrl}/api/art/bookmark/get';
+const retrieveBookmarkList = '${baseUrl}api/art/bookmark/get';
 
 // Endpoint to like art
-const likePostEndpoint = '${baseUrl}/api/art/likes/';
+const likePostEndpoint = '${baseUrl}api/art/likes/';

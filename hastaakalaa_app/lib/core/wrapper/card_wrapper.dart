@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/test_screens/search_page.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 
 class CardWrapper extends StatelessWidget {
   final ArtEntity artEntity;
@@ -55,24 +57,7 @@ class CardWrapper extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        Text(
-                          artEntity.likes.length == 0
-                              ? ''
-                              : artEntity.likes.length.toString(),
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.favorite_outline),
-                          iconSize: 30,
-                          color: Colors.red,
-                        ),
-                      ],
-                    ),
+                    LikeButton(art: artEntity),
                     IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.bookmark_add_outlined),
@@ -90,23 +75,45 @@ class CardWrapper extends StatelessWidget {
   }
 }
 
-// class LikePost extends StatefulWidget {
-//   final ArtEntity art;
+class LikeButton extends StatelessWidget {
+  final ArtEntity art;
+  const LikeButton({Key? key, required this.art}) : super(key: key);
 
-//   LikePost({Key? key, required this.art}) : super(key: key);
-
-//   @override
-//   State<LikePost> createState() => _LikePostState();
-// }
-
-// class _LikePostState extends State<LikePost> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Text(
-//       widget.art.likes.length == 0 ? '' : widget.art.likes.length.toString(),
-//       style: TextStyle(
-//         fontSize: 18,
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<ArtFormBloc, ArtFormState>(
+      listener: (context, state) {
+        final snackBar = SnackBar(content: const Text('Yay! A SnackBar!'));
+        state.failureOrSuccess?.fold((l) => null,
+            (r) => ScaffoldMessenger.of(context).showSnackBar(snackBar));
+      },
+      builder: (context, state) {
+        return BlocBuilder<ArtFormBloc, ArtFormState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                Text(
+                  art.likes.length == 0 ? '' : art.likes.length.toString(),
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    context
+                        .read<ArtFormBloc>()
+                        .add(ArtFormEvent.changedId(id: art.id));
+                    context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
+                  },
+                  icon: Icon(Icons.favorite_outline),
+                  iconSize: 30,
+                  color: Colors.red,
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+}
