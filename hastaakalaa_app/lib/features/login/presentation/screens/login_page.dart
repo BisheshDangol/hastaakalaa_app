@@ -84,6 +84,7 @@ class LoginPage extends StatelessWidget {
                             Divider(),
                             PasswordTextFormField(),
                             SizedBox(height: 10.0),
+                            Divider(),
                             AddLoginButton(),
                             SizedBox(height: 10.0),
                           ],
