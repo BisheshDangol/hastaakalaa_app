@@ -76,8 +76,16 @@ class ArtRepositoryImpl implements IArtRepository {
   }
 
   @override
-  Future<Either<Failure, String>> bookmarkPost({required int? data}) {
-    // TODO: implement bookmarkPost
+  Future<Either<Failure, String>> bookmarkPost({required int? data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.postBookmark(data: data);
+
+        return Right(remoteList.toString());
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }
