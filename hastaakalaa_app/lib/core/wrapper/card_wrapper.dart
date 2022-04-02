@@ -57,6 +57,7 @@ class CardWrapper extends StatelessWidget {
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     LikeButton(art: artEntity),
                     BookmarkButton(art: artEntity)
