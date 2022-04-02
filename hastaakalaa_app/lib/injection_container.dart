@@ -3,6 +3,7 @@ import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/art/data/repositories/art_repository_impl.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
@@ -62,6 +63,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetAllUserUsecase(sl()));
 
   sl.registerLazySingleton(() => LikePostUsecase(sl()));
+
+  sl.registerLazySingleton(() => BookmarkPostUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
