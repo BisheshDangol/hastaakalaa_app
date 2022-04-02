@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';

@@ -7,9 +7,9 @@ import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_use
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
