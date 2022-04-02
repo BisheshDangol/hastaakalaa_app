@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
-import 'package:hastaakalaa_app/features/register/presentation/bloc/bloc/register_form_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../injection_container.dart';

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/test_screens/search_page.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/bloc/art_form_bloc.dart';
 
 class CardWrapper extends StatelessWidget {
   final ArtEntity artEntity;
