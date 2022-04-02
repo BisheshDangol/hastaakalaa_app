@@ -74,4 +74,10 @@ class ArtRepositoryImpl implements IArtRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, String>> bookmarkPost({required int? data}) {
+    // TODO: implement bookmarkPost
+    throw UnimplementedError();
+  }
 }
