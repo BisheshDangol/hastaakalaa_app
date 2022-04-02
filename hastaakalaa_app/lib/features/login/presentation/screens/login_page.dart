@@ -81,6 +81,7 @@ class LoginPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             UserNameTextFormField(),
+                            Divider(),
                             PasswordTextFormField(),
                             SizedBox(height: 10.0),
                             AddLoginButton(),
@@ -107,6 +108,10 @@ class UserNameTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your email address',
         labelText: 'Email',
         errorStyle: TextStyle(fontSize: 13),
@@ -134,6 +139,10 @@ class PasswordTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your password',
         labelText: 'Password',
         errorStyle: TextStyle(fontSize: 13),
