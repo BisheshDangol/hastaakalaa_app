@@ -4,6 +4,7 @@ part of 'art_form_bloc.dart';
 class ArtFormEvent with _$ArtFormEvent {
   const factory ArtFormEvent.pressedCreate() = _PressedCreate;
   const factory ArtFormEvent.pressedLike() = _PressedLike;
+  const factory ArtFormEvent.pressedBookmark() = _PressedBookmark;
   const factory ArtFormEvent.changedId({int? id}) = _ChangedId;
   const factory ArtFormEvent.changedTitle({String? title}) = _ChangedTitle;
   const factory ArtFormEvent.changedImage({File? image}) = _ChangedImage;

@@ -131,6 +131,7 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
               ),
             );
           },
+          pressedBookmark: (_PressedBookmark value) {},
         );
       },
     );

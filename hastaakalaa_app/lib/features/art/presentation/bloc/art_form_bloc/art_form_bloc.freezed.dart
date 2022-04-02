@@ -26,6 +26,10 @@ class _$ArtFormEventTearOff {
     return const _PressedLike();
   }
 
+  _PressedBookmark pressedBookmark() {
+    return const _PressedBookmark();
+  }
+
   _ChangedId changedId({int? id}) {
     return _ChangedId(
       id: id,
@@ -78,6 +82,7 @@ mixin _$ArtFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -91,6 +96,7 @@ mixin _$ArtFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -104,6 +110,7 @@ mixin _$ArtFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -118,6 +125,7 @@ mixin _$ArtFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -131,6 +139,7 @@ mixin _$ArtFormEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -144,6 +153,7 @@ mixin _$ArtFormEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -215,6 +225,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -231,6 +242,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -247,6 +259,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -267,6 +280,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -283,6 +297,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -299,6 +314,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -361,6 +377,7 @@ class _$_PressedLike implements _PressedLike {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -377,6 +394,7 @@ class _$_PressedLike implements _PressedLike {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -393,6 +411,7 @@ class _$_PressedLike implements _PressedLike {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -413,6 +432,7 @@ class _$_PressedLike implements _PressedLike {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -429,6 +449,7 @@ class _$_PressedLike implements _PressedLike {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -445,6 +466,7 @@ class _$_PressedLike implements _PressedLike {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -463,6 +485,159 @@ class _$_PressedLike implements _PressedLike {
 
 abstract class _PressedLike implements ArtFormEvent {
   const factory _PressedLike() = _$_PressedLike;
+}
+
+/// @nodoc
+abstract class _$PressedBookmarkCopyWith<$Res> {
+  factory _$PressedBookmarkCopyWith(
+          _PressedBookmark value, $Res Function(_PressedBookmark) then) =
+      __$PressedBookmarkCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PressedBookmarkCopyWithImpl<$Res>
+    extends _$ArtFormEventCopyWithImpl<$Res>
+    implements _$PressedBookmarkCopyWith<$Res> {
+  __$PressedBookmarkCopyWithImpl(
+      _PressedBookmark _value, $Res Function(_PressedBookmark) _then)
+      : super(_value, (v) => _then(v as _PressedBookmark));
+
+  @override
+  _PressedBookmark get _value => super._value as _PressedBookmark;
+}
+
+/// @nodoc
+
+class _$_PressedBookmark implements _PressedBookmark {
+  const _$_PressedBookmark();
+
+  @override
+  String toString() {
+    return 'ArtFormEvent.pressedBookmark()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _PressedBookmark);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
+    required TResult Function(int? id) changedId,
+    required TResult Function(String? title) changedTitle,
+    required TResult Function(File? image) changedImage,
+    required TResult Function(String? description) changedDescription,
+    required TResult Function(int? price) changedPrice,
+    required TResult Function(String? forSale) changedForSale,
+    required TResult Function(String? status) changedStatus,
+  }) {
+    return pressedBookmark();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+  }) {
+    return pressedBookmark?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+    required TResult orElse(),
+  }) {
+    if (pressedBookmark != null) {
+      return pressedBookmark();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_ChangedId value) changedId,
+    required TResult Function(_ChangedTitle value) changedTitle,
+    required TResult Function(_ChangedImage value) changedImage,
+    required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedPrice value) changedPrice,
+    required TResult Function(_ChangedForSale value) changedForSale,
+    required TResult Function(_ChangedStatus value) changedStatus,
+  }) {
+    return pressedBookmark(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+  }) {
+    return pressedBookmark?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+    required TResult orElse(),
+  }) {
+    if (pressedBookmark != null) {
+      return pressedBookmark(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedBookmark implements ArtFormEvent {
+  const factory _PressedBookmark() = _$_PressedBookmark;
 }
 
 /// @nodoc
@@ -530,6 +705,7 @@ class _$_ChangedId implements _ChangedId {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -546,6 +722,7 @@ class _$_ChangedId implements _ChangedId {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -562,6 +739,7 @@ class _$_ChangedId implements _ChangedId {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -582,6 +760,7 @@ class _$_ChangedId implements _ChangedId {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -598,6 +777,7 @@ class _$_ChangedId implements _ChangedId {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -614,6 +794,7 @@ class _$_ChangedId implements _ChangedId {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -705,6 +886,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -721,6 +903,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -737,6 +920,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -757,6 +941,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -773,6 +958,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -789,6 +975,7 @@ class _$_ChangedTitle implements _ChangedTitle {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -880,6 +1067,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -896,6 +1084,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -912,6 +1101,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -932,6 +1122,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -948,6 +1139,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -964,6 +1156,7 @@ class _$_ChangedImage implements _ChangedImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1057,6 +1250,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1073,6 +1267,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1089,6 +1284,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1109,6 +1305,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1125,6 +1322,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1141,6 +1339,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1233,6 +1432,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1249,6 +1449,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1265,6 +1466,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1285,6 +1487,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1301,6 +1504,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1317,6 +1521,7 @@ class _$_ChangedPrice implements _ChangedPrice {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1409,6 +1614,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1425,6 +1631,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1441,6 +1648,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1461,6 +1669,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1477,6 +1686,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1493,6 +1703,7 @@ class _$_ChangedForSale implements _ChangedForSale {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1585,6 +1796,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1601,6 +1813,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1617,6 +1830,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1637,6 +1851,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1653,6 +1868,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1669,6 +1885,7 @@ class _$_ChangedStatus implements _ChangedStatus {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
