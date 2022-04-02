@@ -39,7 +39,7 @@ Future<void> init() async {
 
   sl.registerFactory(() => RegisterFormBloc(sl(), sl()));
 
-  sl.registerFactory(() => ArtFormBloc(sl(), sl(), sl()));
+  sl.registerFactory(() => ArtFormBloc(sl(), sl(), sl(), sl()));
 
   sl.registerFactory(() => ArtSearchWatcherBloc(sl(), sl()));
 

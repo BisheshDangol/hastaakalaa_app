@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/art/data/models/art_model.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
 
@@ -18,8 +19,9 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
   final InputConvert _inputConvert;
   final CreateArtPostUseCase _registerUserUsecase;
   final LikePostUsecase _likePostUsecase;
-  ArtFormBloc(
-      this._inputConvert, this._registerUserUsecase, this._likePostUsecase)
+  final BookmarkPostUsecase _bookmarkPostUsecase;
+  ArtFormBloc(this._inputConvert, this._registerUserUsecase,
+      this._likePostUsecase, this._bookmarkPostUsecase)
       : super(ArtFormState.initial()) {
     on<ArtFormEvent>(
       (event, emit) async {
@@ -131,7 +133,21 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
               ),
             );
           },
-          pressedBookmark: (_PressedBookmark value) {},
+          pressedBookmark: (_) async {
+            emit(state.copyWith(isLoading: true, failureOrSuccess: null));
+
+            Either<Failure, String>? failureOrSuccess;
+
+            failureOrSuccess = await _bookmarkPostUsecase.call(state.id);
+
+            emit(
+              state.copyWith(
+                isLoading: false,
+                failureOrSuccess: failureOrSuccess,
+                showErrors: true,
+              ),
+            );
+          },
         );
       },
     );
