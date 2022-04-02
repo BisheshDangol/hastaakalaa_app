@@ -126,7 +126,7 @@ class ArtRemoteDataSource implements IArtDataSource {
       "Authorization": "Token ${userToken}",
     };
     String endPointPatientValue = data.toString();
-    final url = Uri.parse('$likePostEndpoint$endPointPatientValue');
+    final url = Uri.parse('$bookmarkPostEndpoint$endPointPatientValue');
     debugPrint(url.toString());
     final response = await client.post(url, headers: headers);
 
