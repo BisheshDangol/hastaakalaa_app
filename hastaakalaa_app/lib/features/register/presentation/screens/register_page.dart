@@ -65,13 +65,21 @@ class RegisterPage extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
+                            Divider(),
                             EmailTextFormField(),
+                            Divider(),
                             UserNameTextFormField(),
+                            Divider(),
                             FirstNameTextFormField(),
+                            Divider(),
                             LastNameTextFormField(),
+                            Divider(),
                             PasswordTextFormField(),
+                            Divider(),
                             AddressTextFormField(),
+                            Divider(),
                             PhoneNumberTextFormField(),
+                            Divider(),
                             Row(
                               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -85,6 +93,7 @@ class RegisterPage extends StatelessWidget {
                                 UserTypeTextFormField(),
                               ],
                             ),
+                            Divider(),
                             AddRegisterButton(),
                             SizedBox(
                               height: 10,
@@ -109,6 +118,11 @@ class EmailTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter you email address',
         labelText: 'Email',
         errorStyle: TextStyle(fontSize: 13),
@@ -134,6 +148,11 @@ class UserNameTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your username',
         labelText: 'Username',
         errorStyle: TextStyle(fontSize: 13),
@@ -159,6 +178,11 @@ class FirstNameTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your first name',
         labelText: 'First Name',
         errorStyle: TextStyle(fontSize: 13),
@@ -184,6 +208,11 @@ class LastNameTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your last name',
         labelText: 'Last Name',
         errorStyle: TextStyle(fontSize: 13),
@@ -209,6 +238,11 @@ class PasswordTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter a password',
         labelText: 'Password',
         errorStyle: TextStyle(fontSize: 13),
@@ -234,6 +268,11 @@ class AddressTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your home address',
         labelText: 'Address',
         errorStyle: TextStyle(fontSize: 13),
@@ -259,6 +298,11 @@ class PhoneNumberTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              const BorderSide(color: Colors.deepOrangeAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         hintText: 'Enter your phone number',
         labelText: 'Phone Number',
         errorStyle: TextStyle(fontSize: 13),
