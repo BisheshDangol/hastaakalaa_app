@@ -13,6 +13,7 @@ abstract class IArtDataSource {
   Future<List<ArtModel>> getArtList({required String data});
   Future<List<ArtModel>> getAllArtPost();
   Future<String> postLike({required int? data});
+  Future<String> postBookmark({required int? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -95,6 +96,29 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<String> postLike({required int? data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    String endPointPatientValue = data.toString();
+    final url = Uri.parse('$likePostEndpoint$endPointPatientValue');
+    debugPrint(url.toString());
+    final response = await client.post(url, headers: headers);
+
+    int code = response.statusCode;
+    debugPrint('$code');
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<String> postBookmark({required int? data}) async {
     String userToken =
         await TokenSharedPrefernces.instance.getTokenValue("token");
     Map<String, String> headers = {

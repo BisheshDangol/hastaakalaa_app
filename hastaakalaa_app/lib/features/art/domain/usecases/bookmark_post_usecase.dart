@@ -10,7 +10,7 @@ class BookmarkPostUsecase implements Usecase<String, int?> {
   BookmarkPostUsecase(this.repository);
   @override
   Future<Either<Failure, String>> call(int? params) async {
-    return await repository.likePost(data: params);
+    return await repository.bookmarkPost(data: params);
   }
 }
 
