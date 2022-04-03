@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
+import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
@@ -52,7 +54,11 @@ class ArtContainer extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      children: artList.map((e) => Text(e.title)).toList(),
+      children: artList
+          .map((e) => SearchWrapper(
+                artEntity: e,
+              ))
+          .toList(),
     );
   }
 }
