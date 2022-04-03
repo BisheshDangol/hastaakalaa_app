@@ -31,7 +31,8 @@ class CardWrapper extends StatelessWidget {
               borderRadius: BorderRadius.circular(25.0),
             ),
             child: Column(
-              children: [
+              children: <Widgets>[
+                Padding(padding: padding)
                 // Row(
                 //   children: [
                 //     Padding(
