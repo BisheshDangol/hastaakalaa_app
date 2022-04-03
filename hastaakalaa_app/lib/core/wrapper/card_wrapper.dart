@@ -31,8 +31,58 @@ class CardWrapper extends StatelessWidget {
               borderRadius: BorderRadius.circular(25.0),
             ),
             child: Column(
-              children: <Widgets>[
-                Padding(padding: padding)
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: <Widget>[
+                      ListTile(
+                        leading: Container(
+                          width: 50.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black45,
+                                offset: Offset(0, 2),
+                                blurRadius: 6.0,
+                              ),
+                            ],
+                          ),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.black45,
+                          ),
+                        ),
+                        title: Text(
+                          artEntity.user['user_name'],
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(artEntity.user['user_type']),
+                        trailing: IconButton(
+                          icon: Icon(Icons.more_horiz),
+                          color: Colors.black,
+                          onPressed: () => print('More'),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(10.0),
+                        width: double.infinity,
+                        height: 340.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                        child: Image.network(
+                          artEntity.image,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
                 // Row(
                 //   children: [
                 //     Padding(
