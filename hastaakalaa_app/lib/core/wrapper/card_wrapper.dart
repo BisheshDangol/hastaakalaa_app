@@ -79,40 +79,35 @@ class LikeButton extends StatelessWidget {
         String response = '';
         state.failureOrSuccess
             ?.fold((l) => null, (r) => response = r.toString());
-        if (response == 'Found') {
-          CircularProgressIndicator();
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        } else {
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        }
+        // if (response == 'Found') {
+        //   CircularProgressIndicator();
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // } else {
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // }
       },
       builder: (context, state) {
-        return BlocBuilder<ArtFormBloc, ArtFormState>(
-          builder: (context, state) {
-            return Column(
-              children: [
-                Text(
-                  art.likes.length == 0 ? '' : art.likes.length.toString(),
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    context
-                        .read<ArtFormBloc>()
-                        .add(ArtFormEvent.changedId(id: art.id));
-                    context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
-                  },
-                  icon: Icon(Icons.favorite_outline),
-                  iconSize: 30,
-                  color: Colors.red,
-                ),
-              ],
-            );
-          },
+        return Column(
+          children: [
+            Text(
+              art.likes.length == 0 ? '' : art.likes.length.toString(),
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                context
+                    .read<ArtListWatcherBloc>()
+                    .add(ArtListWatcherEvent.pressedLike(id: art.id));
+              },
+              icon: Icon(Icons.favorite_outline),
+              iconSize: 30,
+              color: Colors.red,
+            ),
+          ],
         );
       },
     );
@@ -125,35 +120,16 @@ class BookmarkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ArtFormBloc, ArtFormState>(
-      listener: (context, state) {
-        String response = '';
-        state.failureOrSuccess
-            ?.fold((l) => null, (r) => response = r.toString());
-        if (response == 'Found') {
-          CircularProgressIndicator();
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        } else {
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        }
-      },
+    return BlocBuilder<ArtFormBloc, ArtFormState>(
       builder: (context, state) {
-        return BlocBuilder<ArtFormBloc, ArtFormState>(
-          builder: (context, state) {
-            return IconButton(
-              onPressed: () {
-                context
-                    .read<ArtFormBloc>()
-                    .add(ArtFormEvent.changedId(id: art.id));
-                context.read<ArtFormBloc>().add(ArtFormEvent.pressedBookmark());
-              },
-              icon: Icon(Icons.bookmark_add),
-              iconSize: 30,
-              color: Colors.red,
-            );
+        return IconButton(
+          onPressed: () {
+            context.read<ArtFormBloc>().add(ArtFormEvent.changedId(id: art.id));
+            context.read<ArtFormBloc>().add(ArtFormEvent.pressedBookmark());
           },
+          icon: Icon(Icons.bookmark_add),
+          iconSize: 30,
+          color: Colors.red,
         );
       },
     );

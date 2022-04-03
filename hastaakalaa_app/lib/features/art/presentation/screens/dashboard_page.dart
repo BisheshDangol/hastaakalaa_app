@@ -14,8 +14,8 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<ArtListWatcherBloc>()
-        ..add(ArtListWatcherEvent.retrieveDoctorList()),
+      create: (context) =>
+          sl<ArtListWatcherBloc>()..add(ArtListWatcherEvent.retrieveArtList()),
       child: Scaffold(
         appBar: AppBar(
           title: Text('Dashboard'),
@@ -86,28 +86,46 @@ class PageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ArtListWatcherBloc, ArtListWatcherState>(
       builder: (context, state) {
-        return state.map(
-          initial: (_) {
-            return Container();
-          },
-          loading: (_) => CircularProgressIndicator(),
-          loaded: (e) {
-            return Expanded(
-                child: RefreshIndicator(
-              onRefresh: () async {
-                context.read<ArtListWatcherBloc>()
-                  ..add(ArtListWatcherEvent.retrieveDoctorList());
-              },
-              child: ListView(
-                children:
-                    e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
-              ),
-            ));
-          },
-          failed: (e) {
-            return Container();
-          },
-        );
+        return state.failureOrSuccess?.fold((l) => null, (r) {
+              return Expanded(
+                  child: RefreshIndicator(
+                onRefresh: () async {
+                  // context.read<ArtListWatcherBloc>()
+                  //   ..add(ArtListWatcherEvent.retrieveDoctorList());
+                },
+                child: ListView.builder(
+                  itemCount: state.artHistory?.length,
+                  itemBuilder: (context, index) =>
+                      CardWrapper(artEntity: state.artHistory![index]),
+                  // children:
+                  //     e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
+                ),
+              ));
+            }) ??
+            Container();
+        // return state.map(
+
+        //   initial: (_) {
+        //     return Container();
+        //   },
+        //   loading: (_) => CircularProgressIndicator(),
+        //   loaded: (e) {
+        //     return Expanded(
+        //         child: RefreshIndicator(
+        //       onRefresh: () async {
+        //         context.read<ArtListWatcherBloc>()
+        //           ..add(ArtListWatcherEvent.retrieveDoctorList());
+        //       },
+        //       child: ListView(
+        //         children:
+        //             e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
+        //       ),
+        //     ));
+        //   },
+        //   failed: (e) {
+        //     return Container();
+        //   },
+        // );
       },
     );
   }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'art_list_watcher_bloc.dart';
+part of 'art_list_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ArtListWatcherEventTearOff {
-  const _$ArtListWatcherEventTearOff();
+class _$ArtListEventTearOff {
+  const _$ArtListEventTearOff();
 
   _RetrieveArtList retrieveArtList() {
     return const _RetrieveArtList();
   }
 
-  _PressedLike pressedLike({required int id}) {
+  _PressedLike pressedLike({int? id}) {
     return _PressedLike(
       id: id,
     );
@@ -30,26 +30,26 @@ class _$ArtListWatcherEventTearOff {
 }
 
 /// @nodoc
-const $ArtListWatcherEvent = _$ArtListWatcherEventTearOff();
+const $ArtListEvent = _$ArtListEventTearOff();
 
 /// @nodoc
-mixin _$ArtListWatcherEvent {
+mixin _$ArtListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() retrieveArtList,
-    required TResult Function(int id) pressedLike,
+    required TResult Function(int? id) pressedLike,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,20 +75,19 @@ mixin _$ArtListWatcherEvent {
 }
 
 /// @nodoc
-abstract class $ArtListWatcherEventCopyWith<$Res> {
-  factory $ArtListWatcherEventCopyWith(
-          ArtListWatcherEvent value, $Res Function(ArtListWatcherEvent) then) =
-      _$ArtListWatcherEventCopyWithImpl<$Res>;
+abstract class $ArtListEventCopyWith<$Res> {
+  factory $ArtListEventCopyWith(
+          ArtListEvent value, $Res Function(ArtListEvent) then) =
+      _$ArtListEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ArtListWatcherEventCopyWithImpl<$Res>
-    implements $ArtListWatcherEventCopyWith<$Res> {
-  _$ArtListWatcherEventCopyWithImpl(this._value, this._then);
+class _$ArtListEventCopyWithImpl<$Res> implements $ArtListEventCopyWith<$Res> {
+  _$ArtListEventCopyWithImpl(this._value, this._then);
 
-  final ArtListWatcherEvent _value;
+  final ArtListEvent _value;
   // ignore: unused_field
-  final $Res Function(ArtListWatcherEvent) _then;
+  final $Res Function(ArtListEvent) _then;
 }
 
 /// @nodoc
@@ -100,7 +99,7 @@ abstract class _$RetrieveArtListCopyWith<$Res> {
 
 /// @nodoc
 class __$RetrieveArtListCopyWithImpl<$Res>
-    extends _$ArtListWatcherEventCopyWithImpl<$Res>
+    extends _$ArtListEventCopyWithImpl<$Res>
     implements _$RetrieveArtListCopyWith<$Res> {
   __$RetrieveArtListCopyWithImpl(
       _RetrieveArtList _value, $Res Function(_RetrieveArtList) _then)
@@ -117,7 +116,7 @@ class _$_RetrieveArtList implements _RetrieveArtList {
 
   @override
   String toString() {
-    return 'ArtListWatcherEvent.retrieveArtList()';
+    return 'ArtListEvent.retrieveArtList()';
   }
 
   @override
@@ -133,7 +132,7 @@ class _$_RetrieveArtList implements _RetrieveArtList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() retrieveArtList,
-    required TResult Function(int id) pressedLike,
+    required TResult Function(int? id) pressedLike,
   }) {
     return retrieveArtList();
   }
@@ -142,7 +141,7 @@ class _$_RetrieveArtList implements _RetrieveArtList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
   }) {
     return retrieveArtList?.call();
   }
@@ -151,7 +150,7 @@ class _$_RetrieveArtList implements _RetrieveArtList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
     required TResult orElse(),
   }) {
     if (retrieveArtList != null) {
@@ -192,7 +191,7 @@ class _$_RetrieveArtList implements _RetrieveArtList {
   }
 }
 
-abstract class _RetrieveArtList implements ArtListWatcherEvent {
+abstract class _RetrieveArtList implements ArtListEvent {
   const factory _RetrieveArtList() = _$_RetrieveArtList;
 }
 
@@ -201,12 +200,11 @@ abstract class _$PressedLikeCopyWith<$Res> {
   factory _$PressedLikeCopyWith(
           _PressedLike value, $Res Function(_PressedLike) then) =
       __$PressedLikeCopyWithImpl<$Res>;
-  $Res call({int id});
+  $Res call({int? id});
 }
 
 /// @nodoc
-class __$PressedLikeCopyWithImpl<$Res>
-    extends _$ArtListWatcherEventCopyWithImpl<$Res>
+class __$PressedLikeCopyWithImpl<$Res> extends _$ArtListEventCopyWithImpl<$Res>
     implements _$PressedLikeCopyWith<$Res> {
   __$PressedLikeCopyWithImpl(
       _PressedLike _value, $Res Function(_PressedLike) _then)
@@ -223,7 +221,7 @@ class __$PressedLikeCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -231,14 +229,14 @@ class __$PressedLikeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PressedLike implements _PressedLike {
-  const _$_PressedLike({required this.id});
+  const _$_PressedLike({this.id});
 
   @override
-  final int id;
+  final int? id;
 
   @override
   String toString() {
-    return 'ArtListWatcherEvent.pressedLike(id: $id)';
+    return 'ArtListEvent.pressedLike(id: $id)';
   }
 
   @override
@@ -262,7 +260,7 @@ class _$_PressedLike implements _PressedLike {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() retrieveArtList,
-    required TResult Function(int id) pressedLike,
+    required TResult Function(int? id) pressedLike,
   }) {
     return pressedLike(id);
   }
@@ -271,7 +269,7 @@ class _$_PressedLike implements _PressedLike {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
   }) {
     return pressedLike?.call(id);
   }
@@ -280,7 +278,7 @@ class _$_PressedLike implements _PressedLike {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? retrieveArtList,
-    TResult Function(int id)? pressedLike,
+    TResult Function(int? id)? pressedLike,
     required TResult orElse(),
   }) {
     if (pressedLike != null) {
@@ -321,70 +319,61 @@ class _$_PressedLike implements _PressedLike {
   }
 }
 
-abstract class _PressedLike implements ArtListWatcherEvent {
-  const factory _PressedLike({required int id}) = _$_PressedLike;
+abstract class _PressedLike implements ArtListEvent {
+  const factory _PressedLike({int? id}) = _$_PressedLike;
 
-  int get id;
+  int? get id;
   @JsonKey(ignore: true)
   _$PressedLikeCopyWith<_PressedLike> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class _$ArtListWatcherStateTearOff {
-  const _$ArtListWatcherStateTearOff();
+class _$ArtListStateTearOff {
+  const _$ArtListStateTearOff();
 
-  _ArtListWatcherState call(
-      {required bool isLoading,
-      List<ArtEntity>? artHistory,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess}) {
-    return _ArtListWatcherState(
+  _ArtListState call(
+      {required bool isLoading, Either<Failure, ArtEntity>? failureOrSuccess}) {
+    return _ArtListState(
       isLoading: isLoading,
-      artHistory: artHistory,
       failureOrSuccess: failureOrSuccess,
     );
   }
 }
 
 /// @nodoc
-const $ArtListWatcherState = _$ArtListWatcherStateTearOff();
+const $ArtListState = _$ArtListStateTearOff();
 
 /// @nodoc
-mixin _$ArtListWatcherState {
+mixin _$ArtListState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<ArtEntity>? get artHistory => throw _privateConstructorUsedError;
-  Either<Failure, List<ArtEntity>>? get failureOrSuccess =>
+  Either<Failure, ArtEntity>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ArtListWatcherStateCopyWith<ArtListWatcherState> get copyWith =>
+  $ArtListStateCopyWith<ArtListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ArtListWatcherStateCopyWith<$Res> {
-  factory $ArtListWatcherStateCopyWith(
-          ArtListWatcherState value, $Res Function(ArtListWatcherState) then) =
-      _$ArtListWatcherStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading,
-      List<ArtEntity>? artHistory,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess});
+abstract class $ArtListStateCopyWith<$Res> {
+  factory $ArtListStateCopyWith(
+          ArtListState value, $Res Function(ArtListState) then) =
+      _$ArtListStateCopyWithImpl<$Res>;
+  $Res call({bool isLoading, Either<Failure, ArtEntity>? failureOrSuccess});
 }
 
 /// @nodoc
-class _$ArtListWatcherStateCopyWithImpl<$Res>
-    implements $ArtListWatcherStateCopyWith<$Res> {
-  _$ArtListWatcherStateCopyWithImpl(this._value, this._then);
+class _$ArtListStateCopyWithImpl<$Res> implements $ArtListStateCopyWith<$Res> {
+  _$ArtListStateCopyWithImpl(this._value, this._then);
 
-  final ArtListWatcherState _value;
+  final ArtListState _value;
   // ignore: unused_field
-  final $Res Function(ArtListWatcherState) _then;
+  final $Res Function(ArtListState) _then;
 
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? artHistory = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
@@ -392,91 +381,73 @@ class _$ArtListWatcherStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      artHistory: artHistory == freezed
-          ? _value.artHistory
-          : artHistory // ignore: cast_nullable_to_non_nullable
-              as List<ArtEntity>?,
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<ArtEntity>>?,
+              as Either<Failure, ArtEntity>?,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ArtListWatcherStateCopyWith<$Res>
-    implements $ArtListWatcherStateCopyWith<$Res> {
-  factory _$ArtListWatcherStateCopyWith(_ArtListWatcherState value,
-          $Res Function(_ArtListWatcherState) then) =
-      __$ArtListWatcherStateCopyWithImpl<$Res>;
+abstract class _$ArtListStateCopyWith<$Res>
+    implements $ArtListStateCopyWith<$Res> {
+  factory _$ArtListStateCopyWith(
+          _ArtListState value, $Res Function(_ArtListState) then) =
+      __$ArtListStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {bool isLoading,
-      List<ArtEntity>? artHistory,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess});
+  $Res call({bool isLoading, Either<Failure, ArtEntity>? failureOrSuccess});
 }
 
 /// @nodoc
-class __$ArtListWatcherStateCopyWithImpl<$Res>
-    extends _$ArtListWatcherStateCopyWithImpl<$Res>
-    implements _$ArtListWatcherStateCopyWith<$Res> {
-  __$ArtListWatcherStateCopyWithImpl(
-      _ArtListWatcherState _value, $Res Function(_ArtListWatcherState) _then)
-      : super(_value, (v) => _then(v as _ArtListWatcherState));
+class __$ArtListStateCopyWithImpl<$Res> extends _$ArtListStateCopyWithImpl<$Res>
+    implements _$ArtListStateCopyWith<$Res> {
+  __$ArtListStateCopyWithImpl(
+      _ArtListState _value, $Res Function(_ArtListState) _then)
+      : super(_value, (v) => _then(v as _ArtListState));
 
   @override
-  _ArtListWatcherState get _value => super._value as _ArtListWatcherState;
+  _ArtListState get _value => super._value as _ArtListState;
 
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? artHistory = freezed,
     Object? failureOrSuccess = freezed,
   }) {
-    return _then(_ArtListWatcherState(
+    return _then(_ArtListState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      artHistory: artHistory == freezed
-          ? _value.artHistory
-          : artHistory // ignore: cast_nullable_to_non_nullable
-              as List<ArtEntity>?,
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<ArtEntity>>?,
+              as Either<Failure, ArtEntity>?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ArtListWatcherState implements _ArtListWatcherState {
-  const _$_ArtListWatcherState(
-      {required this.isLoading, this.artHistory, this.failureOrSuccess});
+class _$_ArtListState implements _ArtListState {
+  const _$_ArtListState({required this.isLoading, this.failureOrSuccess});
 
   @override
   final bool isLoading;
   @override
-  final List<ArtEntity>? artHistory;
-  @override
-  final Either<Failure, List<ArtEntity>>? failureOrSuccess;
+  final Either<Failure, ArtEntity>? failureOrSuccess;
 
   @override
   String toString() {
-    return 'ArtListWatcherState(isLoading: $isLoading, artHistory: $artHistory, failureOrSuccess: $failureOrSuccess)';
+    return 'ArtListState(isLoading: $isLoading, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ArtListWatcherState &&
+            other is _ArtListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.artHistory, artHistory) &&
             const DeepCollectionEquality()
                 .equals(other.failureOrSuccess, failureOrSuccess));
   }
@@ -485,31 +456,25 @@ class _$_ArtListWatcherState implements _ArtListWatcherState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(artHistory),
       const DeepCollectionEquality().hash(failureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
-  _$ArtListWatcherStateCopyWith<_ArtListWatcherState> get copyWith =>
-      __$ArtListWatcherStateCopyWithImpl<_ArtListWatcherState>(
-          this, _$identity);
+  _$ArtListStateCopyWith<_ArtListState> get copyWith =>
+      __$ArtListStateCopyWithImpl<_ArtListState>(this, _$identity);
 }
 
-abstract class _ArtListWatcherState implements ArtListWatcherState {
-  const factory _ArtListWatcherState(
-          {required bool isLoading,
-          List<ArtEntity>? artHistory,
-          Either<Failure, List<ArtEntity>>? failureOrSuccess}) =
-      _$_ArtListWatcherState;
+abstract class _ArtListState implements ArtListState {
+  const factory _ArtListState(
+      {required bool isLoading,
+      Either<Failure, ArtEntity>? failureOrSuccess}) = _$_ArtListState;
 
   @override
   bool get isLoading;
   @override
-  List<ArtEntity>? get artHistory;
-  @override
-  Either<Failure, List<ArtEntity>>? get failureOrSuccess;
+  Either<Failure, ArtEntity>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
-  _$ArtListWatcherStateCopyWith<_ArtListWatcherState> get copyWith =>
+  _$ArtListStateCopyWith<_ArtListState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -44,7 +44,7 @@ Future<void> init() async {
 
   sl.registerFactory(() => ArtSearchWatcherBloc(sl(), sl()));
 
-  sl.registerFactory(() => ArtListWatcherBloc(sl()));
+  sl.registerFactory(() => ArtListWatcherBloc(sl(), sl()));
 
   sl.registerFactory(() => UserListWatcherBloc(sl()));
 
