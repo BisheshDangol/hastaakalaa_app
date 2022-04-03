@@ -12,8 +12,6 @@ class CardWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height / 10,
-      width: MediaQuery.of(context).size.width,
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -23,44 +21,52 @@ class CardWrapper extends StatelessWidget {
             ),
           );
         },
-        child: Card(
-          elevation: 3.0,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      radius: 25,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(artEntity.user['user_name'].toString(),
-                      style: TextStyle(fontSize: 20)),
-                ],
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width,
-                child: Image.network(
-                  artEntity.image,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  LikeButton(art: artEntity),
-                  BookmarkButton(art: artEntity)
-                ],
-              )
-            ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: Container(
+            width: double.infinity,
+            height: 500.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25.0),
+            ),
+            child: Column(
+              children: [
+                // Row(
+                //   children: [
+                //     Padding(
+                //       padding: const EdgeInsets.all(8.0),
+                //       child: CircleAvatar(
+                //         backgroundColor: Colors.grey,
+                //         radius: 25,
+                //       ),
+                //     ),
+                //     SizedBox(
+                //       width: 5,
+                //     ),
+                //     Text(artEntity.user['user_name'].toString(),
+                //         style: TextStyle(fontSize: 20)),
+                //   ],
+                // ),
+                // Container(
+                //   height: MediaQuery.of(context).size.height * 0.3,
+                //   width: MediaQuery.of(context).size.width,
+                //   child: Image.network(
+                //     artEntity.image,
+                //     fit: BoxFit.fitHeight,
+                //   ),
+                // ),
+                // SizedBox(height: 10),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   crossAxisAlignment: CrossAxisAlignment.end,
+                //   children: [
+                //     LikeButton(art: artEntity),
+                //     BookmarkButton(art: artEntity)
+                //   ],
+                // )
+              ],
+            ),
           ),
         ),
       ),
