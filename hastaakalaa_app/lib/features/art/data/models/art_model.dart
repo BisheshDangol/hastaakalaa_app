@@ -14,7 +14,7 @@ class ArtModel extends ArtEntity {
     required String forSale,
     required String status,
     required List likes,
-    required Map<String, dynamic> user,
+    required int user,
   }) : super(
           id: id,
           title: title,

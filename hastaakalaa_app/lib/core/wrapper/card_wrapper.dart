@@ -55,12 +55,12 @@ class CardWrapper extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          artEntity.user['user_name'],
+                          artEntity.user.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        subtitle: Text(artEntity.user['user_type']),
+                        subtitle: Text(artEntity.user.toString()),
                         trailing: IconButton(
                           icon: Icon(Icons.more_horiz),
                           color: Colors.black,
