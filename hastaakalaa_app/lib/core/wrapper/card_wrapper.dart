@@ -68,10 +68,15 @@ class CardWrapper extends StatelessWidget {
   }
 }
 
-class LikeButton extends StatelessWidget {
+class LikeButton extends StatefulWidget {
   final ArtEntity art;
   const LikeButton({Key? key, required this.art}) : super(key: key);
 
+  @override
+  State<LikeButton> createState() => _LikeButtonState();
+}
+
+class _LikeButtonState extends State<LikeButton> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ArtFormBloc, ArtFormState>(
@@ -94,7 +99,9 @@ class LikeButton extends StatelessWidget {
             return Column(
               children: [
                 Text(
-                  art.likes.length == 0 ? '' : art.likes.length.toString(),
+                  widget.art.likes.length == 0
+                      ? ''
+                      : widget.art.likes.length.toString(),
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -103,10 +110,12 @@ class LikeButton extends StatelessWidget {
                   onPressed: () {
                     context
                         .read<ArtFormBloc>()
-                        .add(ArtFormEvent.changedId(id: art.id));
+                        .add(ArtFormEvent.changedId(id: widget.art.id));
                     context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
                   },
-                  icon: Icon(Icons.favorite_outline),
+                  icon: widget.art.likes.contains(1)
+                      ? Icon(Icons.favorite_sharp)
+                      : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,
                   color: Colors.red,
                 ),

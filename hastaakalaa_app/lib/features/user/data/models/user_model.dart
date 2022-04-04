@@ -3,6 +3,7 @@ import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 // ignore: must_be_immutable
 class UserModel extends UserEntity {
   UserModel({
+    required int id,
     required String email,
     required String userName,
     required String firstName,
@@ -13,6 +14,7 @@ class UserModel extends UserEntity {
     required dynamic follower,
     required dynamic followedBy,
   }) : super(
+          id: id,
           email: email,
           userName: userName,
           firstName: firstName,
@@ -26,6 +28,7 @@ class UserModel extends UserEntity {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
+      id: json['id'],
       email: json['email'],
       userName: json['user_name'],
       firstName: json['first_name'],

@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 // ignore: must_be_immutable
 class UserEntity extends Equatable {
+  int id;
   String email;
   String userName;
   String firstName;
@@ -13,6 +14,7 @@ class UserEntity extends Equatable {
   dynamic followedBy;
 
   UserEntity({
+    required this.id,
     required this.address,
     required this.email,
     required this.firstName,
@@ -26,6 +28,7 @@ class UserEntity extends Equatable {
 
   @override
   List<Object?> get props => [
+        id,
         address,
         email,
         firstName,
