@@ -39,7 +39,7 @@ class CardWrapper extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  Text(artEntity.user['user_name'].toString(),
+                  Text(artEntity.user.toString(),
                       style: TextStyle(fontSize: 20)),
                 ],
               ),
@@ -128,16 +128,17 @@ class BookmarkButton extends StatelessWidget {
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
-        state.failureOrSuccess
-            ?.fold((l) => null, (r) => response = r.toString());
-        if (response == 'Found') {
-          CircularProgressIndicator();
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        } else {
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        }
+        state.failureOrSuccess?.fold(
+            (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
+
+        // if (response == 'Found') {
+        //   CircularProgressIndicator();
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // } else {
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // }
       },
       builder: (context, state) {
         return BlocBuilder<ArtFormBloc, ArtFormState>(

@@ -36,7 +36,7 @@ class SearchWrapper extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  Text(artEntity.user['user_name'].toString(),
+                  Text(artEntity.user.toString(),
                       style: TextStyle(fontSize: 20)),
                 ],
               ),

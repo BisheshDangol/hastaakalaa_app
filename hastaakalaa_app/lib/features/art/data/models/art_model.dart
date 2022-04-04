@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 
 // ignore: must_be_immutable
 class ArtModel extends ArtEntity {
@@ -14,7 +13,7 @@ class ArtModel extends ArtEntity {
     required String forSale,
     required String status,
     required List likes,
-    required Map<String, dynamic> user,
+    required int user,
   }) : super(
           id: id,
           title: title,
