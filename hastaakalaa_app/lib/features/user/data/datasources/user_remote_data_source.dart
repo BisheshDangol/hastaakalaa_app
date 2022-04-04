@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 abstract class IUserDataSource {
   Future<List<UserModel>> getAllUser();
+  Future<List<UserModel>> getCurrentUser();
 }
 
 class UserRemoteDataSource implements IUserDataSource {
@@ -13,6 +14,21 @@ class UserRemoteDataSource implements IUserDataSource {
   UserRemoteDataSource({required this.client});
   @override
   Future<List<UserModel>> getAllUser() async {
+    final response = await client.get(
+      Uri.parse(retrieveUserList),
+    );
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  Future<List<UserModel>> getCurrentUser() async {
     final response = await client.get(
       Uri.parse(retrieveUserList),
     );

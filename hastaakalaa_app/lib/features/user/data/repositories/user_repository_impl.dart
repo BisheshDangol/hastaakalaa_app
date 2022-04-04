@@ -26,6 +26,20 @@ class UserRepositoryImpl implements IUserRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<UserEntity>>> getCurrentUser() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.getAllUser();
+        debugPrint('This is the returned list: $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
+    throw UnimplementedError();
+  }
 }
 
 
