@@ -9,6 +9,6 @@ class GetCurrentUserUsecase implements Usecase<List<UserEntity>, NoParams> {
   GetCurrentUserUsecase(this.repository);
   @override
   Future<Either<Failure, List<UserEntity>>> call(NoParams params) async {
-    return await repository.getAllUser();
+    return await repository.getCurrentUser();
   }
 }

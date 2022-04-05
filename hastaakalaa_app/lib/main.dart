@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 import 'package:hastaakalaa_app/splash_screen.dart';
 import 'injection_container.dart' as di;
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ArtFormBloc>(
           create: (context) => sl<ArtFormBloc>(),
+        ),
+        BlocProvider<CurrentUserWatcherBloc>(
+          create: (context) => sl<CurrentUserWatcherBloc>(),
         ),
       ],
       child: MaterialApp(

@@ -25,7 +25,9 @@ import 'package:hastaakalaa_app/features/user/data/datasources/user_remote_data_
 import 'package:hastaakalaa_app/features/user/data/repositories/user_repository_impl.dart';
 import 'package:hastaakalaa_app/features/user/domain/repositories/i_user_repository.dart';
 import 'package:hastaakalaa_app/features/user/domain/usecases/get_all_user_usecase.dart';
+import 'package:hastaakalaa_app/features/user/domain/usecases/get_current_user_usecase.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/current_user_watcher_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
@@ -48,6 +50,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => UserListWatcherBloc(sl()));
 
+  sl.registerFactory((() => CurrentUserWatcherBloc(sl())));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -66,6 +70,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => BookmarkPostUsecase(sl()));
 
+  sl.registerLazySingleton(() => GetCurrentUserUsecase(sl()));
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
 

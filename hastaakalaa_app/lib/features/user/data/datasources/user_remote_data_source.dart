@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
@@ -29,9 +31,14 @@ class UserRemoteDataSource implements IUserDataSource {
   }
 
   Future<List<UserModel>> getCurrentUser() async {
-    final response = await client.get(
-      Uri.parse(retrieveUserList),
-    );
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> header = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    final response =
+        await client.get(Uri.parse(getCurrentUserEndPoint), headers: header);
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;
