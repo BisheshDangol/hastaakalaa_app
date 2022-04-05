@@ -66,7 +66,7 @@ class DashboardPage extends StatelessWidget {
                     const Duration(milliseconds: 500),
                   );
                   TokenSharedPrefernces.instance.removeToken("token");
-
+                  TokenSharedPrefernces.instance.removeUserId("userid");
                   Navigator.of(context, rootNavigator: true)
                       .popAndPushNamed('splash');
                 },

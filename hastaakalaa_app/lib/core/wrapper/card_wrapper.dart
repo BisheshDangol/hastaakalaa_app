@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
 
-class CardWrapper extends StatelessWidget {
+class CardWrapper extends StatefulWidget {
   final ArtEntity artEntity;
   const CardWrapper({Key? key, required this.artEntity}) : super(key: key);
 
+  @override
+  State<CardWrapper> createState() => _CardWrapperState();
+}
+
+class _CardWrapperState extends State<CardWrapper> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +25,7 @@ class CardWrapper extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ArtDetailPage(artEntity: artEntity),
+              builder: (context) => ArtDetailPage(artEntity: widget.artEntity),
             ),
           );
         },
@@ -39,7 +45,7 @@ class CardWrapper extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  Text(artEntity.user.toString(),
+                  Text(widget.artEntity.user.toString(),
                       style: TextStyle(fontSize: 20)),
                 ],
               ),
@@ -47,7 +53,7 @@ class CardWrapper extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.3,
                 width: MediaQuery.of(context).size.width,
                 child: Image.network(
-                  artEntity.image,
+                  widget.artEntity.image,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -56,8 +62,8 @@ class CardWrapper extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  LikeButton(art: artEntity),
-                  BookmarkButton(art: artEntity)
+                  LikeButton(art: widget.artEntity),
+                  BookmarkButton(art: widget.artEntity)
                 ],
               )
             ],
@@ -70,6 +76,7 @@ class CardWrapper extends StatelessWidget {
 
 class LikeButton extends StatefulWidget {
   final ArtEntity art;
+
   const LikeButton({Key? key, required this.art}) : super(key: key);
 
   @override
@@ -77,8 +84,24 @@ class LikeButton extends StatefulWidget {
 }
 
 class _LikeButtonState extends State<LikeButton> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userid");
+    setState(() {
+      user = userToken;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
@@ -113,7 +136,7 @@ class _LikeButtonState extends State<LikeButton> {
                         .add(ArtFormEvent.changedId(id: widget.art.id));
                     context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
                   },
-                  icon: widget.art.likes.contains(1)
+                  icon: widget.art.likes.contains(userToken)
                       ? Icon(Icons.favorite_sharp)
                       : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,
@@ -128,12 +151,33 @@ class _LikeButtonState extends State<LikeButton> {
   }
 }
 
-class BookmarkButton extends StatelessWidget {
+class BookmarkButton extends StatefulWidget {
   final ArtEntity art;
   const BookmarkButton({Key? key, required this.art}) : super(key: key);
 
   @override
+  State<BookmarkButton> createState() => _BookmarkButtonState();
+}
+
+class _BookmarkButtonState extends State<BookmarkButton> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userid");
+    setState(() {
+      user = userToken;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
@@ -156,7 +200,7 @@ class BookmarkButton extends StatelessWidget {
               onPressed: () {
                 context
                     .read<ArtFormBloc>()
-                    .add(ArtFormEvent.changedId(id: art.id));
+                    .add(ArtFormEvent.changedId(id: widget.art.id));
                 context.read<ArtFormBloc>().add(ArtFormEvent.pressedBookmark());
               },
               icon: Icon(Icons.bookmark_add),

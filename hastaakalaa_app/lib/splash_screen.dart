@@ -1,8 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
+import 'package:hastaakalaa_app/core/end_points.dart';
+import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
+import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:hastaakalaa_app/navigation_bar_page.dart';
 import 'package:lottie/lottie.dart';
+import 'package:http/http.dart' as http;
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);
@@ -33,10 +39,34 @@ class _SplashScreenState extends State<SplashScreen>
     });
     _checkTokenValue();
     _navigateToLogin();
+    _getCurrentUser();
   }
 
   _checkTokenValue() async {
     tokenOrNot = await TokenSharedPrefernces.instance.containsToken("token");
+  }
+
+  _getCurrentUser() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> header = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    final response =
+        await http.get(Uri.parse(getCurrentUserEndPoint), headers: header);
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      List<UserModel> userModel = jsonData
+          .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+      debugPrint('This is the user model ${userModel[0].id}');
+      TokenSharedPrefernces.instance
+          .setTokenValue("userid", userModel[0].id.toString());
+    } else {
+      throw ServerException();
+    }
   }
 
   _navigateToLogin() async {
