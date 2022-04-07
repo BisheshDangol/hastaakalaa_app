@@ -17,6 +17,7 @@ class DashboardPage extends StatelessWidget {
       create: (context) => sl<ArtListWatcherBloc>()
         ..add(ArtListWatcherEvent.retrieveDoctorList()),
       child: Scaffold(
+        backgroundColor: Color(0xFFEDF0F6),
         appBar: AppBar(
           title: Text('Dashboard'),
         ),
