@@ -158,6 +158,7 @@ class _LikeButtonState extends State<LikeButton> {
         } else {
           context.read<ArtListWatcherBloc>()
             ..add(ArtListWatcherEvent.retrieveDoctorList());
+          debugPrint('This is the usertoken${userToken}');
         }
       },
       builder: (context, state) {
