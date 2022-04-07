@@ -7,6 +7,7 @@ import 'package:hastaakalaa_app/features/user/domain/repositories/i_user_reposit
 class GetCurrentUserUsecase implements Usecase<List<UserEntity>, NoParams> {
   final IUserRepository repository;
   GetCurrentUserUsecase(this.repository);
+
   @override
   Future<Either<Failure, List<UserEntity>>> call(NoParams params) async {
     return await repository.getCurrentUser();
