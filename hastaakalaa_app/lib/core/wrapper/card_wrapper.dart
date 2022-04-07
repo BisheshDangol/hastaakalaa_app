@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
@@ -94,12 +95,34 @@ class CardWrapper extends StatelessWidget {
   }
 }
 
-class LikeButton extends StatelessWidget {
+class LikeButton extends StatefulWidget {
   final ArtEntity art;
+
   const LikeButton({Key? key, required this.art}) : super(key: key);
 
   @override
+  State<LikeButton> createState() => _LikeButtonState();
+}
+
+class _LikeButtonState extends State<LikeButton> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userid");
+    setState(() {
+      user = userToken;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
@@ -120,7 +143,9 @@ class LikeButton extends StatelessWidget {
             return Column(
               children: [
                 Text(
-                  art.likes.length == 0 ? '' : art.likes.length.toString(),
+                  widget.art.likes.length == 0
+                      ? ''
+                      : widget.art.likes.length.toString(),
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -129,10 +154,12 @@ class LikeButton extends StatelessWidget {
                   onPressed: () {
                     context
                         .read<ArtFormBloc>()
-                        .add(ArtFormEvent.changedId(id: art.id));
+                        .add(ArtFormEvent.changedId(id: widget.art.id));
                     context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
                   },
-                  icon: Icon(Icons.favorite_outline),
+                  icon: widget.art.likes.contains(userToken)
+                      ? Icon(Icons.favorite_sharp)
+                      : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,
                   color: Colors.red,
                 ),
@@ -145,25 +172,47 @@ class LikeButton extends StatelessWidget {
   }
 }
 
-class BookmarkButton extends StatelessWidget {
+class BookmarkButton extends StatefulWidget {
   final ArtEntity art;
   const BookmarkButton({Key? key, required this.art}) : super(key: key);
 
   @override
+  State<BookmarkButton> createState() => _BookmarkButtonState();
+}
+
+class _BookmarkButtonState extends State<BookmarkButton> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userid");
+    setState(() {
+      user = userToken;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
-        state.failureOrSuccess
-            ?.fold((l) => null, (r) => response = r.toString());
-        if (response == 'Found') {
-          CircularProgressIndicator();
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        } else {
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        }
+        state.failureOrSuccess?.fold(
+            (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
+
+        // if (response == 'Found') {
+        //   CircularProgressIndicator();
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // } else {
+        //   context.read<ArtListWatcherBloc>()
+        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
+        // }
       },
       builder: (context, state) {
         return BlocBuilder<ArtFormBloc, ArtFormState>(
@@ -172,7 +221,7 @@ class BookmarkButton extends StatelessWidget {
               onPressed: () {
                 context
                     .read<ArtFormBloc>()
-                    .add(ArtFormEvent.changedId(id: art.id));
+                    .add(ArtFormEvent.changedId(id: widget.art.id));
                 context.read<ArtFormBloc>().add(ArtFormEvent.pressedBookmark());
               },
               icon: Icon(Icons.bookmark_add),
