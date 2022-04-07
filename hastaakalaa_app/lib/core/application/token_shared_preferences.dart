@@ -25,4 +25,24 @@ class TokenSharedPrefernces {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
     return myPrefs.remove(key);
   }
+
+  setUserId(String key, String value) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    myPrefs.setString(key, value);
+  }
+
+  Future<String> getUserId(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.getString(key) ?? "";
+  }
+
+  Future<bool> containsUserId(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.containsKey(key);
+  }
+
+  removeUserId(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.remove(key);
+  }
 }
