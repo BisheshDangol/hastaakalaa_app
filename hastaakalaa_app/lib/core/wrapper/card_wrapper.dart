@@ -83,6 +83,29 @@ class CardWrapper extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    LikeButton(
+                                      art: artEntity,
+                                    )
+                                  ],
+                                ),
+                                SizedBox(width: 20.0),
+                              ],
+                            ),
+                            BookmarkButton(
+                              art: artEntity,
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -140,16 +163,8 @@ class _LikeButtonState extends State<LikeButton> {
       builder: (context, state) {
         return BlocBuilder<ArtFormBloc, ArtFormState>(
           builder: (context, state) {
-            return Column(
+            return Row(
               children: [
-                Text(
-                  widget.art.likes.length == 0
-                      ? ''
-                      : widget.art.likes.length.toString(),
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
                 IconButton(
                   onPressed: () {
                     context
@@ -162,6 +177,15 @@ class _LikeButtonState extends State<LikeButton> {
                       : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,
                   color: Colors.red,
+                ),
+                Text(
+                  widget.art.likes.length == 0
+                      ? ''
+                      : widget.art.likes.length.toString(),
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ],
             );
