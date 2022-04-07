@@ -74,48 +74,17 @@ class CardWrapper extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
-                        child: Image.network(
-                          artEntity.image,
-                          fit: BoxFit.fitHeight,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(25.0),
+                          child: Image.network(
+                            artEntity.image,
+                            fit: BoxFit.fitHeight,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-
-                // Row(
-                //   children: [
-                //     Padding(
-                //       padding: const EdgeInsets.all(8.0),
-                //       child: CircleAvatar(
-                //         backgroundColor: Colors.grey,
-                //         radius: 25,
-                //       ),
-                //     ),
-                //     SizedBox(
-                //       width: 5,
-                //     ),
-                //     Text(artEntity.user['user_name'].toString(),
-                //         style: TextStyle(fontSize: 20)),
-                //   ],
-                // ),
-                // Container(
-                //   height: MediaQuery.of(context).size.height * 0.3,
-                //   width: MediaQuery.of(context).size.width,
-                //   child: Image.network(
-                //     artEntity.image,
-                //     fit: BoxFit.fitHeight,
-                //   ),
-                // ),
-                // SizedBox(height: 10),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   crossAxisAlignment: CrossAxisAlignment.end,
-                //   children: [
-                //     LikeButton(art: artEntity),
-                //     BookmarkButton(art: artEntity)
-                //   ],
-                // )
               ],
             ),
           ),
