@@ -38,6 +38,7 @@ dependencies:
   formz: ^0.4.1
   freezed_annotation: ^1.1.0
   get_it: ^7.2.0
+  google_fonts: ^2.3.1
   http: ^0.13.4
   image_picker: ^0.8.4+10
   internet_connection_checker: ^0.0.1+3
