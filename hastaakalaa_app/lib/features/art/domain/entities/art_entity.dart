@@ -13,6 +13,7 @@ class ArtEntity extends Equatable {
   String forSale;
   String status;
   List likes;
+  String genre;
 
   ArtEntity({
     required this.id,
@@ -24,6 +25,7 @@ class ArtEntity extends Equatable {
     required this.image,
     required this.status,
     required this.likes,
+    required this.genre,
   });
 
   @override
