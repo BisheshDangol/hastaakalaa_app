@@ -15,6 +15,7 @@ class ArtModel extends ArtEntity {
     required String status,
     required List likes,
     required int user,
+    required String genre,
   }) : super(
           id: id,
           title: title,
@@ -25,6 +26,7 @@ class ArtModel extends ArtEntity {
           forSale: forSale,
           status: status,
           likes: likes,
+          genre: genre,
         );
 
   factory ArtModel.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class ArtModel extends ArtEntity {
       forSale: json['for_sale'].toString(),
       status: json['status'].toString(),
       likes: json['likes'],
+      genre: json['genre'],
     );
   }
 
