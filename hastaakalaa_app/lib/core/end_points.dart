@@ -18,3 +18,5 @@ const retrieveBookmarkList = '${baseUrl}api/art/bookmark/get';
 const likePostEndpoint = '${baseUrl}api/art/likes/';
 
 const bookmarkPostEndpoint = '${baseUrl}api/bookmark/';
+
+const getCurrentUserEndPoint = '${baseUrl}api/user/current_user/';
