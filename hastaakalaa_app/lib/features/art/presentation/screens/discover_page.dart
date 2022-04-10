@@ -35,6 +35,7 @@ class DiscoverPage extends StatelessWidget {
                   ),
                 ),
               ),
+              FilterPage(),
               PageBuilder(),
             ],
           ),
@@ -44,21 +45,62 @@ class DiscoverPage extends StatelessWidget {
   }
 }
 
+class FilterPage extends StatelessWidget {
+  FilterPage({Key? key}) : super(key: key);
+
+  final List<String> genreList = [
+    'abstract',
+    'pop',
+    'realism',
+    'potrait',
+    'landscape',
+    'mithila',
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 100,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: ((context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                  color: Colors.red[300],
+                  borderRadius: BorderRadius.circular(20)),
+              height: 100,
+              width: 100,
+              margin: EdgeInsets.all(10),
+              child: Center(
+                child: Text(
+                  '${genreList[index]}',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            );
+          }),
+          itemCount: genreList.length,
+        ));
+  }
+}
+
 class PageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ArtSearchWatcherBloc, ArtSearchWatcherState>(
-        builder: (context, state) {
-      return Expanded(
+      builder: (context, state) {
+        return Expanded(
           child: ListView(
-        children: [
-          state.failureOrSuccess == null
-              ? Container()
-              : state.failureOrSuccess!.fold(
-                  (l) => CircularProgressIndicator(), (r) => ArtContainer(r)),
-        ],
-      ));
-    });
+            children: [
+              state.failureOrSuccess == null
+                  ? Container()
+                  : state.failureOrSuccess!.fold(
+                      (l) => CircularProgressIndicator(),
+                      (r) => ArtContainer(r)),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
