@@ -21,46 +21,78 @@ class CreateArtPage extends StatelessWidget {
         },
         builder: (context, state) => Scaffold(
           body: SafeArea(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: Form(
-                autovalidateMode: AutovalidateMode.always,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      TitleFormField(),
-                      DescriptionFormField(),
-                      PriceFormField(),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'For Sale:\t\t\t\t ',
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey[700]),
-                          ),
-                          ForSaleDropDownList(),
-                        ],
-                      ),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Status:\t\t\t\t ',
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.grey[700]),
-                          ),
-                          StatusArtDropDownList(),
-                        ],
-                      ),
-                      PickImage(),
-                      SizedBox(height: 10.0),
-                      CreateArtButton()
-                    ],
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text('Create Art'),
+                centerTitle: true,
+              ),
+              body: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                child: Form(
+                  autovalidateMode: AutovalidateMode.always,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        TitleFormField(),
+                        DescriptionFormField(),
+                        PriceFormField(),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'For Sale:\t\t\t\t ',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey[700]),
+                            ),
+                            ForSaleDropDownList(),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Status:\t\t\t\t ',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey[700]),
+                            ),
+                            StatusArtDropDownList(),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Genre:\t\t\t\t ',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey[700]),
+                            ),
+                            GenreArtDropDownList(),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Status:\t\t\t\t ',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey[700]),
+                            ),
+                            StatusArtDropDownList(),
+                          ],
+                        ),
+                        PickImage(),
+                        SizedBox(height: 10.0),
+                        CreateArtButton()
+                      ],
+                    ),
                   ),
                 ),
               ),
