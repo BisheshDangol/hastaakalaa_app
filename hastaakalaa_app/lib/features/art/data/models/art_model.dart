@@ -51,6 +51,7 @@ class ArtModel extends ArtEntity {
     int? price,
     String? forSale,
     String? status,
+    String? genre,
   }) {
     Map<String, dynamic> data = {};
 
@@ -60,6 +61,7 @@ class ArtModel extends ArtEntity {
     data['price'] = price;
     data['for_sale'] = forSale;
     data['status'] = status;
+    data['genre'] = genre;
 
     return data;
   }
