@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
+import 'package:hastaakalaa_app/injection_container.dart';
 
 class ArtDetailPage extends StatelessWidget {
   final ArtEntity artEntity;
@@ -55,54 +59,58 @@ class ArtDetailPage extends StatelessWidget {
                     ),
                   ),
                   SingleChildScrollView(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        artEntity.status,
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            artEntity.title,
-                            style: GoogleFonts.poppins(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                            ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          artEntity.status,
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.grey,
                           ),
-                          Text(
-                            'Rs. ${artEntity.price}',
-                            style: GoogleFonts.poppins(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                artEntity.title,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             ),
+                            FittedBox(
+                              child: Text(
+                                'Rs. ${artEntity.price}',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Text(
+                          'Description',
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 15),
-                      Text(
-                        artEntity.description,
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          color: Colors.grey,
                         ),
-                      ),
-                      const SizedBox(height: 15),
-                      Text(
-                        'Genre',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                        Text(
+                          artEntity.description,
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 15),
-                      Container(
-                        child: Row(
+                        const SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Genre',
@@ -111,11 +119,49 @@ class ArtDetailPage extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
+                            const SizedBox(height: 15),
+                            Text(
+                              artEntity.genre,
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                color: Colors.grey,
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ],
-                  ))
+                        Divider(),
+                        // Text(
+                        //   'About the Artist',
+                        //   style: GoogleFonts.poppins(
+                        //     fontSize: 16,
+                        //     fontWeight: FontWeight.w600,
+                        //   ),
+                        // ),
+                        InkWell(
+                          child: Container(
+                            child: Text(
+                              'Buy Artwork',
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ),
+                            height: 80,
+                            width: MediaQuery.of(context).size.height,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onTap: () {
+                            debugPrint('hello');
+                          },
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
