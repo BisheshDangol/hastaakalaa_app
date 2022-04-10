@@ -14,4 +14,5 @@ class ArtFormEvent with _$ArtFormEvent {
   const factory ArtFormEvent.changedForSale({String? forSale}) =
       _ChangedForSale;
   const factory ArtFormEvent.changedStatus({String? status}) = _ChangedStatus;
+  const factory ArtFormEvent.changedGenre({String? genre}) = _ChangedGenre;
 }

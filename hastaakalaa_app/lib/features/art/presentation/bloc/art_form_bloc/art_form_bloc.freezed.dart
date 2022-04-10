@@ -71,6 +71,12 @@ class _$ArtFormEventTearOff {
       status: status,
     );
   }
+
+  _ChangedGenre changedGenre({String? genre}) {
+    return _ChangedGenre(
+      genre: genre,
+    );
+  }
 }
 
 /// @nodoc
@@ -90,6 +96,7 @@ mixin _$ArtFormEvent {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +111,7 @@ mixin _$ArtFormEvent {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -118,6 +126,7 @@ mixin _$ArtFormEvent {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,6 +142,7 @@ mixin _$ArtFormEvent {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -147,6 +157,7 @@ mixin _$ArtFormEvent {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -161,6 +172,7 @@ mixin _$ArtFormEvent {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +245,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return pressedCreate();
   }
@@ -250,6 +263,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return pressedCreate?.call();
   }
@@ -267,6 +281,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedCreate != null) {
@@ -288,6 +303,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return pressedCreate(this);
   }
@@ -305,6 +321,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return pressedCreate?.call(this);
   }
@@ -322,6 +339,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedCreate != null) {
@@ -385,6 +403,7 @@ class _$_PressedLike implements _PressedLike {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return pressedLike();
   }
@@ -402,6 +421,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return pressedLike?.call();
   }
@@ -419,6 +439,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedLike != null) {
@@ -440,6 +461,7 @@ class _$_PressedLike implements _PressedLike {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return pressedLike(this);
   }
@@ -457,6 +479,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return pressedLike?.call(this);
   }
@@ -474,6 +497,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedLike != null) {
@@ -538,6 +562,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return pressedBookmark();
   }
@@ -555,6 +580,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return pressedBookmark?.call();
   }
@@ -572,6 +598,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedBookmark != null) {
@@ -593,6 +620,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return pressedBookmark(this);
   }
@@ -610,6 +638,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return pressedBookmark?.call(this);
   }
@@ -627,6 +656,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (pressedBookmark != null) {
@@ -713,6 +743,7 @@ class _$_ChangedId implements _ChangedId {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedId(id);
   }
@@ -730,6 +761,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedId?.call(id);
   }
@@ -747,6 +779,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedId != null) {
@@ -768,6 +801,7 @@ class _$_ChangedId implements _ChangedId {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedId(this);
   }
@@ -785,6 +819,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedId?.call(this);
   }
@@ -802,6 +837,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedId != null) {
@@ -894,6 +930,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedTitle(title);
   }
@@ -911,6 +948,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedTitle?.call(title);
   }
@@ -928,6 +966,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedTitle != null) {
@@ -949,6 +988,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedTitle(this);
   }
@@ -966,6 +1006,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedTitle?.call(this);
   }
@@ -983,6 +1024,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedTitle != null) {
@@ -1075,6 +1117,7 @@ class _$_ChangedImage implements _ChangedImage {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedImage(image);
   }
@@ -1092,6 +1135,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedImage?.call(image);
   }
@@ -1109,6 +1153,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedImage != null) {
@@ -1130,6 +1175,7 @@ class _$_ChangedImage implements _ChangedImage {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedImage(this);
   }
@@ -1147,6 +1193,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedImage?.call(this);
   }
@@ -1164,6 +1211,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedImage != null) {
@@ -1258,6 +1306,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedDescription(description);
   }
@@ -1275,6 +1324,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedDescription?.call(description);
   }
@@ -1292,6 +1342,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedDescription != null) {
@@ -1313,6 +1364,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedDescription(this);
   }
@@ -1330,6 +1382,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedDescription?.call(this);
   }
@@ -1347,6 +1400,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedDescription != null) {
@@ -1440,6 +1494,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedPrice(price);
   }
@@ -1457,6 +1512,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedPrice?.call(price);
   }
@@ -1474,6 +1530,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedPrice != null) {
@@ -1495,6 +1552,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedPrice(this);
   }
@@ -1512,6 +1570,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedPrice?.call(this);
   }
@@ -1529,6 +1588,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedPrice != null) {
@@ -1622,6 +1682,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedForSale(forSale);
   }
@@ -1639,6 +1700,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedForSale?.call(forSale);
   }
@@ -1656,6 +1718,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedForSale != null) {
@@ -1677,6 +1740,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedForSale(this);
   }
@@ -1694,6 +1758,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedForSale?.call(this);
   }
@@ -1711,6 +1776,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedForSale != null) {
@@ -1804,6 +1870,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     required TResult Function(int? price) changedPrice,
     required TResult Function(String? forSale) changedForSale,
     required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
   }) {
     return changedStatus(status);
   }
@@ -1821,6 +1888,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
   }) {
     return changedStatus?.call(status);
   }
@@ -1838,6 +1906,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(int? price)? changedPrice,
     TResult Function(String? forSale)? changedForSale,
     TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedStatus != null) {
@@ -1859,6 +1928,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     required TResult Function(_ChangedPrice value) changedPrice,
     required TResult Function(_ChangedForSale value) changedForSale,
     required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
   }) {
     return changedStatus(this);
   }
@@ -1876,6 +1946,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
   }) {
     return changedStatus?.call(this);
   }
@@ -1893,6 +1964,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(_ChangedPrice value)? changedPrice,
     TResult Function(_ChangedForSale value)? changedForSale,
     TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
     required TResult orElse(),
   }) {
     if (changedStatus != null) {
@@ -1912,6 +1984,193 @@ abstract class _ChangedStatus implements ArtFormEvent {
 }
 
 /// @nodoc
+abstract class _$ChangedGenreCopyWith<$Res> {
+  factory _$ChangedGenreCopyWith(
+          _ChangedGenre value, $Res Function(_ChangedGenre) then) =
+      __$ChangedGenreCopyWithImpl<$Res>;
+  $Res call({String? genre});
+}
+
+/// @nodoc
+class __$ChangedGenreCopyWithImpl<$Res> extends _$ArtFormEventCopyWithImpl<$Res>
+    implements _$ChangedGenreCopyWith<$Res> {
+  __$ChangedGenreCopyWithImpl(
+      _ChangedGenre _value, $Res Function(_ChangedGenre) _then)
+      : super(_value, (v) => _then(v as _ChangedGenre));
+
+  @override
+  _ChangedGenre get _value => super._value as _ChangedGenre;
+
+  @override
+  $Res call({
+    Object? genre = freezed,
+  }) {
+    return _then(_ChangedGenre(
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedGenre implements _ChangedGenre {
+  const _$_ChangedGenre({this.genre});
+
+  @override
+  final String? genre;
+
+  @override
+  String toString() {
+    return 'ArtFormEvent.changedGenre(genre: $genre)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedGenre &&
+            const DeepCollectionEquality().equals(other.genre, genre));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(genre));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedGenreCopyWith<_ChangedGenre> get copyWith =>
+      __$ChangedGenreCopyWithImpl<_ChangedGenre>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
+    required TResult Function(int? id) changedId,
+    required TResult Function(String? title) changedTitle,
+    required TResult Function(File? image) changedImage,
+    required TResult Function(String? description) changedDescription,
+    required TResult Function(int? price) changedPrice,
+    required TResult Function(String? forSale) changedForSale,
+    required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
+  }) {
+    return changedGenre(genre);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
+  }) {
+    return changedGenre?.call(genre);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
+    required TResult orElse(),
+  }) {
+    if (changedGenre != null) {
+      return changedGenre(genre);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_ChangedId value) changedId,
+    required TResult Function(_ChangedTitle value) changedTitle,
+    required TResult Function(_ChangedImage value) changedImage,
+    required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedPrice value) changedPrice,
+    required TResult Function(_ChangedForSale value) changedForSale,
+    required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
+  }) {
+    return changedGenre(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
+  }) {
+    return changedGenre?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
+    required TResult orElse(),
+  }) {
+    if (changedGenre != null) {
+      return changedGenre(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedGenre implements ArtFormEvent {
+  const factory _ChangedGenre({String? genre}) = _$_ChangedGenre;
+
+  String? get genre;
+  @JsonKey(ignore: true)
+  _$ChangedGenreCopyWith<_ChangedGenre> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$ArtFormStateTearOff {
   const _$ArtFormStateTearOff();
 
@@ -1924,6 +2183,7 @@ class _$ArtFormStateTearOff {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
+      required Either<InvalidInputFailure, String> genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) {
     return _ArtFormState(
@@ -1935,6 +2195,7 @@ class _$ArtFormStateTearOff {
       price: price,
       forSale: forSale,
       status: status,
+      genre: genre,
       showErrors: showErrors,
       failureOrSuccess: failureOrSuccess,
     );
@@ -1960,6 +2221,8 @@ mixin _$ArtFormState {
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get status =>
       throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get genre =>
+      throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
   Either<Failure, dynamic>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -1983,6 +2246,7 @@ abstract class $ArtFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
+      Either<InvalidInputFailure, String> genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2005,6 +2269,7 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
     Object? price = freezed,
     Object? forSale = freezed,
     Object? status = freezed,
+    Object? genre = freezed,
     Object? showErrors = freezed,
     Object? failureOrSuccess = freezed,
   }) {
@@ -2041,6 +2306,10 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Either<InvalidInputFailure, String>,
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2069,6 +2338,7 @@ abstract class _$ArtFormStateCopyWith<$Res>
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
+      Either<InvalidInputFailure, String> genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2093,6 +2363,7 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
     Object? price = freezed,
     Object? forSale = freezed,
     Object? status = freezed,
+    Object? genre = freezed,
     Object? showErrors = freezed,
     Object? failureOrSuccess = freezed,
   }) {
@@ -2129,6 +2400,10 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Either<InvalidInputFailure, String>,
+      genre: genre == freezed
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2153,6 +2428,7 @@ class _$_ArtFormState implements _ArtFormState {
       required this.price,
       required this.forSale,
       required this.status,
+      required this.genre,
       required this.showErrors,
       this.failureOrSuccess});
 
@@ -2173,13 +2449,15 @@ class _$_ArtFormState implements _ArtFormState {
   @override
   final Either<InvalidInputFailure, String> status;
   @override
+  final Either<InvalidInputFailure, String> genre;
+  @override
   final bool showErrors;
   @override
   final Either<Failure, dynamic>? failureOrSuccess;
 
   @override
   String toString() {
-    return 'ArtFormState(isLoading: $isLoading, id: $id, title: $title, image: $image, description: $description, price: $price, forSale: $forSale, status: $status, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
+    return 'ArtFormState(isLoading: $isLoading, id: $id, title: $title, image: $image, description: $description, price: $price, forSale: $forSale, status: $status, genre: $genre, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -2196,6 +2474,7 @@ class _$_ArtFormState implements _ArtFormState {
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.forSale, forSale) &&
             const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.genre, genre) &&
             const DeepCollectionEquality()
                 .equals(other.showErrors, showErrors) &&
             const DeepCollectionEquality()
@@ -2213,6 +2492,7 @@ class _$_ArtFormState implements _ArtFormState {
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(forSale),
       const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(genre),
       const DeepCollectionEquality().hash(showErrors),
       const DeepCollectionEquality().hash(failureOrSuccess));
 
@@ -2232,6 +2512,7 @@ abstract class _ArtFormState implements ArtFormState {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
+      required Either<InvalidInputFailure, String> genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) = _$_ArtFormState;
 
@@ -2251,6 +2532,8 @@ abstract class _ArtFormState implements ArtFormState {
   Either<InvalidInputFailure, String> get forSale;
   @override
   Either<InvalidInputFailure, String> get status;
+  @override
+  Either<InvalidInputFailure, String> get genre;
   @override
   bool get showErrors;
   @override
