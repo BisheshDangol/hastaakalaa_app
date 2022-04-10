@@ -94,16 +94,17 @@ class PageBuilder extends StatelessWidget {
           loading: (_) => CircularProgressIndicator(),
           loaded: (e) {
             return Expanded(
-                child: RefreshIndicator(
-              onRefresh: () async {
-                context.read<ArtListWatcherBloc>()
-                  ..add(ArtListWatcherEvent.retrieveDoctorList());
-              },
-              child: ListView(
-                children:
-                    e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  context.read<ArtListWatcherBloc>()
+                    ..add(ArtListWatcherEvent.retrieveDoctorList());
+                },
+                child: ListView(
+                  children:
+                      e.artList.map((e) => CardWrapper(artEntity: e)).toList(),
+                ),
               ),
-            ));
+            );
           },
           failed: (e) {
             return Container();

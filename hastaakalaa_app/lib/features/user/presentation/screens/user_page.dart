@@ -16,7 +16,7 @@ class UserPage extends StatelessWidget {
         ..add(CurrentUserWatcherEvent.retrieveUserList()),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Dashboard'),
+          title: Text('Profile'),
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16),

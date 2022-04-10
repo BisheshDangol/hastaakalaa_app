@@ -15,13 +15,29 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => sl<ArtSearchWatcherBloc>(),
-      child: SafeArea(
-        child: Column(
-          children: [
-            SearchPatientTextFormField(),
-            SearchButton(),
-            PageBuilder(),
-          ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Search'),
+          centerTitle: true,
+        ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    children: [
+                      Flexible(child: SearchPatientTextFormField(), flex: 3),
+                      SearchButton(),
+                    ],
+                  ),
+                ),
+              ),
+              PageBuilder(),
+            ],
+          ),
         ),
       ),
     );
@@ -52,6 +68,7 @@ class ArtContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const AlwaysScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: artList
@@ -68,7 +85,10 @@ class SearchPatientTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Search',
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
         labelText: 'Search',
         errorStyle: TextStyle(fontSize: 13),
       ),
