@@ -30,6 +30,10 @@ class _$ArtFormEventTearOff {
     return const _PressedBookmark();
   }
 
+  _PressedFilter pressedFilter() {
+    return const _PressedFilter();
+  }
+
   _ChangedId changedId({int? id}) {
     return _ChangedId(
       id: id,
@@ -89,6 +93,7 @@ mixin _$ArtFormEvent {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -104,6 +109,7 @@ mixin _$ArtFormEvent {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -119,6 +125,7 @@ mixin _$ArtFormEvent {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -135,6 +142,7 @@ mixin _$ArtFormEvent {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -150,6 +158,7 @@ mixin _$ArtFormEvent {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -165,6 +174,7 @@ mixin _$ArtFormEvent {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -238,6 +248,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -256,6 +267,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -274,6 +286,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -296,6 +309,7 @@ class _$_PressedCreate implements _PressedCreate {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -314,6 +328,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -332,6 +347,7 @@ class _$_PressedCreate implements _PressedCreate {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -396,6 +412,7 @@ class _$_PressedLike implements _PressedLike {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -414,6 +431,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -432,6 +450,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -454,6 +473,7 @@ class _$_PressedLike implements _PressedLike {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -472,6 +492,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -490,6 +511,7 @@ class _$_PressedLike implements _PressedLike {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -555,6 +577,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -573,6 +596,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -591,6 +615,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -613,6 +638,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -631,6 +657,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -649,6 +676,7 @@ class _$_PressedBookmark implements _PressedBookmark {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -668,6 +696,171 @@ class _$_PressedBookmark implements _PressedBookmark {
 
 abstract class _PressedBookmark implements ArtFormEvent {
   const factory _PressedBookmark() = _$_PressedBookmark;
+}
+
+/// @nodoc
+abstract class _$PressedFilterCopyWith<$Res> {
+  factory _$PressedFilterCopyWith(
+          _PressedFilter value, $Res Function(_PressedFilter) then) =
+      __$PressedFilterCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PressedFilterCopyWithImpl<$Res>
+    extends _$ArtFormEventCopyWithImpl<$Res>
+    implements _$PressedFilterCopyWith<$Res> {
+  __$PressedFilterCopyWithImpl(
+      _PressedFilter _value, $Res Function(_PressedFilter) _then)
+      : super(_value, (v) => _then(v as _PressedFilter));
+
+  @override
+  _PressedFilter get _value => super._value as _PressedFilter;
+}
+
+/// @nodoc
+
+class _$_PressedFilter implements _PressedFilter {
+  const _$_PressedFilter();
+
+  @override
+  String toString() {
+    return 'ArtFormEvent.pressedFilter()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _PressedFilter);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function() pressedLike,
+    required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
+    required TResult Function(int? id) changedId,
+    required TResult Function(String? title) changedTitle,
+    required TResult Function(File? image) changedImage,
+    required TResult Function(String? description) changedDescription,
+    required TResult Function(int? price) changedPrice,
+    required TResult Function(String? forSale) changedForSale,
+    required TResult Function(String? status) changedStatus,
+    required TResult Function(String? genre) changedGenre,
+  }) {
+    return pressedFilter();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
+  }) {
+    return pressedFilter?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function()? pressedLike,
+    TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
+    TResult Function(int? id)? changedId,
+    TResult Function(String? title)? changedTitle,
+    TResult Function(File? image)? changedImage,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? price)? changedPrice,
+    TResult Function(String? forSale)? changedForSale,
+    TResult Function(String? status)? changedStatus,
+    TResult Function(String? genre)? changedGenre,
+    required TResult orElse(),
+  }) {
+    if (pressedFilter != null) {
+      return pressedFilter();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_PressedLike value) pressedLike,
+    required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
+    required TResult Function(_ChangedId value) changedId,
+    required TResult Function(_ChangedTitle value) changedTitle,
+    required TResult Function(_ChangedImage value) changedImage,
+    required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedPrice value) changedPrice,
+    required TResult Function(_ChangedForSale value) changedForSale,
+    required TResult Function(_ChangedStatus value) changedStatus,
+    required TResult Function(_ChangedGenre value) changedGenre,
+  }) {
+    return pressedFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
+  }) {
+    return pressedFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_PressedLike value)? pressedLike,
+    TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
+    TResult Function(_ChangedId value)? changedId,
+    TResult Function(_ChangedTitle value)? changedTitle,
+    TResult Function(_ChangedImage value)? changedImage,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedPrice value)? changedPrice,
+    TResult Function(_ChangedForSale value)? changedForSale,
+    TResult Function(_ChangedStatus value)? changedStatus,
+    TResult Function(_ChangedGenre value)? changedGenre,
+    required TResult orElse(),
+  }) {
+    if (pressedFilter != null) {
+      return pressedFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedFilter implements ArtFormEvent {
+  const factory _PressedFilter() = _$_PressedFilter;
 }
 
 /// @nodoc
@@ -736,6 +929,7 @@ class _$_ChangedId implements _ChangedId {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -754,6 +948,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -772,6 +967,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -794,6 +990,7 @@ class _$_ChangedId implements _ChangedId {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -812,6 +1009,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -830,6 +1028,7 @@ class _$_ChangedId implements _ChangedId {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -923,6 +1122,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -941,6 +1141,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -959,6 +1160,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -981,6 +1183,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -999,6 +1202,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1017,6 +1221,7 @@ class _$_ChangedTitle implements _ChangedTitle {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1110,6 +1315,7 @@ class _$_ChangedImage implements _ChangedImage {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1128,6 +1334,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1146,6 +1353,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1168,6 +1376,7 @@ class _$_ChangedImage implements _ChangedImage {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1186,6 +1395,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1204,6 +1414,7 @@ class _$_ChangedImage implements _ChangedImage {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1299,6 +1510,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1317,6 +1529,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1335,6 +1548,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1357,6 +1571,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1375,6 +1590,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1393,6 +1609,7 @@ class _$_ChangedDescription implements _ChangedDescription {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1487,6 +1704,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1505,6 +1723,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1523,6 +1742,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1545,6 +1765,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1563,6 +1784,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1581,6 +1803,7 @@ class _$_ChangedPrice implements _ChangedPrice {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1675,6 +1898,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1693,6 +1917,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1711,6 +1936,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1733,6 +1959,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1751,6 +1978,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1769,6 +1997,7 @@ class _$_ChangedForSale implements _ChangedForSale {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1863,6 +2092,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -1881,6 +2111,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1899,6 +2130,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -1921,6 +2153,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -1939,6 +2172,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -1957,6 +2191,7 @@ class _$_ChangedStatus implements _ChangedStatus {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -2050,6 +2285,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     required TResult Function() pressedCreate,
     required TResult Function() pressedLike,
     required TResult Function() pressedBookmark,
+    required TResult Function() pressedFilter,
     required TResult Function(int? id) changedId,
     required TResult Function(String? title) changedTitle,
     required TResult Function(File? image) changedImage,
@@ -2068,6 +2304,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -2086,6 +2323,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     TResult Function()? pressedCreate,
     TResult Function()? pressedLike,
     TResult Function()? pressedBookmark,
+    TResult Function()? pressedFilter,
     TResult Function(int? id)? changedId,
     TResult Function(String? title)? changedTitle,
     TResult Function(File? image)? changedImage,
@@ -2108,6 +2346,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_PressedLike value) pressedLike,
     required TResult Function(_PressedBookmark value) pressedBookmark,
+    required TResult Function(_PressedFilter value) pressedFilter,
     required TResult Function(_ChangedId value) changedId,
     required TResult Function(_ChangedTitle value) changedTitle,
     required TResult Function(_ChangedImage value) changedImage,
@@ -2126,6 +2365,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -2144,6 +2384,7 @@ class _$_ChangedGenre implements _ChangedGenre {
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_PressedLike value)? pressedLike,
     TResult Function(_PressedBookmark value)? pressedBookmark,
+    TResult Function(_PressedFilter value)? pressedFilter,
     TResult Function(_ChangedId value)? changedId,
     TResult Function(_ChangedTitle value)? changedTitle,
     TResult Function(_ChangedImage value)? changedImage,
@@ -2183,7 +2424,7 @@ class _$ArtFormStateTearOff {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      required Either<InvalidInputFailure, String> genre,
+      String? genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) {
     return _ArtFormState(
@@ -2221,8 +2462,7 @@ mixin _$ArtFormState {
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get status =>
       throw _privateConstructorUsedError;
-  Either<InvalidInputFailure, String> get genre =>
-      throw _privateConstructorUsedError;
+  String? get genre => throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
   Either<Failure, dynamic>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -2246,7 +2486,7 @@ abstract class $ArtFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      Either<InvalidInputFailure, String> genre,
+      String? genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2309,7 +2549,7 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, String>,
+              as String?,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2338,7 +2578,7 @@ abstract class _$ArtFormStateCopyWith<$Res>
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      Either<InvalidInputFailure, String> genre,
+      String? genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2403,7 +2643,7 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, String>,
+              as String?,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2428,7 +2668,7 @@ class _$_ArtFormState implements _ArtFormState {
       required this.price,
       required this.forSale,
       required this.status,
-      required this.genre,
+      this.genre,
       required this.showErrors,
       this.failureOrSuccess});
 
@@ -2449,7 +2689,7 @@ class _$_ArtFormState implements _ArtFormState {
   @override
   final Either<InvalidInputFailure, String> status;
   @override
-  final Either<InvalidInputFailure, String> genre;
+  final String? genre;
   @override
   final bool showErrors;
   @override
@@ -2512,7 +2752,7 @@ abstract class _ArtFormState implements ArtFormState {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      required Either<InvalidInputFailure, String> genre,
+      String? genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) = _$_ArtFormState;
 
@@ -2533,7 +2773,7 @@ abstract class _ArtFormState implements ArtFormState {
   @override
   Either<InvalidInputFailure, String> get status;
   @override
-  Either<InvalidInputFailure, String> get genre;
+  String? get genre;
   @override
   bool get showErrors;
   @override

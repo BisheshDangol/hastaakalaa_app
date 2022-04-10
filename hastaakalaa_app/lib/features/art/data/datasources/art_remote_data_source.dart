@@ -14,6 +14,7 @@ abstract class IArtDataSource {
   Future<List<ArtModel>> getAllArtPost();
   Future<String> postLike({required int? data});
   Future<String> postBookmark({required int? data});
+  Future<List<ArtModel>> getFilterArtPost({required String? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -135,6 +136,25 @@ class ArtRemoteDataSource implements IArtDataSource {
     debugPrint(response.body);
     if (response.statusCode == 200) {
       return response.body;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<ArtModel>> getFilterArtPost({required String? data}) async {
+    Uri url = Uri.parse('${getFilterArtEndPoint}${data}');
+    final response = await client.get(
+      url,
+    );
+
+    debugPrint(url.toString());
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
+          .toList();
     } else {
       throw ServerException();
     }

@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/art_filter_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
 class DiscoverPage extends StatelessWidget {
@@ -59,11 +61,20 @@ class FilterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 100,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: ((context, index) {
-            return Container(
+      height: 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: ((context, index) {
+          return InkWell(
+            onTap: () {
+              context
+                  .read<ArtFormBloc>()
+                  .add(ArtFormEvent.changedGenre(genre: genreList[index]));
+              context.read<ArtFormBloc>().add(ArtFormEvent.pressedFilter());
+              // debugPrint('${genreList[index]}');
+              // ArtFilterPage();
+            },
+            child: Container(
               decoration: BoxDecoration(
                   color: Colors.red[300],
                   borderRadius: BorderRadius.circular(20)),
@@ -76,10 +87,12 @@ class FilterPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-            );
-          }),
-          itemCount: genreList.length,
-        ));
+            ),
+          );
+        }),
+        itemCount: genreList.length,
+      ),
+    );
   }
 }
 

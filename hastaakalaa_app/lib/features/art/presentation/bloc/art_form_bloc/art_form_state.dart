@@ -11,7 +11,7 @@ class ArtFormState with _$ArtFormState {
     required Either<InvalidInputFailure, int> price,
     required Either<InvalidInputFailure, String> forSale,
     required Either<InvalidInputFailure, String> status,
-    required Either<InvalidInputFailure, String> genre,
+    String? genre,
     required bool showErrors,
     Either<Failure, dynamic>? failureOrSuccess,
   }) = _ArtFormState;
@@ -23,7 +23,6 @@ class ArtFormState with _$ArtFormState {
         price: left(InvalidInputFailure()),
         forSale: left(InvalidInputFailure()),
         status: left(InvalidInputFailure()),
-        genre: left(InvalidInputFailure()),
         showErrors: false,
         isLoading: false,
         failureOrSuccess: null,

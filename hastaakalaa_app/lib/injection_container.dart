@@ -5,9 +5,11 @@ import 'package:hastaakalaa_app/features/art/data/repositories/art_repository_im
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_filter_watcher_bloc/art_filter_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
@@ -42,7 +44,7 @@ Future<void> init() async {
 
   sl.registerFactory(() => RegisterFormBloc(sl(), sl()));
 
-  sl.registerFactory(() => ArtFormBloc(sl(), sl(), sl(), sl()));
+  sl.registerFactory(() => ArtFormBloc(sl(), sl(), sl(), sl(), sl()));
 
   sl.registerFactory(() => ArtSearchWatcherBloc(sl(), sl()));
 
@@ -51,6 +53,8 @@ Future<void> init() async {
   sl.registerFactory(() => UserListWatcherBloc(sl()));
 
   sl.registerFactory((() => CurrentUserWatcherBloc(sl())));
+
+  sl.registerFactory(() => ArtFilterWatcherBloc(sl()));
 
   //! UseCases
 
@@ -71,6 +75,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => BookmarkPostUsecase(sl()));
 
   sl.registerLazySingleton(() => GetCurrentUserUsecase(sl()));
+
+  sl.registerLazySingleton(() => FilterPostUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());

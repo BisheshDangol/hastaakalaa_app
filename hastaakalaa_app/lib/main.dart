@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_filter_watcher_bloc/art_filter_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/register/presentation/screens/register_page.dart';
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ArtFormBloc>(
           create: (context) => sl<ArtFormBloc>(),
+        ),
+        BlocProvider<ArtFilterWatcherBloc>(
+          create: (context) => sl<ArtFilterWatcherBloc>(),
         ),
       ],
       child: MaterialApp(

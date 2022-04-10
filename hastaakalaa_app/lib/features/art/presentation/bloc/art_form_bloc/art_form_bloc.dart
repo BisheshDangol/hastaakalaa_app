@@ -7,8 +7,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/art/data/models/art_model.dart';
+import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
 
 part 'art_form_event.dart';
@@ -20,8 +22,9 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
   final CreateArtPostUseCase _registerUserUsecase;
   final LikePostUsecase _likePostUsecase;
   final BookmarkPostUsecase _bookmarkPostUsecase;
+  final FilterPostUseCase _filterPostUseCase;
   ArtFormBloc(this._inputConvert, this._registerUserUsecase,
-      this._likePostUsecase, this._bookmarkPostUsecase)
+      this._likePostUsecase, this._bookmarkPostUsecase, this._filterPostUseCase)
       : super(ArtFormState.initial()) {
     on<ArtFormEvent>(
       (event, emit) async {
@@ -151,10 +154,21 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
           changedGenre: (_ChangedGenre value) {
             emit(
               state.copyWith(
-                failureOrSuccess: null,
-                genre: _inputConvert.notEmpty(
-                  value: value.genre,
-                ),
+                genre: value.genre,
+              ),
+            );
+          },
+          pressedFilter: (_) async {
+            emit(state.copyWith(isLoading: true, failureOrSuccess: null));
+
+            Either<Failure, List<ArtEntity>>? failureOrSuccess;
+
+            failureOrSuccess = await _filterPostUseCase.call(state.genre);
+            emit(
+              state.copyWith(
+                isLoading: false,
+                failureOrSuccess: failureOrSuccess,
+                showErrors: true,
               ),
             );
           },
