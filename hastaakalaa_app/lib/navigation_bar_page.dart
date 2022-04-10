@@ -27,7 +27,7 @@ class NavigationBarPage extends StatelessWidget {
       return [
         PersistentBottomNavBarItem(
           icon: Icon(Icons.dashboard),
-          title: ("Dashboard"),
+          title: ("Home"),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.image_search_sharp),

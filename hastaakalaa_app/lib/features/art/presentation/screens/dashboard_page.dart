@@ -19,7 +19,7 @@ class DashboardPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xFFEDF0F6),
         appBar: AppBar(
-          title: Text('Dashboard'),
+          title: Text('Home'),
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16),
