@@ -20,6 +20,7 @@ class DashboardPage extends StatelessWidget {
         backgroundColor: Color(0xFFEDF0F6),
         appBar: AppBar(
           title: Text('Home'),
+          centerTitle: true,
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16),

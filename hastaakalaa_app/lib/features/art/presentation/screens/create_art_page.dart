@@ -75,19 +75,6 @@ class CreateArtPage extends StatelessWidget {
                             GenreArtDropDownList(),
                           ],
                         ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Status:\t\t\t\t ',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey[700]),
-                            ),
-                            StatusArtDropDownList(),
-                          ],
-                        ),
                         PickImage(),
                         SizedBox(height: 10.0),
                         CreateArtButton()
