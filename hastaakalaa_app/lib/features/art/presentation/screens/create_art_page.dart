@@ -179,6 +179,44 @@ class _ForSaleDropDownListState extends State<ForSaleDropDownList> {
   }
 }
 
+class GenreArtDropDownList extends StatefulWidget {
+  GenreArtDropDownList({Key? key}) : super(key: key);
+
+  @override
+  State<GenreArtDropDownList> createState() => _GenreArtDropDownListState();
+}
+
+class _GenreArtDropDownListState extends State<GenreArtDropDownList> {
+  String? dropdownValue;
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      items: <String>[
+        'abstract',
+        'pop',
+        'realism',
+        'potrait',
+        'landscape',
+        'mithila'
+      ].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      value: dropdownValue,
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+        context
+            .read<ArtFormBloc>()
+            .add(ArtFormEvent.changedGenre(genre: dropdownValue));
+      },
+    );
+  }
+}
+
 class StatusArtDropDownList extends StatefulWidget {
   StatusArtDropDownList({Key? key}) : super(key: key);
 
