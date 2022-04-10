@@ -20,3 +20,5 @@ const likePostEndpoint = '${baseUrl}api/art/likes/';
 const bookmarkPostEndpoint = '${baseUrl}api/bookmark/';
 
 const getCurrentUserEndPoint = '${baseUrl}api/user/current_user/';
+
+const getFilterArtEndPoint = '${baseUrl}api/art/genre/';
