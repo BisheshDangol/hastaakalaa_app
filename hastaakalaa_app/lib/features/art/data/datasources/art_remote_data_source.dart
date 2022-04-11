@@ -15,6 +15,7 @@ abstract class IArtDataSource {
   Future<String> postLike({required int? data});
   Future<String> postBookmark({required int? data});
   Future<List<ArtModel>> getFilterArtPost({required String? data});
+  Future<List<ArtModel>> getAllBookmarkPost();
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -122,6 +123,9 @@ class ArtRemoteDataSource implements IArtDataSource {
   Future<String> postBookmark({required int? data}) async {
     String userToken =
         await TokenSharedPrefernces.instance.getTokenValue("token");
+    debugPrint('===============');
+    debugPrint('${userToken}');
+    debugPrint('===============');
     Map<String, String> headers = {
       "content-type": "application/json",
       "Authorization": "Token ${userToken}",
@@ -149,6 +153,31 @@ class ArtRemoteDataSource implements IArtDataSource {
     );
 
     debugPrint(url.toString());
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<ArtModel>> getAllBookmarkPost() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    final response = await client.get(
+      Uri.parse(
+        getBookmarkEndPoint,
+      ),
+      headers: headers,
+    );
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;

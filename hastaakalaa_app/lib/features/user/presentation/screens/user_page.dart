@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 
 import '../../../../injection_container.dart';
@@ -58,15 +59,10 @@ class UserPage extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: Text('Log out'),
-                onTap: () async {
-                  await Future.delayed(
-                    const Duration(milliseconds: 500),
-                  );
-                  TokenSharedPrefernces.instance.removeToken("token");
-
-                  Navigator.of(context, rootNavigator: true)
-                      .popAndPushNamed('splash');
+                title: Text('Bookmark'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BookmarkPage()));
                 },
               )
             ],

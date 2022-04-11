@@ -8,7 +8,9 @@ import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_use
 import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/get_bookmark_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_bookmark_watcher_bloc/art_bookmark_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_filter_watcher_bloc/art_filter_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
@@ -56,6 +58,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => ArtFilterWatcherBloc(sl()));
 
+  sl.registerFactory(() => ArtBookmarkWatcherBloc(sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -77,6 +81,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetCurrentUserUsecase(sl()));
 
   sl.registerLazySingleton(() => FilterPostUseCase(sl()));
+
+  sl.registerLazySingleton(() => GetBookmarkUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());

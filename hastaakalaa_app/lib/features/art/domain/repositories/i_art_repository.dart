@@ -16,4 +16,6 @@ abstract class IArtRepository {
 
   Future<Either<Failure, List<ArtEntity>>> getFilterArtPost(
       {required String? data});
+
+  Future<Either<Failure, List<ArtEntity>>> getAllBookmarkPost();
 }

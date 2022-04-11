@@ -22,3 +22,5 @@ const bookmarkPostEndpoint = '${baseUrl}api/bookmark/';
 const getCurrentUserEndPoint = '${baseUrl}api/user/current_user/';
 
 const getFilterArtEndPoint = '${baseUrl}api/art/genre/';
+
+const getBookmarkEndPoint = '${baseUrl}api/art/bookmark/get';
