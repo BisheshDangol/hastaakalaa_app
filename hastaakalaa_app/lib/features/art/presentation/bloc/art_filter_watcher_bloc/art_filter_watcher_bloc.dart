@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
@@ -16,16 +17,22 @@ class ArtFilterWatcherBloc
   ArtFilterWatcherBloc(this._filterPostUseCase)
       : super(ArtFilterWatcherState.initial()) {
     on<ArtFilterWatcherEvent>((event, emit) async {
-      await event.map(
-        retrieveArtList: (_) async {
-          emit(ArtFilterWatcherState.loading());
+      await event.map(retrieveArtList: (_RetrieveArtList value) async {
+        emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-          final artList = await _filterPostUseCase.call('abstract');
+        final artList = await _filterPostUseCase.call(value.genre);
 
-          artList.fold((l) => emit(ArtFilterWatcherState.failed(l)),
-              (r) => emit(ArtFilterWatcherState.loaded(r)));
-        },
-      );
+        emit(state.copyWith(
+            failureOrSuccess: artList,
+            isLoading: false,
+            artList: artList.fold((l) => [], (r) => r)));
+      }, changedGenre: (_ChangedGenre value) {
+        emit(
+          state.copyWith(
+            genre: value.genre,
+          ),
+        );
+      });
     });
   }
 }

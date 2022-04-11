@@ -67,12 +67,11 @@ class FilterPage extends StatelessWidget {
         itemBuilder: ((context, index) {
           return InkWell(
             onTap: () {
-              context
-                  .read<ArtFormBloc>()
-                  .add(ArtFormEvent.changedGenre(genre: genreList[index]));
-              context.read<ArtFormBloc>().add(ArtFormEvent.pressedFilter());
-              // debugPrint('${genreList[index]}');
-              // ArtFilterPage();
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ArtFilterPage(genreTitle: genreList[index])));
             },
             child: Container(
               decoration: BoxDecoration(
@@ -96,6 +95,25 @@ class FilterPage extends StatelessWidget {
   }
 }
 
+class FilterContainer extends StatelessWidget {
+  final List<ArtEntity> artList;
+  const FilterContainer({Key? key, required this.artList}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      children: artList
+          .map((e) => SearchWrapper(
+                artEntity: e,
+              ))
+          .toList(),
+    );
+  }
+}
+
 class PageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -108,7 +126,7 @@ class PageBuilder extends StatelessWidget {
                   ? Container()
                   : state.failureOrSuccess!.fold(
                       (l) => CircularProgressIndicator(),
-                      (r) => ArtContainer(r)),
+                      (r) => ArtContainer(r))
             ],
           ),
         );
