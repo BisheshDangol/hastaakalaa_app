@@ -137,15 +137,15 @@ class _LikeButtonState extends State<LikeButton> {
 
   _getUserId() async {
     String userToken =
-        await TokenSharedPrefernces.instance.getTokenValue("userid");
+        await TokenSharedPrefernces.instance.getTokenValue("userId");
     setState(() {
       user = userToken;
+      debugPrint(user);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
@@ -158,7 +158,7 @@ class _LikeButtonState extends State<LikeButton> {
         } else {
           context.read<ArtListWatcherBloc>()
             ..add(ArtListWatcherEvent.retrieveDoctorList());
-          debugPrint('This is the usertoken${userToken}');
+          // debugPrint('This is the usertoken${userToken}');
         }
       },
       builder: (context, state) {
@@ -173,7 +173,7 @@ class _LikeButtonState extends State<LikeButton> {
                         .add(ArtFormEvent.changedId(id: widget.art.id));
                     context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
                   },
-                  icon: widget.art.likes.contains(userToken)
+                  icon: widget.art.likes.contains(int.tryParse(user))
                       ? Icon(Icons.favorite_sharp)
                       : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,

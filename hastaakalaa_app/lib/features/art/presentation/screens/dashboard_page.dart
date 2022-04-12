@@ -1,15 +1,61 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
+import 'package:hastaakalaa_app/core/end_points.dart';
+import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
+import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../../injection_container.dart';
 
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
+
+  @override
+  State<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  @override
+  void initState() {
+    getCurrentUser();
+
+    super.initState();
+  }
+
+  void getCurrentUser() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> header = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+
+    final response =
+        await http.get(Uri.parse(getCurrentUserEndPoint), headers: header);
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      final gottenUser = jsonData
+          .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+
+      // debugPrint('${gottenUser[0].id}');
+
+      String idToken =
+          await TokenSharedPrefernces.instance.getTokenValue("token");
+
+      TokenSharedPrefernces.instance
+          .setTokenValue("userId", gottenUser[0].id.toString());
+    } else {
+      throw ServerException();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

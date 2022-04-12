@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
+import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
+import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 
@@ -12,9 +15,17 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<CurrentUserWatcherBloc>()
-        ..add(CurrentUserWatcherEvent.retrieveUserList()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<CurrentUserWatcherBloc>()
+            ..add(CurrentUserWatcherEvent.retrieveUserList()),
+        ),
+        BlocProvider(
+          create: (context) => sl<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList()),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text('Profile'),
@@ -23,7 +34,28 @@ class UserPage extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
+              SizedBox(
+                height: 20,
+              ),
               PageBuilder(),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 5.0),
+                decoration: BoxDecoration(color: Colors.green[100]),
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    Text(
+                      'Posts',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              UserPostPageBuilder(),
             ],
           ),
         ),
@@ -69,6 +101,45 @@ class UserPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class UserPostPageBuilder extends StatelessWidget {
+  const UserPostPageBuilder({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ArtListWatcherBloc, ArtListWatcherState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) {
+            return Container();
+          },
+          loading: (_) => CircularProgressIndicator(),
+          loaded: (e) {
+            return Expanded(
+                child: RefreshIndicator(
+              onRefresh: () async {
+                context.read<ArtListWatcherBloc>()
+                  ..add(ArtListWatcherEvent.retrieveDoctorList());
+              },
+              child: GridView.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 3.0,
+                crossAxisSpacing: 3.0,
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                children:
+                    e.artList.map((e) => GridWrapper(artEntity: e)).toList(),
+              ),
+            ));
+          },
+          failed: (e) {
+            return Container();
+          },
+        );
+      },
     );
   }
 }

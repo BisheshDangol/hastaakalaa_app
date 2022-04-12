@@ -13,133 +13,79 @@ class UserWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height / 10,
-      width: MediaQuery.of(context).size.width,
-      child: Card(
-        elevation: 3.0,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(border: Border.all(), color: Colors.grey),
+        // color: Colors.grey[400],
+        height: MediaQuery.of(context).size.height / 3,
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: Colors.black
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.black45,
+                          //     offset: Offset(0, 2),
+                          //     blurRadius: 6.0,
+                          //   ),
+                          // ],
+                          ),
                   child: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    radius: 25,
+                      backgroundColor: Colors.black45,
+                      child: Text('${userEntity.id}',
+                          style: TextStyle(fontSize: 30, color: Colors.white))),
+                ),
+              ),
+              SizedBox(height: 10),
+              Text('${userEntity.firstName} ${userEntity.lastName}',
+                  style: TextStyle(fontSize: 25, color: Colors.white)),
+              SizedBox(height: 10),
+              Text('${userEntity.email}'),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Followers",
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        "${userEntity.follower.length}",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(userEntity.userName.toString(),
-                    style: TextStyle(fontSize: 20)),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class LikeButton extends StatefulWidget {
-  final ArtEntity art;
-  const LikeButton({Key? key, required this.art}) : super(key: key);
-
-  @override
-  State<LikeButton> createState() => _LikeButtonState();
-}
-
-class _LikeButtonState extends State<LikeButton> {
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<ArtFormBloc, ArtFormState>(
-      listener: (context, state) {
-        String response = '';
-        state.failureOrSuccess
-            ?.fold((l) => null, (r) => response = r.toString());
-        if (response == 'Found') {
-          CircularProgressIndicator();
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        } else {
-          context.read<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList());
-        }
-      },
-      builder: (context, state) {
-        return BlocBuilder<ArtFormBloc, ArtFormState>(
-          builder: (context, state) {
-            return Column(
-              children: [
-                Text(
-                  widget.art.likes.length == 0
-                      ? ''
-                      : widget.art.likes.length.toString(),
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    context
-                        .read<ArtFormBloc>()
-                        .add(ArtFormEvent.changedId(id: widget.art.id));
-                    context.read<ArtFormBloc>().add(ArtFormEvent.pressedLike());
-                  },
-                  icon: widget.art.likes.contains(1)
-                      ? Icon(Icons.favorite_sharp)
-                      : Icon(Icons.favorite_border_sharp),
-                  iconSize: 30,
-                  color: Colors.red,
-                ),
-              ],
-            );
-          },
-        );
-      },
-    );
-  }
-}
-
-class BookmarkButton extends StatelessWidget {
-  final ArtEntity art;
-  const BookmarkButton({Key? key, required this.art}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<ArtFormBloc, ArtFormState>(
-      listener: (context, state) {
-        String response = '';
-        state.failureOrSuccess?.fold(
-            (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
-
-        // if (response == 'Found') {
-        //   CircularProgressIndicator();
-        //   context.read<ArtListWatcherBloc>()
-        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
-        // } else {
-        //   context.read<ArtListWatcherBloc>()
-        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
-        // }
-      },
-      builder: (context, state) {
-        return BlocBuilder<ArtFormBloc, ArtFormState>(
-          builder: (context, state) {
-            return IconButton(
-              onPressed: () {
-                context
-                    .read<ArtFormBloc>()
-                    .add(ArtFormEvent.changedId(id: art.id));
-                context.read<ArtFormBloc>().add(ArtFormEvent.pressedBookmark());
-              },
-              icon: Icon(Icons.bookmark_add),
-              iconSize: 30,
-              color: Colors.red,
-            );
-          },
-        );
-      },
-    );
+                  Column(
+                    children: [
+                      Text(
+                        "Follow",
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        "${userEntity.followedBy.length}",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+        ));
   }
 }
