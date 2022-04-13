@@ -32,3 +32,5 @@ const postCommentEndPoint = '${baseUrl}api/comment/';
 const getSellArtEndPoint = '${baseUrl}api/art/sell/';
 
 const getBuyArtEndpPoint = '${baseUrl}api/art/buy/';
+
+const searchUserEndPoint = '${baseUrl}api/user/search/';
