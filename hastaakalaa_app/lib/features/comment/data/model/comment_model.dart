@@ -6,7 +6,7 @@ class CommentModel extends CommentEntity {
     required int art,
     required int user,
     required String description,
-    required DateTime published,
+    required String published,
   }) : super(
           id: id,
           art: art,

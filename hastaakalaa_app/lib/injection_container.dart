@@ -15,6 +15,11 @@ import 'package:hastaakalaa_app/features/art/presentation/bloc/art_filter_watche
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/comment/data/datasources/comment_remote_data_source.dart';
+import 'package:hastaakalaa_app/features/comment/data/repositories/comment_repository_impl.dart';
+import 'package:hastaakalaa_app/features/comment/domain/repositories/i_comment_repository.dart';
+import 'package:hastaakalaa_app/features/comment/domain/usecases/get_comment_post_usecase.dart';
+import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
@@ -60,6 +65,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => ArtBookmarkWatcherBloc(sl()));
 
+  sl.registerFactory(() => CommentWatcherBloc(sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -84,6 +91,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => GetBookmarkUsecase(sl()));
 
+  sl.registerLazySingleton((() => GetCommentPostUseCase(sl())));
+
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
 
@@ -100,6 +109,9 @@ Future<void> init() async {
   sl.registerLazySingleton<IUserRepository>(
       () => UserRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
 
+  sl.registerLazySingleton<ICommentRepository>(
+      () => CommentRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
+
   //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
@@ -115,6 +127,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton<IUserDataSource>(
       () => UserRemoteDataSource(client: sl()));
+
+  sl.registerLazySingleton<ICommentDataSource>(
+      () => CommentRemoteDataSource(client: sl()));
 
   sl.registerLazySingleton(() => http.Client());
 

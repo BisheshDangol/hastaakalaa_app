@@ -11,7 +11,7 @@ abstract class ICommentDataSource {
 
 class CommentRemoteDataSource implements ICommentDataSource {
   final http.Client client;
-  CommentRemoteDataSource(this.client);
+  CommentRemoteDataSource({required this.client});
   @override
   Future<List<CommentModel>> getCommentPost({required int? data}) async {
     final response = await client.get(

@@ -5,7 +5,7 @@ class CommentEntity extends Equatable {
   final int user;
   final int art;
   final String description;
-  final DateTime published;
+  final String published;
 
   CommentEntity({
     required this.id,
