@@ -7,6 +7,7 @@ import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 
 import '../../../../injection_container.dart';
@@ -104,7 +105,14 @@ class UserPage extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => BuyArtPage()));
                 },
-              )
+              ),
+              ListTile(
+                title: Text('Sell Art'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SellArtPage()));
+                },
+              ),
             ],
           ),
         ),
