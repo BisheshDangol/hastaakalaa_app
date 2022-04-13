@@ -5,4 +5,5 @@ class CommentFormEvent with _$CommentFormEvent {
   const factory CommentFormEvent.pressedCreate() = _PressedCreate;
   const factory CommentFormEvent.changedDescription({String? description}) =
       _ChangedDescription;
+  const factory CommentFormEvent.changedId({int? id}) = _ChangedId;
 }

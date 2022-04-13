@@ -3,6 +3,7 @@ part of 'comment_form_bloc.dart';
 @freezed
 class CommentFormState with _$CommentFormState {
   const factory CommentFormState({
+    int? id,
     required bool isLoading,
     required Either<InvalidInputFailure, String> description,
     required bool showErrors,

@@ -5,6 +5,8 @@ import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
+import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
+import 'package:hastaakalaa_app/injection_container.dart';
 
 class CardWrapper extends StatelessWidget {
   final ArtEntity artEntity;
@@ -93,6 +95,14 @@ class CardWrapper extends StatelessWidget {
                                 Row(
                                   children: [
                                     LikeButton(
+                                      art: artEntity,
+                                    )
+                                  ],
+                                ),
+                                SizedBox(width: 20.0),
+                                Row(
+                                  children: [
+                                    CommentButton(
                                       art: artEntity,
                                     )
                                   ],
@@ -256,6 +266,103 @@ class _BookmarkButtonState extends State<BookmarkButton> {
           },
         );
       },
+    );
+  }
+}
+
+class CommentButton extends StatelessWidget {
+  final ArtEntity art;
+  const CommentButton({Key? key, required this.art}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => sl<CommentFormBloc>(),
+      child: IconButton(
+        icon: Icon(
+          Icons.comment_sharp,
+        ),
+        iconSize: 30,
+        color: Colors.red,
+        onPressed: () {
+          showModalBottomSheet<void>(
+            isScrollControlled: true,
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                height: 200,
+                color: Colors.white,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const Text('Add Comment'),
+                      CommentTextFormField(),
+                      AddCommentButton(artEntity: art),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class CommentTextFormField extends StatelessWidget {
+  CommentTextFormField({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        hintText: 'Enter comment',
+        labelText: 'Comment',
+        errorStyle: TextStyle(fontSize: 13),
+      ),
+      onChanged: (value) {
+        context
+            .read<CommentFormBloc>()
+            .add(CommentFormEvent.changedDescription(description: value));
+      },
+      validator: (_) => context.read<CommentFormBloc>().state.showErrors
+          ? context
+              .read<CommentFormBloc>()
+              .state
+              .description
+              .fold((e) => e.msg.toString(), (_) => null)
+          : null,
+    );
+  }
+}
+
+class AddCommentButton extends StatelessWidget {
+  final ArtEntity artEntity;
+  AddCommentButton({Key? key, required this.artEntity}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 113, 138, 251)),
+        onPressed: () {
+          context
+              .read<CommentFormBloc>()
+              .add(CommentFormEvent.changedId(id: artEntity.id));
+          context.read<CommentFormBloc>().add(CommentFormEvent.pressedCreate());
+        },
+        child: Text('Send', style: TextStyle(fontSize: 20)),
+      ),
     );
   }
 }

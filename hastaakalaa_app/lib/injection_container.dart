@@ -19,6 +19,8 @@ import 'package:hastaakalaa_app/features/comment/data/datasources/comment_remote
 import 'package:hastaakalaa_app/features/comment/data/repositories/comment_repository_impl.dart';
 import 'package:hastaakalaa_app/features/comment/domain/repositories/i_comment_repository.dart';
 import 'package:hastaakalaa_app/features/comment/domain/usecases/get_comment_post_usecase.dart';
+import 'package:hastaakalaa_app/features/comment/domain/usecases/post_comment_usecase.dart';
+import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
@@ -67,6 +69,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => CommentWatcherBloc(sl()));
 
+  sl.registerFactory(() => CommentFormBloc(sl(), sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -92,6 +96,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetBookmarkUsecase(sl()));
 
   sl.registerLazySingleton((() => GetCommentPostUseCase(sl())));
+
+  sl.registerLazySingleton(() => PostCommentUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());

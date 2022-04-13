@@ -27,6 +27,12 @@ class _$CommentFormEventTearOff {
       description: description,
     );
   }
+
+  _ChangedId changedId({int? id}) {
+    return _ChangedId(
+      id: id,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,18 +44,21 @@ mixin _$CommentFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function(String? description) changedDescription,
+    required TResult Function(int? id) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,18 +66,21 @@ mixin _$CommentFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedId value) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +146,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function(String? description) changedDescription,
+    required TResult Function(int? id) changedId,
   }) {
     return pressedCreate();
   }
@@ -143,6 +156,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
   }) {
     return pressedCreate?.call();
   }
@@ -152,6 +166,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) {
     if (pressedCreate != null) {
@@ -165,6 +180,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedId value) changedId,
   }) {
     return pressedCreate(this);
   }
@@ -174,6 +190,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
   }) {
     return pressedCreate?.call(this);
   }
@@ -183,6 +200,7 @@ class _$_PressedCreate implements _PressedCreate {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) {
     if (pressedCreate != null) {
@@ -264,6 +282,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult when<TResult extends Object?>({
     required TResult Function() pressedCreate,
     required TResult Function(String? description) changedDescription,
+    required TResult Function(int? id) changedId,
   }) {
     return changedDescription(description);
   }
@@ -273,6 +292,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
   }) {
     return changedDescription?.call(description);
   }
@@ -282,6 +302,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pressedCreate,
     TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) {
     if (changedDescription != null) {
@@ -295,6 +316,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult map<TResult extends Object?>({
     required TResult Function(_PressedCreate value) pressedCreate,
     required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedId value) changedId,
   }) {
     return changedDescription(this);
   }
@@ -304,6 +326,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
   }) {
     return changedDescription?.call(this);
   }
@@ -313,6 +336,7 @@ class _$_ChangedDescription implements _ChangedDescription {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PressedCreate value)? pressedCreate,
     TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) {
     if (changedDescription != null) {
@@ -333,15 +357,156 @@ abstract class _ChangedDescription implements CommentFormEvent {
 }
 
 /// @nodoc
+abstract class _$ChangedIdCopyWith<$Res> {
+  factory _$ChangedIdCopyWith(
+          _ChangedId value, $Res Function(_ChangedId) then) =
+      __$ChangedIdCopyWithImpl<$Res>;
+  $Res call({int? id});
+}
+
+/// @nodoc
+class __$ChangedIdCopyWithImpl<$Res>
+    extends _$CommentFormEventCopyWithImpl<$Res>
+    implements _$ChangedIdCopyWith<$Res> {
+  __$ChangedIdCopyWithImpl(_ChangedId _value, $Res Function(_ChangedId) _then)
+      : super(_value, (v) => _then(v as _ChangedId));
+
+  @override
+  _ChangedId get _value => super._value as _ChangedId;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_ChangedId(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedId implements _ChangedId {
+  const _$_ChangedId({this.id});
+
+  @override
+  final int? id;
+
+  @override
+  String toString() {
+    return 'CommentFormEvent.changedId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedId &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      __$ChangedIdCopyWithImpl<_ChangedId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function(String? description) changedDescription,
+    required TResult Function(int? id) changedId,
+  }) {
+    return changedId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
+  }) {
+    return changedId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(String? description)? changedDescription,
+    TResult Function(int? id)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_ChangedDescription value) changedDescription,
+    required TResult Function(_ChangedId value) changedId,
+  }) {
+    return changedId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
+  }) {
+    return changedId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedDescription value)? changedDescription,
+    TResult Function(_ChangedId value)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedId implements CommentFormEvent {
+  const factory _ChangedId({int? id}) = _$_ChangedId;
+
+  int? get id;
+  @JsonKey(ignore: true)
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$CommentFormStateTearOff {
   const _$CommentFormStateTearOff();
 
   _CommentFormState call(
-      {required bool isLoading,
+      {int? id,
+      required bool isLoading,
       required Either<InvalidInputFailure, String> description,
       required bool showErrors,
       Either<Failure, Unit>? failureOrSuccess}) {
     return _CommentFormState(
+      id: id,
       isLoading: isLoading,
       description: description,
       showErrors: showErrors,
@@ -355,6 +520,7 @@ const $CommentFormState = _$CommentFormStateTearOff();
 
 /// @nodoc
 mixin _$CommentFormState {
+  int? get id => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get description =>
       throw _privateConstructorUsedError;
@@ -373,7 +539,8 @@ abstract class $CommentFormStateCopyWith<$Res> {
           CommentFormState value, $Res Function(CommentFormState) then) =
       _$CommentFormStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isLoading,
+      {int? id,
+      bool isLoading,
       Either<InvalidInputFailure, String> description,
       bool showErrors,
       Either<Failure, Unit>? failureOrSuccess});
@@ -390,12 +557,17 @@ class _$CommentFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? isLoading = freezed,
     Object? description = freezed,
     Object? showErrors = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -424,7 +596,8 @@ abstract class _$CommentFormStateCopyWith<$Res>
       __$CommentFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isLoading,
+      {int? id,
+      bool isLoading,
       Either<InvalidInputFailure, String> description,
       bool showErrors,
       Either<Failure, Unit>? failureOrSuccess});
@@ -443,12 +616,17 @@ class __$CommentFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? isLoading = freezed,
     Object? description = freezed,
     Object? showErrors = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_CommentFormState(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -473,11 +651,14 @@ class __$CommentFormStateCopyWithImpl<$Res>
 
 class _$_CommentFormState implements _CommentFormState {
   const _$_CommentFormState(
-      {required this.isLoading,
+      {this.id,
+      required this.isLoading,
       required this.description,
       required this.showErrors,
       this.failureOrSuccess});
 
+  @override
+  final int? id;
   @override
   final bool isLoading;
   @override
@@ -489,7 +670,7 @@ class _$_CommentFormState implements _CommentFormState {
 
   @override
   String toString() {
-    return 'CommentFormState(isLoading: $isLoading, description: $description, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
+    return 'CommentFormState(id: $id, isLoading: $isLoading, description: $description, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -497,6 +678,7 @@ class _$_CommentFormState implements _CommentFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CommentFormState &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
@@ -509,6 +691,7 @@ class _$_CommentFormState implements _CommentFormState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(showErrors),
@@ -522,11 +705,14 @@ class _$_CommentFormState implements _CommentFormState {
 
 abstract class _CommentFormState implements CommentFormState {
   const factory _CommentFormState(
-      {required bool isLoading,
+      {int? id,
+      required bool isLoading,
       required Either<InvalidInputFailure, String> description,
       required bool showErrors,
       Either<Failure, Unit>? failureOrSuccess}) = _$_CommentFormState;
 
+  @override
+  int? get id;
   @override
   bool get isLoading;
   @override

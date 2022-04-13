@@ -33,6 +33,7 @@ class CommentFormBloc extends Bloc<CommentFormEvent, CommentFormState> {
         if (state.description.isRight()) {
           failureOrSuccess = await _postCommentUseCase.call(
             CommentModel.toJson(
+                art: state.id,
                 description: state.description.getOrElse(() => '')),
           );
         }
@@ -41,6 +42,12 @@ class CommentFormBloc extends Bloc<CommentFormEvent, CommentFormState> {
             isLoading: false,
             failureOrSuccess: failureOrSuccess,
             showErrors: true,
+          ),
+        );
+      }, changedId: (_ChangedId value) {
+        emit(
+          state.copyWith(
+            id: value.id,
           ),
         );
       });

@@ -41,7 +41,8 @@ class CommentRemoteDataSource implements ICommentDataSource {
       "Authorization": "Token ${userToken}",
     };
     final jsonData = json.encode(data);
-    final url = Uri.parse(createPostEndPoint);
+    final urlDataEndPoint = data['art'];
+    final url = Uri.parse('${postCommentEndPoint}${urlDataEndPoint}');
     final response = await client.post(url, body: jsonData, headers: headers);
     int code = response.statusCode;
     debugPrint('$code');

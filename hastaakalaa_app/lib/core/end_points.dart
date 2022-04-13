@@ -26,3 +26,5 @@ const getFilterArtEndPoint = '${baseUrl}api/art/genre/';
 const getBookmarkEndPoint = '${baseUrl}api/art/bookmark/get';
 
 const getCommentEndPoint = '${baseUrl}api/get/comments/';
+
+const postCommentEndPoint = '${baseUrl}api/comment/';

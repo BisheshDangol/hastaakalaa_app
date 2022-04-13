@@ -7,6 +7,7 @@ import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
@@ -59,9 +60,16 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<ArtListWatcherBloc>()
-        ..add(ArtListWatcherEvent.retrieveDoctorList()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList()),
+        ),
+        BlocProvider(
+          create: (context) => sl<CommentFormBloc>(),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: Color(0xFFEDF0F6),
         appBar: AppBar(
