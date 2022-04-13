@@ -122,7 +122,7 @@ class ArtRepositoryImpl implements IArtRepository {
   Future<Either<Failure, List<ArtEntity>>> buyArtPost() async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteList = await remoteDataSource.getAllBookmarkPost();
+        final remoteList = await remoteDataSource.buyArtPost();
         debugPrint('This is the returned list: $remoteList');
         return Right(remoteList);
       } on ServerFailure {
