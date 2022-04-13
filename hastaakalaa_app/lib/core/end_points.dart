@@ -28,3 +28,7 @@ const getBookmarkEndPoint = '${baseUrl}api/art/bookmark/get';
 const getCommentEndPoint = '${baseUrl}api/get/comments/';
 
 const postCommentEndPoint = '${baseUrl}api/comment/';
+
+const getSellArtEndPoint = '${baseUrl}api/art/sell/';
+
+const getBuyArtEndpPoint = '${baseUrl}api/art/buy/';
