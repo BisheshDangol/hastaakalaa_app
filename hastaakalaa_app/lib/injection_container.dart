@@ -4,17 +4,21 @@ import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/art/data/repositories/art_repository_impl.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/buy_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_bookmark_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/like_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/sell_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_bookmark_watcher_bloc/art_bookmark_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_filter_watcher_bloc/art_filter_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/buy_art_watcher_bloc/buy_art_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/sell_art_watcher_bloc/sell_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/comment/data/datasources/comment_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/comment/data/repositories/comment_repository_impl.dart';
 import 'package:hastaakalaa_app/features/comment/domain/repositories/i_comment_repository.dart';
@@ -71,6 +75,10 @@ Future<void> init() async {
 
   sl.registerFactory(() => CommentFormBloc(sl(), sl()));
 
+  sl.registerFactory(() => BuyArtWatcherBloc(sl()));
+
+  sl.registerFactory(() => SellArtWatcherBloc(sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -98,6 +106,10 @@ Future<void> init() async {
   sl.registerLazySingleton((() => GetCommentPostUseCase(sl())));
 
   sl.registerLazySingleton(() => PostCommentUseCase(sl()));
+
+  sl.registerLazySingleton(() => BuyArtPostUsecase(sl()));
+
+  sl.registerLazySingleton(() => SellArtPostUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
