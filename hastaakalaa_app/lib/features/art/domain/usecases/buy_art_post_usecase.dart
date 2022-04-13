@@ -10,6 +10,6 @@ class BuyArtPostUsecase implements Usecase<List<ArtEntity>, NoParams> {
 
   @override
   Future<Either<Failure, List<ArtEntity>>> call(NoParams params) async {
-    return await repository.getAllArtPost();
+    return await repository.buyArtPost();
   }
 }
