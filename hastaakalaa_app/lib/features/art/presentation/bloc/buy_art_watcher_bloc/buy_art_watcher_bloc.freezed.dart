@@ -15,6 +15,170 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$BuyArtWatcherEventTearOff {
+  const _$BuyArtWatcherEventTearOff();
+
+  _RetrieveArtList retrieveArtList() {
+    return const _RetrieveArtList();
+  }
+}
+
+/// @nodoc
+const $BuyArtWatcherEvent = _$BuyArtWatcherEventTearOff();
+
+/// @nodoc
+mixin _$BuyArtWatcherEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() retrieveArtList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? retrieveArtList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? retrieveArtList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RetrieveArtList value) retrieveArtList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RetrieveArtList value)? retrieveArtList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RetrieveArtList value)? retrieveArtList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BuyArtWatcherEventCopyWith<$Res> {
+  factory $BuyArtWatcherEventCopyWith(
+          BuyArtWatcherEvent value, $Res Function(BuyArtWatcherEvent) then) =
+      _$BuyArtWatcherEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BuyArtWatcherEventCopyWithImpl<$Res>
+    implements $BuyArtWatcherEventCopyWith<$Res> {
+  _$BuyArtWatcherEventCopyWithImpl(this._value, this._then);
+
+  final BuyArtWatcherEvent _value;
+  // ignore: unused_field
+  final $Res Function(BuyArtWatcherEvent) _then;
+}
+
+/// @nodoc
+abstract class _$RetrieveArtListCopyWith<$Res> {
+  factory _$RetrieveArtListCopyWith(
+          _RetrieveArtList value, $Res Function(_RetrieveArtList) then) =
+      __$RetrieveArtListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RetrieveArtListCopyWithImpl<$Res>
+    extends _$BuyArtWatcherEventCopyWithImpl<$Res>
+    implements _$RetrieveArtListCopyWith<$Res> {
+  __$RetrieveArtListCopyWithImpl(
+      _RetrieveArtList _value, $Res Function(_RetrieveArtList) _then)
+      : super(_value, (v) => _then(v as _RetrieveArtList));
+
+  @override
+  _RetrieveArtList get _value => super._value as _RetrieveArtList;
+}
+
+/// @nodoc
+
+class _$_RetrieveArtList implements _RetrieveArtList {
+  const _$_RetrieveArtList();
+
+  @override
+  String toString() {
+    return 'BuyArtWatcherEvent.retrieveArtList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _RetrieveArtList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() retrieveArtList,
+  }) {
+    return retrieveArtList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? retrieveArtList,
+  }) {
+    return retrieveArtList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? retrieveArtList,
+    required TResult orElse(),
+  }) {
+    if (retrieveArtList != null) {
+      return retrieveArtList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RetrieveArtList value) retrieveArtList,
+  }) {
+    return retrieveArtList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RetrieveArtList value)? retrieveArtList,
+  }) {
+    return retrieveArtList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RetrieveArtList value)? retrieveArtList,
+    required TResult orElse(),
+  }) {
+    if (retrieveArtList != null) {
+      return retrieveArtList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RetrieveArtList implements BuyArtWatcherEvent {
+  const factory _RetrieveArtList() = _$_RetrieveArtList;
+}
+
+/// @nodoc
 class _$BuyArtWatcherStateTearOff {
   const _$BuyArtWatcherStateTearOff();
 

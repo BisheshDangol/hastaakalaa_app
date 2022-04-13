@@ -1,4 +1,6 @@
 part of 'buy_art_watcher_bloc.dart';
 
-@immutable
-abstract class BuyArtWatcherEvent {}
+@freezed
+class BuyArtWatcherEvent with _$BuyArtWatcherEvent {
+  const factory BuyArtWatcherEvent.retrieveArtList() = _RetrieveArtList;
+}
