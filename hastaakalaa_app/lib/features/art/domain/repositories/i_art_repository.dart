@@ -20,4 +20,6 @@ abstract class IArtRepository {
   Future<Either<Failure, List<ArtEntity>>> getAllBookmarkPost();
 
   Future<Either<Failure, List<ArtEntity>>> buyArtPost();
+
+  Future<Either<Failure, List<ArtEntity>>> sellArtPost();
 }
