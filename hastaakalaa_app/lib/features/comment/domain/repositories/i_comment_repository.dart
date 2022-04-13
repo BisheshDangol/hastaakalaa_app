@@ -5,4 +5,6 @@ import 'package:hastaakalaa_app/features/comment/domain/entities/comment_entity.
 abstract class ICommentRepository {
   Future<Either<Failure, List<CommentEntity>>> getCommentPost(
       {required int? data});
+  Future<Either<Failure, Unit>> postComment(
+      {required Map<String, dynamic> data});
 }

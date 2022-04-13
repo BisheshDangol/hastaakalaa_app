@@ -29,4 +29,19 @@ class CommentRepositoryImpl implements ICommentRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, Unit>> postComment(
+      {required Map<String, dynamic> data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.postComment(data: data);
+        debugPrint('This is the returned number $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
+    throw UnimplementedError();
+  }
 }
