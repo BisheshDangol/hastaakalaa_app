@@ -1,6 +1,9 @@
 part of 'sell_art_watcher_bloc.dart';
 
-@immutable
-abstract class SellArtWatcherState {}
-
-class SellArtWatcherInitial extends SellArtWatcherState {}
+@freezed
+class SellArtWatcherState with _$SellArtWatcherState {
+  const factory SellArtWatcherState.initial() = _Initial;
+  const factory SellArtWatcherState.loading() = _Loading;
+  const factory SellArtWatcherState.loaded(List<ArtEntity> artList) = _Loaded;
+  const factory SellArtWatcherState.failed(Failure failure) = _Failed;
+}
