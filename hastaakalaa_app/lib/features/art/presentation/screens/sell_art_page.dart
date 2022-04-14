@@ -29,10 +29,6 @@ class SellArtPage extends StatelessWidget {
       ],
       child: Scaffold(
         backgroundColor: Color(0xFFEDF0F6),
-        appBar: AppBar(
-          title: Text('Sell Art Post'),
-          centerTitle: true,
-        ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
