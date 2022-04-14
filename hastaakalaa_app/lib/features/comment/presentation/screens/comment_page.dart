@@ -12,7 +12,6 @@ import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
-import 'package:hastaakalaa_app/features/user/presentation/bloc/bloc/user_list_watcher_bloc.dart';
 import 'package:http/http.dart' as http;
 import '../../../../injection_container.dart';
 
