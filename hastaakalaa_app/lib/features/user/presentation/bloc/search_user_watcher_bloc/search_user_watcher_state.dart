@@ -1,6 +1,18 @@
 part of 'search_user_watcher_bloc.dart';
 
-@immutable
-abstract class SearchUserWatcherState {}
-
-class SearchUserWatcherInitial extends SearchUserWatcherState {}
+@freezed
+class SearchUserWatcherState with _$SearchUserWatcherState {
+  const factory SearchUserWatcherState({
+    required bool isLoading,
+    required bool showErrors,
+    required Either<InvalidInputFailure, String> keywordTitle,
+    Either<Failure, List<ArtEntity>>? failureOrSuccess,
+  }) = _SearchUserWatcherState;
+  factory SearchUserWatcherState.initial() => SearchUserWatcherState(
+        isLoading: false,
+        showErrors: false,
+        keywordTitle: left(
+          InvalidInputFailure(),
+        ),
+      );
+}
