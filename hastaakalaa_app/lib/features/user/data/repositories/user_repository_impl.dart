@@ -43,8 +43,16 @@ class UserRepositoryImpl implements IUserRepository {
 
   @override
   Future<Either<Failure, List<UserEntity>>> searchUser(
-      {required String? data}) {
-    // TODO: implement searchUser
+      {required String? data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.searchUser(data: data);
+        debugPrint('This is the returned search user list: $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }
