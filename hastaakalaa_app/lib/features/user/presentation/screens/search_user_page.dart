@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/wrapper/search_user_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
@@ -71,8 +72,8 @@ class UserContainer extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: userList
-          .map((e) => SearchWrapper(
-                artEntity: e,
+          .map((e) => SearchUserWrapper(
+                userEntity: e,
               ))
           .toList(),
     );
@@ -93,12 +94,12 @@ class SearchUserTextFormField extends StatelessWidget {
       ),
       onChanged: (value) {
         context
-            .read<ArtSearchWatcherBloc>()
-            .add(ArtSearchWatcherEvent.changedKeyword(keyword: value));
+            .read<SearchUserWatcherBloc>()
+            .add(SearchUserWatcherEvent.changedKeyword(keyword: value));
       },
-      validator: (_) => context.read<ArtSearchWatcherBloc>().state.showErrors
+      validator: (_) => context.read<SearchUserWatcherBloc>().state.showErrors
           ? context
-              .read<ArtSearchWatcherBloc>()
+              .read<SearchUserWatcherBloc>()
               .state
               .keywordTitle
               .fold((e) => e.msg.toString(), (_) => null)
@@ -113,8 +114,8 @@ class SearchButton extends StatelessWidget {
     return IconButton(
       onPressed: () {
         context
-            .read<ArtSearchWatcherBloc>()
-            .add(ArtSearchWatcherEvent.pressedSearch());
+            .read<SearchUserWatcherBloc>()
+            .add(SearchUserWatcherEvent.pressedSearch());
       },
       icon: Icon(Icons.search),
     );

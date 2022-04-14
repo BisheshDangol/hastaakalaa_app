@@ -9,6 +9,7 @@ import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 
 import '../../../../injection_container.dart';
 
@@ -111,6 +112,15 @@ class UserPage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SellArtPage()));
+                },
+              ),
+              ListTile(
+                title: Text('Search User'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchUserPage()));
                 },
               ),
             ],
