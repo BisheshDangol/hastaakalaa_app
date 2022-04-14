@@ -40,6 +40,13 @@ class UserRepositoryImpl implements IUserRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<UserEntity>>> searchUser(
+      {required String? data}) {
+    // TODO: implement searchUser
+    throw UnimplementedError();
+  }
 }
 
 
