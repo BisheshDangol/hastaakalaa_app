@@ -20,11 +20,11 @@ class MarketPlacePage extends StatelessWidget {
                 child: AppBar(
                   bottom: TabBar(
                     tabs: [
-                      Tab(icon: Icon(Icons.info_outline_rounded)),
                       Tab(
-                        icon: Icon(
-                          Icons.comment_sharp,
-                        ),
+                        text: 'Buy Art',
+                      ),
+                      Tab(
+                        text: 'Sell Art',
                       ),
                     ],
                   ),
