@@ -8,9 +8,9 @@ const createPostEndPoint = '${baseUrl}api/art/create_art/';
 
 const getAllArtList = '${baseUrl}api/art/search/custom\?search=';
 
-const retrieveArtPostUserEndpoint = '${baseUrl}api/art/get_all_art_post_user/';
+const retrieveArtPostUserEndpoint = '${baseUrl}';
 
-const retrieveArtList = '${baseUrl}api/art/retrieve_art_post/';
+const retrieveArtList = '${baseUrl}api/art/get_all_art_post_user/';
 
 const retrieveUserList = '${baseUrl}api/user/list_all_user/';
 
