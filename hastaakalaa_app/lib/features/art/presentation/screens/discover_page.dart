@@ -8,6 +8,7 @@ import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_filter_page.dart';
+import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
 class DiscoverPage extends StatelessWidget {
@@ -15,31 +16,62 @@ class DiscoverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => sl<ArtSearchWatcherBloc>(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Search'),
-          centerTitle: true,
-        ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
+    return DefaultTabController(
+      length: 2,
+      child: BlocProvider(
+        create: (_) => sl<ArtSearchWatcherBloc>(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Search'),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                  child: AppBar(
+                    bottom: TabBar(
+                      tabs: [
+                        Tab(
+                          text: 'Buy Art',
+                        ),
+                        Tab(
+                          text: 'Sell Art',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: TabBarView(
                     children: [
-                      Flexible(child: SearchPatientTextFormField(), flex: 3),
-                      SearchButton(),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                      child: SearchPatientTextFormField(),
+                                      flex: 3),
+                                  SearchButton(),
+                                ],
+                              ),
+                            ),
+                          ),
+                          FilterPage(),
+                          PageBuilder(),
+                        ],
+                      ),
+                      SearchUserPage(),
                     ],
                   ),
                 ),
-              ),
-              FilterPage(),
-              PageBuilder(),
-            ],
+              ],
+            ),
           ),
         ),
       ),
