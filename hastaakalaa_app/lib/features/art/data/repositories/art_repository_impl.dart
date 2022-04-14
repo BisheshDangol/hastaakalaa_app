@@ -145,4 +145,10 @@ class ArtRepositoryImpl implements IArtRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<ArtEntity>>> retrieveArtPost() {
+    // TODO: implement retrieveArtPost
+    throw UnimplementedError();
+  }
 }
