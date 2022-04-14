@@ -1,4 +1,8 @@
 part of 'search_user_watcher_bloc.dart';
 
-@immutable
-abstract class SearchUserWatcherEvent {}
+@freezed
+class SearchUserWatcherEvent with _$SearchUserWatcherEvent {
+  const factory SearchUserWatcherEvent.changedKeyword({String? keyword}) =
+      _ChangedKeyword;
+  const factory SearchUserWatcherEvent.pressedSearch() = _PressedSearch;
+}

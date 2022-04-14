@@ -15,6 +15,322 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$SearchUserWatcherEventTearOff {
+  const _$SearchUserWatcherEventTearOff();
+
+  _ChangedKeyword changedKeyword({String? keyword}) {
+    return _ChangedKeyword(
+      keyword: keyword,
+    );
+  }
+
+  _PressedSearch pressedSearch() {
+    return const _PressedSearch();
+  }
+}
+
+/// @nodoc
+const $SearchUserWatcherEvent = _$SearchUserWatcherEventTearOff();
+
+/// @nodoc
+mixin _$SearchUserWatcherEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? keyword) changedKeyword,
+    required TResult Function() pressedSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangedKeyword value) changedKeyword,
+    required TResult Function(_PressedSearch value) pressedSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SearchUserWatcherEventCopyWith<$Res> {
+  factory $SearchUserWatcherEventCopyWith(SearchUserWatcherEvent value,
+          $Res Function(SearchUserWatcherEvent) then) =
+      _$SearchUserWatcherEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchUserWatcherEventCopyWithImpl<$Res>
+    implements $SearchUserWatcherEventCopyWith<$Res> {
+  _$SearchUserWatcherEventCopyWithImpl(this._value, this._then);
+
+  final SearchUserWatcherEvent _value;
+  // ignore: unused_field
+  final $Res Function(SearchUserWatcherEvent) _then;
+}
+
+/// @nodoc
+abstract class _$ChangedKeywordCopyWith<$Res> {
+  factory _$ChangedKeywordCopyWith(
+          _ChangedKeyword value, $Res Function(_ChangedKeyword) then) =
+      __$ChangedKeywordCopyWithImpl<$Res>;
+  $Res call({String? keyword});
+}
+
+/// @nodoc
+class __$ChangedKeywordCopyWithImpl<$Res>
+    extends _$SearchUserWatcherEventCopyWithImpl<$Res>
+    implements _$ChangedKeywordCopyWith<$Res> {
+  __$ChangedKeywordCopyWithImpl(
+      _ChangedKeyword _value, $Res Function(_ChangedKeyword) _then)
+      : super(_value, (v) => _then(v as _ChangedKeyword));
+
+  @override
+  _ChangedKeyword get _value => super._value as _ChangedKeyword;
+
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(_ChangedKeyword(
+      keyword: keyword == freezed
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedKeyword implements _ChangedKeyword {
+  const _$_ChangedKeyword({this.keyword});
+
+  @override
+  final String? keyword;
+
+  @override
+  String toString() {
+    return 'SearchUserWatcherEvent.changedKeyword(keyword: $keyword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedKeyword &&
+            const DeepCollectionEquality().equals(other.keyword, keyword));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(keyword));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedKeywordCopyWith<_ChangedKeyword> get copyWith =>
+      __$ChangedKeywordCopyWithImpl<_ChangedKeyword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? keyword) changedKeyword,
+    required TResult Function() pressedSearch,
+  }) {
+    return changedKeyword(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+  }) {
+    return changedKeyword?.call(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+    required TResult orElse(),
+  }) {
+    if (changedKeyword != null) {
+      return changedKeyword(keyword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangedKeyword value) changedKeyword,
+    required TResult Function(_PressedSearch value) pressedSearch,
+  }) {
+    return changedKeyword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+  }) {
+    return changedKeyword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+    required TResult orElse(),
+  }) {
+    if (changedKeyword != null) {
+      return changedKeyword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedKeyword implements SearchUserWatcherEvent {
+  const factory _ChangedKeyword({String? keyword}) = _$_ChangedKeyword;
+
+  String? get keyword;
+  @JsonKey(ignore: true)
+  _$ChangedKeywordCopyWith<_ChangedKeyword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PressedSearchCopyWith<$Res> {
+  factory _$PressedSearchCopyWith(
+          _PressedSearch value, $Res Function(_PressedSearch) then) =
+      __$PressedSearchCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PressedSearchCopyWithImpl<$Res>
+    extends _$SearchUserWatcherEventCopyWithImpl<$Res>
+    implements _$PressedSearchCopyWith<$Res> {
+  __$PressedSearchCopyWithImpl(
+      _PressedSearch _value, $Res Function(_PressedSearch) _then)
+      : super(_value, (v) => _then(v as _PressedSearch));
+
+  @override
+  _PressedSearch get _value => super._value as _PressedSearch;
+}
+
+/// @nodoc
+
+class _$_PressedSearch implements _PressedSearch {
+  const _$_PressedSearch();
+
+  @override
+  String toString() {
+    return 'SearchUserWatcherEvent.pressedSearch()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _PressedSearch);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? keyword) changedKeyword,
+    required TResult Function() pressedSearch,
+  }) {
+    return pressedSearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+  }) {
+    return pressedSearch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? keyword)? changedKeyword,
+    TResult Function()? pressedSearch,
+    required TResult orElse(),
+  }) {
+    if (pressedSearch != null) {
+      return pressedSearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangedKeyword value) changedKeyword,
+    required TResult Function(_PressedSearch value) pressedSearch,
+  }) {
+    return pressedSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+  }) {
+    return pressedSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangedKeyword value)? changedKeyword,
+    TResult Function(_PressedSearch value)? pressedSearch,
+    required TResult orElse(),
+  }) {
+    if (pressedSearch != null) {
+      return pressedSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedSearch implements SearchUserWatcherEvent {
+  const factory _PressedSearch() = _$_PressedSearch;
+}
+
+/// @nodoc
 class _$SearchUserWatcherStateTearOff {
   const _$SearchUserWatcherStateTearOff();
 
