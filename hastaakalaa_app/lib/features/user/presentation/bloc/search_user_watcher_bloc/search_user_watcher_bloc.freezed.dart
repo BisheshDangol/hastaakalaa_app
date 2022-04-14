@@ -338,7 +338,7 @@ class _$SearchUserWatcherStateTearOff {
       {required bool isLoading,
       required bool showErrors,
       required Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess}) {
+      Either<Failure, List<UserEntity>>? failureOrSuccess}) {
     return _SearchUserWatcherState(
       isLoading: isLoading,
       showErrors: showErrors,
@@ -357,7 +357,7 @@ mixin _$SearchUserWatcherState {
   bool get showErrors => throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get keywordTitle =>
       throw _privateConstructorUsedError;
-  Either<Failure, List<ArtEntity>>? get failureOrSuccess =>
+  Either<Failure, List<UserEntity>>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -374,7 +374,7 @@ abstract class $SearchUserWatcherStateCopyWith<$Res> {
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess});
+      Either<Failure, List<UserEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -409,7 +409,7 @@ class _$SearchUserWatcherStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<ArtEntity>>?,
+              as Either<Failure, List<UserEntity>>?,
     ));
   }
 }
@@ -425,7 +425,7 @@ abstract class _$SearchUserWatcherStateCopyWith<$Res>
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<ArtEntity>>? failureOrSuccess});
+      Either<Failure, List<UserEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -462,7 +462,7 @@ class __$SearchUserWatcherStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<ArtEntity>>?,
+              as Either<Failure, List<UserEntity>>?,
     ));
   }
 }
@@ -483,7 +483,7 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
   @override
   final Either<InvalidInputFailure, String> keywordTitle;
   @override
-  final Either<Failure, List<ArtEntity>>? failureOrSuccess;
+  final Either<Failure, List<UserEntity>>? failureOrSuccess;
 
   @override
   String toString() {
@@ -524,7 +524,7 @@ abstract class _SearchUserWatcherState implements SearchUserWatcherState {
           {required bool isLoading,
           required bool showErrors,
           required Either<InvalidInputFailure, String> keywordTitle,
-          Either<Failure, List<ArtEntity>>? failureOrSuccess}) =
+          Either<Failure, List<UserEntity>>? failureOrSuccess}) =
       _$_SearchUserWatcherState;
 
   @override
@@ -534,7 +534,7 @@ abstract class _SearchUserWatcherState implements SearchUserWatcherState {
   @override
   Either<InvalidInputFailure, String> get keywordTitle;
   @override
-  Either<Failure, List<ArtEntity>>? get failureOrSuccess;
+  Either<Failure, List<UserEntity>>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$SearchUserWatcherStateCopyWith<_SearchUserWatcherState> get copyWith =>
