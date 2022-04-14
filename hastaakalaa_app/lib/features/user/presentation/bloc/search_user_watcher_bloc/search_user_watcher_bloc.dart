@@ -12,10 +12,20 @@ part 'search_user_watcher_bloc.freezed.dart';
 
 class SearchUserWatcherBloc
     extends Bloc<SearchUserWatcherEvent, SearchUserWatcherState> {
-  SearchUserWatcherBloc() : super(SearchUserWatcherState.initial()) {
+  final InputConvert _inputConvert;
+  SearchUserWatcherBloc(this._inputConvert)
+      : super(SearchUserWatcherState.initial()) {
     on<SearchUserWatcherEvent>((event, emit) async {
       await event.map(
-          changedKeyword: (_ChangedKeyword value) {},
+          changedKeyword: (_ChangedKeyword value) {
+            emit(
+              state.copyWith(
+                keywordTitle: _inputConvert.notEmpty(
+                  value: value.keyword,
+                ),
+              ),
+            );
+          },
           pressedSearch: (_PressedSearch value) {});
     });
   }
