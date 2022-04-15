@@ -15,7 +15,13 @@ class GetFollowWatcherBloc
     on<GetFollowWatcherEvent>((event, emit) async {
       await event.map(
           retrieveFollowList: (_RetrieveFollowList value) {},
-          changedId: (_ChangedId value) {});
+          changedId: (_ChangedId value) {
+            emit(
+              state.copyWith(
+                id: value.id,
+              ),
+            );
+          });
     });
   }
 }
