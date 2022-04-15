@@ -15,6 +15,351 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$FollowFormEventTearOff {
+  const _$FollowFormEventTearOff();
+
+  _PressedFollow pressedFollow({required int id}) {
+    return _PressedFollow(
+      id: id,
+    );
+  }
+
+  _ChangedId changedId({int? id}) {
+    return _ChangedId(
+      id: id,
+    );
+  }
+}
+
+/// @nodoc
+const $FollowFormEvent = _$FollowFormEventTearOff();
+
+/// @nodoc
+mixin _$FollowFormEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) pressedFollow,
+    required TResult Function(int? id) changedId,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedFollow value) pressedFollow,
+    required TResult Function(_ChangedId value) changedId,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FollowFormEventCopyWith<$Res> {
+  factory $FollowFormEventCopyWith(
+          FollowFormEvent value, $Res Function(FollowFormEvent) then) =
+      _$FollowFormEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FollowFormEventCopyWithImpl<$Res>
+    implements $FollowFormEventCopyWith<$Res> {
+  _$FollowFormEventCopyWithImpl(this._value, this._then);
+
+  final FollowFormEvent _value;
+  // ignore: unused_field
+  final $Res Function(FollowFormEvent) _then;
+}
+
+/// @nodoc
+abstract class _$PressedFollowCopyWith<$Res> {
+  factory _$PressedFollowCopyWith(
+          _PressedFollow value, $Res Function(_PressedFollow) then) =
+      __$PressedFollowCopyWithImpl<$Res>;
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$PressedFollowCopyWithImpl<$Res>
+    extends _$FollowFormEventCopyWithImpl<$Res>
+    implements _$PressedFollowCopyWith<$Res> {
+  __$PressedFollowCopyWithImpl(
+      _PressedFollow _value, $Res Function(_PressedFollow) _then)
+      : super(_value, (v) => _then(v as _PressedFollow));
+
+  @override
+  _PressedFollow get _value => super._value as _PressedFollow;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_PressedFollow(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PressedFollow implements _PressedFollow {
+  const _$_PressedFollow({required this.id});
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'FollowFormEvent.pressedFollow(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PressedFollow &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PressedFollowCopyWith<_PressedFollow> get copyWith =>
+      __$PressedFollowCopyWithImpl<_PressedFollow>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) pressedFollow,
+    required TResult Function(int? id) changedId,
+  }) {
+    return pressedFollow(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+  }) {
+    return pressedFollow?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+    required TResult orElse(),
+  }) {
+    if (pressedFollow != null) {
+      return pressedFollow(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedFollow value) pressedFollow,
+    required TResult Function(_ChangedId value) changedId,
+  }) {
+    return pressedFollow(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+  }) {
+    return pressedFollow?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+    required TResult orElse(),
+  }) {
+    if (pressedFollow != null) {
+      return pressedFollow(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedFollow implements FollowFormEvent {
+  const factory _PressedFollow({required int id}) = _$_PressedFollow;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$PressedFollowCopyWith<_PressedFollow> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangedIdCopyWith<$Res> {
+  factory _$ChangedIdCopyWith(
+          _ChangedId value, $Res Function(_ChangedId) then) =
+      __$ChangedIdCopyWithImpl<$Res>;
+  $Res call({int? id});
+}
+
+/// @nodoc
+class __$ChangedIdCopyWithImpl<$Res> extends _$FollowFormEventCopyWithImpl<$Res>
+    implements _$ChangedIdCopyWith<$Res> {
+  __$ChangedIdCopyWithImpl(_ChangedId _value, $Res Function(_ChangedId) _then)
+      : super(_value, (v) => _then(v as _ChangedId));
+
+  @override
+  _ChangedId get _value => super._value as _ChangedId;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_ChangedId(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedId implements _ChangedId {
+  const _$_ChangedId({this.id});
+
+  @override
+  final int? id;
+
+  @override
+  String toString() {
+    return 'FollowFormEvent.changedId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedId &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      __$ChangedIdCopyWithImpl<_ChangedId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) pressedFollow,
+    required TResult Function(int? id) changedId,
+  }) {
+    return changedId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+  }) {
+    return changedId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? pressedFollow,
+    TResult Function(int? id)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedFollow value) pressedFollow,
+    required TResult Function(_ChangedId value) changedId,
+  }) {
+    return changedId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+  }) {
+    return changedId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedFollow value)? pressedFollow,
+    TResult Function(_ChangedId value)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedId implements FollowFormEvent {
+  const factory _ChangedId({int? id}) = _$_ChangedId;
+
+  int? get id;
+  @JsonKey(ignore: true)
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$FollowFormStateTearOff {
   const _$FollowFormStateTearOff();
 
