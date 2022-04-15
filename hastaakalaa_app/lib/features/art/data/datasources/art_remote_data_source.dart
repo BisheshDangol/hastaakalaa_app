@@ -92,7 +92,7 @@ class ArtRemoteDataSource implements IArtDataSource {
       "Authorization": "Token ${userToken}",
     };
     final response =
-        await client.get(Uri.parse(retrieveArtList), headers: headers);
+        await client.get(Uri.parse(retrieveArtPostEndpoint), headers: headers);
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;

@@ -1,6 +1,10 @@
 part of 'retrieve_art_watcher_bloc.dart';
 
-@immutable
-abstract class RetrieveArtWatcherState {}
-
-class RetrieveArtWatcherInitial extends RetrieveArtWatcherState {}
+@freezed
+class RetrieveArtWatcherState with _$RetrieveArtWatcherState {
+  const factory RetrieveArtWatcherState.initial() = _Initial;
+  const factory RetrieveArtWatcherState.loading() = _Loading;
+  const factory RetrieveArtWatcherState.loaded(List<ArtEntity> artList) =
+      _Loaded;
+  const factory RetrieveArtWatcherState.failed(Failure failure) = _Failed;
+}
