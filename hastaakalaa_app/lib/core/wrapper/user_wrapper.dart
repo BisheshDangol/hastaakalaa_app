@@ -108,3 +108,23 @@ class FollowerNumber extends StatelessWidget {
     );
   }
 }
+
+class FollowingNumber extends StatelessWidget {
+  const FollowingNumber({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<GetFollowWatcherBloc, GetFollowWatcherState>(
+      builder: ((context, state) {
+        return state.failureOrSuccess?.fold((l) => null, (r) {
+              return Text('${state.followList!.length}',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ));
+            }) ??
+            Container();
+      }),
+    );
+  }
+}
