@@ -21,6 +21,12 @@ class _$GetFollowWatcherEventTearOff {
   _RetrieveFollowList retrieveFollowList() {
     return const _RetrieveFollowList();
   }
+
+  _ChangedId changedId({int? id}) {
+    return _ChangedId(
+      id: id,
+    );
+  }
 }
 
 /// @nodoc
@@ -31,32 +37,38 @@ mixin _$GetFollowWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() retrieveFollowList,
+    required TResult Function(int? id) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RetrieveFollowList value) retrieveFollowList,
+    required TResult Function(_ChangedId value) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() retrieveFollowList,
+    required TResult Function(int? id) changedId,
   }) {
     return retrieveFollowList();
   }
@@ -129,6 +142,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
   }) {
     return retrieveFollowList?.call();
   }
@@ -137,6 +151,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) {
     if (retrieveFollowList != null) {
@@ -149,6 +164,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RetrieveFollowList value) retrieveFollowList,
+    required TResult Function(_ChangedId value) changedId,
   }) {
     return retrieveFollowList(this);
   }
@@ -157,6 +173,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
   }) {
     return retrieveFollowList?.call(this);
   }
@@ -165,6 +182,7 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) {
     if (retrieveFollowList != null) {
@@ -176,6 +194,139 @@ class _$_RetrieveFollowList implements _RetrieveFollowList {
 
 abstract class _RetrieveFollowList implements GetFollowWatcherEvent {
   const factory _RetrieveFollowList() = _$_RetrieveFollowList;
+}
+
+/// @nodoc
+abstract class _$ChangedIdCopyWith<$Res> {
+  factory _$ChangedIdCopyWith(
+          _ChangedId value, $Res Function(_ChangedId) then) =
+      __$ChangedIdCopyWithImpl<$Res>;
+  $Res call({int? id});
+}
+
+/// @nodoc
+class __$ChangedIdCopyWithImpl<$Res>
+    extends _$GetFollowWatcherEventCopyWithImpl<$Res>
+    implements _$ChangedIdCopyWith<$Res> {
+  __$ChangedIdCopyWithImpl(_ChangedId _value, $Res Function(_ChangedId) _then)
+      : super(_value, (v) => _then(v as _ChangedId));
+
+  @override
+  _ChangedId get _value => super._value as _ChangedId;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_ChangedId(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedId implements _ChangedId {
+  const _$_ChangedId({this.id});
+
+  @override
+  final int? id;
+
+  @override
+  String toString() {
+    return 'GetFollowWatcherEvent.changedId(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedId &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      __$ChangedIdCopyWithImpl<_ChangedId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() retrieveFollowList,
+    required TResult Function(int? id) changedId,
+  }) {
+    return changedId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
+  }) {
+    return changedId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+    TResult Function(int? id)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RetrieveFollowList value) retrieveFollowList,
+    required TResult Function(_ChangedId value) changedId,
+  }) {
+    return changedId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
+  }) {
+    return changedId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    TResult Function(_ChangedId value)? changedId,
+    required TResult orElse(),
+  }) {
+    if (changedId != null) {
+      return changedId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedId implements GetFollowWatcherEvent {
+  const factory _ChangedId({int? id}) = _$_ChangedId;
+
+  int? get id;
+  @JsonKey(ignore: true)
+  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
