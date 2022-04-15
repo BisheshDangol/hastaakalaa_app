@@ -182,23 +182,16 @@ abstract class _RetrieveFollowList implements GetFollowWatcherEvent {
 class _$GetFollowWatcherStateTearOff {
   const _$GetFollowWatcherStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(List<FollowEntity> artList) {
-    return _Loaded(
-      artList,
-    );
-  }
-
-  _Failed failed(Failure failure) {
-    return _Failed(
-      failure,
+  _GetFollowWatcherState call(
+      {required bool isLoading,
+      int? id,
+      required bool showErrors,
+      dynamic failureOrSuccess}) {
+    return _GetFollowWatcherState(
+      isLoading: isLoading,
+      id: id,
+      showErrors: showErrors,
+      failureOrSuccess: failureOrSuccess,
     );
   }
 }
@@ -208,55 +201,13 @@ const $GetFollowWatcherState = _$GetFollowWatcherStateTearOff();
 
 /// @nodoc
 mixin _$GetFollowWatcherState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<FollowEntity> artList) loaded,
-    required TResult Function(Failure failure) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failed value) failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  bool get showErrors => throw _privateConstructorUsedError;
+  dynamic get failureOrSuccess => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GetFollowWatcherStateCopyWith<GetFollowWatcherState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -265,6 +216,8 @@ abstract class $GetFollowWatcherStateCopyWith<$Res> {
   factory $GetFollowWatcherStateCopyWith(GetFollowWatcherState value,
           $Res Function(GetFollowWatcherState) then) =
       _$GetFollowWatcherStateCopyWithImpl<$Res>;
+  $Res call(
+      {bool isLoading, int? id, bool showErrors, dynamic failureOrSuccess});
 }
 
 /// @nodoc
@@ -275,520 +228,152 @@ class _$GetFollowWatcherStateCopyWithImpl<$Res>
   final GetFollowWatcherState _value;
   // ignore: unused_field
   final $Res Function(GetFollowWatcherState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$GetFollowWatcherStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'GetFollowWatcherState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<FollowEntity> artList) loaded,
-    required TResult Function(Failure failure) failed,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements GetFollowWatcherState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoadingCopyWithImpl<$Res>
-    extends _$GetFollowWatcherStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
-
-  @override
-  _Loading get _value => super._value as _Loading;
-}
-
-/// @nodoc
-
-class _$_Loading implements _Loading {
-  const _$_Loading();
-
-  @override
-  String toString() {
-    return 'GetFollowWatcherState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<FollowEntity> artList) loaded,
-    required TResult Function(Failure failure) failed,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements GetFollowWatcherState {
-  const factory _Loading() = _$_Loading;
-}
-
-/// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<FollowEntity> artList});
-}
-
-/// @nodoc
-class __$LoadedCopyWithImpl<$Res>
-    extends _$GetFollowWatcherStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
-
-  @override
-  _Loaded get _value => super._value as _Loaded;
 
   @override
   $Res call({
-    Object? artList = freezed,
+    Object? isLoading = freezed,
+    Object? id = freezed,
+    Object? showErrors = freezed,
+    Object? failureOrSuccess = freezed,
   }) {
-    return _then(_Loaded(
-      artList == freezed
-          ? _value.artList
-          : artList // ignore: cast_nullable_to_non_nullable
-              as List<FollowEntity>,
+    return _then(_value.copyWith(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      showErrors: showErrors == freezed
+          ? _value.showErrors
+          : showErrors // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failureOrSuccess: failureOrSuccess == freezed
+          ? _value.failureOrSuccess
+          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$GetFollowWatcherStateCopyWith<$Res>
+    implements $GetFollowWatcherStateCopyWith<$Res> {
+  factory _$GetFollowWatcherStateCopyWith(_GetFollowWatcherState value,
+          $Res Function(_GetFollowWatcherState) then) =
+      __$GetFollowWatcherStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {bool isLoading, int? id, bool showErrors, dynamic failureOrSuccess});
+}
+
+/// @nodoc
+class __$GetFollowWatcherStateCopyWithImpl<$Res>
+    extends _$GetFollowWatcherStateCopyWithImpl<$Res>
+    implements _$GetFollowWatcherStateCopyWith<$Res> {
+  __$GetFollowWatcherStateCopyWithImpl(_GetFollowWatcherState _value,
+      $Res Function(_GetFollowWatcherState) _then)
+      : super(_value, (v) => _then(v as _GetFollowWatcherState));
+
+  @override
+  _GetFollowWatcherState get _value => super._value as _GetFollowWatcherState;
+
+  @override
+  $Res call({
+    Object? isLoading = freezed,
+    Object? id = freezed,
+    Object? showErrors = freezed,
+    Object? failureOrSuccess = freezed,
+  }) {
+    return _then(_GetFollowWatcherState(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      showErrors: showErrors == freezed
+          ? _value.showErrors
+          : showErrors // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failureOrSuccess: failureOrSuccess == freezed
+          ? _value.failureOrSuccess
+          : failureOrSuccess,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.artList);
+class _$_GetFollowWatcherState implements _GetFollowWatcherState {
+  const _$_GetFollowWatcherState(
+      {required this.isLoading,
+      this.id,
+      required this.showErrors,
+      this.failureOrSuccess});
 
   @override
-  final List<FollowEntity> artList;
+  final bool isLoading;
+  @override
+  final int? id;
+  @override
+  final bool showErrors;
+  @override
+  final dynamic failureOrSuccess;
 
   @override
   String toString() {
-    return 'GetFollowWatcherState.loaded(artList: $artList)';
+    return 'GetFollowWatcherState(isLoading: $isLoading, id: $id, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Loaded &&
-            const DeepCollectionEquality().equals(other.artList, artList));
+            other is _GetFollowWatcherState &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrors, showErrors) &&
+            const DeepCollectionEquality()
+                .equals(other.failureOrSuccess, failureOrSuccess));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(artList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(showErrors),
+      const DeepCollectionEquality().hash(failureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<FollowEntity> artList) loaded,
-    required TResult Function(Failure failure) failed,
-  }) {
-    return loaded(artList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-  }) {
-    return loaded?.call(artList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(artList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
+  _$GetFollowWatcherStateCopyWith<_GetFollowWatcherState> get copyWith =>
+      __$GetFollowWatcherStateCopyWithImpl<_GetFollowWatcherState>(
+          this, _$identity);
 }
 
-abstract class _Loaded implements GetFollowWatcherState {
-  const factory _Loaded(List<FollowEntity> artList) = _$_Loaded;
+abstract class _GetFollowWatcherState implements GetFollowWatcherState {
+  const factory _GetFollowWatcherState(
+      {required bool isLoading,
+      int? id,
+      required bool showErrors,
+      dynamic failureOrSuccess}) = _$_GetFollowWatcherState;
 
-  List<FollowEntity> get artList;
+  @override
+  bool get isLoading;
+  @override
+  int? get id;
+  @override
+  bool get showErrors;
+  @override
+  dynamic get failureOrSuccess;
+  @override
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$FailedCopyWith<$Res> {
-  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
-      __$FailedCopyWithImpl<$Res>;
-  $Res call({Failure failure});
-}
-
-/// @nodoc
-class __$FailedCopyWithImpl<$Res>
-    extends _$GetFollowWatcherStateCopyWithImpl<$Res>
-    implements _$FailedCopyWith<$Res> {
-  __$FailedCopyWithImpl(_Failed _value, $Res Function(_Failed) _then)
-      : super(_value, (v) => _then(v as _Failed));
-
-  @override
-  _Failed get _value => super._value as _Failed;
-
-  @override
-  $Res call({
-    Object? failure = freezed,
-  }) {
-    return _then(_Failed(
-      failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as Failure,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Failed implements _Failed {
-  const _$_Failed(this.failure);
-
-  @override
-  final Failure failure;
-
-  @override
-  String toString() {
-    return 'GetFollowWatcherState.failed(failure: $failure)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Failed &&
-            const DeepCollectionEquality().equals(other.failure, failure));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
-
-  @JsonKey(ignore: true)
-  @override
-  _$FailedCopyWith<_Failed> get copyWith =>
-      __$FailedCopyWithImpl<_Failed>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<FollowEntity> artList) loaded,
-    required TResult Function(Failure failure) failed,
-  }) {
-    return failed(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-  }) {
-    return failed?.call(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<FollowEntity> artList)? loaded,
-    TResult Function(Failure failure)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return failed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Failed implements GetFollowWatcherState {
-  const factory _Failed(Failure failure) = _$_Failed;
-
-  Failure get failure;
-  @JsonKey(ignore: true)
-  _$FailedCopyWith<_Failed> get copyWith => throw _privateConstructorUsedError;
+  _$GetFollowWatcherStateCopyWith<_GetFollowWatcherState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
