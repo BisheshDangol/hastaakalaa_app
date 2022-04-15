@@ -36,3 +36,5 @@ const getSellArtEndPoint = '${baseUrl}api/art/sell/';
 const getBuyArtEndpPoint = '${baseUrl}api/art/buy/';
 
 const searchUserEndPoint = '${baseUrl}api/user/search/';
+
+const followUserEndPoint = '${baseUrl}api/user/follow_user';
