@@ -12,8 +12,10 @@ part 'get_follow_watcher_bloc.freezed.dart';
 class GetFollowWatcherBloc
     extends Bloc<GetFollowWatcherEvent, GetFollowWatcherState> {
   GetFollowWatcherBloc() : super((GetFollowWatcherState.initial())) {
-    on<GetFollowWatcherEvent>((event, emit) {
-      // TODO: implement event handler
+    on<GetFollowWatcherEvent>((event, emit) async {
+      await event.map(
+          retrieveFollowList: (_RetrieveFollowList value) {},
+          changedId: (_ChangedId value) {});
     });
   }
 }
