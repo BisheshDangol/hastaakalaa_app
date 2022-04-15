@@ -186,7 +186,7 @@ class _$GetFollowWatcherStateTearOff {
       {required bool isLoading,
       int? id,
       required bool showErrors,
-      dynamic failureOrSuccess}) {
+      Either<Failure, dynamic>? failureOrSuccess}) {
     return _GetFollowWatcherState(
       isLoading: isLoading,
       id: id,
@@ -204,7 +204,8 @@ mixin _$GetFollowWatcherState {
   bool get isLoading => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
-  dynamic get failureOrSuccess => throw _privateConstructorUsedError;
+  Either<Failure, dynamic>? get failureOrSuccess =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetFollowWatcherStateCopyWith<GetFollowWatcherState> get copyWith =>
@@ -217,7 +218,10 @@ abstract class $GetFollowWatcherStateCopyWith<$Res> {
           $Res Function(GetFollowWatcherState) then) =
       _$GetFollowWatcherStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isLoading, int? id, bool showErrors, dynamic failureOrSuccess});
+      {bool isLoading,
+      int? id,
+      bool showErrors,
+      Either<Failure, dynamic>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -252,7 +256,7 @@ class _$GetFollowWatcherStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as Either<Failure, dynamic>?,
     ));
   }
 }
@@ -265,7 +269,10 @@ abstract class _$GetFollowWatcherStateCopyWith<$Res>
       __$GetFollowWatcherStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isLoading, int? id, bool showErrors, dynamic failureOrSuccess});
+      {bool isLoading,
+      int? id,
+      bool showErrors,
+      Either<Failure, dynamic>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -301,7 +308,8 @@ class __$GetFollowWatcherStateCopyWithImpl<$Res>
               as bool,
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
-          : failureOrSuccess,
+          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, dynamic>?,
     ));
   }
 }
@@ -322,7 +330,7 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
   @override
   final bool showErrors;
   @override
-  final dynamic failureOrSuccess;
+  final Either<Failure, dynamic>? failureOrSuccess;
 
   @override
   String toString() {
@@ -362,7 +370,7 @@ abstract class _GetFollowWatcherState implements GetFollowWatcherState {
       {required bool isLoading,
       int? id,
       required bool showErrors,
-      dynamic failureOrSuccess}) = _$_GetFollowWatcherState;
+      Either<Failure, dynamic>? failureOrSuccess}) = _$_GetFollowWatcherState;
 
   @override
   bool get isLoading;
@@ -371,7 +379,7 @@ abstract class _GetFollowWatcherState implements GetFollowWatcherState {
   @override
   bool get showErrors;
   @override
-  dynamic get failureOrSuccess;
+  Either<Failure, dynamic>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$GetFollowWatcherStateCopyWith<_GetFollowWatcherState> get copyWith =>
