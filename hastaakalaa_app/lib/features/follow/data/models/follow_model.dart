@@ -12,4 +12,12 @@ class FollowModel extends FollowEntity {
           user_id: user_id,
           follower_id: follower_id,
         );
+
+  factory FollowModel.fromJson(Map<String, dynamic> json) {
+    return FollowModel(
+      id: json['id'],
+      user_id: json['user_id'],
+      follower_id: json['follower_id'],
+    );
+  }
 }
