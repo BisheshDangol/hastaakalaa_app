@@ -6,12 +6,14 @@ class GetFollowWatcherState with _$GetFollowWatcherState {
     required bool isLoading,
     int? id,
     required bool showErrors,
-    Either<Failure, dynamic>? failureOrSuccess,
+    List<FollowEntity>? followList,
+    Either<Failure, List<FollowEntity>>? failureOrSuccess,
   }) = _GetFollowWatcherState;
 
   factory GetFollowWatcherState.initial() => GetFollowWatcherState(
         showErrors: false,
         isLoading: false,
         failureOrSuccess: null,
+        followList: [],
       );
 }

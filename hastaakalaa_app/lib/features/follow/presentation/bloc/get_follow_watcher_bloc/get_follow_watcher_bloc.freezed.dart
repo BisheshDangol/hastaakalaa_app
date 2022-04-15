@@ -337,11 +337,13 @@ class _$GetFollowWatcherStateTearOff {
       {required bool isLoading,
       int? id,
       required bool showErrors,
-      Either<Failure, dynamic>? failureOrSuccess}) {
+      List<FollowEntity>? followList,
+      Either<Failure, List<FollowEntity>>? failureOrSuccess}) {
     return _GetFollowWatcherState(
       isLoading: isLoading,
       id: id,
       showErrors: showErrors,
+      followList: followList,
       failureOrSuccess: failureOrSuccess,
     );
   }
@@ -355,7 +357,8 @@ mixin _$GetFollowWatcherState {
   bool get isLoading => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
-  Either<Failure, dynamic>? get failureOrSuccess =>
+  List<FollowEntity>? get followList => throw _privateConstructorUsedError;
+  Either<Failure, List<FollowEntity>>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -372,7 +375,8 @@ abstract class $GetFollowWatcherStateCopyWith<$Res> {
       {bool isLoading,
       int? id,
       bool showErrors,
-      Either<Failure, dynamic>? failureOrSuccess});
+      List<FollowEntity>? followList,
+      Either<Failure, List<FollowEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -389,6 +393,7 @@ class _$GetFollowWatcherStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? id = freezed,
     Object? showErrors = freezed,
+    Object? followList = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
@@ -404,10 +409,14 @@ class _$GetFollowWatcherStateCopyWithImpl<$Res>
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      followList: followList == freezed
+          ? _value.followList
+          : followList // ignore: cast_nullable_to_non_nullable
+              as List<FollowEntity>?,
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, dynamic>?,
+              as Either<Failure, List<FollowEntity>>?,
     ));
   }
 }
@@ -423,7 +432,8 @@ abstract class _$GetFollowWatcherStateCopyWith<$Res>
       {bool isLoading,
       int? id,
       bool showErrors,
-      Either<Failure, dynamic>? failureOrSuccess});
+      List<FollowEntity>? followList,
+      Either<Failure, List<FollowEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -442,6 +452,7 @@ class __$GetFollowWatcherStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? id = freezed,
     Object? showErrors = freezed,
+    Object? followList = freezed,
     Object? failureOrSuccess = freezed,
   }) {
     return _then(_GetFollowWatcherState(
@@ -457,10 +468,14 @@ class __$GetFollowWatcherStateCopyWithImpl<$Res>
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
               as bool,
+      followList: followList == freezed
+          ? _value.followList
+          : followList // ignore: cast_nullable_to_non_nullable
+              as List<FollowEntity>?,
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, dynamic>?,
+              as Either<Failure, List<FollowEntity>>?,
     ));
   }
 }
@@ -472,6 +487,7 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
       {required this.isLoading,
       this.id,
       required this.showErrors,
+      this.followList,
       this.failureOrSuccess});
 
   @override
@@ -481,11 +497,13 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
   @override
   final bool showErrors;
   @override
-  final Either<Failure, dynamic>? failureOrSuccess;
+  final List<FollowEntity>? followList;
+  @override
+  final Either<Failure, List<FollowEntity>>? failureOrSuccess;
 
   @override
   String toString() {
-    return 'GetFollowWatcherState(isLoading: $isLoading, id: $id, showErrors: $showErrors, failureOrSuccess: $failureOrSuccess)';
+    return 'GetFollowWatcherState(isLoading: $isLoading, id: $id, showErrors: $showErrors, followList: $followList, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -498,6 +516,8 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
             const DeepCollectionEquality()
                 .equals(other.showErrors, showErrors) &&
             const DeepCollectionEquality()
+                .equals(other.followList, followList) &&
+            const DeepCollectionEquality()
                 .equals(other.failureOrSuccess, failureOrSuccess));
   }
 
@@ -507,6 +527,7 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(showErrors),
+      const DeepCollectionEquality().hash(followList),
       const DeepCollectionEquality().hash(failureOrSuccess));
 
   @JsonKey(ignore: true)
@@ -518,10 +539,12 @@ class _$_GetFollowWatcherState implements _GetFollowWatcherState {
 
 abstract class _GetFollowWatcherState implements GetFollowWatcherState {
   const factory _GetFollowWatcherState(
-      {required bool isLoading,
-      int? id,
-      required bool showErrors,
-      Either<Failure, dynamic>? failureOrSuccess}) = _$_GetFollowWatcherState;
+          {required bool isLoading,
+          int? id,
+          required bool showErrors,
+          List<FollowEntity>? followList,
+          Either<Failure, List<FollowEntity>>? failureOrSuccess}) =
+      _$_GetFollowWatcherState;
 
   @override
   bool get isLoading;
@@ -530,7 +553,9 @@ abstract class _GetFollowWatcherState implements GetFollowWatcherState {
   @override
   bool get showErrors;
   @override
-  Either<Failure, dynamic>? get failureOrSuccess;
+  List<FollowEntity>? get followList;
+  @override
+  Either<Failure, List<FollowEntity>>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$GetFollowWatcherStateCopyWith<_GetFollowWatcherState> get copyWith =>
