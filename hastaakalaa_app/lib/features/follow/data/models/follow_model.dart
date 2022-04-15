@@ -20,4 +20,18 @@ class FollowModel extends FollowEntity {
       follower_id: json['follower_id'],
     );
   }
+
+  static Map<String, dynamic> toJson({
+    int? id,
+    int? user_id,
+    int? follower_id,
+  }) {
+    Map<String, dynamic> data = {};
+
+    data['id'] = id;
+    data['user_id'] = user_id;
+    data['follower_id'] = follower_id;
+
+    return data;
+  }
 }
