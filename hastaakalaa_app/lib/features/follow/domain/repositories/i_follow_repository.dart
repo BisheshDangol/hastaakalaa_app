@@ -4,4 +4,6 @@ import 'package:hastaakalaa_app/features/follow/domain/entities/follow_entity.da
 
 abstract class IFollowRepository {
   Future<Either<Failure, List<FollowEntity>>> getFollowList();
+
+  Future<Either<Failure, List<FollowEntity>>> getFollowingList();
 }
