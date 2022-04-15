@@ -60,7 +60,7 @@ class UserRepositoryImpl implements IUserRepository {
   Future<Either<Failure, String>> followUser({required int? data}) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteList = await remoteDataSource.postLike(data: data);
+        final remoteList = await remoteDataSource.followUser(data: data);
 
         return Right(remoteList.toString());
       } on ServerFailure {
