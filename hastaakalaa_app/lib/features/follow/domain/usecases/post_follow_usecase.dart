@@ -8,8 +8,11 @@ class PostFollowUsecase implements Usecase<String, int?> {
   IFollowRepository repository;
 
   PostFollowUsecase(this.repository);
+
   @override
-  Future<Either<Failure, String>> call(int? params) async {}
+  Future<Either<Failure, String>> call(int? params) async {
+    return await repository.postFollow(data: params);
+  }
 }
 
 class Params extends Equatable {
