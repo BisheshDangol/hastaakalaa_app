@@ -10,12 +10,34 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_wat
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 
-class UserWrapper extends StatelessWidget {
+class UserWrapper extends StatefulWidget {
   final UserEntity userEntity;
   const UserWrapper({Key? key, required this.userEntity}) : super(key: key);
 
   @override
+  State<UserWrapper> createState() => _UserWrapperState();
+}
+
+class _UserWrapperState extends State<UserWrapper> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userId");
+    setState(() {
+      user = userToken;
+      debugPrint(user);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    int? userNumber = int.tryParse(user);
     return Container(
       decoration: BoxDecoration(border: Border.all(), color: Colors.grey),
       // color: Colors.grey[400],
@@ -41,15 +63,15 @@ class UserWrapper extends StatelessWidget {
                         ),
                 child: CircleAvatar(
                     backgroundColor: Colors.black45,
-                    child: Text('${userEntity.id}',
+                    child: Text('${widget.userEntity.id}',
                         style: TextStyle(fontSize: 30, color: Colors.white))),
               ),
             ),
             SizedBox(height: 10),
-            Text('${userEntity.firstName} ${userEntity.lastName}',
+            Text('${widget.userEntity.firstName} ${widget.userEntity.lastName}',
                 style: TextStyle(fontSize: 25, color: Colors.white)),
             SizedBox(height: 10),
-            Text('${userEntity.email}'),
+            Text('${widget.userEntity.email}'),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,7 +103,11 @@ class UserWrapper extends StatelessWidget {
                 )
               ],
             ),
-            FollowButton(user: userEntity)
+            userNumber == widget.userEntity.id
+                ? SizedBox(
+                    height: 0.0,
+                  )
+                : FollowButton(user: widget.userEntity)
           ],
         ),
       ),
