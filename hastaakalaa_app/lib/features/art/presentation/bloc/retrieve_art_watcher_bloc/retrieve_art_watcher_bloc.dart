@@ -20,9 +20,9 @@ class RetrieveArtWatcherBloc
         retrieveArtList: (_) async {
           emit(RetrieveArtWatcherState.loading());
 
-          final doctorList = await _retrieveArtPostUsecase.call(NoParams());
+          final artList = await _retrieveArtPostUsecase.call(NoParams());
 
-          doctorList.fold((l) => emit(RetrieveArtWatcherState.failed(l)),
+          artList.fold((l) => emit(RetrieveArtWatcherState.failed(l)),
               (r) => emit(RetrieveArtWatcherState.loaded(r)));
         },
       );
