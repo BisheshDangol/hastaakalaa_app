@@ -28,7 +28,7 @@ import 'package:hastaakalaa_app/features/comment/domain/usecases/get_comment_pos
 import 'package:hastaakalaa_app/features/comment/domain/usecases/post_comment_usecase.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_follower_list.dart';
+import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_follower_list_usecase.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
@@ -90,6 +90,7 @@ Future<void> init() async {
   sl.registerFactory(() => RetrieveArtWatcherBloc(sl()));
 
   sl.registerFactory(() => GetFollowWatcherBloc(sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -125,6 +126,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SearchUserUseCase(sl()));
 
   sl.registerLazySingleton(() => RetrieveArtPostUsecase(sl()));
+
+  sl.registerLazySingleton(() => GetAllFollowerListUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
