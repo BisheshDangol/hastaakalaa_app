@@ -1,4 +1,7 @@
 part of 'get_follow_watcher_bloc.dart';
 
-@immutable
-abstract class GetFollowWatcherEvent {}
+@freezed
+class GetFollowWatcherEvent with _$GetFollowWatcherEvent {
+  const factory GetFollowWatcherEvent.retrieveFollowList() =
+      _RetrieveFollowList;
+}

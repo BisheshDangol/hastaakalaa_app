@@ -15,6 +15,170 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$GetFollowWatcherEventTearOff {
+  const _$GetFollowWatcherEventTearOff();
+
+  _RetrieveFollowList retrieveFollowList() {
+    return const _RetrieveFollowList();
+  }
+}
+
+/// @nodoc
+const $GetFollowWatcherEvent = _$GetFollowWatcherEventTearOff();
+
+/// @nodoc
+mixin _$GetFollowWatcherEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() retrieveFollowList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RetrieveFollowList value) retrieveFollowList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetFollowWatcherEventCopyWith<$Res> {
+  factory $GetFollowWatcherEventCopyWith(GetFollowWatcherEvent value,
+          $Res Function(GetFollowWatcherEvent) then) =
+      _$GetFollowWatcherEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetFollowWatcherEventCopyWithImpl<$Res>
+    implements $GetFollowWatcherEventCopyWith<$Res> {
+  _$GetFollowWatcherEventCopyWithImpl(this._value, this._then);
+
+  final GetFollowWatcherEvent _value;
+  // ignore: unused_field
+  final $Res Function(GetFollowWatcherEvent) _then;
+}
+
+/// @nodoc
+abstract class _$RetrieveFollowListCopyWith<$Res> {
+  factory _$RetrieveFollowListCopyWith(
+          _RetrieveFollowList value, $Res Function(_RetrieveFollowList) then) =
+      __$RetrieveFollowListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RetrieveFollowListCopyWithImpl<$Res>
+    extends _$GetFollowWatcherEventCopyWithImpl<$Res>
+    implements _$RetrieveFollowListCopyWith<$Res> {
+  __$RetrieveFollowListCopyWithImpl(
+      _RetrieveFollowList _value, $Res Function(_RetrieveFollowList) _then)
+      : super(_value, (v) => _then(v as _RetrieveFollowList));
+
+  @override
+  _RetrieveFollowList get _value => super._value as _RetrieveFollowList;
+}
+
+/// @nodoc
+
+class _$_RetrieveFollowList implements _RetrieveFollowList {
+  const _$_RetrieveFollowList();
+
+  @override
+  String toString() {
+    return 'GetFollowWatcherEvent.retrieveFollowList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _RetrieveFollowList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() retrieveFollowList,
+  }) {
+    return retrieveFollowList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+  }) {
+    return retrieveFollowList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? retrieveFollowList,
+    required TResult orElse(),
+  }) {
+    if (retrieveFollowList != null) {
+      return retrieveFollowList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_RetrieveFollowList value) retrieveFollowList,
+  }) {
+    return retrieveFollowList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+  }) {
+    return retrieveFollowList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_RetrieveFollowList value)? retrieveFollowList,
+    required TResult orElse(),
+  }) {
+    if (retrieveFollowList != null) {
+      return retrieveFollowList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RetrieveFollowList implements GetFollowWatcherEvent {
+  const factory _RetrieveFollowList() = _$_RetrieveFollowList;
+}
+
+/// @nodoc
 class _$GetFollowWatcherStateTearOff {
   const _$GetFollowWatcherStateTearOff();
 
