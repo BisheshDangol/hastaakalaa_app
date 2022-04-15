@@ -43,7 +43,16 @@ class FollowRepositoryImpl implements IFollowRepository {
   }
 
   @override
-  Future<Either<Failure, String>> postFollow({required int? data}) {
+  Future<Either<Failure, String>> postFollow({required int? data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.postFollow(data: data);
+
+        return Right(remoteList.toString());
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }
