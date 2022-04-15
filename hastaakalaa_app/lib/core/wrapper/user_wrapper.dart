@@ -5,6 +5,7 @@ import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 
 class UserWrapper extends StatelessWidget {
@@ -73,11 +74,7 @@ class UserWrapper extends StatelessWidget {
                     SizedBox(
                       height: 8,
                     ),
-                    Text(
-                      "${userEntity.followedBy.length}",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    FollowingNumber()
                   ],
                 )
               ],
@@ -114,10 +111,10 @@ class FollowingNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetFollowWatcherBloc, GetFollowWatcherState>(
+    return BlocBuilder<GetFollowingWatcherBloc, GetFollowingWatcherState>(
       builder: ((context, state) {
         return state.failureOrSuccess?.fold((l) => null, (r) {
-              return Text('${state.followList!.length}',
+              return Text('${state.followingList!.length}',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

@@ -32,7 +32,7 @@ class FollowRepositoryImpl implements IFollowRepository {
   Future<Either<Failure, List<FollowEntity>>> getFollowingList() async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteList = await remoteDataSource.getFollowList();
+        final remoteList = await remoteDataSource.getFollowingList();
         debugPrint('This is the returned list: $remoteList');
         return Right(remoteList);
       } on ServerFailure {
