@@ -41,4 +41,9 @@ class FollowRepositoryImpl implements IFollowRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, String>> postFollow({required int? data}) {
+    throw UnimplementedError();
+  }
 }
