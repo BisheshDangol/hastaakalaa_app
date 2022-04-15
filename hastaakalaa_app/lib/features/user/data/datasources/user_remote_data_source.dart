@@ -10,6 +10,7 @@ abstract class IUserDataSource {
   Future<List<UserModel>> getAllUser();
   Future<List<UserModel>> getCurrentUser();
   Future<List<UserModel>> searchUser({required String? data});
+  Future<String> followUser({required int? data});
 }
 
 class UserRemoteDataSource implements IUserDataSource {
@@ -68,5 +69,11 @@ class UserRemoteDataSource implements IUserDataSource {
     } else {
       throw ServerException();
     }
+  }
+
+  @override
+  Future<String> followUser({required int? data}) {
+    // TODO: implement followUser
+    throw UnimplementedError();
   }
 }
