@@ -11,8 +11,16 @@ part 'follow_form_bloc.freezed.dart';
 
 class FollowFormBloc extends Bloc<FollowFormEvent, FollowFormState> {
   FollowFormBloc() : super(FollowFormState.initial()) {
-    on<FollowFormEvent>((event, emit) {
-      // TODO: implement event handler
+    on<FollowFormEvent>((event, emit) async {
+      await event.map(
+          changedId: (_ChangedId value) {
+            emit(
+              state.copyWith(
+                id: value.id,
+              ),
+            );
+          },
+          pressedFollow: (_PressedFollow value) {});
     });
   }
 }
