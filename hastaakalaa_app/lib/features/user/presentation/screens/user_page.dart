@@ -5,6 +5,7 @@ import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.dart';
@@ -25,8 +26,8 @@ class UserPage extends StatelessWidget {
             ..add(CurrentUserWatcherEvent.retrieveUserList()),
         ),
         BlocProvider(
-          create: (context) => sl<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList()),
+          create: (context) => sl<RetrieveArtWatcherBloc>()
+            ..add(RetrieveArtWatcherEvent.retrieveArtList()),
         ),
       ],
       child: Scaffold(
@@ -136,7 +137,7 @@ class UserPostPageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ArtListWatcherBloc, ArtListWatcherState>(
+    return BlocBuilder<RetrieveArtWatcherBloc, RetrieveArtWatcherState>(
       builder: (context, state) {
         return state.map(
           initial: (_) {
@@ -147,8 +148,8 @@ class UserPostPageBuilder extends StatelessWidget {
             return Expanded(
                 child: RefreshIndicator(
               onRefresh: () async {
-                context.read<ArtListWatcherBloc>()
-                  ..add(ArtListWatcherEvent.retrieveDoctorList());
+                context.read<RetrieveArtWatcherBloc>()
+                  ..add(RetrieveArtWatcherEvent.retrieveArtList());
               },
               child: GridView.count(
                 crossAxisCount: 3,

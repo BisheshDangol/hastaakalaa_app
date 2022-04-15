@@ -242,9 +242,22 @@ class ArtRemoteDataSource implements IArtDataSource {
 
   @override
   Future<List<ArtModel>> retrieveArtPost() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
     final response = await client.get(
-      Uri.parse(retrieveArtList),
+      Uri.parse(
+        retrieveArtList,
+      ),
+      headers: headers,
     );
+
+    debugPrint('=============');
+    debugPrint('${response.body}');
+    debugPrint('=============');
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;
