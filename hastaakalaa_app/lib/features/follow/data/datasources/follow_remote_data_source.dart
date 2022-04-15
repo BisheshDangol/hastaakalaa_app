@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 abstract class IFollowDataSource {
   Future<List<FollowModel>> getFollowList();
   Future<List<FollowModel>> getFollowingList();
+  Future<String> postFollow({required int? data});
 }
 
 class FollowRemoteDataSource implements IFollowDataSource {
@@ -54,5 +55,11 @@ class FollowRemoteDataSource implements IFollowDataSource {
     } else {
       throw ServerException();
     }
+  }
+
+  @override
+  Future<String> postFollow({required int? data}) {
+    // TODO: implement postFollow
+    throw UnimplementedError();
   }
 }
