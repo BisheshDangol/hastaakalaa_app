@@ -27,4 +27,18 @@ class FollowRepositoryImpl implements IFollowRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<FollowEntity>>> getFollowingList() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.getFollowList();
+        debugPrint('This is the returned list: $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
+    throw UnimplementedError();
+  }
 }
