@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 
 abstract class IFollowDataSource {
   Future<List<FollowModel>> getFollowList();
+  Future<List<FollowModel>> getFollowingList();
 }
 
 class FollowRemoteDataSource implements IFollowDataSource {
@@ -22,7 +23,28 @@ class FollowRemoteDataSource implements IFollowDataSource {
       "Authorization": "Token ${userToken}",
     };
     final response =
-        await client.get(Uri.parse(getFollwerUserEndPoint), headers: headers);
+        await client.get(Uri.parse(getFollowerUserEndPoint), headers: headers);
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => FollowModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<FollowModel>> getFollowingList() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    final response =
+        await client.get(Uri.parse(getFollowingUserEndPoint), headers: headers);
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;
