@@ -95,13 +95,16 @@ class FollowerNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetFollowWatcherBloc, GetFollowWatcherState>(
-        builder: ((context, state) {
-      return state.failureOrSuccess?.fold((l) => null, (r) {
-            return Text(
-              '${state.followList!.length}',
-            );
-          }) ??
-          Container();
-    }));
+      builder: ((context, state) {
+        return state.failureOrSuccess?.fold((l) => null, (r) {
+              return Text('${state.followList!.length}',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ));
+            }) ??
+            Container();
+      }),
+    );
   }
 }
