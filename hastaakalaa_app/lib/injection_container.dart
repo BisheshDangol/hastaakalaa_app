@@ -28,6 +28,8 @@ import 'package:hastaakalaa_app/features/comment/domain/usecases/get_comment_pos
 import 'package:hastaakalaa_app/features/comment/domain/usecases/post_comment_usecase.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/data/repositories/follow_repository_impl.dart';
+import 'package:hastaakalaa_app/features/follow/domain/repositories/i_follow_repository.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_follower_list_usecase.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
@@ -147,6 +149,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton<ICommentRepository>(
       () => CommentRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
+
+  sl.registerLazySingleton<IFollowRepository>(
+      () => FollowRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
 
   //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
