@@ -8,8 +8,11 @@ class FollowUserUsecase implements Usecase<String, int?> {
   IUserRepository repository;
 
   FollowUserUsecase(this.repository);
+
   @override
-  Future<Either<Failure, String>> call(int? params) async {}
+  Future<Either<Failure, String>> call(int? params) async {
+    return await repository.followUser(data: params);
+  }
 }
 
 class Params extends Equatable {
