@@ -9,6 +9,7 @@ import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watc
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
@@ -39,6 +40,7 @@ class UserPage extends StatelessWidget {
           create: (context) => sl<GetFollowingWatcherBloc>()
             ..add(GetFollowingWatcherEvent.retrieveFollowingList()),
         ),
+        BlocProvider(create: (context) => sl<FollowFormBloc>()),
       ],
       child: Scaffold(
         appBar: AppBar(

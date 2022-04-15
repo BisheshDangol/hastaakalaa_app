@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
@@ -79,6 +81,7 @@ class UserWrapper extends StatelessWidget {
                 )
               ],
             ),
+            FollowButton(user: userEntity)
           ],
         ),
       ),
@@ -122,6 +125,76 @@ class FollowingNumber extends StatelessWidget {
             }) ??
             Container();
       }),
+    );
+  }
+}
+
+class FollowButton extends StatefulWidget {
+  final UserEntity user;
+
+  const FollowButton({Key? key, required this.user}) : super(key: key);
+
+  @override
+  State<FollowButton> createState() => _FollowButtonState();
+}
+
+class _FollowButtonState extends State<FollowButton> {
+  String user = '';
+  @override
+  void initState() {
+    _getUserId();
+    super.initState();
+  }
+
+  _getUserId() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("userId");
+    setState(() {
+      user = userToken;
+      debugPrint(user);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<FollowFormBloc, FollowFormState>(
+      listener: (context, state) {
+        String response = '';
+        state.failureOrSuccess
+            ?.fold((l) => null, (r) => response = r.toString());
+        if (response == 'Found') {
+          CircularProgressIndicator();
+          context.read<GetFollowWatcherBloc>()
+            ..add(GetFollowWatcherEvent.retrieveFollowList());
+        } else {
+          context.read<GetFollowWatcherBloc>()
+            ..add(GetFollowWatcherEvent.retrieveFollowList());
+          // debugPrint('This is the usertoken${userToken}');
+        }
+      },
+      builder: (context, state) {
+        return BlocBuilder<FollowFormBloc, FollowFormState>(
+          builder: (context, state) {
+            return Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    context
+                        .read<FollowFormBloc>()
+                        .add(FollowFormEvent.changedId(id: widget.user.id));
+                    context
+                        .read<FollowFormBloc>()
+                        .add(FollowFormEvent.pressedFollow(id: widget.user.id));
+                  },
+                  icon: Icon(Icons.person_add),
+                  iconSize: 30,
+                  color: Colors.red,
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 }
