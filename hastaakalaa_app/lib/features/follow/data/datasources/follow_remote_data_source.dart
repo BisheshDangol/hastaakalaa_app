@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
@@ -58,8 +59,25 @@ class FollowRemoteDataSource implements IFollowDataSource {
   }
 
   @override
-  Future<String> postFollow({required int? data}) {
-    // TODO: implement postFollow
-    throw UnimplementedError();
+  Future<String> postFollow({required int? data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    String endPointPatientValue = data.toString();
+    final url = Uri.parse('$followUserEndPoint$endPointPatientValue');
+    debugPrint(url.toString());
+    final response = await client.post(url, headers: headers);
+
+    int code = response.statusCode;
+    debugPrint('$code');
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw ServerException();
+    }
   }
 }
