@@ -72,8 +72,27 @@ class UserRemoteDataSource implements IUserDataSource {
   }
 
   @override
-  Future<String> followUser({required int? data}) {
-    // TODO: implement followUser
-    throw UnimplementedError();
+  Future<String> followUser({required int? data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    String endPointPatientValue = data.toString();
+    final url = Uri.parse('$followUserEndPoint$endPointPatientValue');
+    debugPrint(url.toString());
+    final response = await client.post(url, headers: headers);
+
+    int code = response.statusCode;
+    debugPrint('==============');
+    debugPrint('follow user status code: $code');
+    debugPrint('==============');
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw ServerException();
+    }
   }
 }
