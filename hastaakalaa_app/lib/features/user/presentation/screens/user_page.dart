@@ -151,15 +151,21 @@ class UserPostPageBuilder extends StatelessWidget {
                 context.read<RetrieveArtWatcherBloc>()
                   ..add(RetrieveArtWatcherEvent.retrieveArtList());
               },
-              child: GridView.count(
-                crossAxisCount: 3,
-                mainAxisSpacing: 3.0,
-                crossAxisSpacing: 3.0,
-                shrinkWrap: true,
-                physics: ScrollPhysics(),
-                children:
-                    e.artList.map((e) => GridWrapper(artEntity: e)).toList(),
-              ),
+              child: e.artList.length == 0
+                  ? Center(
+                      child:
+                          Container(child: Text('You have not made any posts')),
+                    )
+                  : GridView.count(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 3.0,
+                      crossAxisSpacing: 3.0,
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      children: e.artList
+                          .map((e) => GridWrapper(artEntity: e))
+                          .toList(),
+                    ),
             ));
           },
           failed: (e) {
