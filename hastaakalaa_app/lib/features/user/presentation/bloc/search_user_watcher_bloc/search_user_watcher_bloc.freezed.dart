@@ -27,18 +27,6 @@ class _$SearchUserWatcherEventTearOff {
   _PressedSearch pressedSearch() {
     return const _PressedSearch();
   }
-
-  _PressedFollow pressedFollow({required int id}) {
-    return _PressedFollow(
-      id: id,
-    );
-  }
-
-  _ChangedId changedId({int? id}) {
-    return _ChangedId(
-      id: id,
-    );
-  }
 }
 
 /// @nodoc
@@ -50,24 +38,18 @@ mixin _$SearchUserWatcherEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String? keyword) changedKeyword,
     required TResult Function() pressedSearch,
-    required TResult Function(int id) pressedFollow,
-    required TResult Function(int? id) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,24 +57,18 @@ mixin _$SearchUserWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangedKeyword value) changedKeyword,
     required TResult Function(_PressedSearch value) pressedSearch,
-    required TResult Function(_PressedFollow value) pressedFollow,
-    required TResult Function(_ChangedId value) changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,8 +158,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult when<TResult extends Object?>({
     required TResult Function(String? keyword) changedKeyword,
     required TResult Function() pressedSearch,
-    required TResult Function(int id) pressedFollow,
-    required TResult Function(int? id) changedId,
   }) {
     return changedKeyword(keyword);
   }
@@ -193,8 +167,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
   }) {
     return changedKeyword?.call(keyword);
   }
@@ -204,8 +176,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) {
     if (changedKeyword != null) {
@@ -219,8 +189,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangedKeyword value) changedKeyword,
     required TResult Function(_PressedSearch value) pressedSearch,
-    required TResult Function(_PressedFollow value) pressedFollow,
-    required TResult Function(_ChangedId value) changedId,
   }) {
     return changedKeyword(this);
   }
@@ -230,8 +198,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
   }) {
     return changedKeyword?.call(this);
   }
@@ -241,8 +207,6 @@ class _$_ChangedKeyword implements _ChangedKeyword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) {
     if (changedKeyword != null) {
@@ -304,8 +268,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult when<TResult extends Object?>({
     required TResult Function(String? keyword) changedKeyword,
     required TResult Function() pressedSearch,
-    required TResult Function(int id) pressedFollow,
-    required TResult Function(int? id) changedId,
   }) {
     return pressedSearch();
   }
@@ -315,8 +277,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
   }) {
     return pressedSearch?.call();
   }
@@ -326,8 +286,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? keyword)? changedKeyword,
     TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
     required TResult orElse(),
   }) {
     if (pressedSearch != null) {
@@ -341,8 +299,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangedKeyword value) changedKeyword,
     required TResult Function(_PressedSearch value) pressedSearch,
-    required TResult Function(_PressedFollow value) pressedFollow,
-    required TResult Function(_ChangedId value) changedId,
   }) {
     return pressedSearch(this);
   }
@@ -352,8 +308,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
   }) {
     return pressedSearch?.call(this);
   }
@@ -363,8 +317,6 @@ class _$_PressedSearch implements _PressedSearch {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangedKeyword value)? changedKeyword,
     TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
     required TResult orElse(),
   }) {
     if (pressedSearch != null) {
@@ -379,297 +331,6 @@ abstract class _PressedSearch implements SearchUserWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$PressedFollowCopyWith<$Res> {
-  factory _$PressedFollowCopyWith(
-          _PressedFollow value, $Res Function(_PressedFollow) then) =
-      __$PressedFollowCopyWithImpl<$Res>;
-  $Res call({int id});
-}
-
-/// @nodoc
-class __$PressedFollowCopyWithImpl<$Res>
-    extends _$SearchUserWatcherEventCopyWithImpl<$Res>
-    implements _$PressedFollowCopyWith<$Res> {
-  __$PressedFollowCopyWithImpl(
-      _PressedFollow _value, $Res Function(_PressedFollow) _then)
-      : super(_value, (v) => _then(v as _PressedFollow));
-
-  @override
-  _PressedFollow get _value => super._value as _PressedFollow;
-
-  @override
-  $Res call({
-    Object? id = freezed,
-  }) {
-    return _then(_PressedFollow(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_PressedFollow implements _PressedFollow {
-  const _$_PressedFollow({required this.id});
-
-  @override
-  final int id;
-
-  @override
-  String toString() {
-    return 'SearchUserWatcherEvent.pressedFollow(id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _PressedFollow &&
-            const DeepCollectionEquality().equals(other.id, id));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
-
-  @JsonKey(ignore: true)
-  @override
-  _$PressedFollowCopyWith<_PressedFollow> get copyWith =>
-      __$PressedFollowCopyWithImpl<_PressedFollow>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? keyword) changedKeyword,
-    required TResult Function() pressedSearch,
-    required TResult Function(int id) pressedFollow,
-    required TResult Function(int? id) changedId,
-  }) {
-    return pressedFollow(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? keyword)? changedKeyword,
-    TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
-  }) {
-    return pressedFollow?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? keyword)? changedKeyword,
-    TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
-    required TResult orElse(),
-  }) {
-    if (pressedFollow != null) {
-      return pressedFollow(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangedKeyword value) changedKeyword,
-    required TResult Function(_PressedSearch value) pressedSearch,
-    required TResult Function(_PressedFollow value) pressedFollow,
-    required TResult Function(_ChangedId value) changedId,
-  }) {
-    return pressedFollow(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangedKeyword value)? changedKeyword,
-    TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
-  }) {
-    return pressedFollow?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangedKeyword value)? changedKeyword,
-    TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
-    required TResult orElse(),
-  }) {
-    if (pressedFollow != null) {
-      return pressedFollow(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PressedFollow implements SearchUserWatcherEvent {
-  const factory _PressedFollow({required int id}) = _$_PressedFollow;
-
-  int get id;
-  @JsonKey(ignore: true)
-  _$PressedFollowCopyWith<_PressedFollow> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ChangedIdCopyWith<$Res> {
-  factory _$ChangedIdCopyWith(
-          _ChangedId value, $Res Function(_ChangedId) then) =
-      __$ChangedIdCopyWithImpl<$Res>;
-  $Res call({int? id});
-}
-
-/// @nodoc
-class __$ChangedIdCopyWithImpl<$Res>
-    extends _$SearchUserWatcherEventCopyWithImpl<$Res>
-    implements _$ChangedIdCopyWith<$Res> {
-  __$ChangedIdCopyWithImpl(_ChangedId _value, $Res Function(_ChangedId) _then)
-      : super(_value, (v) => _then(v as _ChangedId));
-
-  @override
-  _ChangedId get _value => super._value as _ChangedId;
-
-  @override
-  $Res call({
-    Object? id = freezed,
-  }) {
-    return _then(_ChangedId(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ChangedId implements _ChangedId {
-  const _$_ChangedId({this.id});
-
-  @override
-  final int? id;
-
-  @override
-  String toString() {
-    return 'SearchUserWatcherEvent.changedId(id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ChangedId &&
-            const DeepCollectionEquality().equals(other.id, id));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
-      __$ChangedIdCopyWithImpl<_ChangedId>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? keyword) changedKeyword,
-    required TResult Function() pressedSearch,
-    required TResult Function(int id) pressedFollow,
-    required TResult Function(int? id) changedId,
-  }) {
-    return changedId(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? keyword)? changedKeyword,
-    TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
-  }) {
-    return changedId?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? keyword)? changedKeyword,
-    TResult Function()? pressedSearch,
-    TResult Function(int id)? pressedFollow,
-    TResult Function(int? id)? changedId,
-    required TResult orElse(),
-  }) {
-    if (changedId != null) {
-      return changedId(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangedKeyword value) changedKeyword,
-    required TResult Function(_PressedSearch value) pressedSearch,
-    required TResult Function(_PressedFollow value) pressedFollow,
-    required TResult Function(_ChangedId value) changedId,
-  }) {
-    return changedId(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ChangedKeyword value)? changedKeyword,
-    TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
-  }) {
-    return changedId?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangedKeyword value)? changedKeyword,
-    TResult Function(_PressedSearch value)? pressedSearch,
-    TResult Function(_PressedFollow value)? pressedFollow,
-    TResult Function(_ChangedId value)? changedId,
-    required TResult orElse(),
-  }) {
-    if (changedId != null) {
-      return changedId(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangedId implements SearchUserWatcherEvent {
-  const factory _ChangedId({int? id}) = _$_ChangedId;
-
-  int? get id;
-  @JsonKey(ignore: true)
-  _$ChangedIdCopyWith<_ChangedId> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$SearchUserWatcherStateTearOff {
   const _$SearchUserWatcherStateTearOff();
 
@@ -677,14 +338,12 @@ class _$SearchUserWatcherStateTearOff {
       {required bool isLoading,
       required bool showErrors,
       required Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<UserEntity>>? failureOrSuccess,
-      int? id}) {
+      Either<Failure, List<UserEntity>>? failureOrSuccess}) {
     return _SearchUserWatcherState(
       isLoading: isLoading,
       showErrors: showErrors,
       keywordTitle: keywordTitle,
       failureOrSuccess: failureOrSuccess,
-      id: id,
     );
   }
 }
@@ -700,7 +359,6 @@ mixin _$SearchUserWatcherState {
       throw _privateConstructorUsedError;
   Either<Failure, List<UserEntity>>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchUserWatcherStateCopyWith<SearchUserWatcherState> get copyWith =>
@@ -716,8 +374,7 @@ abstract class $SearchUserWatcherStateCopyWith<$Res> {
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<UserEntity>>? failureOrSuccess,
-      int? id});
+      Either<Failure, List<UserEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -735,7 +392,6 @@ class _$SearchUserWatcherStateCopyWithImpl<$Res>
     Object? showErrors = freezed,
     Object? keywordTitle = freezed,
     Object? failureOrSuccess = freezed,
-    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -754,10 +410,6 @@ class _$SearchUserWatcherStateCopyWithImpl<$Res>
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<UserEntity>>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -773,8 +425,7 @@ abstract class _$SearchUserWatcherStateCopyWith<$Res>
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<UserEntity>>? failureOrSuccess,
-      int? id});
+      Either<Failure, List<UserEntity>>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -794,7 +445,6 @@ class __$SearchUserWatcherStateCopyWithImpl<$Res>
     Object? showErrors = freezed,
     Object? keywordTitle = freezed,
     Object? failureOrSuccess = freezed,
-    Object? id = freezed,
   }) {
     return _then(_SearchUserWatcherState(
       isLoading: isLoading == freezed
@@ -813,10 +463,6 @@ class __$SearchUserWatcherStateCopyWithImpl<$Res>
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<UserEntity>>?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -828,8 +474,7 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
       {required this.isLoading,
       required this.showErrors,
       required this.keywordTitle,
-      this.failureOrSuccess,
-      this.id});
+      this.failureOrSuccess});
 
   @override
   final bool isLoading;
@@ -839,12 +484,10 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
   final Either<InvalidInputFailure, String> keywordTitle;
   @override
   final Either<Failure, List<UserEntity>>? failureOrSuccess;
-  @override
-  final int? id;
 
   @override
   String toString() {
-    return 'SearchUserWatcherState(isLoading: $isLoading, showErrors: $showErrors, keywordTitle: $keywordTitle, failureOrSuccess: $failureOrSuccess, id: $id)';
+    return 'SearchUserWatcherState(isLoading: $isLoading, showErrors: $showErrors, keywordTitle: $keywordTitle, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -858,8 +501,7 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
             const DeepCollectionEquality()
                 .equals(other.keywordTitle, keywordTitle) &&
             const DeepCollectionEquality()
-                .equals(other.failureOrSuccess, failureOrSuccess) &&
-            const DeepCollectionEquality().equals(other.id, id));
+                .equals(other.failureOrSuccess, failureOrSuccess));
   }
 
   @override
@@ -868,8 +510,7 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(showErrors),
       const DeepCollectionEquality().hash(keywordTitle),
-      const DeepCollectionEquality().hash(failureOrSuccess),
-      const DeepCollectionEquality().hash(id));
+      const DeepCollectionEquality().hash(failureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
@@ -880,11 +521,11 @@ class _$_SearchUserWatcherState implements _SearchUserWatcherState {
 
 abstract class _SearchUserWatcherState implements SearchUserWatcherState {
   const factory _SearchUserWatcherState(
-      {required bool isLoading,
-      required bool showErrors,
-      required Either<InvalidInputFailure, String> keywordTitle,
-      Either<Failure, List<UserEntity>>? failureOrSuccess,
-      int? id}) = _$_SearchUserWatcherState;
+          {required bool isLoading,
+          required bool showErrors,
+          required Either<InvalidInputFailure, String> keywordTitle,
+          Either<Failure, List<UserEntity>>? failureOrSuccess}) =
+      _$_SearchUserWatcherState;
 
   @override
   bool get isLoading;
@@ -894,8 +535,6 @@ abstract class _SearchUserWatcherState implements SearchUserWatcherState {
   Either<InvalidInputFailure, String> get keywordTitle;
   @override
   Either<Failure, List<UserEntity>>? get failureOrSuccess;
-  @override
-  int? get id;
   @override
   @JsonKey(ignore: true)
   _$SearchUserWatcherStateCopyWith<_SearchUserWatcherState> get copyWith =>

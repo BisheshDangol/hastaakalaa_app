@@ -7,7 +7,6 @@ class SearchUserWatcherState with _$SearchUserWatcherState {
     required bool showErrors,
     required Either<InvalidInputFailure, String> keywordTitle,
     Either<Failure, List<UserEntity>>? failureOrSuccess,
-    int? id,
   }) = _SearchUserWatcherState;
   factory SearchUserWatcherState.initial() => SearchUserWatcherState(
         isLoading: false,
