@@ -67,7 +67,7 @@ class UserWrapper extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      "Follow",
+                      "Following",
                       style: TextStyle(fontSize: 15, color: Colors.black),
                     ),
                     SizedBox(
