@@ -44,7 +44,7 @@ const getFollowingUserEndPoint = '${baseUrl}api/follow_user/following/';
 const getFollowerUserEndPoint = '${baseUrl}api/follow_user/follower/';
 
 const getOtherFollowerUserEndPoint =
-    '${baseUrl}/api/follow_user/details_follower/';
+    '${baseUrl}api/follow_user/details_follower/';
 
 const getOtherFollowingUserEndPoint =
-    '${baseUrl}/api/follow_user/details_following/';
+    '${baseUrl}api/follow_user/details_following/';

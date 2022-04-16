@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
+import 'package:hastaakalaa_app/core/wrapper/user_details_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
@@ -37,6 +39,14 @@ class SearchDetailPage extends StatelessWidget {
             ..add(GetFollowingWatcherEvent.retrieveFollowingList()),
         ),
         BlocProvider(create: (context) => sl<FollowFormBloc>()),
+        BlocProvider(
+          create: (context) => sl<GetOtherFollowerWatcherBloc>()
+            ..add(GetOtherFollowerWatcherEvent.changedId(id: user.id)),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetOtherFollowerWatcherBloc>()
+            ..add(GetOtherFollowerWatcherEvent.retrieveFollowList(id: user.id)),
+        ),
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -185,6 +195,11 @@ class PageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [UserWrapper(userEntity: entity)]);
+    return Container(
+      height: 250,
+      child: ListView(
+          padding: EdgeInsets.zero,
+          children: [UserDetailsWrapper(userEntity: entity)]),
+    );
   }
 }
