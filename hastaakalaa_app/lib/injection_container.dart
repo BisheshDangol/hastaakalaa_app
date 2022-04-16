@@ -37,6 +37,7 @@ import 'package:hastaakalaa_app/features/follow/domain/usecases/post_follow_usec
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/login/data/datasources/login_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/login/data/repositories/login_repository_impl.dart';
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
@@ -101,6 +102,8 @@ Future<void> init() async {
   sl.registerFactory(() => GetFollowingWatcherBloc(sl()));
 
   sl.registerFactory(() => FollowFormBloc(sl()));
+
+  sl.registerFactory(() => GetOtherFollowerWatcherBloc(sl()));
 
   //! UseCases
 
