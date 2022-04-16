@@ -33,6 +33,7 @@ import 'package:hastaakalaa_app/features/follow/data/repositories/follow_reposit
 import 'package:hastaakalaa_app/features/follow/domain/repositories/i_follow_repository.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_follower_list_usecase.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_following_list_usecase.dart';
+import 'package:hastaakalaa_app/features/follow/domain/usecases/get_other_follower_list_usecase.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/post_follow_usecase.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
@@ -146,6 +147,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetAllFollowingListUseCase(sl()));
 
   sl.registerLazySingleton(() => PostFollowUsecase(sl()));
+
+  sl.registerLazySingleton(() => GetOtherFollowerListUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
