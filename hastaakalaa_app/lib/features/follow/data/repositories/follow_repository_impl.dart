@@ -76,7 +76,7 @@ class FollowRepositoryImpl implements IFollowRepository {
       {required int? data}) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteList = await remoteDataSource.getOtherFollower(data: data);
+        final remoteList = await remoteDataSource.getOtherFollowing(data: data);
         debugPrint('This is the returned filter list: $remoteList');
         return Right(remoteList);
       } on ServerFailure {
