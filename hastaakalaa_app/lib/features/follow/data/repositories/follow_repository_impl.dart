@@ -55,4 +55,11 @@ class FollowRepositoryImpl implements IFollowRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<FollowEntity>>> getOtherFollowerList(
+      {required int? data}) {
+    // TODO: implement getOtherFollowerList
+    throw UnimplementedError();
+  }
 }
