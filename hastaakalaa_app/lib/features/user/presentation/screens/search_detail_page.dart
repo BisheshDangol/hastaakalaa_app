@@ -5,9 +5,13 @@ import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 
@@ -25,9 +29,18 @@ class UserPage extends StatelessWidget {
             ..add(CurrentUserWatcherEvent.retrieveUserList()),
         ),
         BlocProvider(
-          create: (context) => sl<ArtListWatcherBloc>()
-            ..add(ArtListWatcherEvent.retrieveDoctorList()),
+          create: (context) => sl<RetrieveArtWatcherBloc>()
+            ..add(RetrieveArtWatcherEvent.retrieveArtList()),
         ),
+        BlocProvider(
+          create: (context) => sl<GetFollowWatcherBloc>()
+            ..add(GetFollowWatcherEvent.retrieveFollowList()),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetFollowingWatcherBloc>()
+            ..add(GetFollowingWatcherEvent.retrieveFollowingList()),
+        ),
+        BlocProvider(create: (context) => sl<FollowFormBloc>()),
       ],
       child: Scaffold(
         appBar: AppBar(
