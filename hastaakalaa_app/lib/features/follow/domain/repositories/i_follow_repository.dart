@@ -11,4 +11,7 @@ abstract class IFollowRepository {
 
   Future<Either<Failure, List<FollowEntity>>> getOtherFollowerList(
       {required int? data});
+
+  Future<Either<Failure, List<FollowEntity>>> getOtherFollowingList(
+      {required int? data});
 }
