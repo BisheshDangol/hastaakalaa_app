@@ -1,6 +1,20 @@
 part of 'get_other_follower_watcher_bloc.dart';
 
-@immutable
-abstract class GetOtherFollowerWatcherState {}
+@freezed
+class GetOtherFollowerWatcherState with _$GetOtherFollowerWatcherState {
+  const factory GetOtherFollowerWatcherState({
+    required bool isLoading,
+    int? id,
+    required bool showErrors,
+    List<FollowEntity>? followList,
+    Either<Failure, List<FollowEntity>>? failureOrSuccess,
+  }) = _GetOtherFollowerWatcherState;
 
-class GetOtherFollowerWatcherInitial extends GetOtherFollowerWatcherState {}
+  factory GetOtherFollowerWatcherState.initial() =>
+      GetOtherFollowerWatcherState(
+        showErrors: false,
+        isLoading: false,
+        failureOrSuccess: null,
+        followList: [],
+      );
+}
