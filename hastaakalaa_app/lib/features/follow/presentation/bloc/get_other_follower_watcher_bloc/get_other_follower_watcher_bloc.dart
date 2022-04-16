@@ -16,19 +16,22 @@ class GetOtherFollowerWatcherBloc
   GetOtherFollowerWatcherBloc(this._getOtherFollowerListUsecase)
       : super(GetOtherFollowerWatcherState.initial()) {
     on<GetOtherFollowerWatcherEvent>((event, emit) async {
-      await event.map(
-          retrieveFollowList: (_) async {
-            emit(state.copyWith(isLoading: true, failureOrSuccess: null));
+      await event.map(retrieveFollowList: (_) async {
+        emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-            final followList =
-                await _getOtherFollowerListUsecase.call(state.id);
+        final followList = await _getOtherFollowerListUsecase.call(state.id);
 
-            emit(state.copyWith(
-                failureOrSuccess: followList,
-                isLoading: false,
-                followList: followList.fold((l) => [], (r) => r)));
-          },
-          changedId: (_ChangedId value) {});
+        emit(state.copyWith(
+            failureOrSuccess: followList,
+            isLoading: false,
+            followList: followList.fold((l) => [], (r) => r)));
+      }, changedId: (_ChangedId value) {
+        emit(
+          state.copyWith(
+            id: value.id,
+          ),
+        );
+      });
     });
   }
 }
