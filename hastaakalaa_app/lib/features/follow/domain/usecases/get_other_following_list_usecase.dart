@@ -12,7 +12,7 @@ class GetOtherFollowingListUsecase
 
   @override
   Future<Either<Failure, List<FollowEntity>>> call(int? params) async {
-    return await repository.getOtherFollowerList(data: params);
+    return await repository.getOtherFollowingList(data: params);
   }
 }
 
