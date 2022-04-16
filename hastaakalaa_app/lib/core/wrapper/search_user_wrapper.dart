@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/features/comment/domain/entities/comment_entity.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
+import 'package:hastaakalaa_app/features/user/presentation/screens/search_detail_page.dart';
+import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/user_page.dart';
 
 class SearchUserWrapper extends StatelessWidget {
@@ -12,7 +14,7 @@ class SearchUserWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => UserPage())),
+          context, MaterialPageRoute(builder: (context) => SearchDetailPage())),
       child: Container(
         // height: MediaQuery.of(context).size.height / 10,
         width: MediaQuery.of(context).size.width,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
-import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
@@ -17,8 +15,8 @@ import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_p
 
 import '../../../../injection_container.dart';
 
-class UserPage extends StatelessWidget {
-  const UserPage({Key? key}) : super(key: key);
+class SearchDetailPage extends StatelessWidget {
+  const SearchDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
