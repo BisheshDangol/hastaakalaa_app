@@ -25,10 +25,6 @@ class SearchDetailPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => sl<CurrentUserWatcherBloc>()
-            ..add(CurrentUserWatcherEvent.retrieveUserList()),
-        ),
-        BlocProvider(
           create: (context) => sl<RetrieveArtWatcherBloc>()
             ..add(RetrieveArtWatcherEvent.retrieveArtList()),
         ),
@@ -53,7 +49,7 @@ class SearchDetailPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              PageBuilder(),
+              PageBuilder(entity: user),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(color: Colors.green[100]),
@@ -184,35 +180,11 @@ class UserPostPageBuilder extends StatelessWidget {
 }
 
 class PageBuilder extends StatelessWidget {
-  const PageBuilder({Key? key}) : super(key: key);
+  final UserEntity entity;
+  const PageBuilder({Key? key, required this.entity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CurrentUserWatcherBloc, CurrentUserWatcherState>(
-      builder: (context, state) {
-        return state.map(
-          initial: (_) {
-            return Container();
-          },
-          loading: (_) => CircularProgressIndicator(),
-          loaded: (e) {
-            return Expanded(
-                child: RefreshIndicator(
-              onRefresh: () async {
-                context.read<CurrentUserWatcherBloc>()
-                  ..add(CurrentUserWatcherEvent.retrieveUserList());
-              },
-              child: ListView(
-                children:
-                    e.userList.map((e) => UserWrapper(userEntity: e)).toList(),
-              ),
-            ));
-          },
-          failed: (e) {
-            return Container();
-          },
-        );
-      },
-    );
+    return ListView(children: [UserWrapper(userEntity: entity)]);
   }
 }

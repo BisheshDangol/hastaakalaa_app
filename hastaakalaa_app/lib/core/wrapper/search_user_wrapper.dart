@@ -14,7 +14,11 @@ class SearchUserWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => SearchDetailPage())),
+          context,
+          MaterialPageRoute(
+              builder: (context) => SearchDetailPage(
+                    user: userEntity,
+                  ))),
       child: Container(
         // height: MediaQuery.of(context).size.height / 10,
         width: MediaQuery.of(context).size.width,
