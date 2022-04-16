@@ -8,4 +8,7 @@ abstract class IFollowRepository {
   Future<Either<Failure, List<FollowEntity>>> getFollowingList();
 
   Future<Either<Failure, String>> postFollow({required int? data});
+
+  Future<Either<Failure, List<FollowEntity>>> getOtherFollowerList(
+      {required int? data});
 }
