@@ -11,7 +11,7 @@ abstract class IFollowDataSource {
   Future<List<FollowModel>> getFollowList();
   Future<List<FollowModel>> getFollowingList();
   Future<String> postFollow({required int? data});
-  Future<List<FollowModel>> getFilterArtPost({required String? data});
+  Future<List<FollowModel>> getOtherFollower({required int? data});
 }
 
 class FollowRemoteDataSource implements IFollowDataSource {
@@ -83,7 +83,7 @@ class FollowRemoteDataSource implements IFollowDataSource {
   }
 
   @override
-  Future<List<FollowModel>> getFilterArtPost({required String? data}) async {
+  Future<List<FollowModel>> getOtherFollower({required int? data}) async {
     Uri url = Uri.parse('${getOtherFollowerUserEndPoint}${data}');
     final response = await client.get(
       url,
