@@ -48,3 +48,5 @@ const getOtherFollowerUserEndPoint =
 
 const getOtherFollowingUserEndPoint =
     '${baseUrl}api/follow_user/details_following/';
+
+const getOtherArtPostEndPoint = '${baseUrl}api/art/other_art/';
