@@ -19,6 +19,7 @@ abstract class IArtDataSource {
   Future<List<ArtModel>> buyArtPost();
   Future<List<ArtModel>> sellArtPost();
   Future<List<ArtModel>> retrieveArtPost();
+  Future<List<ArtModel>> getOtherArt({required int? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -258,6 +259,25 @@ class ArtRemoteDataSource implements IArtDataSource {
     debugPrint('=============');
     debugPrint('${response.body}');
     debugPrint('=============');
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<ArtModel>> getOtherArt({required int? data}) async {
+    Uri url = Uri.parse('${getOtherArtPostEndPoint}${data}');
+    final response = await client.get(
+      url,
+    );
+
+    debugPrint(url.toString());
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body) as List;
