@@ -12,6 +12,7 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bl
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_following_watcher_bloc/get_other_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
@@ -46,6 +47,11 @@ class SearchDetailPage extends StatelessWidget {
         BlocProvider(
           create: (context) => sl<GetOtherFollowerWatcherBloc>()
             ..add(GetOtherFollowerWatcherEvent.retrieveFollowList(id: user.id)),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetOtherFollowingWatcherBloc>()
+            ..add(
+                GetOtherFollowingWatcherEvent.retrieveFollowList(id: user.id)),
         ),
       ],
       child: Scaffold(

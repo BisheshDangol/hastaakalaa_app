@@ -5,6 +5,7 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bl
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_following_watcher_bloc/get_other_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 
 class UserDetailsWrapper extends StatefulWidget {
@@ -137,10 +138,11 @@ class FollowingNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetFollowingWatcherBloc, GetFollowingWatcherState>(
+    return BlocBuilder<GetOtherFollowingWatcherBloc,
+        GetOtherFollowingWatcherState>(
       builder: ((context, state) {
         return state.failureOrSuccess?.fold((l) => null, (r) {
-              return Text('${state.followingList!.length}',
+              return Text('${state.followList!.length}',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
