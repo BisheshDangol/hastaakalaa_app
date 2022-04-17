@@ -194,6 +194,9 @@ class _FollowButtonState extends State<FollowButton> {
         } else {
           context.read<GetFollowWatcherBloc>()
             ..add(GetFollowWatcherEvent.retrieveFollowList());
+          context.read<GetOtherFollowerWatcherBloc>()
+            ..add(GetOtherFollowerWatcherEvent.retrieveFollowList(
+                id: widget.user.id));
           // debugPrint('This is the usertoken${userToken}');
         }
       },
