@@ -24,4 +24,6 @@ abstract class IArtRepository {
   Future<Either<Failure, List<ArtEntity>>> sellArtPost();
 
   Future<Either<Failure, List<ArtEntity>>> retrieveArtPost();
+
+  Future<Either<Failure, List<ArtEntity>>> getOtherArt({required int? data});
 }
