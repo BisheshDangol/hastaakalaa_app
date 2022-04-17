@@ -34,10 +34,10 @@ class DiscoverPage extends StatelessWidget {
                     bottom: TabBar(
                       tabs: [
                         Tab(
-                          text: 'Buy Art',
+                          text: 'Search By Art',
                         ),
                         Tab(
-                          text: 'Sell Art',
+                          text: 'Search By Artist',
                         ),
                       ],
                     ),

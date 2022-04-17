@@ -1,4 +1,7 @@
 part of 'get_other_art_watcher_bloc.dart';
 
-@immutable
-abstract class GetOtherArtWatcherEvent {}
+@freezed
+class GetOtherArtWatcherEvent with _$GetOtherArtWatcherEvent {
+  const factory GetOtherArtWatcherEvent.changedKeyword({int? id}) =
+      _ChangedKeyword;
+}

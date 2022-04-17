@@ -4,9 +4,9 @@ import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
 
-class RetrieveArtPostUsecase implements Usecase<List<ArtEntity>, int?> {
+class GetOtherPostUsecase implements Usecase<List<ArtEntity>, int?> {
   final IArtRepository repository;
-  RetrieveArtPostUsecase(this.repository);
+  GetOtherPostUsecase(this.repository);
 
   @override
   Future<Either<Failure, List<ArtEntity>>> call(int? params) async {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_details_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/get_other_art_watcher_bloc/get_other_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';
@@ -52,6 +54,10 @@ class SearchDetailPage extends StatelessWidget {
           create: (context) => sl<GetOtherFollowingWatcherBloc>()
             ..add(
                 GetOtherFollowingWatcherEvent.retrieveFollowList(id: user.id)),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetOtherArtWatcherBloc>()
+            ..add(GetOtherArtWatcherEvent.changedKeyword(id: user.id)),
         ),
       ],
       child: Scaffold(
@@ -161,35 +167,24 @@ class UserPostPageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ArtListWatcherBloc, ArtListWatcherState>(
+    return BlocBuilder<GetOtherArtWatcherBloc, GetOtherArtWatcherState>(
       builder: (context, state) {
-        return state.map(
-          initial: (_) {
-            return Container();
-          },
-          loading: (_) => CircularProgressIndicator(),
-          loaded: (e) {
-            return Expanded(
-                child: RefreshIndicator(
-              onRefresh: () async {
-                context.read<ArtListWatcherBloc>()
-                  ..add(ArtListWatcherEvent.retrieveDoctorList());
-              },
-              child: GridView.count(
-                crossAxisCount: 3,
-                mainAxisSpacing: 3.0,
-                crossAxisSpacing: 3.0,
-                shrinkWrap: true,
-                physics: ScrollPhysics(),
-                children:
-                    e.artList.map((e) => GridWrapper(artEntity: e)).toList(),
-              ),
-            ));
-          },
-          failed: (e) {
-            return Container();
-          },
-        );
+        return state.failureOrSuccess?.fold((l) => null, (r) {
+              return Expanded(
+                child: GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 5.0,
+                      mainAxisSpacing: 5.0,
+                    ),
+                    itemCount: state.artList?.length,
+                    itemBuilder: (context, index) =>
+                        GridWrapper(artEntity: state.artList![index])),
+              );
+            }) ??
+            Container();
       },
     );
   }
