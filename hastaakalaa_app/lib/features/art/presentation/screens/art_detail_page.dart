@@ -5,6 +5,7 @@ import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
 
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/screens/comment_page.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/screens/khalti_main_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
@@ -176,7 +177,11 @@ class ArtDetailPage extends StatelessWidget {
                                   ),
                                 ),
                                 onTap: () {
-                                  debugPrint('hello');
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              KhaltiMainPage()));
                                 },
                               )
                             ],

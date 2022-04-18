@@ -9,6 +9,7 @@ import 'package:hastaakalaa_app/features/register/presentation/screens/register_
 import 'package:hastaakalaa_app/injection_container.dart';
 import 'package:hastaakalaa_app/splash_screen.dart';
 import 'injection_container.dart' as di;
+import 'package:khalti_flutter/khalti_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,22 +37,36 @@ class MyApp extends StatelessWidget {
           create: (context) => sl<CommentFormBloc>(),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Hastaakalaa App',
-        theme: ThemeData(
-          fontFamily: 'Roboto',
-          primarySwatch: Colors.blue,
-          textTheme: const TextTheme(
-            subtitle1: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
-          ),
-        ),
-        routes: {
-          'login': (context) => const LoginPage(),
-          'register': (context) => const RegisterPage(),
-          'splash': (context) => SplashScreen(),
+      child: KhaltiScope(
+        publicKey: "test_public_key_0ccda59ea4a34f55a439f55db7b463da",
+        builder: (context, navigatorKey) {
+          return MaterialApp(
+            navigatorKey: navigatorKey,
+            debugShowCheckedModeBanner: false,
+            title: 'Hastaakalaa App',
+            supportedLocales: const [
+              Locale('en', 'US'),
+              Locale('ne', 'NP'),
+            ],
+            localizationsDelegates: const [
+              KhaltiLocalizations.delegate,
+            ],
+            theme: ThemeData(
+              fontFamily: 'Roboto',
+              primarySwatch: Colors.blue,
+              textTheme: const TextTheme(
+                subtitle1:
+                    TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            routes: {
+              'login': (context) => const LoginPage(),
+              'register': (context) => const RegisterPage(),
+              'splash': (context) => SplashScreen(),
+            },
+            home: SplashScreen(),
+          );
         },
-        home: SplashScreen(),
       ),
     );
   }
