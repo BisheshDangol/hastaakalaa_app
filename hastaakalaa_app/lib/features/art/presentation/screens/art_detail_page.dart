@@ -180,8 +180,9 @@ class ArtDetailPage extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              KhaltiMainPage()));
+                                          builder: (context) => KhaltiMainPage(
+                                                artEntity: artEntity,
+                                              )));
                                 },
                               )
                             ],

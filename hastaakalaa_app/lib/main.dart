@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: KhaltiScope(
-        publicKey: "test_public_key_0ccda59ea4a34f55a439f55db7b463da",
+        publicKey: "test_public_key_f9f82f7ceb6b4f929b727ee5c83fb63b",
         builder: (context, navigatorKey) {
           return MaterialApp(
             navigatorKey: navigatorKey,

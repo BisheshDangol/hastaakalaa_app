@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
@@ -24,9 +25,15 @@ class PaymentRemoteDataSource implements IPaymentDataSource {
       "content-type": "application/json",
       "Authorization": "Token ${userToken}",
     };
+    debugPrint('================');
+    debugPrint('${data['id']}');
+    debugPrint('================');
+    final dataToSend = jsonEncode(data);
 
-    final response =
-        await client.get(Uri.parse(createPaymentEndPoint), headers: headers);
+    final response = await client.post(
+        Uri.parse('${createPaymentEndPoint}${data['id']}'),
+        headers: headers,
+        body: dataToSend);
 
     if (response.statusCode == 201) {
       return unit;

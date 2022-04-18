@@ -4,9 +4,9 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/payment/domain/repositories/i_payment_repository.dart';
 
-class CreateArtPostUseCase implements Usecase<Unit, Map<String, dynamic>> {
+class CreatePaymentUseCase implements Usecase<Unit, Map<String, dynamic>> {
   IPaymentRepository repository;
-  CreateArtPostUseCase(this.repository);
+  CreatePaymentUseCase(this.repository);
 
   @override
   Future<Either<Failure, Unit>> call(Map<String, dynamic> params) async {

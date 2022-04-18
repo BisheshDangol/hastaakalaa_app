@@ -48,6 +48,11 @@ import 'package:hastaakalaa_app/features/login/data/repositories/login_repositor
 import 'package:hastaakalaa_app/features/login/domain/repositories/i_login_repository.dart';
 import 'package:hastaakalaa_app/features/login/domain/usecases/create_user_token_usecase.dart';
 import 'package:hastaakalaa_app/features/login/presentation/bloc/login_bloc/login_bloc.dart';
+import 'package:hastaakalaa_app/features/payment/data/datasources/payment_remote_data_source.dart';
+import 'package:hastaakalaa_app/features/payment/data/repositories/payment_repository_impl.dart';
+import 'package:hastaakalaa_app/features/payment/domain/repositories/i_payment_repository.dart';
+import 'package:hastaakalaa_app/features/payment/domain/usecases/create_payment_usecase.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/bloc/create_payment_form_bloc/create_payment_form_bloc.dart';
 import 'package:hastaakalaa_app/features/register/data/datasources/register_remote_data_source.dart';
 import 'package:hastaakalaa_app/features/register/data/repositories/register_repository_impl.dart';
 import 'package:hastaakalaa_app/features/register/domain/repositories/i_register_repository.dart';
@@ -114,6 +119,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => GetOtherArtWatcherBloc(sl()));
 
+  sl.registerFactory(() => CreatePaymentFormBloc(sl(), sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -162,6 +169,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => GetOtherPostUsecase(sl()));
 
+  sl.registerLazySingleton(() => CreatePaymentUseCase(sl()));
+
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
 
@@ -184,6 +193,9 @@ Future<void> init() async {
   sl.registerLazySingleton<IFollowRepository>(
       () => FollowRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
 
+  sl.registerLazySingleton<IPaymentRepository>(
+      () => PaymentRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+
   //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
@@ -205,6 +217,9 @@ Future<void> init() async {
 
   sl.registerLazySingleton<IFollowDataSource>(
       () => FollowRemoteDataSource(client: sl()));
+
+  sl.registerLazySingleton<IPaymentDataSource>(
+      () => PaymentRemoteDataSource(client: sl()));
 
   sl.registerLazySingleton(() => http.Client());
 

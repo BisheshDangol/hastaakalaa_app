@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/bloc/create_payment_form_bloc/create_payment_form_bloc.dart';
+import 'package:hastaakalaa_app/injection_container.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
 import 'khalti_payment_page.dart';
 
 class KhaltiMainPage extends StatelessWidget {
-  const KhaltiMainPage({Key? key}) : super(key: key);
+  final ArtEntity artEntity;
+  const KhaltiMainPage({Key? key, required this.artEntity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return KhaltiScope(
-        publicKey: "test_public_key_0ccda59ea4a34f55a439f55db7b463da",
+        publicKey: "test_public_key_f9f82f7ceb6b4f929b727ee5c83fb63b",
         builder: (context, navigatorKey) {
-          return KhaltiPaymentPage();
+          return KhaltiPaymentPage(art: artEntity);
         });
   }
 }
