@@ -50,3 +50,7 @@ const getOtherFollowingUserEndPoint =
     '${baseUrl}api/follow_user/details_following/';
 
 const getOtherArtPostEndPoint = '${baseUrl}api/art/other_art/';
+
+const createPaymentEndPoint = '${baseUrl}api/pay/payment/';
+
+const getPaymentEndPoint = '${baseUrl}api/pay/get_payment/';
