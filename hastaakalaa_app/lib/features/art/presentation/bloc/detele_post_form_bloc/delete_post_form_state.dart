@@ -1,6 +1,17 @@
 part of 'delete_post_form_bloc.dart';
 
-@immutable
-abstract class DeletePostFormState {}
+@freezed
+class DeletePostFormState with _$DeletePostFormState {
+  const factory DeletePostFormState({
+    required bool isLoading,
+    int? id,
+    required bool showErrors,
+    Either<Failure, dynamic>? failureOrSuccess,
+  }) = _DeletePostFormState;
 
-class DeletePostFormInitial extends DeletePostFormState {}
+  factory DeletePostFormState.initial() => DeletePostFormState(
+        showErrors: false,
+        isLoading: false,
+        failureOrSuccess: null,
+      );
+}
