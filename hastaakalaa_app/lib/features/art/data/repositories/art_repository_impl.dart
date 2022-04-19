@@ -176,8 +176,16 @@ class ArtRepositoryImpl implements IArtRepository {
   }
 
   @override
-  Future<Either<Failure, int>> deletePost({required int? data}) {
-    // TODO: implement deletePost
+  Future<Either<Failure, int>> deletePost({required int? data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.deletePost(data: data);
+
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
     throw UnimplementedError();
   }
 }
