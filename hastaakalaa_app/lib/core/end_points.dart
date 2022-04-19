@@ -54,3 +54,5 @@ const getOtherArtPostEndPoint = '${baseUrl}api/art/other_art/';
 const createPaymentEndPoint = '${baseUrl}api/pay/payment/';
 
 const getPaymentEndPoint = '${baseUrl}api/pay/get_payment/';
+
+const deletePostEndPoint = '${baseUrl}api/art/delete/';
