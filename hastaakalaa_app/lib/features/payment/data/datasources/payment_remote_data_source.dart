@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 abstract class IPaymentDataSource {
   Future<Unit> createPayment({required Map<String, dynamic> data});
+  Future<List<PaymentModel>> getPaymentList();
 }
 
 class PaymentRemoteDataSource implements IPaymentDataSource {
@@ -37,6 +38,27 @@ class PaymentRemoteDataSource implements IPaymentDataSource {
 
     if (response.statusCode == 201) {
       return unit;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<PaymentModel>> getPaymentList() async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    final response =
+        await client.get(Uri.parse(getPaymentEndPoint), headers: headers);
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List;
+      return jsonData
+          .map((e) => PaymentModel.fromJson(e as Map<String, dynamic>))
+          .toList();
     } else {
       throw ServerException();
     }

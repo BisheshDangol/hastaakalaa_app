@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';
 import 'package:hastaakalaa_app/features/payment/data/datasources/payment_remote_data_source.dart';
+import 'package:hastaakalaa_app/features/payment/domain/entites/payment_entity.dart';
 import 'package:hastaakalaa_app/features/payment/domain/repositories/i_payment_repository.dart';
 
 class PaymentRepositoryImpl implements IPaymentRepository {
@@ -22,6 +23,20 @@ class PaymentRepositoryImpl implements IPaymentRepository {
         final paymentList = await remoteDataSource.createPayment(data: data);
         debugPrint('This is the returned number $paymentList');
         return Right(paymentList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, List<PaymentEntity>>> getPayment() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList = await remoteDataSource.getPaymentList();
+        debugPrint('This is the returned list: $remoteList');
+        return Right(remoteList);
       } on ServerFailure {
         return Left(ServerFailure());
       }
