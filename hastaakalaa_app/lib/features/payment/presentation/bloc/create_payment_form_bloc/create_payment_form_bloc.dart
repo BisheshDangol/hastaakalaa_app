@@ -32,7 +32,7 @@ class CreatePaymentFormBloc
         emit(
           state.copyWith(
             failureOrSuccess: null,
-            price: _inputConvert.isInteger(
+            price: _inputConvert.notEmpty(
               value: value.price.toString(),
             ),
           ),
@@ -58,7 +58,7 @@ class CreatePaymentFormBloc
             PaymentModel.toJson(
               id: state.art_id.getOrElse(() => 0),
               seller_id: state.seller_id.getOrElse(() => 0),
-              price: state.price.getOrElse(() => 0),
+              price: state.price.getOrElse(() => ''),
             ),
           );
         }
@@ -70,6 +70,10 @@ class CreatePaymentFormBloc
           ),
         );
       });
+
+      // }, pressedCreate: (_) async {
+
+      // });
     });
   }
 }

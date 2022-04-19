@@ -189,9 +189,9 @@ class _$GetPaymentWatcherStateTearOff {
     return const _Loading();
   }
 
-  _Loaded loaded(List<PaymentEntity> artList) {
+  _Loaded loaded(List<PaymentEntity> paymentList) {
     return _Loaded(
-      artList,
+      paymentList,
     );
   }
 
@@ -211,7 +211,7 @@ mixin _$GetPaymentWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PaymentEntity> artList) loaded,
+    required TResult Function(List<PaymentEntity> paymentList) loaded,
     required TResult Function(Failure failure) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -219,7 +219,7 @@ mixin _$GetPaymentWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -227,7 +227,7 @@ mixin _$GetPaymentWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
   }) =>
@@ -317,7 +317,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PaymentEntity> artList) loaded,
+    required TResult Function(List<PaymentEntity> paymentList) loaded,
     required TResult Function(Failure failure) failed,
   }) {
     return initial();
@@ -328,7 +328,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
   }) {
     return initial?.call();
@@ -339,7 +339,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
   }) {
@@ -432,7 +432,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PaymentEntity> artList) loaded,
+    required TResult Function(List<PaymentEntity> paymentList) loaded,
     required TResult Function(Failure failure) failed,
   }) {
     return loading();
@@ -443,7 +443,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
   }) {
     return loading?.call();
@@ -454,7 +454,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
   }) {
@@ -510,7 +510,7 @@ abstract class _Loading implements GetPaymentWatcherState {
 abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
-  $Res call({List<PaymentEntity> artList});
+  $Res call({List<PaymentEntity> paymentList});
 }
 
 /// @nodoc
@@ -525,12 +525,12 @@ class __$LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? artList = freezed,
+    Object? paymentList = freezed,
   }) {
     return _then(_Loaded(
-      artList == freezed
-          ? _value.artList
-          : artList // ignore: cast_nullable_to_non_nullable
+      paymentList == freezed
+          ? _value.paymentList
+          : paymentList // ignore: cast_nullable_to_non_nullable
               as List<PaymentEntity>,
     ));
   }
@@ -539,14 +539,14 @@ class __$LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.artList);
+  const _$_Loaded(this.paymentList);
 
   @override
-  final List<PaymentEntity> artList;
+  final List<PaymentEntity> paymentList;
 
   @override
   String toString() {
-    return 'GetPaymentWatcherState.loaded(artList: $artList)';
+    return 'GetPaymentWatcherState.loaded(paymentList: $paymentList)';
   }
 
   @override
@@ -554,12 +554,13 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Loaded &&
-            const DeepCollectionEquality().equals(other.artList, artList));
+            const DeepCollectionEquality()
+                .equals(other.paymentList, paymentList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(artList));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(paymentList));
 
   @JsonKey(ignore: true)
   @override
@@ -571,10 +572,10 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PaymentEntity> artList) loaded,
+    required TResult Function(List<PaymentEntity> paymentList) loaded,
     required TResult Function(Failure failure) failed,
   }) {
-    return loaded(artList);
+    return loaded(paymentList);
   }
 
   @override
@@ -582,10 +583,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
   }) {
-    return loaded?.call(artList);
+    return loaded?.call(paymentList);
   }
 
   @override
@@ -593,12 +594,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(artList);
+      return loaded(paymentList);
     }
     return orElse();
   }
@@ -642,9 +643,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements GetPaymentWatcherState {
-  const factory _Loaded(List<PaymentEntity> artList) = _$_Loaded;
+  const factory _Loaded(List<PaymentEntity> paymentList) = _$_Loaded;
 
-  List<PaymentEntity> get artList;
+  List<PaymentEntity> get paymentList;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }
@@ -714,7 +715,7 @@ class _$_Failed implements _Failed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PaymentEntity> artList) loaded,
+    required TResult Function(List<PaymentEntity> paymentList) loaded,
     required TResult Function(Failure failure) failed,
   }) {
     return failed(failure);
@@ -725,7 +726,7 @@ class _$_Failed implements _Failed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
   }) {
     return failed?.call(failure);
@@ -736,7 +737,7 @@ class _$_Failed implements _Failed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PaymentEntity> artList)? loaded,
+    TResult Function(List<PaymentEntity> paymentList)? loaded,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
   }) {

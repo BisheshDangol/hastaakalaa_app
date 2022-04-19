@@ -10,7 +10,7 @@ class PaymentModel extends PaymentEntity {
     required int id,
     required int buyer_id,
     required int seller_id,
-    required int price,
+    required String price,
   }) : super(
           buyer_id: buyer_id,
           id: id,
@@ -31,7 +31,7 @@ class PaymentModel extends PaymentEntity {
     int? id,
     int? seller_id,
     int? buyer_id,
-    int? price,
+    String? price,
   }) {
     Map<String, dynamic> data = {};
 

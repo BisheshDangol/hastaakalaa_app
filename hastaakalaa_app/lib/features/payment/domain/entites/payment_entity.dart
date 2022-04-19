@@ -5,7 +5,7 @@ class PaymentEntity extends Equatable {
   int id;
   int buyer_id;
   int seller_id;
-  int price;
+  String price;
 
   PaymentEntity({
     required this.id,
@@ -14,5 +14,5 @@ class PaymentEntity extends Equatable {
     required this.seller_id,
   });
   @override
-  List<Object?> get props => throw [id, buyer_id, seller_id, price];
+  List<Object?> get props => [id, buyer_id, seller_id, price];
 }

@@ -13,6 +13,7 @@ import 'package:hastaakalaa_app/features/art/presentation/screens/sell_art_page.
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/screens/payment_list_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 
@@ -135,6 +136,15 @@ class UserPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => SearchUserPage()));
+                },
+              ),
+              ListTile(
+                title: Text('My Payments'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PaymentListPage()));
                 },
               ),
             ],

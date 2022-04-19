@@ -6,7 +6,7 @@ class CreatePaymentFormState with _$CreatePaymentFormState {
     required bool isLoading,
     required bool showErrors,
     required Either<InvalidInputFailure, int> art_id,
-    required Either<InvalidInputFailure, int> price,
+    required Either<InvalidInputFailure, String> price,
     required Either<InvalidInputFailure, int> seller_id,
     Either<Failure, dynamic>? failureOrSuccess,
   }) = _CreatePaymentFormState;

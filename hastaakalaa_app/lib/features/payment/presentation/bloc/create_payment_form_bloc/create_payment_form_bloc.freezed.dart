@@ -677,7 +677,7 @@ class _$CreatePaymentFormStateTearOff {
       {required bool isLoading,
       required bool showErrors,
       required Either<InvalidInputFailure, int> art_id,
-      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> price,
       required Either<InvalidInputFailure, int> seller_id,
       Either<Failure, dynamic>? failureOrSuccess}) {
     return _CreatePaymentFormState(
@@ -700,7 +700,7 @@ mixin _$CreatePaymentFormState {
   bool get showErrors => throw _privateConstructorUsedError;
   Either<InvalidInputFailure, int> get art_id =>
       throw _privateConstructorUsedError;
-  Either<InvalidInputFailure, int> get price =>
+  Either<InvalidInputFailure, String> get price =>
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, int> get seller_id =>
       throw _privateConstructorUsedError;
@@ -721,7 +721,7 @@ abstract class $CreatePaymentFormStateCopyWith<$Res> {
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, int> art_id,
-      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> price,
       Either<InvalidInputFailure, int> seller_id,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -760,7 +760,7 @@ class _$CreatePaymentFormStateCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, int>,
+              as Either<InvalidInputFailure, String>,
       seller_id: seller_id == freezed
           ? _value.seller_id
           : seller_id // ignore: cast_nullable_to_non_nullable
@@ -784,7 +784,7 @@ abstract class _$CreatePaymentFormStateCopyWith<$Res>
       {bool isLoading,
       bool showErrors,
       Either<InvalidInputFailure, int> art_id,
-      Either<InvalidInputFailure, int> price,
+      Either<InvalidInputFailure, String> price,
       Either<InvalidInputFailure, int> seller_id,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -825,7 +825,7 @@ class __$CreatePaymentFormStateCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as Either<InvalidInputFailure, int>,
+              as Either<InvalidInputFailure, String>,
       seller_id: seller_id == freezed
           ? _value.seller_id
           : seller_id // ignore: cast_nullable_to_non_nullable
@@ -856,7 +856,7 @@ class _$_CreatePaymentFormState implements _CreatePaymentFormState {
   @override
   final Either<InvalidInputFailure, int> art_id;
   @override
-  final Either<InvalidInputFailure, int> price;
+  final Either<InvalidInputFailure, String> price;
   @override
   final Either<InvalidInputFailure, int> seller_id;
   @override
@@ -904,7 +904,7 @@ abstract class _CreatePaymentFormState implements CreatePaymentFormState {
       {required bool isLoading,
       required bool showErrors,
       required Either<InvalidInputFailure, int> art_id,
-      required Either<InvalidInputFailure, int> price,
+      required Either<InvalidInputFailure, String> price,
       required Either<InvalidInputFailure, int> seller_id,
       Either<Failure, dynamic>? failureOrSuccess}) = _$_CreatePaymentFormState;
 
@@ -915,7 +915,7 @@ abstract class _CreatePaymentFormState implements CreatePaymentFormState {
   @override
   Either<InvalidInputFailure, int> get art_id;
   @override
-  Either<InvalidInputFailure, int> get price;
+  Either<InvalidInputFailure, String> get price;
   @override
   Either<InvalidInputFailure, int> get seller_id;
   @override
