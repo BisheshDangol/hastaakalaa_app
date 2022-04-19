@@ -6,6 +6,7 @@ import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repositor
 import 'package:hastaakalaa_app/features/art/domain/usecases/bookmark_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/buy_art_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/create_art_post_usecase.dart';
+import 'package:hastaakalaa_app/features/art/domain/usecases/delete_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_list_usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
@@ -179,6 +180,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => CreatePaymentUseCase(sl()));
 
   sl.registerLazySingleton(() => GetPaymentListUsecase(sl()));
+
+  sl.registerLazySingleton(() => DeletePostUsecase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
