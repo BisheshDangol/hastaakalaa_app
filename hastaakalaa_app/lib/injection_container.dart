@@ -20,6 +20,7 @@ import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/buy_art_watcher_bloc/buy_art_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/detele_post_form_bloc/delete_post_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/get_other_art_watcher_bloc/get_other_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/sell_art_watcher_bloc/sell_art_watcher_bloc.dart';
@@ -124,6 +125,8 @@ Future<void> init() async {
   sl.registerFactory(() => CreatePaymentFormBloc(sl(), sl()));
 
   sl.registerFactory(() => GetPaymentWatcherBloc(sl()));
+
+  sl.registerFactory(() => DeletePostFormBloc(sl()));
 
   //! UseCases
 
