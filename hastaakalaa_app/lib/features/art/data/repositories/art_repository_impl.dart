@@ -174,4 +174,10 @@ class ArtRepositoryImpl implements IArtRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, int>> deletePost({required int? data}) {
+    // TODO: implement deletePost
+    throw UnimplementedError();
+  }
 }

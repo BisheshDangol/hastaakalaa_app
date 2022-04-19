@@ -20,6 +20,7 @@ abstract class IArtDataSource {
   Future<List<ArtModel>> sellArtPost();
   Future<List<ArtModel>> retrieveArtPost();
   Future<List<ArtModel>> getOtherArt({required int? data});
+  Future<int> deletePost({required int? data});
 }
 
 class ArtRemoteDataSource implements IArtDataSource {
@@ -284,6 +285,32 @@ class ArtRemoteDataSource implements IArtDataSource {
       return jsonData
           .map((e) => ArtModel.fromJson(e as Map<String, dynamic>))
           .toList();
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<int> deletePost({required int? data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    debugPrint('===============');
+    debugPrint('${userToken}');
+    debugPrint('===============');
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+    String endPointPatientValue = data.toString();
+    final url = Uri.parse('$bookmarkPostEndpoint$endPointPatientValue');
+    debugPrint(url.toString());
+    final response = await client.post(url, headers: headers);
+
+    int code = response.statusCode;
+    debugPrint('$code');
+    debugPrint(response.body);
+    if (response.statusCode == 200) {
+      return response.statusCode;
     } else {
       throw ServerException();
     }
