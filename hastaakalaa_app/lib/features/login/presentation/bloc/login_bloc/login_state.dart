@@ -7,7 +7,7 @@ class LoginState with _$LoginState {
     required Either<InvalidInputFailure, String> username,
     required Either<InvalidInputFailure, String> password,
     required bool showErrors,
-    Either<Failure, Unit>? failureOrSuccess,
+    Either<Failure, int>? failureOrSuccess,
   }) = _LoginState;
   factory LoginState.initial() => LoginState(
         isLoading: false,

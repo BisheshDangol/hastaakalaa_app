@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:dartz/dartz.dart';
 
 abstract class ILoginRemoteDataSource {
-  Future<Unit> createUserToken({required Map<String, dynamic> data});
+  Future<int> createUserToken({required Map<String, dynamic> data});
 }
 
 class LoginRemoteDataSource implements ILoginRemoteDataSource {
@@ -16,7 +16,7 @@ class LoginRemoteDataSource implements ILoginRemoteDataSource {
   LoginRemoteDataSource({required this.client});
 
   @override
-  Future<Unit> createUserToken({required Map<String, dynamic> data}) async {
+  Future<int> createUserToken({required Map<String, dynamic> data}) async {
     final url = Uri.parse(getUserToken);
     final header = {"content-type": "application/json"};
     final jsonData = json.encode(data);
@@ -26,13 +26,13 @@ class LoginRemoteDataSource implements ILoginRemoteDataSource {
     debugPrint(response.body);
 
     final tokenData = json.decode(response.body);
-    String tokenSession = tokenData["token"];
 
     if (response.statusCode == 200) {
+      String tokenSession = tokenData["token"];
       TokenSharedPrefernces.instance.setTokenValue("token", tokenSession);
-      return unit;
+      return response.statusCode;
     } else {
-      throw ServerException();
+      return response.statusCode;
     }
   }
 }

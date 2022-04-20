@@ -7,6 +7,7 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_following_watcher_bloc/get_other_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UserDetailsWrapper extends StatefulWidget {
   final UserEntity userEntity;
@@ -102,9 +103,48 @@ class _UserDetailsWrapper extends State<UserDetailsWrapper> {
                 )
               ],
             ),
-            userNumber == widget.userEntity.id
-                ? SizedBox(height: 0)
-                : FollowButton(user: widget.userEntity)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                userNumber == widget.userEntity.id
+                    ? SizedBox(height: 0)
+                    : FollowButton(user: widget.userEntity),
+                userNumber == widget.userEntity.id
+                    ? SizedBox(height: 0)
+                    : IconButton(
+                        icon: Icon(Icons.phone),
+                        onPressed: () async {
+                          // final phoneNumber = '${widget.userEntity.phoneNumber}';
+                          final phoneNumber =
+                              '${widget.userEntity.phoneNumber}';
+                          final url = 'tel:$phoneNumber';
+
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          }
+                        },
+                      ),
+                userNumber == widget.userEntity.id
+                    ? SizedBox(
+                        height: 0.0,
+                      )
+                    : IconButton(
+                        icon: Icon(Icons.mail),
+                        onPressed: () async {
+                          // final phoneNumber = '${widget.userEntity.phoneNumber}';
+                          final toEmail = '${widget.userEntity.email}';
+                          final subject = 'Make Custom Art';
+                          final message =
+                              'Hello, I would like to collaborate with you to make a custom art for me.';
+                          final url =
+                              'mailto:$toEmail?subject=${subject}&body=${message}';
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          }
+                        },
+                      ),
+              ],
+            ),
           ],
         ),
       ),

@@ -15,7 +15,7 @@ class LoginRepositoryImpl implements ILoginRepository {
   });
 
   @override
-  Future<Either<Failure, Unit>> createUserToken(
+  Future<Either<Failure, int>> createUserToken(
       {required Map<String, dynamic> data}) async {
     if (await networkInfo.isConnected) {
       try {

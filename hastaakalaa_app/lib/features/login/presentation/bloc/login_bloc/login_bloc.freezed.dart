@@ -500,7 +500,7 @@ class _$LoginStateTearOff {
       required Either<InvalidInputFailure, String> username,
       required Either<InvalidInputFailure, String> password,
       required bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess}) {
+      Either<Failure, int>? failureOrSuccess}) {
     return _LoginState(
       isLoading: isLoading,
       username: username,
@@ -522,7 +522,7 @@ mixin _$LoginState {
   Either<InvalidInputFailure, String> get password =>
       throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
-  Either<Failure, Unit>? get failureOrSuccess =>
+  Either<Failure, int>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -540,7 +540,7 @@ abstract class $LoginStateCopyWith<$Res> {
       Either<InvalidInputFailure, String> username,
       Either<InvalidInputFailure, String> password,
       bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess});
+      Either<Failure, int>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -579,7 +579,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, Unit>?,
+              as Either<Failure, int>?,
     ));
   }
 }
@@ -595,7 +595,7 @@ abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
       Either<InvalidInputFailure, String> username,
       Either<InvalidInputFailure, String> password,
       bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess});
+      Either<Failure, int>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -636,7 +636,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, Unit>?,
+              as Either<Failure, int>?,
     ));
   }
 }
@@ -660,7 +660,7 @@ class _$_LoginState implements _LoginState {
   @override
   final bool showErrors;
   @override
-  final Either<Failure, Unit>? failureOrSuccess;
+  final Either<Failure, int>? failureOrSuccess;
 
   @override
   String toString() {
@@ -702,7 +702,7 @@ abstract class _LoginState implements LoginState {
       required Either<InvalidInputFailure, String> username,
       required Either<InvalidInputFailure, String> password,
       required bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess}) = _$_LoginState;
+      Either<Failure, int>? failureOrSuccess}) = _$_LoginState;
 
   @override
   bool get isLoading;
@@ -713,7 +713,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get showErrors;
   @override
-  Either<Failure, Unit>? get failureOrSuccess;
+  Either<Failure, int>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$LoginStateCopyWith<_LoginState> get copyWith =>

@@ -21,7 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         pressedSend: (_) async {
           emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-          Either<Failure, Unit>? failureOrSuccess;
+          Either<Failure, int>? failureOrSuccess;
 
           if (state.username.isRight() && state.password.isRight()) {
             failureOrSuccess = await _createUserTokenUseCase.call(
