@@ -56,3 +56,5 @@ const createPaymentEndPoint = '${baseUrl}api/pay/payment/';
 const getPaymentEndPoint = '${baseUrl}api/pay/get_payment/';
 
 const deletePostEndPoint = '${baseUrl}api/art/delete/';
+
+const uploadImageEndPoint = '${baseUrl}api/user/change_profile_picture/';
