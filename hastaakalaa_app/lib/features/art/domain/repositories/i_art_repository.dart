@@ -28,7 +28,4 @@ abstract class IArtRepository {
   Future<Either<Failure, List<ArtEntity>>> getOtherArt({required int? data});
 
   Future<Either<Failure, int>> deletePost({required int? data});
-
-  Future<Either<Failure, int>> uploadProfileImage(
-      {required Map<String, dynamic> data});
 }

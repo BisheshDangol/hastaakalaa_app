@@ -11,6 +11,7 @@ abstract class IUserDataSource {
   Future<List<UserModel>> getCurrentUser();
   Future<List<UserModel>> searchUser({required String? data});
   Future<String> followUser({required int? data});
+  Future<int> uploadProfilePicture({required Map<String, dynamic> data});
 }
 
 class UserRemoteDataSource implements IUserDataSource {
@@ -91,6 +92,36 @@ class UserRemoteDataSource implements IUserDataSource {
     debugPrint(response.body);
     if (response.statusCode == 200) {
       return response.body;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<int> uploadProfilePicture({required Map<String, dynamic> data}) async {
+    String userToken =
+        await TokenSharedPrefernces.instance.getTokenValue("token");
+    Map<String, String> headers = {
+      "content-type": "application/json",
+      "Authorization": "Token ${userToken}",
+    };
+
+    final url = Uri.parse(createPostEndPoint);
+    var request = http.MultipartRequest("POST", url);
+    request.headers.addAll(headers);
+
+    debugPrint('This is the sent image: ${data["image"].path}');
+
+    var pic = await http.MultipartFile.fromPath("image", data["image"].path);
+    // Header was not provided
+    request.files.add(pic);
+    var response = await request.send();
+    var responseData = await response.stream.toBytes();
+    var responseString = String.fromCharCodes(responseData);
+    print('This is the response ${responseString}');
+
+    if (response.statusCode == 200) {
+      return response.statusCode;
     } else {
       throw ServerException();
     }

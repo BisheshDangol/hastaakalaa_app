@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 
 // ignore: must_be_immutable
@@ -48,6 +50,7 @@ class UserModel extends UserEntity {
     String? email,
     String? userName,
     String? firstName,
+    File? image,
     String? lastName,
     String? phoneNumber,
     String? address,
@@ -60,6 +63,7 @@ class UserModel extends UserEntity {
     data['email'] = email;
     data['user_name'] = userName;
     data['first_name'] = firstName;
+    data['profile_picture'] = image;
     data['last_name'] = lastName;
     data['phone_number'] = phoneNumber;
     data['address'] = address;

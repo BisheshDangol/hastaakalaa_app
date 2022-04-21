@@ -2,10 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
-import 'package:hastaakalaa_app/features/art/domain/repositories/i_art_repository.dart';
+import 'package:hastaakalaa_app/features/user/domain/repositories/i_user_repository.dart';
 
 class UploadProfileImageUseCase implements Usecase<int, Map<String, dynamic>> {
-  IArtRepository repository;
+  IUserRepository repository;
   UploadProfileImageUseCase(this.repository);
 
   @override

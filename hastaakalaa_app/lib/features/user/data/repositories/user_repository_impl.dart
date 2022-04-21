@@ -69,4 +69,20 @@ class UserRepositoryImpl implements IUserRepository {
     }
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, int>> uploadProfileImage(
+      {required Map<String, dynamic> data}) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteList =
+            await remoteDataSource.uploadProfilePicture(data: data);
+        debugPrint('This is the returned number $remoteList');
+        return Right(remoteList);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    }
+    throw UnimplementedError();
+  }
 }
