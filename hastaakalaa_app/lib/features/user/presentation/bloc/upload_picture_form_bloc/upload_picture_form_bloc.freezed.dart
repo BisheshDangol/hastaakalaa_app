@@ -14,6 +14,322 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$UploadPictureFormEventTearOff {
+  const _$UploadPictureFormEventTearOff();
+
+  _PressedCreate pressedCreate() {
+    return const _PressedCreate();
+  }
+
+  _ChangedImage changedImage({File? image}) {
+    return _ChangedImage(
+      image: image,
+    );
+  }
+}
+
+/// @nodoc
+const $UploadPictureFormEvent = _$UploadPictureFormEventTearOff();
+
+/// @nodoc
+mixin _$UploadPictureFormEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function(File? image) changedImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_ChangedImage value) changedImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UploadPictureFormEventCopyWith<$Res> {
+  factory $UploadPictureFormEventCopyWith(UploadPictureFormEvent value,
+          $Res Function(UploadPictureFormEvent) then) =
+      _$UploadPictureFormEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UploadPictureFormEventCopyWithImpl<$Res>
+    implements $UploadPictureFormEventCopyWith<$Res> {
+  _$UploadPictureFormEventCopyWithImpl(this._value, this._then);
+
+  final UploadPictureFormEvent _value;
+  // ignore: unused_field
+  final $Res Function(UploadPictureFormEvent) _then;
+}
+
+/// @nodoc
+abstract class _$PressedCreateCopyWith<$Res> {
+  factory _$PressedCreateCopyWith(
+          _PressedCreate value, $Res Function(_PressedCreate) then) =
+      __$PressedCreateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PressedCreateCopyWithImpl<$Res>
+    extends _$UploadPictureFormEventCopyWithImpl<$Res>
+    implements _$PressedCreateCopyWith<$Res> {
+  __$PressedCreateCopyWithImpl(
+      _PressedCreate _value, $Res Function(_PressedCreate) _then)
+      : super(_value, (v) => _then(v as _PressedCreate));
+
+  @override
+  _PressedCreate get _value => super._value as _PressedCreate;
+}
+
+/// @nodoc
+
+class _$_PressedCreate implements _PressedCreate {
+  const _$_PressedCreate();
+
+  @override
+  String toString() {
+    return 'UploadPictureFormEvent.pressedCreate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _PressedCreate);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function(File? image) changedImage,
+  }) {
+    return pressedCreate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+  }) {
+    return pressedCreate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+    required TResult orElse(),
+  }) {
+    if (pressedCreate != null) {
+      return pressedCreate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_ChangedImage value) changedImage,
+  }) {
+    return pressedCreate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+  }) {
+    return pressedCreate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+    required TResult orElse(),
+  }) {
+    if (pressedCreate != null) {
+      return pressedCreate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PressedCreate implements UploadPictureFormEvent {
+  const factory _PressedCreate() = _$_PressedCreate;
+}
+
+/// @nodoc
+abstract class _$ChangedImageCopyWith<$Res> {
+  factory _$ChangedImageCopyWith(
+          _ChangedImage value, $Res Function(_ChangedImage) then) =
+      __$ChangedImageCopyWithImpl<$Res>;
+  $Res call({File? image});
+}
+
+/// @nodoc
+class __$ChangedImageCopyWithImpl<$Res>
+    extends _$UploadPictureFormEventCopyWithImpl<$Res>
+    implements _$ChangedImageCopyWith<$Res> {
+  __$ChangedImageCopyWithImpl(
+      _ChangedImage _value, $Res Function(_ChangedImage) _then)
+      : super(_value, (v) => _then(v as _ChangedImage));
+
+  @override
+  _ChangedImage get _value => super._value as _ChangedImage;
+
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_ChangedImage(
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangedImage implements _ChangedImage {
+  const _$_ChangedImage({this.image});
+
+  @override
+  final File? image;
+
+  @override
+  String toString() {
+    return 'UploadPictureFormEvent.changedImage(image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ChangedImage &&
+            const DeepCollectionEquality().equals(other.image, image));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangedImageCopyWith<_ChangedImage> get copyWith =>
+      __$ChangedImageCopyWithImpl<_ChangedImage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pressedCreate,
+    required TResult Function(File? image) changedImage,
+  }) {
+    return changedImage(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+  }) {
+    return changedImage?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pressedCreate,
+    TResult Function(File? image)? changedImage,
+    required TResult orElse(),
+  }) {
+    if (changedImage != null) {
+      return changedImage(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PressedCreate value) pressedCreate,
+    required TResult Function(_ChangedImage value) changedImage,
+  }) {
+    return changedImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+  }) {
+    return changedImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PressedCreate value)? pressedCreate,
+    TResult Function(_ChangedImage value)? changedImage,
+    required TResult orElse(),
+  }) {
+    if (changedImage != null) {
+      return changedImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedImage implements UploadPictureFormEvent {
+  const factory _ChangedImage({File? image}) = _$_ChangedImage;
+
+  File? get image;
+  @JsonKey(ignore: true)
+  _$ChangedImageCopyWith<_ChangedImage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$UploadPictureFormStateTearOff {
   const _$UploadPictureFormStateTearOff();
 
