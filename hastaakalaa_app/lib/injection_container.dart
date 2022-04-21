@@ -68,8 +68,10 @@ import 'package:hastaakalaa_app/features/user/domain/repositories/i_user_reposit
 import 'package:hastaakalaa_app/features/user/domain/usecases/get_all_user_usecase.dart';
 import 'package:hastaakalaa_app/features/user/domain/usecases/get_current_user_usecase.dart';
 import 'package:hastaakalaa_app/features/user/domain/usecases/search_user_usecase.dart';
+import 'package:hastaakalaa_app/features/user/domain/usecases/upload_profile_image_usecase.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/search_user_watcher_bloc/search_user_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/upload_picture_form_bloc/upload_picture_form_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/user_list_watcher_bloc/user_list_watcher_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -129,6 +131,8 @@ Future<void> init() async {
 
   sl.registerFactory(() => DeletePostFormBloc(sl()));
 
+  sl.registerFactory(() => UploadPictureFormBloc(sl(), sl()));
+
   //! UseCases
 
   sl.registerLazySingleton(() => CreateUserTokenUseCase(sl()));
@@ -182,6 +186,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetPaymentListUsecase(sl()));
 
   sl.registerLazySingleton(() => DeletePostUsecase(sl()));
+
+  sl.registerLazySingleton(() => UploadProfileImageUseCase(sl()));
 
   //! Input Convert
   sl.registerLazySingleton(() => InputConvert());
