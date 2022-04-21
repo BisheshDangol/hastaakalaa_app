@@ -5,6 +5,7 @@ class UserEntity extends Equatable {
   int id;
   String email;
   String userName;
+  String profile_picture;
   String firstName;
   String lastName;
   String phoneNumber;
@@ -18,6 +19,7 @@ class UserEntity extends Equatable {
     required this.address,
     required this.email,
     required this.firstName,
+    required this.profile_picture,
     required this.followedBy,
     required this.follower,
     required this.lastName,

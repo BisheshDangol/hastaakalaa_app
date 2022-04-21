@@ -50,23 +50,25 @@ class _UserWrapperState extends State<UserWrapper> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: 60.0,
-                height: 60.0,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.black
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     color: Colors.black45,
-                        //     offset: Offset(0, 2),
-                        //     blurRadius: 6.0,
-                        //   ),
-                        // ],
-                        ),
-                child: CircleAvatar(
-                    backgroundColor: Colors.black45,
-                    child: Text('${widget.userEntity.id}',
-                        style: TextStyle(fontSize: 30, color: Colors.white))),
-              ),
+                  width: 60.0,
+                  height: 60.0,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: Colors.black
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.black45,
+                          //     offset: Offset(0, 2),
+                          //     blurRadius: 6.0,
+                          //   ),
+                          // ],
+                          ),
+                  child: Image.network(widget.userEntity.profile_picture)
+                  // CircleAvatar(
+                  //     backgroundColor: Colors.black45,
+                  //     child: Text('${widget.userEntity.id}',
+                  //         style: TextStyle(fontSize: 30, color: Colors.white))),
+
+                  ),
             ),
             SizedBox(height: 10),
             Text('${widget.userEntity.firstName} ${widget.userEntity.lastName}',
