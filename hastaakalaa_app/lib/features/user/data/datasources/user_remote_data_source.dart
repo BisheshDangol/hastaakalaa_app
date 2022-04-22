@@ -106,13 +106,15 @@ class UserRemoteDataSource implements IUserDataSource {
       "Authorization": "Token ${userToken}",
     };
 
-    final url = Uri.parse(createPostEndPoint);
+    final url = Uri.parse(uploadImageEndPoint);
     var request = http.MultipartRequest("POST", url);
     request.headers.addAll(headers);
 
-    debugPrint('This is the sent image: ${data["image"].path}');
+    debugPrint('This is the sent data: ${data}');
+    debugPrint('This is the sent image: ${data["profile_picture"].path}');
 
-    var pic = await http.MultipartFile.fromPath("image", data["image"].path);
+    var pic = await http.MultipartFile.fromPath(
+        "image", data["profile_picture"].path);
     // Header was not provided
     request.files.add(pic);
     var response = await request.send();

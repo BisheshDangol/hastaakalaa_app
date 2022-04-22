@@ -9,6 +9,7 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bl
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
+import 'package:hastaakalaa_app/features/user/presentation/screens/upload_picture_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserWrapper extends StatefulWidget {
@@ -111,6 +112,12 @@ class _UserWrapperState extends State<UserWrapper> {
                     height: 0.0,
                   )
                 : FollowButton(user: widget.userEntity),
+            IconButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => UploadPicturePage())),
+                icon: Icon(Icons.play_circle_outline_rounded))
           ],
         ),
       ),

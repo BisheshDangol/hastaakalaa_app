@@ -7,8 +7,8 @@ import 'package:hastaakalaa_app/features/user/presentation/bloc/upload_picture_f
 import 'package:hastaakalaa_app/injection_container.dart';
 import 'package:image_picker/image_picker.dart';
 
-class CreateArtPage extends StatelessWidget {
-  const CreateArtPage({Key? key}) : super(key: key);
+class UploadPicturePage extends StatelessWidget {
+  const UploadPicturePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +62,7 @@ class CreateArtButton extends StatelessWidget {
           context
               .read<UploadPictureFormBloc>()
               .add(UploadPictureFormEvent.pressedCreate());
+          Navigator.pop(context);
         },
         child: Text('Create', style: TextStyle(fontSize: 20)),
       ),

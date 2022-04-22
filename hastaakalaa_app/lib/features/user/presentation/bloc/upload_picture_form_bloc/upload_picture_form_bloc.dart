@@ -25,7 +25,8 @@ class UploadPictureFormBloc
         emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
         Either<Failure, int>? failureOrSuccess;
-
+        debugPrint(
+            'This is the checker image right: ${state.image.toString()}');
         if (state.image.isRight()) {
           failureOrSuccess = await _uploadProfileImageUseCase.call(
             UserModel.toJson(image: state.image.fold((_) => null, (r) => r)),
@@ -39,14 +40,11 @@ class UploadPictureFormBloc
           ),
         );
       }, changedImage: (_ChangedImage value) {
-        debugPrint(value.toString());
         emit(
           state.copyWith(
               failureOrSuccess: null,
               image: _inputConvert.isImage(value: value.image)),
         );
-        debugPrint(value.image.toString());
-        ;
       });
     });
   }

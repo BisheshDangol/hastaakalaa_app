@@ -13,6 +13,7 @@ class CreateArtPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _formKeyScreen1 = GlobalKey<FormState>();
     return BlocProvider(
       create: (_) => sl<ArtFormBloc>(),
       child: BlocConsumer<ArtFormBloc, ArtFormState>(
@@ -29,6 +30,7 @@ class CreateArtPage extends StatelessWidget {
               body: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: Form(
+                  key: _formKeyScreen1,
                   autovalidateMode: AutovalidateMode.always,
                   child: SingleChildScrollView(
                     child: Column(
@@ -77,7 +79,9 @@ class CreateArtPage extends StatelessWidget {
                         ),
                         PickImage(),
                         SizedBox(height: 10.0),
-                        CreateArtButton()
+                        CreateArtButton(
+                          firstScreenFormKey: _formKeyScreen1,
+                        )
                       ],
                     ),
                   ),
@@ -269,10 +273,13 @@ class _StatusArtDropDownListState extends State<StatusArtDropDownList> {
 }
 
 class CreateArtButton extends StatelessWidget {
-  CreateArtButton({Key? key}) : super(key: key);
+  final GlobalKey<FormState> firstScreenFormKey;
+  CreateArtButton({Key? key, required this.firstScreenFormKey})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _formKeyScreen2 = GlobalKey<FormState>();
     return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
@@ -280,6 +287,8 @@ class CreateArtButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(primary: Colors.green[200]),
         onPressed: () {
           context.read<ArtFormBloc>().add(ArtFormEvent.pressedCreate());
+          _formKeyScreen2.currentState?.reset();
+          firstScreenFormKey.currentState?.reset();
         },
         child: Text('Create', style: TextStyle(fontSize: 20)),
       ),

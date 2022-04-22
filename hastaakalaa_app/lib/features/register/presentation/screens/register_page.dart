@@ -9,6 +9,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _formKeyScreen1 = GlobalKey<FormState>();
     return BlocProvider(
       create: (_) => sl<RegisterFormBloc>(),
       child: BlocConsumer<RegisterFormBloc, RegisterFormState>(
@@ -61,6 +62,7 @@ class RegisterPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 16),
                     child: Form(
+                      key: _formKeyScreen1,
                       autovalidateMode: AutovalidateMode.always,
                       child: SingleChildScrollView(
                         child: Column(
@@ -94,7 +96,8 @@ class RegisterPage extends StatelessWidget {
                               ],
                             ),
                             Divider(),
-                            AddRegisterButton(),
+                            AddRegisterButton(
+                                firstScreenFormKey: _formKeyScreen1),
                             SizedBox(
                               height: 10,
                             )
@@ -354,10 +357,13 @@ class _UserTypeTextFormFieldState extends State<UserTypeTextFormField> {
 }
 
 class AddRegisterButton extends StatelessWidget {
-  AddRegisterButton({Key? key}) : super(key: key);
+  final GlobalKey<FormState> firstScreenFormKey;
+  AddRegisterButton({Key? key, required this.firstScreenFormKey})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _formKeyScreen2 = GlobalKey<FormState>();
     return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
@@ -369,6 +375,8 @@ class AddRegisterButton extends StatelessWidget {
           context
               .read<RegisterFormBloc>()
               .add(RegisterFormEvent.pressedCreate());
+          _formKeyScreen2.currentState?.reset();
+          firstScreenFormKey.currentState?.reset();
         },
         child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
