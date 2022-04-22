@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
+import 'package:hastaakalaa_app/features/art/presentation/bloc/art_bookmark_watcher_bloc/art_bookmark_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
@@ -240,14 +241,14 @@ class _BookmarkButtonState extends State<BookmarkButton> {
         state.failureOrSuccess?.fold(
             (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
 
-        // if (response == 'Found') {
-        //   CircularProgressIndicator();
-        //   context.read<ArtListWatcherBloc>()
-        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
-        // } else {
-        //   context.read<ArtListWatcherBloc>()
-        //     ..add(ArtListWatcherEvent.retrieveDoctorList());
-        // }
+        if (response == 'Found') {
+          CircularProgressIndicator();
+          context.read<ArtListWatcherBloc>()
+            ..add(ArtListWatcherEvent.retrieveDoctorList());
+        } else {
+          context.read<ArtBookmarkWatcherBloc>()
+            ..add(ArtBookmarkWatcherEvent.getArtList());
+        }
       },
       builder: (context, state) {
         return BlocBuilder<ArtFormBloc, ArtFormState>(
