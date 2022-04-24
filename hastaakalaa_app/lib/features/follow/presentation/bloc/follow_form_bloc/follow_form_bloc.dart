@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/follow/domain/entities/follow_entity.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/post_follow_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'follow_form_event.dart';
 part 'follow_form_state.dart';

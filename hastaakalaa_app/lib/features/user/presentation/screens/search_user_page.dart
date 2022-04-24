@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/wrapper/search_user_wrapper.dart';
-import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
-import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/screens/art_filter_page.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/search_user_watcher_bloc/search_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';

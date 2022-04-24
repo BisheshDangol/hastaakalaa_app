@@ -1,18 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
-import 'package:hastaakalaa_app/core/end_points.dart';
-import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/buy_art_watcher_bloc/buy_art_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
-import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/payment/presentation/bloc/create_payment_form_bloc/create_payment_form_bloc.dart';
-import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
-import 'package:http/http.dart' as http;
 import '../../../../injection_container.dart';
 
 class BuyArtPage extends StatelessWidget {

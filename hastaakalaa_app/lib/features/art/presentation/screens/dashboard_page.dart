@@ -8,7 +8,6 @@ import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
-import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:http/http.dart' as http;
 import '../../../../injection_container.dart';
@@ -47,8 +46,8 @@ class _DashboardPageState extends State<DashboardPage> {
 
       // debugPrint('${gottenUser[0].id}');
 
-      String idToken =
-          await TokenSharedPrefernces.instance.getTokenValue("token");
+      // String idToken =
+      //     await TokenSharedPrefernces.instance.getTokenValue("token");
 
       TokenSharedPrefernces.instance
           .setTokenValue("userId", gottenUser[0].id.toString());

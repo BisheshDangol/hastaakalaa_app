@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_bookmark_watcher_bloc/art_bookmark_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 
 import '../../../../injection_container.dart';
 

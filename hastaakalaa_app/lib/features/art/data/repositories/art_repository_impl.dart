@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hastaakalaa_app/core/end_points.dart';
-import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hastaakalaa_app/core/network/network_info.dart';

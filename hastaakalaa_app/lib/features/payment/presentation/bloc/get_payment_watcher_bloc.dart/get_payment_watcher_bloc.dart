@@ -4,7 +4,6 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/payment/domain/entites/payment_entity.dart';
 import 'package:hastaakalaa_app/features/payment/domain/usecases/get_payment_list_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'get_payment_watcher_event.dart';
 part 'get_payment_watcher_state.dart';

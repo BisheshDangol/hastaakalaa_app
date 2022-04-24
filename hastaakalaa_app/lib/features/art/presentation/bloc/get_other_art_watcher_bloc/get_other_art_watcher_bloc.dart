@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_other_post_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'get_other_art_watcher_event.dart';
 part 'get_other_art_watcher_state.dart';

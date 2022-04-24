@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
-import 'package:hastaakalaa_app/core/wrapper/comment_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/payment_wrapper.dart';
-import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_watcher_bloc/comment_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/payment/presentation/bloc/get_payment_watcher_bloc.dart/get_payment_watcher_bloc.dart';
 import '../../../../injection_container.dart';
 

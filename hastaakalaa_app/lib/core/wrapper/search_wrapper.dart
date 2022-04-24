@@ -278,10 +278,10 @@ class _BookmarkButtonState extends State<BookmarkButton> {
 
   @override
   Widget build(BuildContext context) {
-    int? userToken = int.tryParse(user);
+    // int? userToken = int.tryParse(user);
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
-        String response = '';
+        // String response = '';
         state.failureOrSuccess?.fold(
             (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
 

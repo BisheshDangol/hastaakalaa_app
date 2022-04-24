@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
-import 'package:hastaakalaa_app/features/login/presentation/screens/login_page.dart';
 import 'package:hastaakalaa_app/navigation_bar_page.dart';
 import 'package:lottie/lottie.dart';
 

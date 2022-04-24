@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
-import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/get_other_art_watcher_bloc/get_other_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/buy_art_page.dart';

@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 
 // ignore: must_be_immutable
 class ArtModel extends ArtEntity {

@@ -8,7 +8,6 @@ import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:hastaakalaa_app/features/user/domain/usecases/upload_profile_image_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'upload_picture_form_event.dart';
 part 'upload_picture_form_state.dart';

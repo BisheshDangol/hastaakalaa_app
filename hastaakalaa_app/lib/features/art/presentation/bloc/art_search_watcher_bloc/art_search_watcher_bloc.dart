@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/application/invalid_input_failure.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
-import 'package:hastaakalaa_app/features/art/data/models/art_model.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/get_all_art_post_usecase.dart';
 

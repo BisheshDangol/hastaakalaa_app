@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hastaakalaa_app/features/comment/domain/entities/comment_entity.dart';
 import 'package:hastaakalaa_app/features/payment/domain/entites/payment_entity.dart';
 
 class PaymentWrapper extends StatelessWidget {

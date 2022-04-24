@@ -2,10 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hastaakalaa_app/core/errors/failures.dart';
-import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/filter_post_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'art_filter_watcher_event.dart';
 part 'art_filter_watcher_state.dart';

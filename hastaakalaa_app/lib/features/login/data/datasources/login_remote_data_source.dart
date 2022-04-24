@@ -3,9 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/end_points.dart';
-import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:http/http.dart' as http;
-import 'package:dartz/dartz.dart';
 
 abstract class ILoginRemoteDataSource {
   Future<int> createUserToken({required Map<String, dynamic> data});

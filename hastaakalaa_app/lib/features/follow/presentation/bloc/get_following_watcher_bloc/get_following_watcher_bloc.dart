@@ -5,7 +5,6 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/follow/domain/entities/follow_entity.dart';
 import 'package:hastaakalaa_app/features/follow/domain/usecases/get_all_following_list_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'get_following_watcher_event.dart';
 part 'get_following_watcher_state.dart';

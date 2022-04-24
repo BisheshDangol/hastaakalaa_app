@@ -4,7 +4,6 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 import 'package:hastaakalaa_app/features/user/domain/usecases/get_all_user_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'user_list_watcher_bloc.freezed.dart';
 part 'user_list_watcher_event.dart';

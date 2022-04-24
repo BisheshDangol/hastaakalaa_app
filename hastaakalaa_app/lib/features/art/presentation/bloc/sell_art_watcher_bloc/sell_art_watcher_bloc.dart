@@ -4,7 +4,6 @@ import 'package:hastaakalaa_app/core/errors/failures.dart';
 import 'package:hastaakalaa_app/core/usecase.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/domain/usecases/sell_art_post_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'sell_art_watcher_event.dart';
 part 'sell_art_watcher_state.dart';

@@ -1,11 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_filter_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';

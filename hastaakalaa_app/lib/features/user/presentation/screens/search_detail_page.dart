@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/grid_wrapper.dart';
 import 'package:hastaakalaa_app/core/wrapper/user_details_wrapper.dart';
-import 'package:hastaakalaa_app/core/wrapper/user_wrapper.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/get_other_art_watcher_bloc/get_other_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/retrieve_art_watcher_bloc/retrieve_art_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
@@ -16,7 +13,6 @@ import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_follower_watcher_bloc/get_other_follower_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_other_following_watcher_bloc/get_other_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
-import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 
 import '../../../../injection_container.dart';
