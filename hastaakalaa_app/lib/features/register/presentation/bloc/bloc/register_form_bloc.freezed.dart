@@ -1746,7 +1746,7 @@ class _$RegisterFormStateTearOff {
       required Either<InvalidInputFailure, String> userType,
       required Either<InvalidInputFailure, String> phoneNumber,
       required bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess}) {
+      Either<Failure, int>? failureOrSuccess}) {
     return _RegisterFormState(
       isLoading: isLoading,
       email: email,
@@ -1786,7 +1786,7 @@ mixin _$RegisterFormState {
   Either<InvalidInputFailure, String> get phoneNumber =>
       throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
-  Either<Failure, Unit>? get failureOrSuccess =>
+  Either<Failure, int>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1810,7 +1810,7 @@ abstract class $RegisterFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, String> userType,
       Either<InvalidInputFailure, String> phoneNumber,
       bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess});
+      Either<Failure, int>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -1880,7 +1880,7 @@ class _$RegisterFormStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, Unit>?,
+              as Either<Failure, int>?,
     ));
   }
 }
@@ -1903,7 +1903,7 @@ abstract class _$RegisterFormStateCopyWith<$Res>
       Either<InvalidInputFailure, String> userType,
       Either<InvalidInputFailure, String> phoneNumber,
       bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess});
+      Either<Failure, int>? failureOrSuccess});
 }
 
 /// @nodoc
@@ -1975,7 +1975,7 @@ class __$RegisterFormStateCopyWithImpl<$Res>
       failureOrSuccess: failureOrSuccess == freezed
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, Unit>?,
+              as Either<Failure, int>?,
     ));
   }
 }
@@ -2017,7 +2017,7 @@ class _$_RegisterFormState implements _RegisterFormState {
   @override
   final bool showErrors;
   @override
-  final Either<Failure, Unit>? failureOrSuccess;
+  final Either<Failure, int>? failureOrSuccess;
 
   @override
   String toString() {
@@ -2078,7 +2078,7 @@ abstract class _RegisterFormState implements RegisterFormState {
       required Either<InvalidInputFailure, String> userType,
       required Either<InvalidInputFailure, String> phoneNumber,
       required bool showErrors,
-      Either<Failure, Unit>? failureOrSuccess}) = _$_RegisterFormState;
+      Either<Failure, int>? failureOrSuccess}) = _$_RegisterFormState;
 
   @override
   bool get isLoading;
@@ -2101,7 +2101,7 @@ abstract class _RegisterFormState implements RegisterFormState {
   @override
   bool get showErrors;
   @override
-  Either<Failure, Unit>? get failureOrSuccess;
+  Either<Failure, int>? get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$RegisterFormStateCopyWith<_RegisterFormState> get copyWith =>

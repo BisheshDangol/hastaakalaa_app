@@ -101,7 +101,7 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
           pressedCreate: (_) async {
             emit(state.copyWith(isLoading: true, failureOrSuccess: null));
 
-            Either<Failure, Unit>? failureOrSuccess;
+            Either<Failure, int>? failureOrSuccess;
 
             if (state.userName.isRight() &&
                 state.password.isRight() &&

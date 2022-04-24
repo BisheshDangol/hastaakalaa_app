@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
-import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
-import 'package:hastaakalaa_app/features/art/presentation/screens/art_detail_page.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/follow_form_bloc/follow_form_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_follow_watcher_bloc/get_follow_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/follow/presentation/bloc/get_following_watcher_bloc/get_following_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/domain/entities/user_entity.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/upload_picture_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserWrapper extends StatefulWidget {
   final UserEntity userEntity;
@@ -50,26 +45,15 @@ class _UserWrapperState extends State<UserWrapper> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                  width: 60.0,
-                  height: 60.0,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.black
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: Colors.black45,
-                          //     offset: Offset(0, 2),
-                          //     blurRadius: 6.0,
-                          //   ),
-                          // ],
-                          ),
-                  child: Image.network(widget.userEntity.profile_picture)
-                  // CircleAvatar(
-                  //     backgroundColor: Colors.black45,
-                  //     child: Text('${widget.userEntity.id}',
-                  //         style: TextStyle(fontSize: 30, color: Colors.white))),
-
-                  ),
+              child: CircleAvatar(
+                // radius: 30,
+                minRadius: 45,
+                maxRadius: 45,
+                backgroundColor: Colors.transparent,
+                backgroundImage: NetworkImage(
+                  widget.userEntity.profile_picture,
+                ),
+              ),
             ),
             SizedBox(height: 10),
             Text('${widget.userEntity.firstName} ${widget.userEntity.lastName}',
@@ -117,7 +101,7 @@ class _UserWrapperState extends State<UserWrapper> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => UploadPicturePage())),
-                icon: Icon(Icons.play_circle_outline_rounded))
+                icon: Icon(Icons.photo))
           ],
         ),
       ),

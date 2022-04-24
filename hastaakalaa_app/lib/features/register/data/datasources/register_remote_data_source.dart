@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:dartz/dartz.dart';
 
 abstract class IRegisterDataSource {
-  Future<Unit> createUser({required Map<String, dynamic> data});
+  Future<int> createUser({required Map<String, dynamic> data});
 }
 
 class RegisterRemoteDataSource implements IRegisterDataSource {
@@ -15,7 +15,7 @@ class RegisterRemoteDataSource implements IRegisterDataSource {
   RegisterRemoteDataSource({required this.client});
 
   @override
-  Future<Unit> createUser({required Map<String, dynamic> data}) async {
+  Future<int> createUser({required Map<String, dynamic> data}) async {
     debugPrint(data.toString());
     final url = Uri.parse(createUserEndPoint);
     final header = {"content-type": "application/json"};
@@ -25,9 +25,9 @@ class RegisterRemoteDataSource implements IRegisterDataSource {
     debugPrint('$code');
     debugPrint(response.body);
     if (response.statusCode == 201) {
-      return unit;
+      return response.statusCode;
     } else {
-      throw ServerException();
+      throw response.statusCode;
     }
   }
 }

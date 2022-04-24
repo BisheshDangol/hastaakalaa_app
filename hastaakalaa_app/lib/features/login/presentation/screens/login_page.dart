@@ -174,25 +174,16 @@ class AddLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
-      listener: (context, state) {
-        const successsnackBar = SnackBar(
-          content: Text('Login Failed'),
-        );
-        state.failureOrSuccess?.fold((l) => null,
-            (r) => ScaffoldMessenger.of(context).showSnackBar(successsnackBar));
-      },
-      child: SizedBox(
-        height: 50,
-        width: MediaQuery.of(context).size.width * 0.8,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(255, 113, 138, 251)),
-          onPressed: () {
-            context.read<LoginBloc>().add(LoginEvent.pressedSend());
-          },
-          child: Text('Submit', style: TextStyle(fontSize: 20)),
-        ),
+    return SizedBox(
+      height: 50,
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 113, 138, 251)),
+        onPressed: () {
+          context.read<LoginBloc>().add(LoginEvent.pressedSend());
+        },
+        child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
     );
   }

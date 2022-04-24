@@ -218,6 +218,8 @@ class PageBuilder extends StatelessWidget {
               onRefresh: () async {
                 context.read<CurrentUserWatcherBloc>()
                   ..add(CurrentUserWatcherEvent.retrieveUserList());
+                context.read<RetrieveArtWatcherBloc>()
+                  ..add(RetrieveArtWatcherEvent.retrieveArtList());
               },
               child: ListView(
                 children:

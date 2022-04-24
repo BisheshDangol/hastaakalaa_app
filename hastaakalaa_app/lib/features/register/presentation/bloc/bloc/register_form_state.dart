@@ -13,7 +13,7 @@ class RegisterFormState with _$RegisterFormState {
     required Either<InvalidInputFailure, String> userType,
     required Either<InvalidInputFailure, String> phoneNumber,
     required bool showErrors,
-    Either<Failure, Unit>? failureOrSuccess,
+    Either<Failure, int>? failureOrSuccess,
   }) = _RegisterFormState;
   factory RegisterFormState.initial() => RegisterFormState(
         isLoading: false,

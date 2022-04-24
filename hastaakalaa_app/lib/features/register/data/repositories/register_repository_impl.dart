@@ -15,7 +15,7 @@ class RegisterRepositoryImpl implements IRegisterRepository {
   });
 
   @override
-  Future<Either<Failure, Unit>> registerUser(
+  Future<Either<Failure, int>> registerUser(
       {required Map<String, dynamic> data}) async {
     if (await networkInfo.isConnected) {
       try {

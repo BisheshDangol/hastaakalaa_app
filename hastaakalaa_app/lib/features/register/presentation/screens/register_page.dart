@@ -364,21 +364,41 @@ class AddRegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKeyScreen2 = GlobalKey<FormState>();
-    return SizedBox(
-      height: 50,
-      width: MediaQuery.of(context).size.width * 0.8,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Color.fromARGB(255, 243, 75, 75),
+    return BlocListener<RegisterFormBloc, RegisterFormState>(
+      listener: (context, state) {
+        state.failureOrSuccess?.fold((l) => null, (r) {
+          if (r == 201) {
+            const successsnackBar = SnackBar(
+              content: Text('Register User Success'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(successsnackBar);
+            Navigator.pop(context);
+          } else {
+            const failuresnackBar = SnackBar(
+              content: Text('Register User Failed'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(failuresnackBar);
+          }
+        });
+      },
+      child: SizedBox(
+        height: 50,
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 243, 75, 75),
+          ),
+          onPressed: () {
+            context
+                .read<RegisterFormBloc>()
+                .add(RegisterFormEvent.pressedCreate());
+            _formKeyScreen2.currentState?.reset();
+            firstScreenFormKey.currentState?.reset();
+
+            Navigator.pop(context);
+          },
+          child: Text('Submit', style: TextStyle(fontSize: 20)),
         ),
-        onPressed: () {
-          context
-              .read<RegisterFormBloc>()
-              .add(RegisterFormEvent.pressedCreate());
-          _formKeyScreen2.currentState?.reset();
-          firstScreenFormKey.currentState?.reset();
-        },
-        child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
     );
   }
