@@ -138,33 +138,59 @@ class UserNameTextFormField extends StatelessWidget {
   }
 }
 
-class PasswordTextFormField extends StatelessWidget {
+class PasswordTextFormField extends StatefulWidget {
   PasswordTextFormField({Key? key}) : super(key: key);
 
   @override
+  State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
+}
+
+class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+  bool _obscureText = true;
+
+  void _changeVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
-          borderRadius: BorderRadius.circular(5.0),
+    return Row(
+      children: [
+        Flexible(
+          child: TextFormField(
+            obscureText: _obscureText,
+            decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              hintText: 'Enter your password',
+              labelText: 'Password',
+              errorStyle: TextStyle(fontSize: 13),
+            ),
+            onChanged: (value) {
+              context
+                  .read<LoginBloc>()
+                  .add(LoginEvent.changedPassword(password: value));
+              debugPrint(value);
+            },
+            validator: (_) => context.read<LoginBloc>().state.showErrors
+                ? context.read<LoginBloc>().state.password.fold(
+                      (e) => e.msg.toString(),
+                      (_) => null,
+                    )
+                : null,
+          ),
         ),
-        hintText: 'Enter your password',
-        labelText: 'Password',
-        errorStyle: TextStyle(fontSize: 13),
-      ),
-      onChanged: (value) {
-        context
-            .read<LoginBloc>()
-            .add(LoginEvent.changedPassword(password: value));
-        debugPrint(value);
-      },
-      validator: (_) => context.read<LoginBloc>().state.showErrors
-          ? context.read<LoginBloc>().state.password.fold(
-                (e) => e.msg.toString(),
-                (_) => null,
-              )
-          : null,
+        IconButton(
+          onPressed: () => _changeVisibility(),
+          icon: _obscureText
+              ? Icon(Icons.lock_outline_sharp, size: 30)
+              : Icon(Icons.lock_open_sharp, size: 30),
+        ),
+      ],
     );
   }
 }

@@ -18,7 +18,11 @@ class CreateArtPage extends StatelessWidget {
       create: (_) => sl<ArtFormBloc>(),
       child: BlocConsumer<ArtFormBloc, ArtFormState>(
         listener: (context, state) {
-          state.failureOrSuccess?.fold((l) => null, (r) => 'hello');
+          state.failureOrSuccess?.fold((l) => null, (r) {
+            Navigator.of(context).pop();
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => CreateArtPage()));
+          });
         },
         builder: (context, state) => Scaffold(
           body: SafeArea(

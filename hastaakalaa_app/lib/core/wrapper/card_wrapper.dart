@@ -238,16 +238,23 @@ class _BookmarkButtonState extends State<BookmarkButton> {
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
-        state.failureOrSuccess?.fold(
-            (l) => null, (r) => debugPrint('thisisthevalue ${r.toString()}'));
+        state.failureOrSuccess?.fold((l) => null, (r) {});
 
         if (response == 'Found') {
           CircularProgressIndicator();
           context.read<ArtListWatcherBloc>()
             ..add(ArtListWatcherEvent.retrieveDoctorList());
+          const successsnackBar = SnackBar(
+            content: Text('Bookmark Added'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(successsnackBar);
         } else {
           context.read<ArtBookmarkWatcherBloc>()
             ..add(ArtBookmarkWatcherEvent.getArtList());
+          const successsnackBar = SnackBar(
+            content: Text('Bookmark Added'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(successsnackBar);
         }
       },
       builder: (context, state) {
