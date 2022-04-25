@@ -28,8 +28,12 @@ class SearchUserWrapper extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      radius: 25,
+                      minRadius: 30,
+                      maxRadius: 30,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: NetworkImage(
+                        userEntity.profile_picture,
+                      ),
                     ),
                   ),
                   SizedBox(
