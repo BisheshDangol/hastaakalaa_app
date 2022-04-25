@@ -82,10 +82,12 @@ class SearchUserTextFormField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
           borderRadius: BorderRadius.circular(5.0),
         ),
         labelText: 'Search',
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         errorStyle: TextStyle(fontSize: 13),
       ),
       onChanged: (value) {

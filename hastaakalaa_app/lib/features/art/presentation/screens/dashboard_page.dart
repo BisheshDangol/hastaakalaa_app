@@ -7,7 +7,9 @@ import 'package:hastaakalaa_app/core/end_points.dart';
 import 'package:hastaakalaa_app/core/errors/exceptions.dart';
 import 'package:hastaakalaa_app/core/wrapper/card_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_list_watcher_bloc/bloc/art_list_watcher_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
 import 'package:hastaakalaa_app/features/comment/presentation/bloc/comment_form_bloc/comment_form_bloc.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/screens/payment_list_page.dart';
 import 'package:hastaakalaa_app/features/user/data/models/user_model.dart';
 import 'package:http/http.dart' as http;
 import '../../../../injection_container.dart';
@@ -91,7 +93,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                   colors: [
-                    Colors.red,
+                    Color.fromRGBO(180, 98, 30, 1),
                     Colors.white,
                   ],
                 )),
@@ -113,8 +115,69 @@ class _DashboardPageState extends State<DashboardPage> {
                   ],
                 ),
               ),
-              ListTile(
-                title: Text('Log out'),
+              InkWell(
+                onTap: () async {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BookmarkPage()));
+                },
+                child: Container(
+                  height: 50,
+                  width: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 20),
+                      Icon(Icons.bookmark_added),
+                      SizedBox(width: 20),
+                      Text(
+                        'My Bookmarks',
+                        style: TextStyle(
+                          letterSpacing: 1.5,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Color.fromRGBO(101, 101, 107, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PaymentListPage()));
+                },
+                child: Container(
+                  height: 50,
+                  width: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 20),
+                      Icon(Icons.payment_sharp),
+                      SizedBox(width: 20),
+                      Text(
+                        'My Payments',
+                        style: TextStyle(
+                          letterSpacing: 1.5,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Color.fromRGBO(101, 101, 107, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              InkWell(
                 onTap: () async {
                   await Future.delayed(
                     const Duration(milliseconds: 500),
@@ -124,7 +187,28 @@ class _DashboardPageState extends State<DashboardPage> {
                   Navigator.of(context, rootNavigator: true)
                       .popAndPushNamed('splash');
                 },
-              )
+                child: Container(
+                  height: 50,
+                  width: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 20),
+                      Icon(Icons.logout),
+                      SizedBox(width: 20),
+                      Text(
+                        'Logout',
+                        style: TextStyle(
+                          letterSpacing: 1.5,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Color.fromRGBO(101, 101, 107, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

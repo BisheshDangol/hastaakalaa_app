@@ -22,7 +22,7 @@ class UploadPicturePage extends StatelessWidget {
           body: SafeArea(
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Create Art'),
+                title: Text('Change Profile Picture'),
                 centerTitle: true,
               ),
               body: Container(

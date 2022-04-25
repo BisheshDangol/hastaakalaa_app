@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/core/wrapper/search_wrapper.dart';
 import 'package:hastaakalaa_app/features/art/domain/entities/art_entity.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_search_watcher_bloc/art_search_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/art/presentation/screens/art_filter_page.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/screens/payment_list_page.dart';
 import 'package:hastaakalaa_app/features/user/presentation/screens/search_user_page.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 
@@ -17,6 +20,134 @@ class DiscoverPage extends StatelessWidget {
       child: BlocProvider(
         create: (_) => sl<ArtSearchWatcherBloc>(),
         child: Scaffold(
+          drawer: Drawer(
+            child: ListView(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Color.fromRGBO(180, 98, 30, 1),
+                      Colors.white,
+                    ],
+                  )),
+                  height: MediaQuery.of(context).size.height * 0.22,
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Hastaakalaa',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () async {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BookmarkPage()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 20),
+                        Icon(Icons.bookmark_added),
+                        SizedBox(width: 20),
+                        Text(
+                          'My Bookmarks',
+                          style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PaymentListPage()));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 20),
+                        Icon(Icons.payment_sharp),
+                        SizedBox(width: 20),
+                        Text(
+                          'My Payments',
+                          style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2,
+                ),
+                InkWell(
+                  onTap: () async {
+                    await Future.delayed(
+                      const Duration(milliseconds: 500),
+                    );
+                    TokenSharedPrefernces.instance.removeToken("token");
+
+                    Navigator.of(context, rootNavigator: true)
+                        .popAndPushNamed('splash');
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 20),
+                        Icon(Icons.logout),
+                        SizedBox(width: 20),
+                        Text(
+                          'Logout',
+                          style: TextStyle(
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           appBar: AppBar(
             title: Text('Search'),
             centerTitle: true,
@@ -89,7 +220,7 @@ class FilterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: ((context, index) {
@@ -103,7 +234,7 @@ class FilterPage extends StatelessWidget {
             },
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.red[300],
+                  color: Color.fromARGB(255, 255, 155, 155),
                   borderRadius: BorderRadius.circular(20)),
               height: 100,
               width: 100,
@@ -111,7 +242,8 @@ class FilterPage extends StatelessWidget {
               child: Center(
                 child: Text(
                   '${genreList[index]}',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -187,10 +319,12 @@ class SearchPatientTextFormField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
           borderRadius: BorderRadius.circular(5.0),
         ),
         labelText: 'Search',
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         errorStyle: TextStyle(fontSize: 13),
       ),
       onChanged: (value) {

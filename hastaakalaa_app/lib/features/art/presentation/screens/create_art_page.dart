@@ -3,7 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/core/application/token_shared_preferences.dart';
 import 'package:hastaakalaa_app/features/art/presentation/bloc/art_form_bloc/art_form_bloc.dart';
+import 'package:hastaakalaa_app/features/art/presentation/screens/bookmark_page.dart';
+import 'package:hastaakalaa_app/features/payment/presentation/screens/payment_list_page.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../injection_container.dart';
@@ -27,66 +30,200 @@ class CreateArtPage extends StatelessWidget {
         builder: (context, state) => Scaffold(
           body: SafeArea(
             child: Scaffold(
+              drawer: Drawer(
+                child: ListView(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [
+                          Color.fromRGBO(180, 98, 30, 1),
+                          Colors.white,
+                        ],
+                      )),
+                      height: MediaQuery.of(context).size.height * 0.22,
+                      width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Hastaakalaa',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BookmarkPage()));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(width: 20),
+                            Icon(Icons.bookmark_added),
+                            SizedBox(width: 20),
+                            Text(
+                              'My Bookmarks',
+                              style: TextStyle(
+                                letterSpacing: 1.5,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaymentListPage()));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(width: 20),
+                            Icon(Icons.payment_sharp),
+                            SizedBox(width: 20),
+                            Text(
+                              'My Payments',
+                              style: TextStyle(
+                                letterSpacing: 1.5,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        await Future.delayed(
+                          const Duration(milliseconds: 500),
+                        );
+                        TokenSharedPrefernces.instance.removeToken("token");
+
+                        Navigator.of(context, rootNavigator: true)
+                            .popAndPushNamed('splash');
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(width: 20),
+                            Icon(Icons.logout),
+                            SizedBox(width: 20),
+                            Text(
+                              'Logout',
+                              style: TextStyle(
+                                letterSpacing: 1.5,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               appBar: AppBar(
                 title: Text('Create Art'),
                 centerTitle: true,
               ),
-              body: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                child: Form(
-                  key: _formKeyScreen1,
-                  autovalidateMode: AutovalidateMode.always,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        TitleFormField(),
-                        DescriptionFormField(),
-                        PriceFormField(),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'For Sale:\t\t\t\t ',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey[700]),
-                            ),
-                            ForSaleDropDownList(),
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Status:\t\t\t\t ',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey[700]),
-                            ),
-                            StatusArtDropDownList(),
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Genre:\t\t\t\t ',
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey[700]),
-                            ),
-                            GenreArtDropDownList(),
-                          ],
-                        ),
-                        PickImage(),
-                        SizedBox(height: 10.0),
-                        CreateArtButton(
-                          firstScreenFormKey: _formKeyScreen1,
-                        )
-                      ],
+              body: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Form(
+                    key: _formKeyScreen1,
+                    autovalidateMode: AutovalidateMode.always,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TitleFormField(),
+                          DescriptionFormField(),
+                          PriceFormField(),
+                          Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'For Sale:\t\t\t\t ',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.fromRGBO(180, 98, 30, 1)),
+                              ),
+                              ForSaleDropDownList(),
+                            ],
+                          ),
+                          Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Status:\t\t\t\t ',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.fromRGBO(180, 98, 30, 1)),
+                              ),
+                              StatusArtDropDownList(),
+                            ],
+                          ),
+                          Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Genre:\t\t\t\t ',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.fromRGBO(180, 98, 30, 1)),
+                              ),
+                              GenreArtDropDownList(),
+                            ],
+                          ),
+                          PickImage(),
+                          SizedBox(height: 10.0),
+                          CreateArtButton(
+                            firstScreenFormKey: _formKeyScreen1,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -104,6 +241,12 @@ class TitleFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         hintText: 'Enter you image title',
         labelText: 'Title',
         errorStyle: TextStyle(fontSize: 13),
@@ -129,6 +272,12 @@ class DescriptionFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         hintText: 'Enter the description of the art',
         labelText: 'Description',
         errorStyle: TextStyle(fontSize: 13),
@@ -154,6 +303,12 @@ class PriceFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         hintText: 'Enter the price',
         labelText: 'Price',
         errorStyle: TextStyle(fontSize: 13),
@@ -288,7 +443,10 @@ class CreateArtButton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.green[200]),
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(Color.fromRGBO(101, 101, 107, 1)),
+        ),
         onPressed: () {
           context.read<ArtFormBloc>().add(ArtFormEvent.pressedCreate());
           _formKeyScreen2.currentState?.reset();
@@ -334,6 +492,10 @@ class _PickImageState extends State<PickImage> {
     return Column(
       children: [
         ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all(Color.fromRGBO(101, 101, 107, 1)),
+          ),
           onPressed: () {
             getImage();
           },
@@ -345,6 +507,7 @@ class _PickImageState extends State<PickImage> {
         Container(
           height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(border: Border.all()),
           child: _image != null
               ? Image.file(_image!)
               : Center(

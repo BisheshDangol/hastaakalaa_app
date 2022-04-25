@@ -36,7 +36,9 @@ class _UserWrapperState extends State<UserWrapper> {
   Widget build(BuildContext context) {
     int? userNumber = int.tryParse(user);
     return Container(
-      decoration: BoxDecoration(border: Border.all(), color: Colors.grey),
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(232, 232, 228, 1),
+          borderRadius: BorderRadius.circular(25)),
       // color: Colors.grey[400],
       height: MediaQuery.of(context).size.height / 3,
       width: MediaQuery.of(context).size.width,
@@ -56,8 +58,8 @@ class _UserWrapperState extends State<UserWrapper> {
               ),
             ),
             SizedBox(height: 10),
-            Text('${widget.userEntity.firstName} ${widget.userEntity.lastName}',
-                style: TextStyle(fontSize: 25, color: Colors.white)),
+            Text('${widget.userEntity.firstName}',
+                style: TextStyle(fontSize: 25)),
             SizedBox(height: 10),
             Text('${widget.userEntity.email}'),
             SizedBox(height: 10),
@@ -96,12 +98,18 @@ class _UserWrapperState extends State<UserWrapper> {
                     height: 0.0,
                   )
                 : FollowButton(user: widget.userEntity),
-            IconButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => UploadPicturePage())),
-                icon: Icon(Icons.photo))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UploadPicturePage())),
+                    icon: Icon(Icons.edit),
+                    color: Color.fromRGBO(139, 147, 144, 1)),
+              ],
+            )
           ],
         ),
       ),
@@ -198,18 +206,16 @@ class _FollowButtonState extends State<FollowButton> {
             return Row(
               children: [
                 IconButton(
-                  onPressed: () {
-                    context
-                        .read<FollowFormBloc>()
-                        .add(FollowFormEvent.changedId(id: widget.user.id));
-                    context
-                        .read<FollowFormBloc>()
-                        .add(FollowFormEvent.pressedFollow(id: widget.user.id));
-                  },
-                  icon: Icon(Icons.person_add),
-                  iconSize: 30,
-                  color: Colors.red,
-                ),
+                    onPressed: () {
+                      context
+                          .read<FollowFormBloc>()
+                          .add(FollowFormEvent.changedId(id: widget.user.id));
+                      context.read<FollowFormBloc>().add(
+                          FollowFormEvent.pressedFollow(id: widget.user.id));
+                    },
+                    icon: Icon(Icons.person_add),
+                    iconSize: 30,
+                    color: Color.fromRGBO(229, 180, 175, 1)),
               ],
             );
           },

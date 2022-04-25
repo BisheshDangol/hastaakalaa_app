@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                             clipper:
                                 WaveClipper(), //set our custom wave clipper
                             child: Container(
-                              color: Color.fromARGB(255, 135, 207, 255),
+                              color: Color.fromRGBO(229, 180, 175, 1),
                               height: 270,
                             ),
                           ),
@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                           clipper: WaveClipper(), //set our custom wave clipper.
                           child: Container(
                               padding: const EdgeInsets.only(bottom: 50),
-                              color: Color.fromARGB(255, 11, 108, 235),
+                              color: Color.fromRGBO(180, 98, 30, 1),
                               height: 250,
                               alignment: Alignment.center,
                               child: const Text(
@@ -115,11 +115,13 @@ class UserNameTextFormField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
           borderRadius: BorderRadius.circular(5.0),
         ),
         hintText: 'Enter your email address',
         labelText: 'Email',
+        labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
         errorStyle: TextStyle(fontSize: 13),
       ),
       onChanged: (value) {
@@ -163,11 +165,13 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
             obscureText: _obscureText,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+                borderSide: const BorderSide(
+                    color: Color.fromRGBO(180, 98, 30, 1), width: 2.0),
                 borderRadius: BorderRadius.circular(5.0),
               ),
               hintText: 'Enter your password',
               labelText: 'Password',
+              labelStyle: TextStyle(color: Color.fromRGBO(180, 98, 30, 1)),
               errorStyle: TextStyle(fontSize: 13),
             ),
             onChanged: (value) {
@@ -204,8 +208,8 @@ class AddLoginButton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(255, 113, 138, 251)),
+        style:
+            ElevatedButton.styleFrom(primary: Color.fromRGBO(101, 101, 107, 1)),
         onPressed: () {
           context.read<LoginBloc>().add(LoginEvent.pressedSend());
         },

@@ -159,12 +159,16 @@ class _BottomPart extends StatelessWidget {
               width: deviceWidth * 0.35,
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, 'login'),
-                child: Text('L O G I N',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.6),
+                ),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 80, 176, 255)),
+                  backgroundColor:
+                      MaterialStateProperty.all(Color.fromRGBO(180, 98, 30, 1)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -179,9 +183,11 @@ class _BottomPart extends StatelessWidget {
               width: deviceWidth * 0.35,
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, 'register'),
-                child: Text('R E G I S T E R',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text('Register',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.6)),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
                       Color.fromARGB(255, 221, 71, 61)),

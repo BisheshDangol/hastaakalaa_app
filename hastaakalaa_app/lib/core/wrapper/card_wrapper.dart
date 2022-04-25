@@ -31,7 +31,7 @@ class CardWrapper extends StatelessWidget {
             width: double.infinity,
             height: 500.0,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color.fromRGBO(232, 232, 228, 1),
               borderRadius: BorderRadius.circular(25.0),
             ),
             child: Column(
@@ -55,16 +55,16 @@ class CardWrapper extends StatelessWidget {
                             ],
                           ),
                           child: CircleAvatar(
-                            backgroundColor: Colors.black45,
-                          ),
+                              backgroundColor: Colors.black45,
+                              child: Text(artEntity.user.toString())),
                         ),
                         title: Text(
-                          artEntity.user.toString(),
+                          artEntity.title.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        subtitle: Text(artEntity.user.toString()),
+                        subtitle: Text(artEntity.status.toString()),
                         trailing: IconButton(
                           icon: Icon(Icons.more_horiz),
                           color: Colors.black,
@@ -188,7 +188,7 @@ class _LikeButtonState extends State<LikeButton> {
                       ? Icon(Icons.favorite_sharp)
                       : Icon(Icons.favorite_border_sharp),
                   iconSize: 30,
-                  color: Colors.red,
+                  color: Color.fromRGBO(139, 147, 144, 1),
                 ),
                 Text(
                   widget.art.likes.length == 0
@@ -269,7 +269,7 @@ class _BookmarkButtonState extends State<BookmarkButton> {
               },
               icon: Icon(Icons.bookmark_add),
               iconSize: 30,
-              color: Colors.red,
+              color: Color.fromRGBO(139, 147, 144, 1),
             );
           },
         );
@@ -291,24 +291,27 @@ class CommentButton extends StatelessWidget {
           Icons.comment_sharp,
         ),
         iconSize: 30,
-        color: Colors.red,
+        color: Color.fromRGBO(139, 147, 144, 1),
         onPressed: () {
           showModalBottomSheet<void>(
             isScrollControlled: true,
             context: context,
             builder: (BuildContext context) {
-              return Container(
-                height: 200,
-                color: Colors.white,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Text('Add Comment'),
-                      CommentTextFormField(),
-                      AddCommentButton(artEntity: art),
-                    ],
+              return SingleChildScrollView(
+                child: Container(
+                  height: 400,
+                  color: Colors.white,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      // mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Text('Add Comment'),
+                        CommentTextFormField(),
+                        SizedBox(height: 10),
+                        AddCommentButton(artEntity: art),
+                      ],
+                    ),
                   ),
                 ),
               );
@@ -361,8 +364,8 @@ class AddCommentButton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(255, 113, 138, 251)),
+        style:
+            ElevatedButton.styleFrom(primary: Color.fromRGBO(139, 147, 144, 1)),
         onPressed: () {
           context
               .read<CommentFormBloc>()

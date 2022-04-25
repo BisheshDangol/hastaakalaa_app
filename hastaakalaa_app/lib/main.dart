@@ -53,7 +53,9 @@ class MyApp extends StatelessWidget {
             ],
             theme: ThemeData(
               fontFamily: 'Roboto',
-              primarySwatch: Colors.blue,
+              appBarTheme: AppBarTheme(color: Color.fromRGBO(180, 98, 30, 1)),
+              // ignore: deprecated_member_use
+              accentColor: Color.fromRGBO(180, 98, 30, 1),
               textTheme: const TextTheme(
                 subtitle1:
                     TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),

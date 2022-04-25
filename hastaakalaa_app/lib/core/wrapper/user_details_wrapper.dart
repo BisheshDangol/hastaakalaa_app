@@ -38,7 +38,9 @@ class _UserDetailsWrapper extends State<UserDetailsWrapper> {
   Widget build(BuildContext context) {
     int? userNumber = int.tryParse(user);
     return Container(
-      decoration: BoxDecoration(border: Border.all(), color: Colors.grey),
+      decoration: BoxDecoration(
+          color: Color.fromARGB(255, 202, 202, 202),
+          borderRadius: BorderRadius.circular(25)),
       // color: Colors.grey[400],
       height: 300,
       width: MediaQuery.of(context).size.width,
@@ -50,25 +52,19 @@ class _UserDetailsWrapper extends State<UserDetailsWrapper> {
               child: Container(
                 width: 60.0,
                 height: 60.0,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.black
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     color: Colors.black45,
-                        //     offset: Offset(0, 2),
-                        //     blurRadius: 6.0,
-                        //   ),
-                        // ],
-                        ),
                 child: CircleAvatar(
-                    backgroundColor: Colors.black45,
-                    child: Text('${widget.userEntity.id}',
-                        style: TextStyle(fontSize: 30, color: Colors.white))),
+                  minRadius: 45,
+                  maxRadius: 45,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: NetworkImage(
+                    widget.userEntity.profile_picture,
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 10),
-            Text('${widget.userEntity.firstName} ${widget.userEntity.lastName}',
-                style: TextStyle(fontSize: 25, color: Colors.white)),
+            Text('${widget.userEntity.firstName}',
+                style: TextStyle(fontSize: 25)),
             SizedBox(height: 10),
             Text('${widget.userEntity.email}'),
             SizedBox(height: 10),
@@ -255,7 +251,6 @@ class _FollowButtonState extends State<FollowButton> {
                   },
                   icon: Icon(Icons.person_add),
                   iconSize: 30,
-                  color: Colors.red,
                 ),
               ],
             );

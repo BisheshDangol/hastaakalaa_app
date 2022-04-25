@@ -27,22 +27,32 @@ class NavigationBarPage extends StatelessWidget {
         PersistentBottomNavBarItem(
           icon: Icon(Icons.dashboard),
           title: ("Home"),
+          activeColorPrimary: Color.fromRGBO(180, 98, 30, 1),
+          inactiveColorPrimary: Color.fromRGBO(229, 180, 175, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.image_search_sharp),
           title: ("Discover"),
+          activeColorPrimary: Color.fromRGBO(180, 98, 30, 1),
+          inactiveColorPrimary: Color.fromRGBO(229, 180, 175, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.add_box_outlined),
           title: ("Add"),
+          activeColorPrimary: Color.fromRGBO(180, 98, 30, 1),
+          inactiveColorPrimary: Color.fromRGBO(229, 180, 175, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.shopping_bag_outlined),
           title: ("Marketplace"),
+          activeColorPrimary: Color.fromRGBO(180, 98, 30, 1),
+          inactiveColorPrimary: Color.fromRGBO(229, 180, 175, 1),
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.person_pin),
           title: ("Profile"),
+          activeColorPrimary: Color.fromRGBO(180, 98, 30, 1),
+          inactiveColorPrimary: Color.fromRGBO(229, 180, 175, 1),
           // If new screen needs to be pushed, this code
           // onPressed: (_) => pushNewScreen(context, screen: ProfileScreen()),
         )
@@ -54,6 +64,7 @@ class NavigationBarPage extends StatelessWidget {
       controller: _controller,
       screens: _buildScreens(),
       items: _navBarsItems(),
+
       confineInSafeArea: true,
       // Default is true.
       decoration: NavBarDecoration(
