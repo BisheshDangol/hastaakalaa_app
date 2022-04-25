@@ -9,6 +9,7 @@ class PaymentWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 80,
       // height: MediaQuery.of(context).size.height / 10,
       width: MediaQuery.of(context).size.width,
       child: Card(
@@ -18,12 +19,12 @@ class PaymentWrapper extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    radius: 25,
-                  ),
-                ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                        backgroundColor: Color.fromARGB(150, 188, 88, 25),
+                        radius: 25,
+                        child: Text(paymentEntity.buyer_id.toString(),
+                            style: TextStyle(color: Colors.white)))),
                 SizedBox(
                   width: 5,
                 ),

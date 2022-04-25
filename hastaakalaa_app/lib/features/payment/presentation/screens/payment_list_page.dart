@@ -13,6 +13,10 @@ class PaymentListPage extends StatelessWidget {
       create: (context) => sl<GetPaymentWatcherBloc>()
         ..add(GetPaymentWatcherEvent.retrievePaymentList()),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('My Payments'),
+          centerTitle: true,
+        ),
         backgroundColor: Color(0xFFEDF0F6),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16),
