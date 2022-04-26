@@ -39,12 +39,14 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
                 state.title.isRight()) {
               failureOrSuccess = await _registerUserUsecase.call(
                 ArtModel.toJson(
-                    description: state.description.getOrElse(() => ''),
-                    forSale: state.forSale.getOrElse(() => ''),
-                    title: state.title.getOrElse(() => ''),
-                    status: state.status.getOrElse(() => ''),
-                    price: state.price.getOrElse(() => 0),
-                    image: state.image.fold((_) => null, (r) => r)),
+                  description: state.description.getOrElse(() => ''),
+                  forSale: state.forSale.getOrElse(() => ''),
+                  title: state.title.getOrElse(() => ''),
+                  status: state.status.getOrElse(() => ''),
+                  price: state.price.getOrElse(() => 0),
+                  image: state.image.fold((_) => null, (r) => r),
+                  genre: state.genre.getOrElse(() => ''),
+                ),
               );
             }
             emit(
@@ -104,7 +106,7 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
             );
           },
           changedStatus: (_ChangedStatus value) {
-            debugPrint(value.toString());
+            debugPrint('This is the genre value (${value.status})');
             emit(
               state.copyWith(
                 failureOrSuccess: null,
@@ -152,9 +154,13 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
             );
           },
           changedGenre: (_ChangedGenre value) {
+            debugPrint('This is the genre value (${value.genre})');
             emit(
               state.copyWith(
-                genre: value.genre,
+                failureOrSuccess: null,
+                genre: _inputConvert.notEmpty(
+                  value: value.genre,
+                ),
               ),
             );
           },
@@ -163,7 +169,8 @@ class ArtFormBloc extends Bloc<ArtFormEvent, ArtFormState> {
 
             Either<Failure, List<ArtEntity>>? failureOrSuccess;
 
-            failureOrSuccess = await _filterPostUseCase.call(state.genre);
+            failureOrSuccess =
+                await _filterPostUseCase.call(state.genre.getOrElse(() => ''));
             emit(
               state.copyWith(
                 isLoading: false,

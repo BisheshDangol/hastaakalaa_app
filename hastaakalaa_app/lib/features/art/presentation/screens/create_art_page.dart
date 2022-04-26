@@ -394,6 +394,7 @@ class _GenreArtDropDownListState extends State<GenreArtDropDownList> {
         context
             .read<ArtFormBloc>()
             .add(ArtFormEvent.changedGenre(genre: newValue));
+        // debugPrint('${newValue.toString()}');
       },
     );
   }

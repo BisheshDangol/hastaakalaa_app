@@ -2423,7 +2423,7 @@ class _$ArtFormStateTearOff {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      String? genre,
+      required Either<InvalidInputFailure, String> genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) {
     return _ArtFormState(
@@ -2461,7 +2461,8 @@ mixin _$ArtFormState {
       throw _privateConstructorUsedError;
   Either<InvalidInputFailure, String> get status =>
       throw _privateConstructorUsedError;
-  String? get genre => throw _privateConstructorUsedError;
+  Either<InvalidInputFailure, String> get genre =>
+      throw _privateConstructorUsedError;
   bool get showErrors => throw _privateConstructorUsedError;
   Either<Failure, dynamic>? get failureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -2485,7 +2486,7 @@ abstract class $ArtFormStateCopyWith<$Res> {
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      String? genre,
+      Either<InvalidInputFailure, String> genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2548,7 +2549,7 @@ class _$ArtFormStateCopyWithImpl<$Res> implements $ArtFormStateCopyWith<$Res> {
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2577,7 +2578,7 @@ abstract class _$ArtFormStateCopyWith<$Res>
       Either<InvalidInputFailure, int> price,
       Either<InvalidInputFailure, String> forSale,
       Either<InvalidInputFailure, String> status,
-      String? genre,
+      Either<InvalidInputFailure, String> genre,
       bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess});
 }
@@ -2642,7 +2643,7 @@ class __$ArtFormStateCopyWithImpl<$Res> extends _$ArtFormStateCopyWithImpl<$Res>
       genre: genre == freezed
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Either<InvalidInputFailure, String>,
       showErrors: showErrors == freezed
           ? _value.showErrors
           : showErrors // ignore: cast_nullable_to_non_nullable
@@ -2667,7 +2668,7 @@ class _$_ArtFormState implements _ArtFormState {
       required this.price,
       required this.forSale,
       required this.status,
-      this.genre,
+      required this.genre,
       required this.showErrors,
       this.failureOrSuccess});
 
@@ -2688,7 +2689,7 @@ class _$_ArtFormState implements _ArtFormState {
   @override
   final Either<InvalidInputFailure, String> status;
   @override
-  final String? genre;
+  final Either<InvalidInputFailure, String> genre;
   @override
   final bool showErrors;
   @override
@@ -2751,7 +2752,7 @@ abstract class _ArtFormState implements ArtFormState {
       required Either<InvalidInputFailure, int> price,
       required Either<InvalidInputFailure, String> forSale,
       required Either<InvalidInputFailure, String> status,
-      String? genre,
+      required Either<InvalidInputFailure, String> genre,
       required bool showErrors,
       Either<Failure, dynamic>? failureOrSuccess}) = _$_ArtFormState;
 
@@ -2772,7 +2773,7 @@ abstract class _ArtFormState implements ArtFormState {
   @override
   Either<InvalidInputFailure, String> get status;
   @override
-  String? get genre;
+  Either<InvalidInputFailure, String> get genre;
   @override
   bool get showErrors;
   @override
