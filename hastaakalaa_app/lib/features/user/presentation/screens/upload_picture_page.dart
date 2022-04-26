@@ -16,7 +16,10 @@ class UploadPicturePage extends StatelessWidget {
       create: (_) => sl<UploadPictureFormBloc>(),
       child: BlocConsumer<UploadPictureFormBloc, UploadPictureFormState>(
         listener: (context, state) {
-          state.failureOrSuccess?.fold((l) => null, (r) => 'hello');
+          state.failureOrSuccess?.fold(
+              (l) => null,
+              (r) => ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Sucessfully Updated'))));
         },
         builder: (context, state) => Scaffold(
           body: SafeArea(
@@ -34,7 +37,7 @@ class UploadPicturePage extends StatelessWidget {
                       children: [
                         PickImage(),
                         SizedBox(height: 10.0),
-                        CreateArtButton()
+                        SubmitButton()
                       ],
                     ),
                   ),
@@ -48,8 +51,8 @@ class UploadPicturePage extends StatelessWidget {
   }
 }
 
-class CreateArtButton extends StatelessWidget {
-  CreateArtButton({Key? key}) : super(key: key);
+class SubmitButton extends StatelessWidget {
+  SubmitButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +60,15 @@ class CreateArtButton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.green[200]),
+        style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(255, 246, 120, 56)),
         onPressed: () {
           context
               .read<UploadPictureFormBloc>()
               .add(UploadPictureFormEvent.pressedCreate());
           Navigator.pop(context);
         },
-        child: Text('Create', style: TextStyle(fontSize: 20)),
+        child: Text('Submit', style: TextStyle(fontSize: 20)),
       ),
     );
   }
@@ -104,6 +108,10 @@ class _PickImageState extends State<PickImage> {
     return Column(
       children: [
         ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all(Color.fromRGBO(101, 101, 107, 1)),
+          ),
           onPressed: () {
             getImage();
           },
@@ -115,6 +123,7 @@ class _PickImageState extends State<PickImage> {
         Container(
           height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(border: Border.all()),
           child: _image != null
               ? Image.file(_image!)
               : Center(

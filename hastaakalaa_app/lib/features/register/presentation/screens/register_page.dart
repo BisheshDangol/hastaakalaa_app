@@ -372,7 +372,6 @@ class AddRegisterButton extends StatelessWidget {
               content: Text('Register User Success'),
             );
             ScaffoldMessenger.of(context).showSnackBar(successsnackBar);
-            Navigator.pop(context);
           } else {
             const failuresnackBar = SnackBar(
               content: Text('Register User Failed'),

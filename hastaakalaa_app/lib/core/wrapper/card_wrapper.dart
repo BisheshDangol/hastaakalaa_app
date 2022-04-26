@@ -238,7 +238,10 @@ class _BookmarkButtonState extends State<BookmarkButton> {
     return BlocConsumer<ArtFormBloc, ArtFormState>(
       listener: (context, state) {
         String response = '';
-        state.failureOrSuccess?.fold((l) => null, (r) {});
+        state.failureOrSuccess?.fold((l) => null, (r) {
+          const sucessSnackBar = SnackBar(content: Text('Bookmark Added'));
+          ScaffoldMessenger.of(context).showSnackBar(sucessSnackBar);
+        });
 
         if (response == 'Found') {
           CircularProgressIndicator();
