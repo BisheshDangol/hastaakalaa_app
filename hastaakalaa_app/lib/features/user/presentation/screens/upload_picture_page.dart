@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hastaakalaa_app/features/user/presentation/bloc/current_user_watcher_bloc/bloc/current_user_watcher_bloc.dart';
 import 'package:hastaakalaa_app/features/user/presentation/bloc/upload_picture_form_bloc/upload_picture_form_bloc.dart';
 import 'package:hastaakalaa_app/injection_container.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,10 +17,12 @@ class UploadPicturePage extends StatelessWidget {
       create: (_) => sl<UploadPictureFormBloc>(),
       child: BlocConsumer<UploadPictureFormBloc, UploadPictureFormState>(
         listener: (context, state) {
-          state.failureOrSuccess?.fold(
-              (l) => null,
-              (r) => ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Sucessfully Updated'))));
+          state.failureOrSuccess?.fold((l) => null, (r) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text('Sucessfully Updated')));
+            context.read<CurrentUserWatcherBloc>()
+              ..add(CurrentUserWatcherEvent.retrieveUserList());
+          });
         },
         builder: (context, state) => Scaffold(
           body: SafeArea(
@@ -66,6 +69,8 @@ class SubmitButton extends StatelessWidget {
           context
               .read<UploadPictureFormBloc>()
               .add(UploadPictureFormEvent.pressedCreate());
+          context.read<CurrentUserWatcherBloc>()
+            ..add(CurrentUserWatcherEvent.retrieveUserList());
           Navigator.pop(context);
         },
         child: Text('Submit', style: TextStyle(fontSize: 20)),
