@@ -47,6 +47,7 @@ class ArtRemoteDataSource implements IArtDataSource {
     request.fields["price"] = price.toString();
     request.fields["for_sale"] = data["for_sale"];
     request.fields["status"] = data["status"];
+    request.fields["genre"] = data["genre"];
 
     debugPrint('This is the sent image: ${data["image"].path}');
 
