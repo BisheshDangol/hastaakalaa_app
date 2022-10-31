@@ -6,7 +6,7 @@ A flutter mobile application which is used to showcase arts.
 ## Screenshots of the application
 
 Landing Screen
-![Screenshot_1650883851](https://user-images.githubusercontent.com/76838272/198928679-1c761788-9897-49d6-bd5c-6b1964a15774.png)
+![Screenshot_1650883851](https://user-images.githubusercontent.com/76838272/198928679-1c761788-9897-49d6-bd5c-6b1964a15774.png | width=200)
 
 Login Screen
 ![Screenshot_1650883855](https://user-images.githubusercontent.com/76838272/198928734-ce08a275-6b32-4774-b32a-9c7dd10a4989.png)
